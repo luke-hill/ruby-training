@@ -11,12 +11,13 @@ RSpec.describe 'nil in Ruby' do
     # does not understand.
     begin
       nil.a_method_that_does_not_exist
-    rescue Exception => e
+    rescue NoMethodError => e
       # What sort of exception is thrown
       expect(e.class).to eq(__)
-  
+
       # What extra information does ruby give us?
-      expect(e.message).to match(/__/) # You can replace __ here with part of the message
+      # You can replace __ here with part of the message
+      expect(e.message).to match(/__/)
     end
   end
 

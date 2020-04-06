@@ -20,7 +20,8 @@ RSpec.describe 'dice set' do
     expect(dice.values).to be_an(Array)
     expect(dice.values.size).to eq(5)
     dice.values.each do |value|
-      expect(value >= 1 && value <= 6).to eq(true), "value #{value} must be between 1 and 6"
+      expect(value >= 1 && value <= 6)
+        .to eq(true), "value #{value} must be between 1 and 6"
     end
   end
 
@@ -41,8 +42,7 @@ RSpec.describe 'dice set' do
     dice.roll(5)
     second_time = dice.values
 
-    expect(second_time).not_to eq(first_time),
-                               'Two rolls should not be equal'
+    expect(second_time).not_to eq(first_time), 'Two rolls should not be equal'
 
     # THINK ABOUT IT:
     #

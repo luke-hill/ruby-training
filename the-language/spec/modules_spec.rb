@@ -56,7 +56,7 @@ RSpec.describe 'modules' do
     expect(fido.name).to eq(__)
   end
 
-  it 'a method defined in a class will override an included method from a module' do
+  it 'a method defined in a class overrides an included method from a module' do
     fido = Dog.new
     expect(fido.here).to eq(__)
   end

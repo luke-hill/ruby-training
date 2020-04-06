@@ -1,12 +1,13 @@
-RSpec.describe "sandwich code" do
+# frozen_string_literal: true
 
+RSpec.describe 'sandwich code' do
   # This is a common pattern you will see in ruby for finding files
   # relative to the current path. Look up whats happening in the docs if
   # you wan to know more.
   #
   # Here we are setting EXAMPLE_FILE to the path of a file called
   # "example_file.txt" in the same directory as this file.
-  EXAMPLE_FILE = File.join(File.dirname(__FILE__), "example_file.txt")
+  EXAMPLE_FILE = File.join(File.dirname(__FILE__), 'example_file.txt')
 
   def count_lines(file_name)
     file = open(file_name)
@@ -19,8 +20,8 @@ RSpec.describe "sandwich code" do
     file.close if file
   end
 
-  it "can count lines in file" do
-    expect( count_lines(EXAMPLE_FILE) ).to eq( __ )
+  it 'can count lines in file' do
+    expect(count_lines(EXAMPLE_FILE)).to eq(__)
   end
 
   def find_line(file_name)
@@ -32,8 +33,8 @@ RSpec.describe "sandwich code" do
     file.close if file
   end
 
-  it "can find a line" do
-    expect( find_line(EXAMPLE_FILE) ).to eq( __ )
+  it 'can find a line' do
+    expect(find_line(EXAMPLE_FILE)).to eq(__)
   end
 
   # What do you notice about `find_line` and `count_lines`?
@@ -70,16 +71,16 @@ RSpec.describe "sandwich code" do
     end
   end
 
-  it "can count lines in file again" do
-    expect( count_lines2(EXAMPLE_FILE) ).to eq( __ )
+  it 'can count lines in file again' do
+    expect(count_lines2(EXAMPLE_FILE)).to eq(__)
   end
 
   def find_line2(file_name)
     # Rewrite find_line using the file_sandwich library function.
   end
 
-  it "can count lines in file, again" do
-    expect( find_line2(EXAMPLE_FILE) ).to eq( __ )
+  it 'can count lines in file, again' do
+    expect(find_line2(EXAMPLE_FILE)).to eq(__)
   end
 
   def count_lines3(file_name)
@@ -92,8 +93,7 @@ RSpec.describe "sandwich code" do
     end
   end
 
-  it "supports the sandwich by passing a block to open" do
-    expect( count_lines3("example_file.txt") ).to eq( __ )
+  it 'supports the sandwich by passing a block to open' do
+    expect(count_lines3('example_file.txt')).to eq(__)
   end
-
 end

@@ -33,7 +33,8 @@ RSpec.describe "Ruby's True and False" do
   # These are useful, if awkwardly named matchers
   context 'rspec matchers' do
     it 'matches truthy things with be_truthy' do
-      pending 'make sure you read and understand the following' # Remove this line to continue
+      # Remove this line to continue
+      pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
       expect(true).to be_truthy
       expect(1).to be_truthy
       expect(1).to be_truthy
@@ -45,13 +46,13 @@ RSpec.describe "Ruby's True and False" do
     end
 
     it 'matches falsey things with be_falsey' do
-      pending 'make sure you read and understand the following' # Remove this line to continue
+      pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
       expect(false).to be_falsey
       expect(nil).to be_falsey
     end
 
     it 'can match true exactly with be(true) or eq(true) matchers' do
-      pending 'make sure you read and understand the following' # Remove this line to continue
+      pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
       expect(true).to be(true)
       expect(true).to eq(true)
 
@@ -60,7 +61,7 @@ RSpec.describe "Ruby's True and False" do
     end
 
     it 'can match false exactly with be(false) or be(true) matchers' do
-      pending 'make sure you read and understand the following' # Remove this line to continue
+      pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
       expect(false).to be(false)
       expect(false).to eq(false)
 

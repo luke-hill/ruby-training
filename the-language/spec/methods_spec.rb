@@ -30,9 +30,11 @@ RSpec.describe 'methods in ruby' do
   end
 
   it 'is not possible to call methods with the wrong number of arguments' do
-    expect { a_global_method }.to raise_error(__, /__/) # HINT: Fill in the error and part of the message
+    # HINT: Fill in the error and part of the message
+    expect { a_global_method }.to raise_error(__, /__/)
 
-    expect { a_global_method(1, 2, 3) }.to raise_error(__, /__/) # HINT: Fill in the error and part of the message
+    # HINT: Fill in the error and part of the message
+    expect { a_global_method(1, 2, 3) }.to raise_error(__, /__/)
   end
 
   def a_method_with_defaults(a, b = :default_value)
@@ -127,7 +129,8 @@ RSpec.describe 'methods in ruby' do
     end
 
     it 'raises an error if a private method has an explicit receiver' do
-      expect { an_object.calls_the_private_method_on_self }.to raise_error(__, /__/)
+      expect { an_object.calls_the_private_method_on_self }
+        .to raise_error(__, /__/)
     end
   end
 end

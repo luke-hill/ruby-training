@@ -3,12 +3,12 @@
 module Trainer
   class FillMeIn
     def initialize(caller_line)
-      if (match = caller_line.match(/^(?<file>.+?):(?<line>\d+)/))
-        @file = match['file']
-        @line = match['line']
-      else
+      unless (match = caller_line.match(/^(?<file>.+?):(?<line>\d+)/))
         raise ArgumentError, "#{caller_line} does not match caller spec"
       end
+
+      @file = match['file']
+      @line = match['line']
     end
 
     def location

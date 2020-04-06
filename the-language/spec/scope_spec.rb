@@ -42,7 +42,7 @@ module Scopes
       expect(Scopes::String == String).to eq(__)
     end
 
-    it 'creates new constants - our nested string is not the same as they system String' do
+    it 'creates new constants - our nested string is not identical to other' do
       expect(String == 'HI'.class).to eq(__)
     end
 

@@ -56,7 +56,7 @@ RSpec.describe 'Class methods' do
     :class_level_wag
   end
 
-  it 'is possible to define singleton methods on classes too, because they are objects' do
+  it 'is possible to define singleton methods on classes; they are objects' do
     expect(Dog2.wag).to eq(__)
   end
 
@@ -91,20 +91,20 @@ RSpec.describe 'Class methods' do
     expect(Dog.a_class_method).to eq(__)
   end
 
-  LastExpressionInClassStatement = class Dog
-                                     21
-                                   end
+  LAST_EXPRESSION_IN_CLASS_STATEMENT = class Dog
+                                         21
+                                       end
 
   it 'returns the last expression inside a class statement' do
-    expect(LastExpressionInClassStatement).to eq(__)
+    expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(__)
   end
 
-  SelfInsideOfClassStatement = class Dog
-                                 self
-                               end
+  SELF_INSIDE_OF_CLASS_STATEMENT = class Dog
+                                     self
+                                   end
 
-  it 'uses self to refer to the class, not an instance inside the class statement' do
-    expect(Dog == SelfInsideOfClassStatement).to eq(__)
+  it 'uses self to refer to the class, not an instance inside the definition' do
+    expect(Dog == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(__)
   end
 
   class Dog

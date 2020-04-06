@@ -23,8 +23,12 @@ RSpec.describe 'message passing' do
     mc = MessageCatcher.new
 
     expect(mc.send('caught?')).to eq(__)
-    expect(mc.send('caught' + __)).to eq(true) # What do you need to add to the first string?
-    expect(mc.send('CAUGHT?'.__)).to eq(true) # What would you need to do to the string?
+
+    # What do you need to add to the first string?
+    expect(mc.send('caught' + __)).to eq(true)
+
+    # What would you need to do to the string?
+    expect(mc.send('CAUGHT?'.__)).to eq(true)
   end
 
   it 'can also use __send__' do

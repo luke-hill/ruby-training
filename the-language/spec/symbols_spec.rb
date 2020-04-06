@@ -29,11 +29,11 @@ RSpec.describe 'A symbol in Ruby' do
     expect(symbols_as_strings.include?('split')).to eq(__)
   end
 
-  MagicNumber = 3
+  MAGIC_NUMBER = 3
   it 'is created for every constant' do
     symbols_as_strings = Symbol.all_symbols.map { |symbol| symbol.to_s }
 
-    expect(symbols_as_strings.include?('MagicNumber')).to eq(__)
+    expect(symbols_as_strings.include?('MAGIC_NUMBER')).to eq(__)
   end
 
   it 'can be created from a string' do

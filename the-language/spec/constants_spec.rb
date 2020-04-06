@@ -69,9 +69,11 @@ describe 'Ruby Constant' do
     expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
   end
 
-  class MyAnimals::Oyster < Animal
-    def legs_in_oyster
-      LEGS
+  class MyAnimals
+    class Oyster < Animal
+      def legs_in_oyster
+        LEGS
+      end
     end
   end
 
