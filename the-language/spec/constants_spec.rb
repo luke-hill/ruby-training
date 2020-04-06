@@ -1,7 +1,9 @@
-C = "top level"
+# frozen_string_literal: true
+
+C = 'top level'
 
 class More
-  C = "nested"
+  C = 'nested'
 
   def self.local
     C
@@ -12,19 +14,18 @@ class More
   end
 end
 
-describe "Ruby Constant" do
-
-  it "references local constants" do
-    expect( More.local ).to eq( __ )
+describe 'Ruby Constant' do
+  it 'references local constants' do
+    expect(More.local).to eq(__)
   end
 
-  it "uses double colon to reference global constants" do
-    expect( More.double_colon ).to eq( __ )
+  it 'uses double colon to reference global constants' do
+    expect(More.double_colon).to eq(__)
   end
 
-  it "references nested constants using their complete path" do
-    expect( More::C ).to eq( __ )
-    expect( ::More::C ).to eq( __ )
+  it 'references nested constants using their complete path' do
+    expect(More::C).to eq(__)
+    expect(::More::C).to eq(__)
   end
 
   class Animal
@@ -40,8 +41,8 @@ describe "Ruby Constant" do
     end
   end
 
-  it "inherits constants from enclosing classes" do
-    expect( Animal::NestedAnimal.new.legs_in_nested_animal ).to eq( __ )
+  it 'inherits constants from enclosing classes' do
+    expect(Animal::NestedAnimal.new.legs_in_nested_animal).to eq(__)
   end
 
   class Reptile < Animal
@@ -50,8 +51,8 @@ describe "Ruby Constant" do
     end
   end
 
-  it "inherits constants in subclasses from the parent class" do
-    expect( Reptile.new.legs_in_reptile ).to eq( __ )
+  it 'inherits constants in subclasses from the parent class' do
+    expect(Reptile.new.legs_in_reptile).to eq(__)
   end
 
   class MyAnimals
@@ -64,8 +65,8 @@ describe "Ruby Constant" do
     end
   end
 
-  it "can add a new constant in a subclass" do
-    expect( MyAnimals::Bird.new.legs_in_bird ).to eq( __ )
+  it 'can add a new constant in a subclass' do
+    expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
   end
 
   class MyAnimals::Oyster < Animal
@@ -74,8 +75,7 @@ describe "Ruby Constant" do
     end
   end
 
-  it "is different when the lexical scope changes" do
-    expect( MyAnimals::Oyster.new.legs_in_oyster ).to eq( __ )
+  it 'is different when the lexical scope changes' do
+    expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(__)
   end
 end
-

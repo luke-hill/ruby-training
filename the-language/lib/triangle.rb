@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Triangle Project Code.
 
 # Triangle analyzes the lengths of the sides of a triangle
@@ -20,4 +22,3 @@ end
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
 end
-

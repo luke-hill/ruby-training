@@ -1,25 +1,26 @@
-RSpec.describe "to_str" do
+# frozen_string_literal: true
 
+RSpec.describe 'to_str' do
   class CanNotBeTreatedAsString
     def to_s
-      "non-string-like"
+      'non-string-like'
     end
   end
 
-  it "returns a string representation using to_s" do
+  it 'returns a string representation using to_s' do
     not_like_a_string = CanNotBeTreatedAsString.new
-    expect( not_like_a_string.to_s ).to eq( __ )
+    expect(not_like_a_string.to_s).to eq(__)
   end
 
   it "can't use a normal object in place of a string" do
-    expect {
+    expect do
       File.exist?(CanNotBeTreatedAsString.new)
-    }.to raise_error( __ )
+    end.to raise_error(__)
   end
 
   class CanBeTreatedAsString
     def to_s
-      "string-like"
+      'string-like'
     end
 
     def to_str
@@ -27,13 +28,13 @@ RSpec.describe "to_str" do
     end
   end
 
-  it "also returns a string representation using to_str" do
+  it 'also returns a string representation using to_str' do
     like_a_string = CanBeTreatedAsString.new
-    expect( like_a_string.to_str ).to eq( __ )
+    expect(like_a_string.to_str).to eq(__)
   end
 
-  it "can be used in place of a string using to_str" do
-    expect( File.exist?(CanBeTreatedAsString.new) ).to eq( __ )
+  it 'can be used in place of a string using to_str' do
+    expect(File.exist?(CanBeTreatedAsString.new)).to eq(__)
   end
 
   def acts_like_a_string?(string)
@@ -41,8 +42,8 @@ RSpec.describe "to_str" do
     string.is_a?(String)
   end
 
-  it "can check for to_str in user-defined code" do
-    expect( acts_like_a_string?(CanNotBeTreatedAsString.new) ).to eq( __ )
-    expect( acts_like_a_string?(CanBeTreatedAsString.new) ).to eq( __ )
+  it 'can check for to_str in user-defined code' do
+    expect(acts_like_a_string?(CanNotBeTreatedAsString.new)).to eq(__)
+    expect(acts_like_a_string?(CanBeTreatedAsString.new)).to eq(__)
   end
 end

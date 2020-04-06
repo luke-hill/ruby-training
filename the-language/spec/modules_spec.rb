@@ -1,4 +1,6 @@
-RSpec.describe "modules" do
+# frozen_string_literal: true
+
+RSpec.describe 'modules' do
   module Nameable
     def set_name(new_name)
       @name = new_name
@@ -9,10 +11,10 @@ RSpec.describe "modules" do
     end
   end
 
-  it "is not possible to instantiate a module" do
-    expect {
+  it 'is not possible to instantiate a module' do
+    expect do
       Nameable.new
-    }.to raise_error(__)
+    end.to raise_error(__)
   end
 
   class Dog
@@ -21,11 +23,11 @@ RSpec.describe "modules" do
     attr_reader :name
 
     def initialize
-      @name = "Fido"
+      @name = 'Fido'
     end
 
     def bark
-      "WOOF"
+      'WOOF'
     end
 
     def here
@@ -33,30 +35,29 @@ RSpec.describe "modules" do
     end
   end
 
-  it "has access to normal instance methods" do
+  it 'has access to normal instance methods' do
     fido = Dog.new
-    expect( fido.bark ).to eq( __ )
+    expect(fido.bark).to eq(__)
   end
 
-  it "also has access to methods defined by the included module" do
+  it 'also has access to methods defined by the included module' do
     fido = Dog.new
 
-    fail "remove this line when you've read and understood the code below"
-    expect {
-      fido.set_name("Rover")
-    }.not_to raise_error
+    raise "remove this line when you've read and understood the code below"
+    expect do
+      fido.set_name('Rover')
+    end.not_to raise_error
   end
 
-  it "can change instance variables from a method defined in a module" do
+  it 'can change instance variables from a method defined in a module' do
     fido = Dog.new
-    expect( fido.name ).to eq( __ )
-    fido.set_name("Rover")
-    expect( fido.name ).to eq( __ )
+    expect(fido.name).to eq(__)
+    fido.set_name('Rover')
+    expect(fido.name).to eq(__)
   end
 
-  it "a method defined in a class will override an included method from a module" do
+  it 'a method defined in a class will override an included method from a module' do
     fido = Dog.new
-    expect( fido.here ).to eq( __ )
+    expect(fido.here).to eq(__)
   end
 end
-

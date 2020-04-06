@@ -1,46 +1,47 @@
-RSpec.describe "message passing" do
+# frozen_string_literal: true
 
+RSpec.describe 'message passing' do
   class MessageCatcher
     def caught?
       true
     end
   end
 
-  it "can call methods directly" do
+  it 'can call methods directly' do
     mc = MessageCatcher.new
 
-    expect( mc.caught? ).to eq( __ )
+    expect(mc.caught?).to eq(__)
   end
 
-  it "can invoke a method with send" do
+  it 'can invoke a method with send' do
     mc = MessageCatcher.new
 
-    expect( mc.send(:caught?) ).to eq( __ )
+    expect(mc.send(:caught?)).to eq(__)
   end
 
-  it "can invoke methods more dynamically" do
+  it 'can invoke methods more dynamically' do
     mc = MessageCatcher.new
 
-    expect( mc.send("caught?") ).to eq( __ )
-    expect( mc.send("caught" + __) ).to eq( true )    # What do you need to add to the first string?
-    expect( mc.send("CAUGHT?".__) ).to eq( true )      # What would you need to do to the string?
+    expect(mc.send('caught?')).to eq(__)
+    expect(mc.send('caught' + __)).to eq(true) # What do you need to add to the first string?
+    expect(mc.send('CAUGHT?'.__)).to eq(true) # What would you need to do to the string?
   end
 
-  it "can also use __send__" do
+  it 'can also use __send__' do
     mc = MessageCatcher.new
 
-    expect( mc.__send__(:caught?) ).to eq( __ )
+    expect(mc.__send__(:caught?)).to eq(__)
 
     # THINK ABOUT IT:
     #
     # Why does Ruby provide both send and __send__ ?
   end
 
-  it "can ask an object if it know how to respond" do
+  it 'can ask an object if it know how to respond' do
     mc = MessageCatcher.new
 
-    expect( mc.respond_to?(:caught?) ).to eq( __ )
-    expect( mc.respond_to?(:does_not_exist) ).to eq( __ )
+    expect(mc.respond_to?(:caught?)).to eq(__)
+    expect(mc.respond_to?(:does_not_exist)).to eq(__)
   end
 
   class MessageCatcher
@@ -49,14 +50,14 @@ RSpec.describe "message passing" do
     end
   end
 
-  it "can send a message with arguments" do
+  it 'can send a message with arguments' do
     mc = MessageCatcher.new
 
-    expect( mc.add_a_payload ).to eq( __ )
-    expect( mc.send(:add_a_payload) ).to eq( __ )
+    expect(mc.add_a_payload).to eq(__)
+    expect(mc.send(:add_a_payload)).to eq(__)
 
-    expect( mc.add_a_payload(3, 4, nil, 6) ).to eq( __ )
-    expect( mc.send(:add_a_payload, 3, 4, nil, 6) ).to eq( __ )
+    expect(mc.add_a_payload(3, 4, nil, 6)).to eq(__)
+    expect(mc.send(:add_a_payload, 3, 4, nil, 6)).to eq(__)
   end
 
   # NOTE:
@@ -69,17 +70,17 @@ RSpec.describe "message passing" do
   class TypicalObject
   end
 
-  it "raises an error if you send undefined messages" do
+  it 'raises an error if you send undefined messages' do
     typical = TypicalObject.new
 
-    expect { typical.foobar }.to raise_error( __, /__/ )
+    expect { typical.foobar }.to raise_error(__, /__/)
   end
 
-  it "raises the NoMethodError by calling method_missing" do
+  it 'raises the NoMethodError by calling method_missing' do
     typical = TypicalObject.new
 
-    expect( typical.respond_to?(:method_missing, true) ).to eq( __ )
-    expect { typical.send(:method_missing) }.to raise_error( __, /__/ )
+    expect(typical.respond_to?(:method_missing, true)).to eq(__)
+    expect { typical.send(:method_missing) }.to raise_error(__, /__/)
 
     # THINK ABOUT IT:
     #
@@ -95,56 +96,56 @@ RSpec.describe "message passing" do
 
   class AllMessageCatcher
     def method_missing(method_name, *args, &block)
-      "Someone called #{method_name} with <#{args.join(", ")}>"
+      "Someone called #{method_name} with <#{args.join(', ')}>"
     end
   end
 
-  it "catches any message now" do
+  it 'catches any message now' do
     catcher = AllMessageCatcher.new
 
-    expect( catcher.foobar ).to eq( __ )
-    expect( catcher.foobaz(1) ).to eq( __ )
-    expect( catcher.sum(1,2,3,4,5,6) ).to eq( __ )
+    expect(catcher.foobar).to eq(__)
+    expect(catcher.foobaz(1)).to eq(__)
+    expect(catcher.sum(1, 2, 3, 4, 5, 6)).to eq(__)
   end
 
-  it "now lies when you ask if it respond_to?" do
+  it 'now lies when you ask if it respond_to?' do
     catcher = AllMessageCatcher.new
 
-    expect {
+    expect do
       catcher.any_method
-    }.not_to raise_error
-    expect( catcher.respond_to?(:any_method) ).to eq( __ )
+    end.not_to raise_error
+    expect(catcher.respond_to?(:any_method)).to eq(__)
   end
 
   class WellBehavedFooCatcher
     def method_missing(method_name, *args, &block)
-      if method_name.to_s[0,3] == "foo"
-        "Foo to you too"
+      if method_name.to_s[0, 3] == 'foo'
+        'Foo to you too'
       else
         super(method_name, *args, &block)
       end
     end
   end
 
-  it "catches foo_ methods" do
+  it 'catches foo_ methods' do
     catcher = WellBehavedFooCatcher.new
 
-    expect( catcher.foo_bar ).to eq( __ )
-    expect( catcher.foo_baz ).to eq( __ )
+    expect(catcher.foo_bar).to eq(__)
+    expect(catcher.foo_baz).to eq(__)
   end
 
-  it "behaves normally for non-foo methods" do
+  it 'behaves normally for non-foo methods' do
     catcher = WellBehavedFooCatcher.new
 
-    expect {
+    expect do
       catcher.normal_undefined_method
-    }.to raise_error( __ )
+    end.to raise_error(__)
   end
 
   # (note: just reopening class from above)
   class WellBehavedFooCatcher
-    def respond_to?(method_name, include_private=false)
-      if method_name.to_s[0,3] == "foo"
+    def respond_to?(method_name, include_private = false)
+      if method_name.to_s[0, 3] == 'foo'
         true
       else
         super(method_name, include_private)
@@ -152,11 +153,10 @@ RSpec.describe "message passing" do
     end
   end
 
-  it "now tells the truth using an explictly defined #respond_to? method" do
+  it 'now tells the truth using an explictly defined #respond_to? method' do
     catcher = WellBehavedFooCatcher.new
 
-    expect( catcher.respond_to?(:foo_bar) ).to eq( __ )
-    expect( catcher.respond_to?(:something_else) ).to eq( __ )
+    expect(catcher.respond_to?(:foo_bar)).to eq(__)
+    expect(catcher.respond_to?(:something_else)).to eq(__)
   end
-
 end

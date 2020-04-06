@@ -1,0 +1,6 @@
+Metrics/BlockLength:
+  Max: 500
+
+Style/TrivialAccessors:
+  Exclude:
+    - spec/classes_spec.rb

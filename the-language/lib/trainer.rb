@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module Trainer
   class FillMeIn
     def initialize(caller_line)
       if (match = caller_line.match(/^(?<file>.+?):(?<line>\d+)/))
-        @file = match["file"]
-        @line = match["line"]
+        @file = match['file']
+        @line = match['line']
       else
         raise ArgumentError, "#{caller_line} does not match caller spec"
       end
     end
 
     def location
-      [@file, @line].join(":")
+      [@file, @line].join(':')
     end
 
     def inspect
