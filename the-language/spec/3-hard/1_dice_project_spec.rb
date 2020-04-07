@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-# Implement a DiceSet Class here:
-#
-# class DiceSet
-#   code ...
-# end
-#
+# Implement the DiceSet Class here:
+class DiceSet
+  # add code here
+end
 
 RSpec.describe 'dice set' do
   it 'can create a new sice set' do

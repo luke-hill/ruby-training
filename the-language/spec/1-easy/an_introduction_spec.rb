@@ -21,7 +21,7 @@ RSpec.describe 'Learning ruby' do
     end
 
     it 'will ask you to fill in values' do
-      expect(1 + 1).to eq __
+      expect(1 + 1).to eq(__)
     end
   end
 end

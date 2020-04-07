@@ -16,13 +16,7 @@ Install the dependencies:
 
 ```bash
 $ gem install bundler # if you don't have it already
-$ bundle install
-```
-
-Check the environment
-
-```bash
-$ bundle exec ruby working_test.rb
+$ bundle
 ```
 
 ## Working through the exercise
@@ -41,28 +35,30 @@ F
 Failures:
 
   1) Learning ruby using expectations checks reality
-     Failure/Error: expect( true ).to be false # it should be true
-
+     Failure/Error: expect(true).to be false # it should be true
+     
        expected false
             got true
-     # ./spec/introduction_spec.rb:6:in `block (3 levels) in <top (required)>'
+     # ./spec/1-easy/an_introduction_spec.rb:6:in `block (3 levels) in <top (required)>'
 
-Finished in 0.00122 seconds (files took 0.11249 seconds to load)
+Finished in 0.0085 seconds (files took 0.07892 seconds to load)
 1 example, 1 failure
 
 Failed examples:
 
-rspec ./spec/introduction_spec.rb:5 # Learning ruby using expectations checks reality
+rspec ./spec/1-easy/an_introduction_spec.rb:5 # Learning ruby using expectations checks reality
 ```
 
-This is telling you there is a failing test in the `spec/introduction_spec.rb`
-file on line 6.
+This is telling you there is a failing test in the `spec/introduction_spec.rb` file on line 6.
 
-Open this file read it and start filling in the `__` blanks.
+For this first test, the test says that `true` should be `false`. Which is obviously wrong.
+Fix this up and then re-run your tests using the `rspec` command.
+
+Then inside this file continue by filling in the `__` blanks. Each of these needs changing.
 
 Each time you want to check your work remember to rerun `rspec`.
 
-## Commiting your work
+## Committing your work
 
 It's important to commit your work regularly. Make sure you are working on your
 own branch, not master. I suggest that you use your commits to keep your own
