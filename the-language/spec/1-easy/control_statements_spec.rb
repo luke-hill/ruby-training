@@ -63,13 +63,13 @@ RSpec.describe 'Control statements in ruby' do
 
   it 'has an unless statement' do
     result = :default_value
-    unless false    # same as saying 'if !false', which evaluates as 'if true'
+    unless false # same as saying 'if !false', which evaluates as 'if true'
       result = :false_value
     end
     expect(result).to eq(__)
 
     result = :default_value
-    unless true    # same as saying 'if !true', which evaluates as 'if false'
+    unless true # same as saying 'if !true', which evaluates as 'if false'
       result = :true_value
     end
     expect(result).to eq(__)
@@ -110,7 +110,7 @@ RSpec.describe 'Control statements in ruby' do
                break i if i % 2 == 0
 
                i += 1
-    end
+             end
 
     expect(result).to eq(__)
   end
