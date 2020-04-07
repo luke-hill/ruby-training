@@ -2,7 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 Lint/LiteralAsCondition:
   Exclude:
-    - 'spec/control_statements_spec.rb'
+    - 'spec/1-easy/control_statements_spec.rb'
 
 Lint/RaiseException:
   Enabled: true
@@ -12,67 +12,67 @@ Lint/StructNewOverride:
 
 Lint/UnreachableCode:
   Exclude:
-  - 'spec/methods_spec.rb'
-  - 'spec/modules_spec.rb'
+  - 'spec/1-easy/methods_spec.rb'
+  - 'spec/1-easy/modules_spec.rb'
 
 Lint/UnusedMethodArgument:
   Exclude:
-  - 'spec/message_passing_spec.rb'
+  - 'spec/2-medium/message_passing_spec.rb'
 
 Lint/Void:
   Exclude:
-  - 'spec/methods_spec.rb'
+  - 'spec/1-easy/methods_spec.rb'
 
 Metrics/BlockLength:
   Max: 150
 
 Naming/AccessorMethodName:
   Exclude:
-  - 'spec/classes_spec.rb'
-  - 'spec/modules_spec.rb'
+  - 'spec/1-easy/classes_spec.rb'
+  - 'spec/1-easy/modules_spec.rb'
 
 Naming/MethodParameterName:
   Exclude:
   - 'lib/triangle.rb'
-  - 'spec/methods_spec.rb'
+  - 'spec/1-easy/methods_spec.rb'
 
 Security/Eval:
   Exclude:
-  - 'spec/methods_spec.rb'
+  - 'spec/1-easy/methods_spec.rb'
 
 Security/Open:
   Enabled: false
 
 Style/CharacterLiteral:
   Exclude:
-    - 'spec/strings_spec.rb'
+    - 'spec/1-easy/strings_spec.rb'
 
 Style/ConditionalAssignment:
   Exclude:
-  - 'spec/control_statements_spec.rb'
-  - 'spec/proxy_object_project_spec.rb'
+  - 'spec/1-easy/control_statements_spec.rb'
+  - 'spec/3-hard/proxy_object_project_spec.rb'
 
 Style/Documentation:
   Enabled: false
 
 Style/EvalWithLocation:
   Exclude:
-  - 'spec/classes_spec.rb'
+  - 'spec/1-easy/classes_spec.rb'
 
 Style/EvenOdd:
   Exclude:
-  - 'spec/control_statements_spec.rb'
-  - 'spec/iteration_spec.rb'
-  - 'spec/open_classes_spec.rb'
+  - 'spec/1-easy/control_statements_spec.rb'
+  - 'spec/1-easy/iteration_spec.rb'
+  - 'spec/1-easy/open_classes_spec.rb'
 
 Style/For:
   Exclude:
-  - 'spec/control_statements_spec.rb'
+  - 'spec/1-easy/control_statements_spec.rb'
 
 Style/HashEachMethods:
   Enabled: true
   Exclude:
-  - 'spec/dice_project_spec.rb'
+  - 'spec/3-hard/dice_project_spec.rb'
 
 Style/HashTransformKeys:
   Enabled: true
@@ -82,68 +82,67 @@ Style/HashTransformValues:
 
 Style/IfUnlessModifier:
   Exclude:
-  - 'spec/control_statements_spec.rb'
+  - 'spec/1-easy/control_statements_spec.rb'
 
 Style/InfiniteLoop:
   Exclude:
-  - 'spec/control_statements_spec.rb'
+  - 'spec/1-easy/control_statements_spec.rb'
 
 Style/MethodMissingSuper:
   Exclude:
-  - 'spec/message_passing_spec.rb'
+  - 'spec/2-medium/message_passing_spec.rb'
 
 Style/MissingRespondToMissing:
   Exclude:
-  - 'spec/message_passing_spec.rb'
+  - 'spec/2-medium/message_passing_spec.rb'
 
 Style/PercentLiteralDelimiters:
   Exclude:
-  - 'spec/strings_spec.rb'
+  - 'spec/1-easy/strings_spec.rb'
 
 Style/PerlBackrefs:
   Exclude:
-  - 'spec/regular_expressions_spec.rb'
+  - 'spec/1-easy/regular_expressions_spec.rb'
 
 Style/RaiseArgs:
   Exclude:
-  - 'spec/exceptions_spec.rb'
+  - 'spec/1-easy/exceptions_spec.rb'
 
 Style/RedundantBegin:
   Exclude:
-  - 'spec/nil_spec.rb'
+  - 'spec/1-easy/nil_spec.rb'
 
 Style/RedundantSelf:
   Exclude:
-  - 'spec/methods_spec.rb'
+  - 'spec/1-easy/methods_spec.rb'
 
 Style/SafeNavigation:
   Exclude:
-  - 'spec/sandwich_code_spec.rb'
+  - 'spec/2-medium/sandwich_code_spec.rb'
 
 Style/SelfAssignment:
   Exclude:
-  - 'spec/control_statements_spec.rb'
+  - 'spec/1-easy/control_statements_spec.rb'
 
 Style/SignalException:
   Exclude:
-  - 'spec/exceptions_spec.rb'
+  - 'spec/1-easy/exceptions_spec.rb'
 
 Style/SymbolArray:
   Enabled: false
 
 Style/SymbolProc:
   Exclude:
-  - 'spec/symbols_spec.rb'
+  - 'spec/1-easy/symbols_spec.rb'
 
 Style/TrivialAccessors:
   Exclude:
-  - 'spec/classes_spec.rb'
-  - 'spec/class_methods_spec.rb'
+  - 'spec/1-easy/classes_spec.rb'
+  - 'spec/2-medium/class_methods_spec.rb'
 
 Style/WhileUntilModifier:
   Exclude:
-  - 'spec/sandwich_code_spec.rb'
+  - 'spec/2-medium/sandwich_code_spec.rb'
 
 Style/WordArray:
   Enabled: false
-

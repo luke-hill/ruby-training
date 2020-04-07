@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require 'triangle'
+require 'triangle' # RSpec automatically adds `lib/` to the LOAD_PATH
+# edit lib/triangle.rb to fix these tests
 
 RSpec.describe 'handling errors' do
   # The first triangle spec did not deal with handling errors.
