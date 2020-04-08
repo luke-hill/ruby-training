@@ -60,7 +60,7 @@ Each time you want to check your work remember to rerun `rspec`.
 
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on your
-own branch, not master. I suggest that you use your commits to keep your own
-comments and notes about what you've learnt. As we work through the exercises
-we'll come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a
+branch, not master. Ideally use your commits to keep your own
+comments and notes about what you've learnt. As you work through the exercises
+we'll try to come back together periodically to discuss.

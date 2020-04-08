@@ -10,10 +10,8 @@
 #   :isosceles    if exactly 2 sides are equal
 #   :scalene      if no sides are equal
 #
-# The tests for this method can be found in
-#   about_triangle_project.rb
-# and
-#   about_triangle_project_2.rb
+# The tests for this method can be found in the +3-hard+ folder
+# 2_triangle_spec.rb and 2_invalid_triangle_spec.rb
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
