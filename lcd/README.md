@@ -1,17 +1,65 @@
-# 99 Bottles of Beer!
+# LCD screens
 
-Whilst I am english, given the nursery rhyme here is written in American style, we will go with that.
+This is quite a small task in principle. But one that can be extended a lot afterwards.
 
-The purpose of this is a first pass introduction at TDD - Test Driven Development. The principle of which
-states that if you wish to develop good software, first you develop good tests for what the software
-should do or conform to. Then **and only then**, do you write the actual software to do the job.
+We all are familiar with the digits 0-9 and the letters of the alphabet A-F. However what about
+when we represent those on a dot matrix screen. So for example the number 312 might look like
 
-Here we have a problem, which has all of the tests defined, but no application code - Our job is
-to write the application code, such that all of the tests pass.
+```
+_      _
+_|  |  _|
+_|  | |_
+```
 
-In the real workplace, this is sometimes done, but often a hybrid of TDD, BDD (Behaviour Driven Development),
-and coding upfront is done. So this exercise, should give you the skills to isolate a problem down
-into its smallest components.
+Apologies for the way Markdown renders ASCII style text!
+
+And the letters "ba" may look like this
+
+```
+     _
+|_   _|
+|_| |_|
+```
+
+Our task is to solve this puzzle where we can render any single input as a dotmatrix display
+
+The rules are not concrete; but I would advise solving in the following order
+
+1. Create a method which returns just the number `8` always - This is the easiest one
+1. Optimise this solution to then return the number `0` or number `8`
+1. Visualise how you partition a single digit up into a series of "pieces"
+1. Find out a way to structure your code so that you could call any single number
+1. Find out a way in which you need to now refactor your code to construct your number differently
+as your original approach will likely not allow you to do 2 digit numbers
+1. Create the logic to construct a 2 digit number
+1. Create the logic to construct any length number
+1. Create the logic to construct a single letter
+1. Create the logic to construct any length word (This is likely trivial now!)
+
+Now you've done all of this, let's make it different, and allow you to stretch a digit width-wise
+
+So previously 312 which looked like this
+
+```
+_      _
+_|  |  _|
+_|  | |_
+```
+
+May now look like this
+
+```
+____         ____ 
+____|     |  ____|
+____|     | |____
+```
+
+Now this will likely take a lot of refactoring. Which is left to your own devices. But once you've
+done this, we'll make it even trickier by permitting you to stretch your digits height-wise. So
+a digit could be taller, and then naturally we'll permit both, so it can be wider and taller. Of
+course it goes without saying this needs to work for letters and numbers, and any length of
+letters or numbers. Numbers and letters will never be mixed - So you won't need to solve for say
+`'ab123d'` - However this could be left as an extension task after the training course is completed.
 
 ## Setup
 
@@ -30,62 +78,18 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-The first time you run this you should see the following output:
+The first time you run this you should see a large output. Which contains:
 
 ```
-F******
-
-Pending: (Failures listed here are expected and do not affect your suite's status)
-
-  1) singing 99 bottles of beer can sing another typical verse
-     # No reason given
-     # ./spec/bottles_spec.rb:13
-
-  2) singing 99 bottles of beer can sing about 1 bottle
-     # No reason given
-     # ./spec/bottles_spec.rb:19
-
-  3) singing 99 bottles of beer can sing about 2 bottles
-     # No reason given
-     # ./spec/bottles_spec.rb:25
-
-  4) singing 99 bottles of beer can sing about no more bottles
-     # No reason given
-     # ./spec/bottles_spec.rb:31
-
-  5) singing 99 bottles of beer can string a few verses together
-     # No reason given
-     # ./spec/bottles_spec.rb:37
-
-  6) singing 99 bottles of beer can sing the whole song
-     # No reason given
-     # ./spec/bottles_spec.rb:43
-
-
-Failures:
-
-  1) singing 99 bottles of beer can sing a typical verse
-     Failure/Error: expect(song.verse(8)).to eq(expected)
-     
-     NoMethodError:
-       undefined method `verse' for #<Bottles:0x000055de17b99560>
-     # ./spec/bottles_spec.rb:10:in `block (2 levels) in <top (required)>'
-
-Finished in 0.00226 seconds (files took 0.06216 seconds to load)
-7 examples, 1 failure, 6 pending
-
-Failed examples:
-
-rspec ./spec/bottles_spec.rb:8 # singing 99 bottles of beer can sing a typical verse
+Finished in 0.00323 seconds (files took 0.05911 seconds to load)
+14 examples, 14 failures
 ```
 
-This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 8.
+Again as before, our job is to now write the code that makes the specs pass one at a time. However
+this time it's different as we can tackle them in any way we see fit.
 
-**NB:** We introduce a new keyword here - `skip`. This is rspec syntax that simply allows you
-to ignore a test, be it passing or failing.
-
-That is why in the window pane you see 1 failure and 6 pending tests. To run these additional tests
-simply delete the keyword `skip` and the test will then run.
+I would advise here we follow a purists view of TDD and make the first couple of tests pass, and then
+begin to think about how to simplify and start generalising your work.
 
 ## Committing your work
 
