@@ -37,8 +37,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec (~> 3.7)
-  rubocop (~> 0.78)
+  rspec (~> 3.8)
+  rubocop (~> 0.81.0)
 
 BUNDLED WITH
    1.17.3
