@@ -1,83 +1,6 @@
 require 'lcd'
 
 describe 'LCD' do
-  context 'without parameter modifications' do
-    context 'viewing a single digit' do
-      let(:six) { LCD.new(6) }
-      let(:eight) { LCD.new(8) }
-
-      it 'should render a 6' do
-        expected = <<~SQUIGGLY_HEREDOC
-           _ 
-          |_ 
-          |_|
-        SQUIGGLY_HEREDOC
-
-        expect( six.render ).to eq( expected )
-      end
-
-      it 'should render an 8' do
-        expected = <<~SQUIGGLY_HEREDOC
-           _ 
-          |_|
-          |_|
-        SQUIGGLY_HEREDOC
-
-        expect( eight.render ).to eq( expected )
-      end
-    end
-
-    context 'viewing multiple digits' do
-      let(:four_eight_seven) { LCD.new(487) }
-      let(:nine_nine_one_three) { LCD.new(9913) }
-
-      it 'should render 487' do
-        expected = <<~SQUIGGLY_HEREDOC
-              _  _ 
-          |_||_|  |
-            ||_|  |
-        SQUIGGLY_HEREDOC
-
-        expect( four_eight_seven.render ).to eq( expected )
-      end
-
-      it 'should render 9913' do
-        expected = <<~SQUIGGLY_HEREDOC
-           _  _     _ 
-          |_||_|  | _|
-           _| _|  | _|
-        SQUIGGLY_HEREDOC
-
-        expect( nine_nine_one_three.render ).to eq( expected )
-      end
-    end
-
-    context 'viewing multiple lowercase letters from a-f' do
-      let(:abc) { LCD.new('abc') }
-      let(:fed) { LCD.new('fed') }
-
-      it 'should render abc' do
-        expected = <<~SQUIGGLY_HEREDOC
-           _       
-           _||_  _ 
-          |_||_||_ 
-        SQUIGGLY_HEREDOC
-
-        expect( abc.render ).to eq( expected )
-      end
-
-      it 'should render fed' do
-        expected = <<~SQUIGGLY_HEREDOC
-           _  _    
-          |_ |_  _|
-          |  |_ |_|
-        SQUIGGLY_HEREDOC
-
-        expect( fed.render ).to eq( expected )
-      end
-    end
-  end
-
   context 'with parameter modifications' do
     context 'viewing digits with modified width' do
       let(:eight) { LCD.new(8, width: 2) }
@@ -116,7 +39,7 @@ describe 'LCD' do
           _|
          |  
          |  
-         |_ 
+         |_
         SQUIGGLY_HEREDOC
 
         expect( two.render ).to eq( expected )
@@ -189,7 +112,7 @@ describe 'LCD' do
        |      ||      ||       |      ||       |       
        |      ||      ||       |      ||       |       
        |      ||      ||       |      ||       |       
-       |______||______||______ |______||______ |       
+       |______||______||______ |______||______ |
         SQUIGGLY_HEREDOC
 
         expect( abcdef.render ).to eq( expected )

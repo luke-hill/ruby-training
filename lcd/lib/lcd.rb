@@ -54,7 +54,7 @@ class LCD
   def line_one(digit)
     " #{underscore(digit, 0)} "
   end
-  
+
   def first_height_extender(digit, spaces)
     "#{pipe(digit, 1)}#{spaces}#{pipe(digit, 3)}"
   end
@@ -93,6 +93,7 @@ class LCD
 
   def lcd_table #Top,Mid-Left,Mid,Mid-Right,Bot-Left,Bot,Bot-Right
     {
+      0 => [0, 1, 3, 4, 5, 6],
       1 => [3, 6],
       2 => [0, 2, 3, 4, 5],
       3 => [0, 2, 3, 5, 6],
