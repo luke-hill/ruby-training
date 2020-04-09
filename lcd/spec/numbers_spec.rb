@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'lcd'
 
 describe LCD do
@@ -13,7 +15,7 @@ describe LCD do
         |_|
       SQUIGGLY_HEREDOC
 
-      expect( zero.render ).to eq( expected )
+      expect(zero.render).to eq(expected)
     end
 
     it 'should render a 6' do
@@ -23,7 +25,7 @@ describe LCD do
         |_|
       SQUIGGLY_HEREDOC
 
-      expect( six.render ).to eq( expected )
+      expect(six.render).to eq(expected)
     end
 
     it 'should render an 8' do
@@ -33,7 +35,7 @@ describe LCD do
         |_|
       SQUIGGLY_HEREDOC
 
-      expect( eight.render ).to eq( expected )
+      expect(eight.render).to eq(expected)
     end
   end
 
@@ -48,7 +50,7 @@ describe LCD do
           ||_|  |
       SQUIGGLY_HEREDOC
 
-      expect( four_eight_seven.render ).to eq( expected )
+      expect(four_eight_seven.render).to eq(expected)
     end
 
     it 'should render 9913' do
@@ -58,7 +60,7 @@ describe LCD do
          _| _|  | _|
       SQUIGGLY_HEREDOC
 
-      expect( nine_nine_one_three.render ).to eq( expected )
+      expect(nine_nine_one_three.render).to eq(expected)
     end
   end
 end

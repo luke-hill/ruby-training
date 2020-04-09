@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'lcd'
 
 describe LCD do
-  context 'viewing multiple lowercase letters from a-f' do
+  context 'viewing letters from a-f' do
     let(:acb) { LCD.new('acb') }
     let(:fed) { LCD.new('fed') }
 
@@ -12,7 +14,7 @@ describe LCD do
         |_||_ |_|
       SQUIGGLY_HEREDOC
 
-      expect( acb.render ).to eq( expected )
+      expect(acb.render).to eq(expected)
     end
 
     it 'should render fed' do
@@ -22,7 +24,7 @@ describe LCD do
         |  |_ |_|
       SQUIGGLY_HEREDOC
 
-      expect( fed.render ).to eq( expected )
+      expect(fed.render).to eq(expected)
     end
   end
 end
