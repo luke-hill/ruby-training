@@ -77,7 +77,6 @@ Finished in 0.00226 seconds (files took 0.06216 seconds to load)
 Failed examples:
 
 rspec ./spec/bottles_spec.rb:8 # singing 99 bottles of beer can sing a typical verse
-
 ```
 
 This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 8.
