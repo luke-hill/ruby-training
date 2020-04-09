@@ -7,10 +7,11 @@
 
 ## Setup
 
-Clone this repository:
+Fork this repository to your own workspace, and then clone it
 
 ```bash
-$ git@github.com:luke-hill/ruby-training.git
+# Fork it
+$ git clone git@github.com:<your-gh-username>/ruby-training.git
 ```
 
 Change directories so that you're in the project:
