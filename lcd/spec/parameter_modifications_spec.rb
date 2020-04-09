@@ -1,6 +1,6 @@
 require 'lcd'
 
-describe 'LCD' do
+describe LCD do
   context 'with parameter modifications' do
     context 'viewing digits with modified width' do
       let(:eight) { LCD.new(8, width: 2) }
