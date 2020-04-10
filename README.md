@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-* git ([windows](http://msysgit.github.com/), [mac os x: using brew](http://brew.sh/), linux: probably apt-get or yum git-core)
+* git ([windows](http://msysgit.github.com/), [mac os x: using brew](http://brew.sh/), linux: [ubuntu_rvm](https://github.com/rvm/ubuntu_rvm))
 * rvm - With at least Ruby 2.5 installed
 
 ## Setup
