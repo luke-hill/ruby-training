@@ -106,8 +106,7 @@ RSpec.describe 'ruby classes' do
 
   it 'match args to new with initializer' do
     expect { Dog6.new }.to raise_error(__)
-    # THINK ABOUT IT:
-    # Why is this so?
+    # THINK ABOUT IT: Why is this so?
   end
 
   it 'has different instance variables for different instances' do
