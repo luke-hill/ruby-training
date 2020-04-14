@@ -81,15 +81,7 @@ Humpty dumpty had a great fall
     greeting += subject
 
     expect(original_greeting).to eq(__)
-  end
-
-  it 'will also add to the end of the string using the shovel operator' do
-    original_greeting = 'Hello, '
-    greeting = original_greeting
-    subject  = 'World!'
-    greeting << subject
-
-    expect(original_greeting).to eq(__)
+    expect(greeting).to eq(__)
   end
 
   it 'will interpret escape characters with double quotes' do
@@ -141,22 +133,22 @@ Humpty dumpty had a great fall
   end
 
   it 'represents single characters as strings' do
-    expect('a').to eq(__)
-    expect('a' == 97).to eq(__)
+    expect(?a).to eq(__)
+    expect(?a == 97).to eq(__)
   end
 
   it 'can split a string' do
     string = 'Strings Are Fun'
     words = string.split
 
-    expect(words).to eq([__, __, __])
+    expect(words).to eq(__)
   end
 
   it 'can split a string on other characters' do
     string = 'has:many:through'
     words = string.split(':')
 
-    expect(words).to eq([__, __, __])
+    expect(words).to eq(__)
   end
 
   it 'can join strings' do
