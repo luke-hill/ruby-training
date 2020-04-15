@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe 'inheritance' do
-  class Dog
+  class Dog20
     attr_reader :name
 
     def initialize(name)

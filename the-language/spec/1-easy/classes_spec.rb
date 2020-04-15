@@ -17,28 +17,28 @@ RSpec.describe 'ruby classes' do
 
   it 'sets instance variables by assigning to them ' do
     fido = Dog2.new
-    expect(fido.instance_variables).to eq(Dog2)
+    expect(fido.instance_variables).to eq([])
 
     fido.set_name('Fido')
-    expect(fido.instance_variables).to eq(__)
+    expect(fido.instance_variables).to eq([:@name])
   end
 
   it 'can not access instance variables outside of the class' do
     fido = Dog2.new
     fido.set_name('Fido')
 
-    expect { fido.name }.to raise_error(__)
+    expect { fido.name }.to raise_error(NoMethodError)
     expect do
       eval 'fido.@name'
       # NOTE: Using eval because the above line is a syntax error.
-    end.to raise_error(__)
+    end.to raise_error(SyntaxError)
   end
 
   it 'is possible to ask for an instance variable, politely' do
     fido = Dog2.new
     fido.set_name('Fido')
 
-    expect(fido.instance_variable_get('@name')).to eq(__)
+    expect(fido.instance_variable_get('@name')).to eq('Fido')
   end
 
   it 'can rip out the instance variable using instance_eval' do
