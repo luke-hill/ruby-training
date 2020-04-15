@@ -42,7 +42,7 @@ RSpec.describe 'iterating in ruby' do
     expect(another_array).to eq(__)
   end
 
-  it 'can `select` certain elements' do
+  it 'can select certain elements' do
     array = [1, 2, 3, 4, 5, 6]
 
     even_numbers = array.select { |item| (item % 2) == 0 }
@@ -53,10 +53,13 @@ RSpec.describe 'iterating in ruby' do
     expect(more_even_numbers).to eq(__)
   end
 
-  it 'can `find` the first matching element' do
+  it 'can detect the first matching element' do
     array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
 
-    expect(array.find { |item| item.size > 4 }).to eq(__)
+    expect(array.detect { |item| item.length > 4 }).to eq(__)
+
+    # NOTE: 'find' is another name for the 'detect' operation
+    expect(array.find { |item| item.length > 4 }).to eq(__)
   end
 
   it 'can `inject` a value - and probably blow your mind' do
@@ -66,7 +69,9 @@ RSpec.describe 'iterating in ruby' do
     result2 = [2, 3, 4].inject(1) { |product, item| product * item }
     expect(result2).to eq(__)
 
-    # WT*:
+    result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
+    expect(result3).to eq(__)
+
     # Describe in your own words what inject does.
   end
 
@@ -75,13 +80,10 @@ RSpec.describe 'iterating in ruby' do
     result = (1..3).map { |item| item + 10 }
     expect(result).to eq(__)
 
-    # Files act like a collection of lines
-    File.open('spec/example_file.txt') do |file|
-      upcase_lines = file.map { |line| line.strip.upcase }
-      expect(upcase_lines).to eq(__)
-    end
+    result = (5...10).map { |item| item + 10 }
+    expect(result).to eq(__)
 
     # NOTE: You can create your own collections that work with each,
-    # map, select, etc.
+    # map, select, and other enumerable methods
   end
 end

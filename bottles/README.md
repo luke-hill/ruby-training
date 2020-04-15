@@ -87,6 +87,14 @@ to ignore a test, be it passing or failing.
 That is why in the window pane you see 1 failure and 6 pending tests. To run these additional tests
 simply delete the keyword `skip` and the test will then run.
 
+For your next steps, as discussed, we need to just make the first test pass. Have a quick think
+discuss in groups if appropriate and work out what code you need to write to make Test 1 pass.
+
+For TDD, as a purist, you want to write the bare minimum code to make the tests pass.
+
+For this exercise, it is advised that the finished PR/PR's should have at least 6 commits in total,
+detailing what changes you made and why. 
+
 ## Committing your work
 
 It's important to commit your work regularly. Make sure you are working on a

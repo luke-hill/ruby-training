@@ -82,7 +82,7 @@ RSpec.describe 'Control statements in ruby' do
     expect(result).to eq(__)
   end
 
-  it 'has a while statment' do
+  it 'has a while statement' do
     i = 1
     result = 1
     while i <= 10
@@ -133,7 +133,8 @@ RSpec.describe 'Control statements in ruby' do
     for item in array
       result << item.upcase
     end
-    expect(result).to eq([__, __, __])
+
+    expect(result).to eq(__)
   end
 
   it 'has a times statement' do
