@@ -2,7 +2,7 @@
 
 RSpec.describe 'iterating in ruby' do
   it 'has an each method on arrays' do
-    expect([].methods.include?(:each)).to eq(__)
+    expect([].methods.include?(:each)).to eq(nil)
   end
 
   it 'can iterate using each' do
@@ -11,14 +11,14 @@ RSpec.describe 'iterating in ruby' do
     array.each do |item|
       sum += item
     end
-    expect(sum).to eq(__)
+    expect(sum).to eq(6)
   end
 
   it 'can use {} instead of do end' do
     array = [1, 2, 3]
     sum = 0
     array.each { |item| sum += item }
-    expect(sum).to eq(__)
+    expect(sum).to eq(6)
   end
 
   it 'can `break` out of the iteration' do
@@ -29,42 +29,42 @@ RSpec.describe 'iterating in ruby' do
 
       sum += item
     end
-    expect(sum).to eq(__)
+    expect(sum).to eq(6)
   end
 
   it 'can transform elements of an array using `collect`' do
     array = [1, 2, 3]
     new_array = array.collect { |item| item + 10 }
-    expect(new_array).to eq(__)
+    expect(new_array).to eq([11,12,13])
 
     # NOTE: 'map' is another name for the 'collect' operation
     another_array = array.map { |item| item + 10 }
-    expect(another_array).to eq(__)
+    expect(another_array).to eq([11,12,13])
   end
 
   it 'can `select` certain elements' do
     array = [1, 2, 3, 4, 5, 6]
 
     even_numbers = array.select { |item| (item % 2) == 0 }
-    expect(even_numbers).to eq(__)
+    expect(even_numbers).to eq([2,4,6])
 
     # NOTE: 'find_all' is another name for the 'select' operation
     more_even_numbers = array.find_all { |item| (item % 2) == 0 }
-    expect(more_even_numbers).to eq(__)
+    expect(more_even_numbers).to eq([2,4,6])
   end
 
   it 'can `find` the first matching element' do
     array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
 
-    expect(array.find { |item| item.size > 4 }).to eq(__)
+    expect(array.find { |item| item.size > 4 }).to eq('Clarence')
   end
 
   it 'can `inject` a value - and probably blow your mind' do
     result = [2, 3, 4].inject(0) { |sum, item| sum + item }
-    expect(result).to eq(__)
+    expect(result).to eq(9)
 
     result2 = [2, 3, 4].inject(1) { |product, item| product * item }
-    expect(result2).to eq(__)
+    expect(result2).to eq(24)
 
     # WT*:
     # Describe in your own words what inject does.

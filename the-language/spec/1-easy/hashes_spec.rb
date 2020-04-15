@@ -4,8 +4,8 @@ RSpec.describe "Ruby's Hash structure" do
   it 'can be created like any other object' do
     empty_hash = {}
 
-    expect(empty_hash.class).to eq(__)
-    expect(empty_hash.size).to eq(__)
+    expect(empty_hash.class).to eq(Hash)
+    expect(empty_hash.size).to eq(0)
   end
 
   it 'can be created using the hash literal syntax' do
@@ -20,15 +20,15 @@ RSpec.describe "Ruby's Hash structure" do
   it 'has a subscript syntax for accessing elements' do
     hash = { one: 1, two: 2 }
 
-    expect(hash[:one]).to eq(__)
-    expect(hash[:two]).to eq(__)
-    expect(hash[:three]).to eq(__)
+    expect(hash[:one]).to eq(1)
+    expect(hash[:two]).to eq(2)
+    expect(hash[:three]).to eq(nil)
   end
 
   it 'has a fetch method for accessing elements' do
     hash = { one: 1, two: 2 }
 
-    expect(hash.fetch(:one)).to eq(__)
+    expect(hash.fetch(:one)).to eq(1)
     expect(hash.fetch(:two)).to eq(__)
     expect { hash.fetch(:three) }.to raise_error(__)
   end
