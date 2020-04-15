@@ -54,14 +54,14 @@ RSpec.describe 'inheritance' do
     expect(fido.bark).to eq(__)
   end
 
-  class BullOtherDog < OtherDog
+  class BullDog < OtherDog
     def bark
       super + ', GROWL'
     end
   end
 
   it 'can invoke the parent behaviour using super' do
-    ralph = BullOtherDog.new('Ralph')
+    ralph = BullDog.new('Ralph')
     expect(ralph.bark).to eq(__)
   end
 
