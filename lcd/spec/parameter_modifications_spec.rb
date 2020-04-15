@@ -5,8 +5,8 @@ require 'lcd'
 describe LCD do
   context 'with parameter modifications' do
     context 'viewing digits with modified width' do
-      let(:eight) { LCD.new(8, width: 2) }
-      let(:nine_one_three) { LCD.new(913, width: 4) }
+      let(:eight) { described_class.new(8, width: 2) }
+      let(:nine_one_three) { described_class.new(913, width: 4) }
 
       it 'should render a widened 8' do
         expected = <<~SQUIGGLY_HEREDOC
@@ -30,8 +30,8 @@ describe LCD do
     end
 
     context 'viewing digits with modified height' do
-      let(:four) { LCD.new(4, height: 3) }
-      let(:eight_seven) { LCD.new(87, height: 4) }
+      let(:four) { described_class.new(4, height: 3) }
+      let(:eight_seven) { described_class.new(87, height: 4) }
 
       it 'should render a heightened 2' do
         expected = <<~SQUIGGLY_HEREDOC
@@ -65,8 +65,8 @@ describe LCD do
     end
 
     context 'viewing digits with modified width AND height' do
-      let(:eight) { LCD.new(8, height: 3, width: 2) }
-      let(:four_seven_one_eight_nine) { LCD.new(47_189, height: 5, width: 7) }
+      let(:eight) { described_class.new(8, height: 3, width: 2) }
+      let(:four_one_nine) { described_class.new(419, height: 5, width: 7) }
 
       it 'should render a heightened AND widened 8' do
         expected = <<~SQUIGGLY_HEREDOC
@@ -84,20 +84,20 @@ describe LCD do
 
       it 'should render a heightened AND widened 47189' do
         expected = <<~SQUIGGLY_HEREDOC
-                    _______           _______  _______ 
-          |       |        |        ||       ||       |
-          |       |        |        ||       ||       |
-          |       |        |        ||       ||       |
-          |       |        |        ||       ||       |
-          |_______|        |        ||_______||_______|
-                  |        |        ||       |        |
-                  |        |        ||       |        |
-                  |        |        ||       |        |
-                  |        |        ||       |        |
-                  |        |        ||_______| _______|
+                             _______ 
+          |       |        ||       |
+          |       |        ||       |
+          |       |        ||       |
+          |       |        ||       |
+          |_______|        ||_______|
+                  |        |        |
+                  |        |        |
+                  |        |        |
+                  |        |        |
+                  |        | _______|
         SQUIGGLY_HEREDOC
 
-        expect(four_seven_one_eight_nine.render).to eq(expected)
+        expect(four_one_nine.render).to eq(expected)
       end
     end
 
