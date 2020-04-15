@@ -93,7 +93,7 @@ RSpec.describe 'sandwich code' do
     end
   end
 
-  it 'supports the sandwich by passing a block to open' do
+  it 'supports passing a block to open' do
     expect(count_lines3('example_file.txt')).to eq(__)
   end
 end
