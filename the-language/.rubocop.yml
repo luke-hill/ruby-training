@@ -40,7 +40,6 @@ Naming/AccessorMethodName:
 
 Naming/MethodParameterName:
   Exclude:
-  - 'lib/triangle.rb'
   - 'spec/1-easy/methods_spec.rb'
 
 Security/Eval:
