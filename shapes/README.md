@@ -1,0 +1,37 @@
+# Shapes
+
+We all know that we can draw 2-dimensional shapes, such as a triangle or a square. However, how would
+you check if they were correct? i.e. they could be constructed?
+
+## Setup
+
+Install the dependencies:
+
+```bash
+$ gem install bundler # if you don't have it already
+$ bundle
+```
+
+## Working through the exercise
+
+To run the exercise, you just need to run:
+
+```
+$ rspec
+```
+
+By now you should know that to start with all of the examples will fail!
+
+Now we need to fix the specs. There are 3 files inside the `/lib` directory that we need to edit.
+These three files will tell us how to classify...
+ 
+1. A triangle is constructable, based on the side lengths
+1. A 4sided shape with 4 angles will be known as what? (square, rectangle or quadrilateral)
+1. What the internal and external angles will be of regular 5-10 sided shapes.
+
+## Committing your work
+
+It's important to commit your work regularly. Make sure you are working on a
+branch, not master. Ideally use your commits to keep your own
+comments and notes about what you've learnt. As you work through the exercises
+we'll try to come back together periodically to discuss.

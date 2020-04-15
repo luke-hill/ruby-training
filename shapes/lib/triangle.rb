@@ -11,7 +11,7 @@
 #   :scalene      if no sides are equal
 #
 # The tests for this method can be found in the +3-hard+ folder
-# 2_triangle_spec.rb and 2a_invalid_triangle_spec.rb
+# triangle_spec.rb and invalid_triangle_spec.rb
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
