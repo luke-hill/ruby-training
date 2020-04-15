@@ -4,6 +4,10 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
+Naming/MethodParameterName:
+  Exclude:
+  - 'lib/triangle.rb'
+
 Style/HashEachMethods:
   Enabled: true
 
