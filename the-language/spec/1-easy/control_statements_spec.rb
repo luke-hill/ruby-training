@@ -82,7 +82,7 @@ RSpec.describe 'Control statements in ruby' do
     expect(result).to eq(:false_value)
   end
 
-  it 'has a while statment' do
+  it 'has a while statement' do
     i = 1
     result = 1
     while i <= 10
@@ -133,7 +133,15 @@ RSpec.describe 'Control statements in ruby' do
     for item in array
       result << item.upcase
     end
+<<<<<<< HEAD
     expect(result).to eq(['FISH','AND','CHIPS'])
+=======
+
+    expect(result).to eq(__)
+
+    expect(result).to eq(['FISH','AND','CHIPS'])
+
+>>>>>>> master
   end
 
   it 'has a times statement' do

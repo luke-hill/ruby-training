@@ -135,6 +135,10 @@ Style/SignalException:
   Exclude:
   - 'spec/1-easy/exceptions_spec.rb'
 
+Style/StringLiterals:
+  Exclude:
+  - 'spec/1-easy/strings_spec.rb'
+
 Style/SymbolArray:
   Enabled: false
 

@@ -43,7 +43,7 @@ PLATFORMS
 DEPENDENCIES
   rspec (~> 3.9)
   rubocop (~> 0.81.0)
-  rubocop-performance (~> 1.5.2)
+  rubocop-performance (~> 1.5.0)
   rubocop-rspec (~> 1.38.0)
 
 BUNDLED WITH
