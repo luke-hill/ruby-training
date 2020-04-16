@@ -56,14 +56,13 @@ RSpec.describe 'iterating in ruby' do
   it 'can detect the first matching element' do
     array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
 
-<<<<<<< HEAD
-    expect(array.detect { |item| item.length > 4 }).to eq(__)
+
+    expect(array.detect { |item| item.length > 4 }).to eq('Clarence')
 
     # NOTE: 'find' is another name for the 'detect' operation
-    expect(array.find { |item| item.length > 4 }).to eq(__)
-=======
-    expect(array.find { |item| item.size > 4 }).to eq('Clarence')
->>>>>>> my_first_branch
+    expect(array.find { |item| item.length > 4 }).to eq('Clarence')
+
+
   end
 
   it 'can `inject` a value - and probably blow your mind' do
