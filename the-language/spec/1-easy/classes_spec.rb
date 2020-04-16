@@ -17,17 +17,11 @@ RSpec.describe 'ruby classes' do
 
   it 'sets instance variables by assigning to them ' do
     fido = Dog2.new
-<<<<<<< HEAD
     expect(fido.instance_variables).to eq([])
 
     fido.set_name('Fido')
-    expect(fido.instance_variables).to eq([:@name])
-=======
-    expect(fido.instance_variables).to eq([]])
+    expect(fido.instance_variables).to eq(:@name)
 
-    fido.set_name('Fido')
-    expect(fido.instance_variables).to eq(Dog2)
->>>>>>> master
   end
 
   it 'can not access instance variables outside of the class' do

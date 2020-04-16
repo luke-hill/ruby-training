@@ -56,9 +56,6 @@ RSpec.describe 'iterating in ruby' do
   it 'can detect the first matching element' do
     array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
 
-<<<<<<< HEAD
-    expect(array.find { |item| item.size > 4 }).to eq('Clarence')
-=======
 
     expect(array.detect { |item| item.length > 4 }).to eq('Clarence')
 
@@ -66,7 +63,6 @@ RSpec.describe 'iterating in ruby' do
     expect(array.find { |item| item.length > 4 }).to eq('Clarence')
 
 
->>>>>>> master
   end
 
   it 'can `inject` a value - and probably blow your mind' do
@@ -75,12 +71,10 @@ RSpec.describe 'iterating in ruby' do
 
     result2 = [2, 3, 4].inject(1) { |product, item| product * item }
     expect(result2).to eq(24)
-<<<<<<< HEAD
-=======
 
     result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
     expect(result3).to eq(__)
->>>>>>> master
+
 
     # Describe in your own words what inject does.
   end

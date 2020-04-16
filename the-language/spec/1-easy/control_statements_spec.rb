@@ -133,15 +133,9 @@ RSpec.describe 'Control statements in ruby' do
     for item in array
       result << item.upcase
     end
-<<<<<<< HEAD
-    expect(result).to eq(['FISH','AND','CHIPS'])
-=======
-
-    expect(result).to eq(__)
 
     expect(result).to eq(['FISH','AND','CHIPS'])
 
->>>>>>> master
   end
 
   it 'has a times statement' do
