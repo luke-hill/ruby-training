@@ -2,8 +2,8 @@
 
 ## Dependencies
 
-* git ([windows](http://msysgit.github.com/), [mac os x: using brew](http://brew.sh/), linux: [ubuntu_rvm](https://github.com/rvm/ubuntu_rvm))
-* rvm - With at least Ruby 2.5 installed
+* git([windows](http://msysgit.github.com/), [mac os x: using brew](http://brew.sh/), linux: [ubuntu_rvm](https://github.com/rvm/ubuntu_rvm))
+* rvm - With Ruby `2.5.8` and `2.7.1` installed
 
 ## Setup
 
@@ -53,13 +53,8 @@ $ git push -u origin <name_of_branch>
 $ git checkout master
 # Make the requisite PR on github and merge
 $ git pull -p # the -p is optional but just helps tidy up the branch
+# Then create a new branch straight away to continue working, with the latest changes you made
 $ git checkout -b <new_branch_name>
-```
-
-Then create another new branch to work on the next thing:
-
-```bash
-$ git checkout -b my_second_branch
 ```
 
 ## Git: Troubleshooting / Recovery
