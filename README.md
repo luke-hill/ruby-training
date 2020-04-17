@@ -48,9 +48,12 @@ Doing this will give you a backup of all of your work, and also allow you to tra
 over time to see how you are progressing.
 
 ```bash
+# On your current branch
+$ git push -u origin <name_of_branch>
 $ git checkout master
 # Make the requisite PR on github and merge
 $ git pull -p # the -p is optional but just helps tidy up the branch
+$ git checkout -b <new_branch_name>
 ```
 
 Then create another new branch to work on the next thing:
