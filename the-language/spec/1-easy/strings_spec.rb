@@ -3,29 +3,29 @@
 RSpec.describe 'a string in Ruby' do
   it 'can be created with double quotes' do
     string = 'Hello, world!'
-    expect(string.is_a?(String)).to eq(__)
+    expect(string.is_a?(String)).to eq(true)
   end
 
   it 'can be created with single quotes' do
     string = 'Hello, you!'
-    expect(string.is_a?(String)).to eq(__)
+    expect(string.is_a?(String)).to eq(true)
   end
 
   it 'can create a string with double quotes using single quotes' do
     string = '"What a curious feeling!" said Alice.'
-    expect(string).to eq(__)
+    expect(string).to eq('"What a curious feeling!" said Alice.')
   end
 
   it 'can create a string with single quotes using double quotes' do
     string = "Isn't that useful?"
-    expect(string).to eq(__)
+    expect(string).to eq("Isn't that useful?")
   end
 
   it "can use backslashes to escape the cases that don't fit" do
     double = "Jane said \"Don't\""
     single = 'Jane said "Don\'t"'
 
-    expect(double == single).to eq(__)
+    expect(double == single).to eq(true)
   end
 
   it 'has flexible quoting when things get difficult' do
@@ -33,8 +33,8 @@ RSpec.describe 'a string in Ruby' do
     b = %!flexible quotes allow both " and ' characters!
     c = %{flexible quotes allow both " and ' characters}
 
-    expect(a == b).to eq(__)
-    expect(a == c).to eq(__)
+    expect(a == b).to eq(true)
+    expect(a == c).to eq(true)
   end
 
   it 'can handle multiple lines with flexible quoting' do
@@ -43,9 +43,9 @@ Humpty dumpty sat on the wall,
 Humpty dumpty had a great fall
 }
 
-    expect(string.length).to eq(__)
-    expect(string.lines.count).to eq(__)
-    expect(string[0, 1]).to eq(__)
+    expect(string.length).to eq(63)
+    expect(string.lines.count).to eq(3)
+    expect(string[0, 1]).to eq("\n")
   end
 
   it 'can also handle multiple lines with a heredoc' do
@@ -54,14 +54,14 @@ Humpty dumpty had a great fall
       Humpty dumpty had a great fall
     STRING
 
-    expect(string.length).to eq(__)
-    expect(string.lines.count).to eq(__)
-    expect(string[0, 1]).to eq(__)
+    expect(string.length).to eq(62)
+    expect(string.lines.count).to eq(2)
+    expect(string[0, 1]).to eq("H")
   end
 
   it 'can be concatenated with the +' do
     string = 'Hello, ' + 'World!'
-    expect(string).to eq(__)
+    expect(string).to eq('Hello, World!')
   end
 
   it 'will not modify the original string using +' do
@@ -69,9 +69,9 @@ Humpty dumpty had a great fall
     subject  = 'World!'
     string = greeting + subject
 
-    expect(string).to eq(__)
-    expect(greeting).to eq(__)
-    expect(subject).to eq(__)
+    expect(string).to eq('Hello, World!')
+    expect(greeting).to eq('Hello, ')
+    expect(subject).to eq('World!')
   end
 
   it 'will concatenate on the end of a string using +=' do
@@ -80,7 +80,7 @@ Humpty dumpty had a great fall
     subject  = 'World!'
     greeting += subject
 
-    expect(original_greeting).to eq(__)
+    expect(original_greeting).to eq('Hello, ')
   end
 
   it 'will also add to the end of the string using the shovel operator' do
@@ -89,7 +89,7 @@ Humpty dumpty had a great fall
     subject  = 'World!'
     greeting << subject
 
-    expect(original_greeting).to eq(__)
+    expect(original_greeting).to eq('Hello, ')
   end
 
   it 'will interpret escape characters with double quotes' do
