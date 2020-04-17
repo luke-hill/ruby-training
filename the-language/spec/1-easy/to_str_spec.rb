@@ -12,7 +12,7 @@ RSpec.describe 'to_str' do
     expect(not_like_a_string.to_s).to eq("non-string-like")
   end
 
-  it "can't use a normal object in place of a string" do
+  it "can't use a normal object in place of a string using to_s" do
     expect do
       File.exist?(CanNotBeTreatedAsString.new)
     end.to raise_error(TypeError)

@@ -4,9 +4,9 @@ require 'lcd'
 
 describe LCD do
   context 'viewing a single digit' do
-    let(:zero)  { LCD.new(0) }
-    let(:six)   { LCD.new(6) }
-    let(:eight) { LCD.new(8) }
+    let(:zero)  { described_class.new(0) }
+    let(:six)   { described_class.new(6) }
+    let(:eight) { described_class.new(8) }
 
     it 'should render a 0' do
       expected = <<~SQUIGGLY_HEREDOC
@@ -40,8 +40,8 @@ describe LCD do
   end
 
   context 'viewing multiple digits' do
-    let(:four_eight_seven) { LCD.new(487) }
-    let(:nine_nine_one_three) { LCD.new(9913) }
+    let(:four_eight_seven) { described_class.new(487) }
+    let(:nine_nine_one_three) { described_class.new(9913) }
 
     it 'should render 487' do
       expected = <<~SQUIGGLY_HEREDOC
