@@ -56,14 +56,10 @@ RSpec.describe 'iterating in ruby' do
   it 'can detect the first matching element' do
     array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
 
-<<<<<<< HEAD
-    expect(array.find { |item| item.size > 4 }).to eq('Clarence')
-=======
-    expect(array.detect { |item| item.length > 4 }).to eq(__)
+    expect(array.detect { |item| item.length > 4 }).to eq('Clarence')
 
     # NOTE: 'find' is another name for the 'detect' operation
-    expect(array.find { |item| item.length > 4 }).to eq(__)
->>>>>>> luke/master
+    expect(array.find { |item| item.length > 4 }).to eq('Clarence')
   end
 
   it 'can `inject` a value - and probably blow your mind' do
@@ -84,16 +80,8 @@ RSpec.describe 'iterating in ruby' do
     result = (1..3).map { |item| item + 10 }
     expect(result).to eq([11, 12, 13])
 
-<<<<<<< HEAD
-    # Files act like a collection of lines
-    File.open('spec/example_file.txt') do |file|
-      upcase_lines = file.map { |line| line.strip.upcase }
-      expect(upcase_lines).to eq([])
-    end
-=======
     result = (5...10).map { |item| item + 10 }
     expect(result).to eq(__)
->>>>>>> luke/master
 
     # NOTE: You can create your own collections that work with each,
     # map, select, and other enumerable methods
