@@ -2,8 +2,9 @@
 
 RSpec.describe 'iterating in ruby' do
   it 'has an each method on arrays' do
-    expect([].methods.include?(:each)).to eq(nil)
+    expect([].methods.include?(:each)).to eq(true)
   end
+# is true since each array has methods and each is one of them
 
   it 'can iterate using each' do
     array = [1, 2, 3]
@@ -56,14 +57,13 @@ RSpec.describe 'iterating in ruby' do
   it 'can detect the first matching element' do
     array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
 
-<<<<<<< HEAD
-    expect(array.detect { |item| item.length > 4 }).to eq(__)
+
+    expect(array.detect { |item| item.length > 4 }).to eq('Clarence')
 
     # NOTE: 'find' is another name for the 'detect' operation
-    expect(array.find { |item| item.length > 4 }).to eq(__)
-=======
-    expect(array.find { |item| item.size > 4 }).to eq('Clarence')
->>>>>>> my_first_branch
+    expect(array.find { |item| item.length > 4 }).to eq('Clarence')
+
+
   end
 
   it 'can `inject` a value - and probably blow your mind' do
@@ -74,18 +74,19 @@ RSpec.describe 'iterating in ruby' do
     expect(result2).to eq(24)
 
     result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
-    expect(result3).to eq(__)
+    expect(result3).to eq('abc')
 
-    # Describe in your own words what inject does.
+
+    # inject takes it starting argument and each item in the array and performs something with it
   end
 
   it 'can use iteration methods on all collections, not just array' do
     # Ranges act like a collection
     result = (1..3).map { |item| item + 10 }
-    expect(result).to eq(__)
+    expect(result).to eq([11,12,13])
 
     result = (5...10).map { |item| item + 10 }
-    expect(result).to eq(__)
+    expect(result).to eq([15,16,17,18,19])
 
     # NOTE: You can create your own collections that work with each,
     # map, select, and other enumerable methods
