@@ -41,7 +41,7 @@ RSpec.describe 'Control statements in ruby' do
     value = if false
               :true_value
             end
-    expect(value).to eq(:default_value)
+    expect(value).to eq(nil)
   end
 
   it 'has a condition (ternary) operator' do
@@ -72,7 +72,7 @@ RSpec.describe 'Control statements in ruby' do
     unless true # same as saying 'if !true', which evaluates as 'if false'
       result = :true_value
     end
-    expect(result).to eq(:false_value)
+    expect(result).to eq(:default_value)
   end
 
   it 'can use unless as a statement modifier' do
@@ -89,7 +89,7 @@ RSpec.describe 'Control statements in ruby' do
       result = result * i
       i += 1
     end
-    expect(result).to eq(100)
+    expect(result).to eq(3628800)
   end
 
   it 'has a break statement' do
@@ -101,7 +101,7 @@ RSpec.describe 'Control statements in ruby' do
       result = result * i
       i += 1
     end
-    expect(result).to eq(100)
+    expect(result).to eq(3628800)
   end
 
   it 'can return a value with break' do
@@ -124,7 +124,7 @@ RSpec.describe 'Control statements in ruby' do
 
       result << i
     end
-    expect(result).to eq([1])
+    expect(result).to eq([1,3,5,7,9])
   end
 
   it 'has a for statement' do
