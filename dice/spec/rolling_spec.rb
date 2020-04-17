@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 
-# Implement the DiceSet Class here:
-class DiceSet
-  # add code here
-end
+require 'rolling'
 
-RSpec.describe 'dice set' do
-  it 'can create a new sice set' do
-    dice = DiceSet.new
-    expect(dice).not_to be_nil
+RSpec.describe Dice::Rolling do
+  it 'can create a new dice set' do
+    expect(subject).not_to be_nil
   end
 
   it 'returns a set of integers between 1 and 6 when rolled' do
-    dice = DiceSet.new
+    dice = subject
 
     dice.roll(5)
     expect(dice.values).to be_an(Array)
@@ -24,7 +20,7 @@ RSpec.describe 'dice set' do
   end
 
   it 'maintains the values until rolled again' do
-    dice = DiceSet.new
+    dice = subject
     dice.roll(5)
     first_time = dice.values
     second_time = dice.values
@@ -32,7 +28,7 @@ RSpec.describe 'dice set' do
   end
 
   it 'changes the values when rolled again' do
-    dice = DiceSet.new
+    dice = subject
 
     dice.roll(5)
     first_time = dice.values
@@ -50,7 +46,7 @@ RSpec.describe 'dice set' do
   end
 
   it 'can roll different numbers of dice' do
-    dice = DiceSet.new
+    dice = subject
 
     dice.roll(3)
     expect(dice.values.size).to eq(3)

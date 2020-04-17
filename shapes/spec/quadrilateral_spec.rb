@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'quadrilateral' # RSpec automatically adds `lib/` to the LOAD_PATH
-# edit lib/quadrilateral.rb to fix these tests
+# edit lib/rolling.rb to fix these tests
 
 RSpec.describe 'quadrilateral types' do
   it 'is square or rectangle when all angles are the same' do

@@ -4,10 +4,6 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
-Naming/MethodParameterName:
-  Exclude:
-  - 'lib/greed.rb'
-
 Style/HashEachMethods:
   Enabled: true
 

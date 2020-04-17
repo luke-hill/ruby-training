@@ -1,39 +1,8 @@
 # frozen_string_literal: true
 
-# Greed is a dice game where you roll up to five dice to accumulate
-# points.  The following "score" function will be used to calculate the
-# score of a single roll of the dice.
-#
-# A greed roll is scored as follows:
-#
-# * A set of three ones is 1000 points
-#
-# * A set of three numbers (other than ones) is worth 100 times the
-#   number. (e.g. three fives is 500 points).
-#
-# * A one (that is not part of a set of three) is worth 100 points.
-#
-# * A five (that is not part of a set of three) is worth 50 points.
-#
-# * Everything else is worth 0 points.
-#
-#
-# Examples:
-#
-# score([1,1,1,5,1]) => 1150 points
-# score([2,3,4,6,2]) => 0 points
-# score([3,4,5,3,3]) => 350 points
-# score([1,5,1,2,4]) => 250 points
-#
-# More scoring examples are given in the tests below:
-#
-# Your goal is to write the score method.
+require 'greed'
 
-def score(dice)
-  # You need to write this method
-end
-
-RSpec.describe 'scorign a game of greed' do
+RSpec.describe 'scoring a game of greed' do
   it 'scores an empty list as 0' do
     expect(score([])).to eq(0)
   end
@@ -46,11 +15,18 @@ RSpec.describe 'scorign a game of greed' do
     expect(score([1])).to eq(100)
   end
 
+  it 'scores a single 2,3,4 or 6 as 0' do
+    expect(score([2])).to eq(0)
+    expect(score([3])).to eq(0)
+    expect(score([4])).to eq(0)
+    expect(score([6])).to eq(0)
+  end
+
   it 'scores multiple 1s and 5s as a sum of the individual scores' do
     expect(score([1, 5, 5, 1])).to eq(300)
   end
 
-  it 'scores 2s, 3s, 4s, and 6s as 0' do
+  it 'scores a combination of 2s, 3s, 4s and 6s as 0' do
     expect(score([2, 3, 4, 6])).to eq(0)
   end
 
