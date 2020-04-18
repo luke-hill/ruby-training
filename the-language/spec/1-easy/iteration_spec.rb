@@ -59,18 +59,17 @@ RSpec.describe 'iterating in ruby' do
     expect(array.find { |item| item.size > 4 }).to eq('Clarence')
   end
 
-  it 'can `inject` a value - and probably blow your mind' do
+  "it 'can `inject` a value - and probably blow your mind' do
     result = [2, 3, 4].inject(0) { |sum, item| sum + item }
-    expect(result).to eq(__)
+    expect(result).to eq(9)
 
     result2 = [2, 3, 4].inject(1) { |product, item| product * item }
-    expect(result2).to eq(__)
+    expect(result2).to eq(24)"
 
-    # WT*:
-    # Describe in your own words what inject does.
-  end
+    # WT*: 
+    # 'inject' can give us a value with which we can modify the array in the way we need
 
-  it 'can use iteration methods on all collections, not just array' do
+  """it 'can use iteration methods on all collections, not just array' do
     # Ranges act like a collection
     result = (1..3).map { |item| item + 10 }
     expect(result).to eq(__)
@@ -78,10 +77,10 @@ RSpec.describe 'iterating in ruby' do
     # Files act like a collection of lines
     File.open('spec/example_file.txt') do |file|
       upcase_lines = file.map { |line| line.strip.upcase }
-      expect(upcase_lines).to eq(__)
+      expect(upcase_lines).to eq()
     end
 
     # NOTE: You can create your own collections that work with each,
     # map, select, etc.
-  end
+  end"""
 end
