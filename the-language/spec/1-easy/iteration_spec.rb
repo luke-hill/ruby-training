@@ -70,7 +70,7 @@ RSpec.describe 'iterating in ruby' do
     expect(result2).to eq(24)
 
     result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
-    expect(result3).to eq(__)
+    expect(result3).to eq('abc')
 
     # Describe in your own words what inject does.
   end
@@ -81,7 +81,7 @@ RSpec.describe 'iterating in ruby' do
     expect(result).to eq([11, 12, 13])
 
     result = (5...10).map { |item| item + 10 }
-    expect(result).to eq(__)
+    expect(result).to eq((15..19).to_a)
 
     # NOTE: You can create your own collections that work with each,
     # map, select, and other enumerable methods

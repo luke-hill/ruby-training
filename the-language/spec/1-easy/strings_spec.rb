@@ -80,8 +80,8 @@ Humpty dumpty had a great fall
     subject  = 'World!'
     greeting += subject
 
-    expect(original_greeting).to eq(__)
-    expect(greeting).to eq(__)
+    expect(original_greeting).to eq('Hello, ')
+    expect(greeting).to eq('Hello, World!')
   end
 
   it 'will interpret escape characters with double quotes' do
@@ -133,8 +133,8 @@ Humpty dumpty had a great fall
   end
 
   it 'represents single characters as strings' do
-    expect(?a).to eq(__)
-    expect(?a == 97).to eq(__)
+    expect(?a).to eq('a')
+    expect(?a == 97).to eq(false)
   end
 
   it 'can split a string' do
@@ -163,6 +163,6 @@ Humpty dumpty had a great fall
     b = 'Hello, world!'
 
     expect(a == b).to eq(true)
-    expect(a.object_id == b.object_id).to eq(true)
+    expect(a.object_id == b.object_id).to eq(false)
   end
 end
