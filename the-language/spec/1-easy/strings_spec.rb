@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 RSpec.describe 'a string in Ruby' do
   it 'can be created with double quotes' do
