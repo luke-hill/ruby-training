@@ -17,7 +17,7 @@ RSpec.describe 'ruby classes' do
 
   it 'sets instance variables by assigning to them ' do
     fido = Dog2.new
-    expect(fido.instance_variables).to eq([]])
+    expect(fido.instance_variables).to eq([])
 
     fido.set_name('Fido')
     expect(fido.instance_variables).to eq(Dog2)
