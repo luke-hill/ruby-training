@@ -117,14 +117,14 @@ RSpec.describe 'Regular expressions' do
   end
 
   it 'uses scan to find all' do
-    expect('one two-three'.scan(/\w+/)).to eq(__)
+    expect('one two-three'.scan(/\w+/)).to eq(['one','two','three'])
   end
 
   it 'uses sub to find and replace' do
-    expect('one two-three'.sub(/(t\w*)/) { $1[0, 1] }).to eq(__)
+    expect('one two-three'.sub(/(t\w*)/) { $1[0, 1] }).to eq('one t-three')
   end
-
+# Finds 1st t, then subs every wordcharacter after that with ''
   it 'uses gsub to find and replace all' do
-    expect('one two-three'.gsub(/(t\w*)/) { $1[0, 1] }).to eq(__)
+    expect('one two-three'.gsub(/(t\w*)/) { $1[0, 1] }).to eq('one t-t')
   end
 end

@@ -31,10 +31,10 @@ RSpec.describe 'methods in ruby' do
 
   it 'is not possible to call methods with the wrong number of arguments' do
     # HINT: Fill in the error and part of the message
-    #expect { a_global_method }.to raise_error(ArgumentError, /wrong number of arguments (given 0, expected 2)/)
+    expect { a_global_method }.to raise_error(ArgumentError, /wrong number/)
 
     # HINT: Fill in the error and part of the message
-    #expect { a_global_method(1, 2, 3) }.to raise_error(ArgumentError, /wrong number of arguments (given 3, expected 2)/)
+    expect { a_global_method(1, 2, 3) }.to raise_error(ArgumentError, /wrong number/)
   end
 # No idea how to write this <>
   def a_method_with_defaults(a, b = :default_value)
@@ -121,7 +121,7 @@ RSpec.describe 'methods in ruby' do
 
     it 'raises an error when calling a private method' do
       # Fill in the error and part of the message to move on
-  #    expect { an_object.the_private_method }.to raise_error(NoMethodError, /__/)
+     expect { an_object.the_private_method }.to raise_error(NoMethodError, /private method/)
     end
 
     it 'can call a private method on the same object' do
