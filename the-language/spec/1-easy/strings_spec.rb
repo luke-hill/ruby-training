@@ -67,9 +67,9 @@ Humpty dumpty had a great fall
     subject  = 'World!'
     string = greeting + subject
 
-    expect(string).to eq(__)
-    expect(greeting).to eq(__)
-    expect(subject).to eq(__)
+    expect(string).to eq('Hello, World!')
+    expect(greeting).to eq('Hello, ')
+    expect(subject).to eq('World!')
   end
 
   it 'will concatenate on the end of a string using +=' do
@@ -79,7 +79,7 @@ Humpty dumpty had a great fall
     greeting += subject
 
     expect(original_greeting).to eq(__)
-    expect(greeting).to eq(__)
+    expect(greeting).to eq('Hello, World!')
   end
 
   it 'will interpret escape characters with double quotes' do
