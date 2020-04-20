@@ -6,7 +6,7 @@ RSpec.describe Rolling do
   let(:dice) { subject }
 
   it 'can create a new dice rolling class' do
-    expect(dice).to be_a Rolling
+    expect(dice).to be_a described_class
   end
 
   it 'can roll a dice' do
@@ -21,14 +21,6 @@ RSpec.describe Rolling do
   it 'returns an array of values the same size as the requested amount' do
     dice.roll(5)
     expect(dice.values.size).to eq(5)
-  end
-
-  it 'can roll different numbers of dice' do
-    dice.roll(5)
-    expect(dice.values.size).to eq(5)
-
-    dice.roll(1)
-    expect(dice.values.size).to eq(1)
   end
 
   it 'returns a set of integers between 1 and 6 when rolled' do

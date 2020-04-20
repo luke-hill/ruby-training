@@ -13,6 +13,8 @@ Metrics/BlockLength:
 
 Style/HashEachMethods:
   Enabled: true
+  Exclude:
+    - 'spec/rolling_spec.rb'
 
 Style/HashTransformKeys:
   Enabled: true
