@@ -75,6 +75,10 @@ Style/For:
   Exclude:
   - 'spec/1-easy/control_statements_spec.rb'
 
+Style/FrozenStringLiteralComment:
+  Exclude:
+  - 'spec/1-easy/strings_spec.rb'
+
 Style/HashEachMethods:
   Enabled: true
   Exclude:
