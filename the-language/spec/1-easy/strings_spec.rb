@@ -166,11 +166,11 @@ Humpty dumpty had a great fall
     expect(string).to eq('Welcome to the joinery')
   end
 
-  it 'is a unique object' do
+  it 'is a unique  object' do
     a = 'Hello, world!'
     b = 'Hello, world!'
 
     expect(a == b).to eq(true)
     expect(a.object_id == b.object_id).to eq(true)
   end
-end
+end 
