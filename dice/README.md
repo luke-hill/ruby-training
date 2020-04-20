@@ -20,8 +20,6 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-By now you should know that to start with all of the examples will fail!
-
 Now we need to fix the specs. There are 2 files inside the `/lib` directory that we need to edit.
 These two files will tell us how to solve the following problems.
  
