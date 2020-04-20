@@ -3,24 +3,42 @@
 require 'rolling'
 
 RSpec.describe Rolling do
-  it 'can create a new dice set' do
-    expect(subject).not_to be_nil
+  let(:dice) { subject }
+
+  it 'can create a new dice rolling class' do
+    expect(dice).to be_a Rolling
+  end
+
+  it 'can roll a dice' do
+    expect { dice.roll }.not_to raise_error
+  end
+
+  it 'returns an array of values when rolled' do
+    dice.roll(5)
+    expect(dice.values).to be_an(Array)
+  end
+
+  it 'returns an array of values the same size as the requested amount' do
+    dice.roll(5)
+    expect(dice.values.size).to eq(5)
+  end
+
+  it 'can roll different numbers of dice' do
+    dice.roll(5)
+    expect(dice.values.size).to eq(5)
+
+    dice.roll(1)
+    expect(dice.values.size).to eq(1)
   end
 
   it 'returns a set of integers between 1 and 6 when rolled' do
-    dice = subject
-
     dice.roll(5)
-    expect(dice.values).to be_an(Array)
-    expect(dice.values.size).to eq(5)
-    dice.each_value do |value|
-      expect(value >= 1 && value <= 6)
-        .to eq(true), "value #{value} must be between 1 and 6"
+    dice.values.each do |value|
+      expect(value >= 1 && value <= 6).to eq(true)
     end
   end
 
   it 'maintains the values until rolled again' do
-    dice = subject
     dice.roll(5)
     first_time = dice.values
     second_time = dice.values
@@ -28,8 +46,6 @@ RSpec.describe Rolling do
   end
 
   it 'changes the values when rolled again' do
-    dice = subject
-
     dice.roll(5)
     first_time = dice.values
 
@@ -43,15 +59,5 @@ RSpec.describe Rolling do
     # If the rolls are random, then it is possible (although not
     # likely) that two consecutive rolls are equal.  What would be a
     # better way to test this?
-  end
-
-  it 'can roll different numbers of dice' do
-    dice = subject
-
-    dice.roll(3)
-    expect(dice.values.size).to eq(3)
-
-    dice.roll(1)
-    expect(dice.values.size).to eq(1)
   end
 end

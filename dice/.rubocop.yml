@@ -9,7 +9,7 @@ Lint/StructNewOverride:
   Enabled: true
 
 Metrics/BlockLength:
-  Max: 50
+  Max: 100
 
 Style/HashEachMethods:
   Enabled: true

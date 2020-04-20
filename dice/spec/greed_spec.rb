@@ -65,7 +65,7 @@ RSpec.describe Greed do
     expect(greed([6, 6, 6])).to eq(600)
   end
 
-  context 'low scoring hands' do
+  context 'with a low scoring hand' do
     it 'scores 50 for a 2, 3, 4, 5 and 6' do
       expect(greed([2, 3, 4, 5, 6])).to eq(50)
     end
@@ -75,7 +75,7 @@ RSpec.describe Greed do
     end
   end
 
-  context 'medium scoring hands' do
+  context 'with a medium scoring hand' do
     it 'scores 450 for 4 4s and a 5' do
       expect(greed([4, 4, 4, 4, 5])).to eq(450)
     end
@@ -89,7 +89,7 @@ RSpec.describe Greed do
     end
   end
 
-  context 'high scoring hands' do
+  context 'with a high scoring hand' do
     it 'scores 1100 for 4 1s and a 6' do
       expect(greed([1, 1, 1, 1, 6])).to eq(1100)
     end
