@@ -2,7 +2,7 @@
 
 require 'rolling'
 
-RSpec.describe Dice::Rolling do
+RSpec.describe Rolling do
   it 'can create a new dice set' do
     expect(subject).not_to be_nil
   end
@@ -13,7 +13,7 @@ RSpec.describe Dice::Rolling do
     dice.roll(5)
     expect(dice.values).to be_an(Array)
     expect(dice.values.size).to eq(5)
-    dice.values.each do |value|
+    dice.each_value do |value|
       expect(value >= 1 && value <= 6)
         .to eq(true), "value #{value} must be between 1 and 6"
     end

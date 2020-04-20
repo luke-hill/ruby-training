@@ -1,8 +1,15 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
 Lint/RaiseException:
   Enabled: true
 
 Lint/StructNewOverride:
   Enabled: true
+
+Metrics/BlockLength:
+  Max: 50
 
 Style/HashEachMethods:
   Enabled: true
