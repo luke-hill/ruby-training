@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'a string in Ruby' do
   it 'can be created with double quotes' do
     string = "Hello, world!"
@@ -163,6 +161,11 @@ Humpty dumpty had a great fall
     b = 'Hello, world!'
 
     expect(a == b).to eq(__)
+    puts a.object_id
+    puts b.object_id
+
+    # What does the above 2 commands show you in the console?
+    # Why do you think this is the case, have a quick think / google
     expect(a.object_id == b.object_id).to eq(__)
   end
 end
