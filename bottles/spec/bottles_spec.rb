@@ -2,8 +2,8 @@
 
 require 'bottles'
 
-describe 'singing 99 bottles of beer' do
-  let(:song) { Bottles.new }
+describe Bottles do
+  let(:song) { subject }
 
   it 'can sing a typical verse' do
     expected = "8 bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, 7 bottles of beer on the wall.\n"
