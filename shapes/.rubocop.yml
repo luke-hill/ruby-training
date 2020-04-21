@@ -1,12 +1,28 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
 Lint/RaiseException:
   Enabled: true
 
 Lint/StructNewOverride:
   Enabled: true
 
+Metrics/BlockLength:
+  Max: 40
+
 Naming/MethodParameterName:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/ExampleLength:
   Exclude:
-  - 'lib/greed.rb'
+  - 'spec/invalid_quadrilateral_spec.rb'
+
+RSpec/MultipleExpectations:
+  Max: 4
 
 Style/HashEachMethods:
   Enabled: true
@@ -16,3 +32,7 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Style/SymbolArray:
+  Enabled: false
+
