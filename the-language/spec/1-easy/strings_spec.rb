@@ -53,8 +53,8 @@ Humpty dumpty had a great fall
     STRING
 
     expect(string.length).to eq(62)
-    expect(string.lines.count).to eq(3)
-    expect(string[0, 1]).to eq("\n")
+    expect(string.lines.count).to eq(2)
+    expect(string[0, 1]).to eq("H")
   end
 
   it 'can be concatenated with the +' do
@@ -78,89 +78,89 @@ Humpty dumpty had a great fall
     subject  = 'World!'
     greeting += subject
 
-    expect(original_greeting).to eq(__)
+    expect(original_greeting).to eq('Hello, ')
     expect(greeting).to eq('Hello, World!')
   end
 
   it 'will interpret escape characters with double quotes' do
     string = "\n"
-    expect(string.size).to eq(__)
+    expect(string.size).to eq(1)
   end
 
   it "won't interpret escape characters with single quotes" do
     string = '\n'
-    expect(string.size).to eq(__)
+    expect(string.size).to eq(2)
   end
 
   it 'does interpret some escape characters with single quotes though' do
     string = '\\\\'
-    expect(string.size).to eq(__)
+    expect(string.size).to eq(2)
   end
 
   it 'can interpolate variable using double quotes' do
     count = 99
     string = "#{count} bottles of beer on the wall."
 
-    expect(string).to eq(__)
+    expect(string).to eq('99 bottles of beer on the wall.')
   end
 
   it "won't interpolate variable using single quotes" do
     count = 99
     string = '#{count} bottles of beer on the wall.'
 
-    expect(string).to eq(__)
+    expect(string).to eq('#{count} bottles of beer on the wall.')
   end
 
   it 'will interporlate any ruby expression' do
     count = 99
     string = "#{(count - 1) / 2} bottles of beer on the wall."
 
-    expect(string).to eq(__)
+    expect(string).to eq("49 bottles of beer on the wall.")
   end
 
   it 'can extract a substring' do
     string = 'Bacon, lettuce and tomato'
 
-    expect(string[7, 3]).to eq(__)
-    expect(string[7..9]).to eq(__)
+    expect(string[7, 3]).to eq('let') #index 7 including the next 3
+    expect(string[7..9]).to eq("let")
   end
 
   it 'can extract a single character' do
     string = 'Bacon, lettuce and tomato'
-    expect(string[1]).to eq(__)
+    expect(string[1]).to eq("a")
   end
 
   it 'represents single characters as strings' do
-    expect(?a).to eq(__)
-    expect(?a == 97).to eq(__)
+    expect(?a).to eq("a")
+    expect(?a == 97).to eq(false)
   end
 
   it 'can split a string' do
     string = 'Strings Are Fun'
     words = string.split
 
-    expect(words).to eq(__)
+    expect(words).to eq(['Strings','Are','Fun'])
   end
 
   it 'can split a string on other characters' do
     string = 'has:many:through'
     words = string.split(':')
 
-    expect(words).to eq(__)
+    expect(words).to eq(['has','many','through'])
   end
 
   it 'can join strings' do
     words = ['Welcome', 'to', 'the', 'joinery']
     string = words.join(' ')
 
-    expect(string).to eq(__)
+    expect(string).to eq('Welcome to the joinery')
   end
 
   it 'is a unique object' do
     a = 'Hello, world!'
     b = 'Hello, world!'
 
-    expect(a == b).to eq(__)
-    expect(a.object_id == b.object_id).to eq(__)
+    expect(a == b).to eq(true)
+    expect(a.object_id == b.object_id).to eq(false)
   end
 end
