@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 # The following code is to support the testing of the Proxy class.
 # No changes should be necessary to anything in this file
