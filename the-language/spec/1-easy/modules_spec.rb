@@ -14,10 +14,10 @@ RSpec.describe 'modules' do
   it 'is not possible to instantiate a module' do
     expect do
       Nameable.new
-    end.to raise_error(__)
+    end.to raise_error(NoMethodError)
   end
 
-  class Dog
+  class Dog1
     include Nameable
 
     attr_reader :name
@@ -36,28 +36,28 @@ RSpec.describe 'modules' do
   end
 
   it 'has access to normal instance methods' do
-    fido = Dog.new
-    expect(fido.bark).to eq(__)
+    fido = Dog1.new
+    expect(fido.bark).to eq('WOOF')
   end
 
   it 'also has access to methods defined by the included module' do
-    fido = Dog.new
+    fido = Dog1.new
 
-    raise "remove this line when you've read and understood the code below"
+    
     expect do
       fido.set_name('Rover')
     end.not_to raise_error
   end
 
   it 'can change instance variables from a method defined in a module' do
-    fido = Dog.new
-    expect(fido.name).to eq(__)
+    fido = Dog1.new
+    expect(fido.name).to eq("Fido")
     fido.set_name('Rover')
-    expect(fido.name).to eq(__)
+    expect(fido.name).to eq("Rover")
   end
 
   it 'a method defined in a class overrides an included method from a module' do
-    fido = Dog.new
-    expect(fido.here).to eq(__)
+    fido = Dog1.new
+    expect(fido.here).to eq(:in_object)
   end
 end
