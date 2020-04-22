@@ -23,7 +23,36 @@ And the letters "ba" may look like this
 
 Our task is to solve this puzzle where we can render any single input as a dotmatrix display
 
-The rules are not concrete; but I would advise solving in the following order
+## Setup
+
+Install the dependencies:
+
+```bash
+$ gem install bundler # if you don't have it already
+$ bundle
+```
+
+## Working through the exercise
+
+To run the exercise, you just need to run:
+
+```
+$ rspec
+```
+
+The first time you run this you should see a large output. Which contains:
+
+```
+Finished in 0.00323 seconds (files took 0.05911 seconds to load)
+14 examples, 14 failures
+```
+
+Again as before, our job is to now write the code that makes the specs pass one at a time. However
+this time it's different as we can tackle them in any way we see fit.
+
+I would advise here we follow a purists view of TDD and make the first couple of tests pass,
+and then begin to think about how to simplify and start generalising your work.
+The advice is to solve the problem in the following order
 
 1. Create a method which returns just the number `8` always - This is the easiest one
 1. Optimise this solution to then return the number `0` or number `8`
@@ -60,36 +89,6 @@ a digit could be taller, and then naturally we'll permit both, so it can be wide
 course it goes without saying this needs to work for letters and numbers, and any length of
 letters or numbers. Numbers and letters will never be mixed - So you won't need to solve for say
 `'ab123d'` - However this could be left as an extension task after the training course is completed.
-
-## Setup
-
-Install the dependencies:
-
-```bash
-$ gem install bundler # if you don't have it already
-$ bundle
-```
-
-## Working through the exercise
-
-To run the exercise, you just need to run:
-
-```
-$ rspec
-```
-
-The first time you run this you should see a large output. Which contains:
-
-```
-Finished in 0.00323 seconds (files took 0.05911 seconds to load)
-14 examples, 14 failures
-```
-
-Again as before, our job is to now write the code that makes the specs pass one at a time. However
-this time it's different as we can tackle them in any way we see fit.
-
-I would advise here we follow a purists view of TDD and make the first couple of tests pass, and then
-begin to think about how to simplify and start generalising your work.
 
 ## Committing your work
 

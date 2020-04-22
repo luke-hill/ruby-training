@@ -36,9 +36,7 @@ RSpec.describe 'message passing' do
 
     expect(mc.__send__(:caught?)).to eq(__)
 
-    # THINK ABOUT IT:
-    #
-    # Why does Ruby provide both send and __send__ ?
+    # THINK ABOUT IT: Why does Ruby provide both send and __send__ ?
   end
 
   it 'can ask an object if it know how to respond' do

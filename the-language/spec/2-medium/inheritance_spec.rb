@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe 'inheritance' do
-  class Dog
+  class OtherDog
     attr_reader :name
 
     def initialize(name)
@@ -13,7 +13,7 @@ RSpec.describe 'inheritance' do
     end
   end
 
-  class Chihuahua < Dog
+  class Chihuahua < OtherDog
     def wag
       :happy
     end
@@ -24,7 +24,7 @@ RSpec.describe 'inheritance' do
   end
 
   it 'sets the subclass parent as an ancestor' do
-    expect(Chihuahua.ancestors.include?(Dog)).to eq(__)
+    expect(Chihuahua.ancestors.include?(OtherDog)).to eq(__)
   end
 
   it 'will ultimately inherit from Object' do
@@ -41,7 +41,7 @@ RSpec.describe 'inheritance' do
     expect(chico.wag).to eq(__)
 
     expect do
-      fido = Dog.new('Fido')
+      fido = OtherDog.new('Fido')
       fido.wag
     end.to raise_error(__)
   end
@@ -50,11 +50,11 @@ RSpec.describe 'inheritance' do
     chico = Chihuahua.new('Chico')
     expect(chico.bark).to eq(__)
 
-    fido = Dog.new('Fido')
+    fido = OtherDog.new('Fido')
     expect(fido.bark).to eq(__)
   end
 
-  class BullDog < Dog
+  class BullDog < OtherDog
     def bark
       super + ', GROWL'
     end
@@ -65,7 +65,7 @@ RSpec.describe 'inheritance' do
     expect(ralph.bark).to eq(__)
   end
 
-  class GreatDane < Dog
+  class GreatDane < OtherDog
     def growl
       super.bark + ', GROWL'
     end

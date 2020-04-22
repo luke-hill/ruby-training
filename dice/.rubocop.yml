@@ -1,6 +1,6 @@
 require:
-- rubocop-performance
-- rubocop-rspec
+  - rubocop-performance
+  - rubocop-rspec
 
 Lint/RaiseException:
   Enabled: true
@@ -9,13 +9,12 @@ Lint/StructNewOverride:
   Enabled: true
 
 Metrics/BlockLength:
-  Max: 35
-
-Layout/LineLength:
-  Max: 400
+  Max: 100
 
 Style/HashEachMethods:
   Enabled: true
+  Exclude:
+    - 'spec/rolling_spec.rb'
 
 Style/HashTransformKeys:
   Enabled: true

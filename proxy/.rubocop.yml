@@ -9,10 +9,13 @@ Lint/StructNewOverride:
   Enabled: true
 
 Metrics/BlockLength:
-  Max: 35
+  Max: 75
 
-Layout/LineLength:
-  Max: 400
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/PredicateMatcher:
+  Enabled: false
 
 Style/HashEachMethods:
   Enabled: true

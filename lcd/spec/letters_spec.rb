@@ -4,8 +4,8 @@ require 'lcd'
 
 describe LCD do
   context 'viewing letters from a-f' do
-    let(:acb) { LCD.new('acb') }
-    let(:fed) { LCD.new('fed') }
+    let(:acb) { described_class.new('acb') }
+    let(:fed) { described_class.new('fed') }
 
     it 'should render acb' do
       expected = <<~SQUIGGLY_HEREDOC

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'triangle' # RSpec automatically adds `lib/` to the LOAD_PATH
-# edit lib/triangle.rb to fix these tests
+# edit lib/greed.rb to fix these tests
 
 RSpec.describe 'triangle types' do
   it 'is equilateral when all sides are the same length' do
