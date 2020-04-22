@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require 'triangle' # RSpec automatically adds `lib/` to the LOAD_PATH
-# edit lib/triangle.rb to fix these tests
+# edit lib/greed.rb to fix these tests
 
 RSpec.describe 'handling errors' do
-  # 2_triangle_spec.rb did not deal with handling errors. Let's handle that
   it 'throws errors for triangles with side length 0' do
     expect { triangle(3, 4, 0) }.to raise_error(TriangleError)
     expect { triangle(0, 1, 0) }.to raise_error(TriangleError)

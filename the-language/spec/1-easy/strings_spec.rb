@@ -160,7 +160,12 @@ Humpty dumpty had a great fall
     a = 'Hello, world!'
     b = 'Hello, world!'
 
-    expect(a == b).to eq(true)
-    expect(a.object_id == b.object_id).to eq(false)
+    expect(a == b).to eq(__)
+    puts a.object_id
+    puts b.object_id
+
+    # What does the above 2 commands show you in the console?
+    # Why do you think this is the case, have a quick think / google
+    expect(a.object_id == b.object_id).to eq(__)
   end
 end
