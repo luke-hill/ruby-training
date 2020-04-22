@@ -11,20 +11,12 @@
 # The proxy class is started for you.  You will need to add a method
 # missing handler and any other supporting methods.
 
-class Proxy
-  def initialize(target_object)
-    @object = target_object
-    # ADD MORE CODE HERE
-  end
-  # WRITE CODE HERE
-end
+require 'proxy'
+require 'television'
 
-RSpec.describe 'the proxy object' do
+RSpec.describe Proxy do
   it 'returns a wrapped object' do
-    # NOTE: The Television class is defined below
     tv = Proxy.new(Television.new)
-
-    # HINT: Proxy class is defined above, may need tweaking...
 
     expect(tv).to be_a(Proxy)
   end
@@ -51,9 +43,7 @@ RSpec.describe 'the proxy object' do
   it 'handles invalid messages' do
     tv = Proxy.new(Television.new)
 
-    expect do
-      tv.no_such_method
-    end.to raise_error(NoMethodError)
+    expect { tv.no_such_method }.to raise_error(NoMethodError)
   end
 
   it 'reports proxy methods have been called' do
@@ -89,63 +79,4 @@ RSpec.describe 'the proxy object' do
   end
 end
 
-# ====================================================================
-# The following code is to support the testing of the Proxy class.  No
-# changes should be necessary to anything below this comment.
 
-# Example class using in the proxy testing above.
-class Television
-  attr_accessor :channel
-
-  def power
-    if @power == :on
-      @power = :off
-    else
-      @power = :on
-    end
-  end
-
-  def on?
-    @power == :on
-  end
-end
-
-# Tests for the Television class.  All of theses tests should pass.
-RSpec.describe 'a television' do
-  it 'turns on' do
-    tv = Television.new
-
-    tv.power
-    expect(tv).to be_on
-  end
-
-  it 'also turns off' do
-    tv = Television.new
-
-    tv.power
-    tv.power
-
-    expect(tv).not_to be_on
-  end
-
-  it 'turns back on and off' do
-    tv = Television.new
-
-    tv.power
-    tv.power
-    tv.power
-
-    expect(tv).to be_on
-
-    tv.power
-
-    expect(tv).not_to be_on
-  end
-
-  it 'can set a channel' do
-    tv = Television.new
-
-    tv.channel = 11
-    expect(tv.channel).to eq(11)
-  end
-end
