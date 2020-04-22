@@ -52,13 +52,13 @@ RSpec.describe "Ruby's True and False" do
     end
 
     it 'can match true exactly with be(true) or eq(true) matchers' do
-      expect(true).to be(__)
-      expect(true).to eq(__)
+      expect(true).to be(true)
+      expect(true).to eq(true)
     end
 
     it 'can match false exactly with be(false) or be(true) matchers' do
-      expect(false).to be(__)
-      expect(false).to eq(__)
+      expect(false).to be(false)
+      expect(false).to eq(false)
     end
   end
 end
