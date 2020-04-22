@@ -141,7 +141,7 @@ RSpec.describe 'ruby classes' do
     fido = Dog7.new('Fido')
 
     fidos_self = fido.get_self
-    #expect(fidos_self).to eq(<Dog named \'Fido\'>)
+    expect(fidos_self).to eq(fido)
     # literally tried 3 dozen answer iterations and googled rspec inspect to_s for 30 more minutes no idea what to put here
   end
 
