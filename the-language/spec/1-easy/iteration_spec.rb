@@ -56,55 +56,34 @@ RSpec.describe 'iterating in ruby' do
   it 'can detect the first matching element' do
     array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
 
-<<<<<<< HEAD
-    expect(array.find { |item| item.size > 4 }).to eq('Clarence')
-=======
-    expect(array.detect { |item| item.length > 4 }).to eq(__)
+    expect(array.detect { |item| item.length > 4 }).to eq('Clarence')
 
     # NOTE: 'find' is another name for the 'detect' operation
-    expect(array.find { |item| item.length > 4 }).to eq(__)
->>>>>>> upstream/master
+    expect(array.find { |item| item.length > 4 }).to eq('Clarence')
   end
 
-  "it 'can `inject` a value - and probably blow your mind' do
+  it 'can `inject` a value - and probably blow your mind' do
     result = [2, 3, 4].inject(0) { |sum, item| sum + item }
     expect(result).to eq(9)
 
     result2 = [2, 3, 4].inject(1) { |product, item| product * item }
-    expect(result2).to eq(24)"
+    expect(result2).to eq(24)
 
-<<<<<<< HEAD
-    # WT*: 
-    # 'inject' can give us a value with which we can modify the array in the way we need
-=======
     result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
     expect(result3).to eq(__)
 
     # Describe in your own words what inject does.
   end
->>>>>>> upstream/master
 
-  """it 'can use iteration methods on all collections, not just array' do
+  it 'can use iteration methods on all collections, not just array' do
     # Ranges act like a collection
     result = (1..3).map { |item| item + 10 }
     expect(result).to eq(__)
 
-<<<<<<< HEAD
-    # Files act like a collection of lines
-    File.open('spec/example_file.txt') do |file|
-      upcase_lines = file.map { |line| line.strip.upcase }
-      expect(upcase_lines).to eq()
-    end
-
-    # NOTE: You can create your own collections that work with each,
-    # map, select, etc.
-  end"""
-=======
     result = (5...10).map { |item| item + 10 }
     expect(result).to eq(__)
 
     # NOTE: You can create your own collections that work with each,
     # map, select, and other enumerable methods
   end
->>>>>>> upstream/master
 end

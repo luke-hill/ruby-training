@@ -1,12 +1,7 @@
 RSpec.describe 'a string in Ruby' do
   it 'can be created with double quotes' do
-<<<<<<< HEAD
-    string = 'Hello, world!'
-    expect(string.is_a?(String)).to eq(true)
-=======
     string = "Hello, world!"
-    expect(string.is_a?(String)).to eq(__)
->>>>>>> upstream/master
+    expect(string.is_a?(String)).to eq(true)
   end
 
   it 'can be created with single quotes' do
@@ -83,21 +78,8 @@ Humpty dumpty had a great fall
     subject  = 'World!'
     greeting += subject
 
-<<<<<<< HEAD
-    expect(original_greeting).to eq('Hello, ')
-  end
-
-  it 'will also add to the end of the string using the shovel operator' do
-    original_greeting = 'Hello, '
-    greeting = original_greeting
-    subject  = 'World!'
-    greeting = subject
-
-    expect(original_greeting).to eq("Hello, ")
-=======
     expect(original_greeting).to eq(__)
     expect(greeting).to eq(__)
->>>>>>> upstream/master
   end
 
   it 'will interpret escape characters with double quotes' do
@@ -149,35 +131,22 @@ Humpty dumpty had a great fall
   end
 
   it 'represents single characters as strings' do
-<<<<<<< HEAD
-    expect('a').to eq("a")
-    expect('a' == 97).to eq(false)
-=======
     expect(?a).to eq(__)
     expect(?a == 97).to eq(__)
->>>>>>> upstream/master
   end
 
   it 'can split a string' do
     string = 'Strings Are Fun'
     words = string.split
 
-<<<<<<< HEAD
-    expect(words).to eq(['Strings', 'Are', "Fun"])
-=======
     expect(words).to eq(__)
->>>>>>> upstream/master
   end
 
   it 'can split a string on other characters' do
     string = 'has:many:through'
     words = string.split(':')
 
-<<<<<<< HEAD
     expect(words).to eq(['has', 'many', 'through'])
-=======
-    expect(words).to eq(__)
->>>>>>> upstream/master
   end
 
   it 'can join strings' do
@@ -191,10 +160,6 @@ Humpty dumpty had a great fall
     a = 'Hello, world!'
     b = 'Hello, world!'
 
-<<<<<<< HEAD
-    expect(a == b).to eq(true)
-    expect(a.object_id == b.object_id).to eq(true)
-=======
     expect(a == b).to eq(__)
     puts a.object_id
     puts b.object_id
@@ -202,6 +167,5 @@ Humpty dumpty had a great fall
     # What does the above 2 commands show you in the console?
     # Why do you think this is the case, have a quick think / google
     expect(a.object_id == b.object_id).to eq(__)
->>>>>>> upstream/master
   end
 end 
