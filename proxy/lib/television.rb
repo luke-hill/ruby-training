@@ -5,7 +5,7 @@
 
 # Example Television class being used in the proxy testing
 class Television
-  attr_accessor :channel, :power
+  attr_accessor :channel
   attr_writer :power
 
   def power

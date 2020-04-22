@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 require 'television'
 
@@ -18,16 +18,12 @@ RSpec.describe Television do
     expect(tv).not_to be_on
   end
 
-  it 'turns back on and off' do
+  it 'can turn itself on then off then back on' do
     tv.power
     tv.power
     tv.power
 
     expect(tv).to be_on
-
-    tv.power
-
-    expect(tv).not_to be_on
   end
 
   it 'can set a channel' do

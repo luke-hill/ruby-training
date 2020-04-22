@@ -8,6 +8,15 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
+Metrics/BlockLength:
+  Max: 75
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/PredicateMatcher:
+  Enabled: false
+
 Style/HashEachMethods:
   Enabled: true
 

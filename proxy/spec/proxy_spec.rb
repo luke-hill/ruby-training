@@ -27,7 +27,7 @@ RSpec.describe Proxy do
       tv_proxy.power
       tv_proxy.channel = 10
 
-      expect(tv_proxy.messages).to eq([:power, :channel=])
+      expect(tv_proxy.messages).to eq(%i[power channel=])
     end
 
     it 'handles invalid messages' do
@@ -67,7 +67,7 @@ RSpec.describe Proxy do
       expect(tv_proxy.number_of_times_called(:power)).to eq(3)
     end
   end
-  
+
   context 'with a string proxy' do
     let(:string_proxy) { Proxy.new('Code Mash 2009') }
 
@@ -79,14 +79,14 @@ RSpec.describe Proxy do
       string_proxy.upcase!
       result = string_proxy.split
 
-      expect(result).to eq(['CODE', 'MASH', '2009'])
+      expect(result).to eq(%w[CODE MASH 2009])
     end
 
     it 'records messages sent to the string' do
       string_proxy.upcase
       string_proxy.split
 
-      expect(string_proxy.messages).to eq([:upcase, :split])
+      expect(string_proxy.messages).to eq(%i[upcase split])
     end
   end
 end
