@@ -5,11 +5,9 @@ class Bottles
       verses(99,0)
   end
 
-  def verses(arg1,arg2)
-    args = [*arg1..arg2]
-    args.each do |arg1|
-      verse(arg1)
-    end
+  def verses(arg1, arg2)
+    args = *(arg1..arg2)
+    args.each { |item| verse(item) } # No idea why this doesnt work
   end
 
   def verse(arg1)
