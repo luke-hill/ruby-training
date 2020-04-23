@@ -70,7 +70,7 @@ RSpec.describe 'iterating in ruby' do
     expect(result2).to eq(24)
 
     result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
-    expect(result3).to eq(__)
+    expect(result3).to eq('abc')
 
     # Describe in your own words what inject does.
   end
@@ -78,10 +78,10 @@ RSpec.describe 'iterating in ruby' do
   it 'can use iteration methods on all collections, not just array' do
     # Ranges act like a collection
     result = (1..3).map { |item| item + 10 }
-    expect(result).to eq(__)
+    expect(result).to eq([11, 12, 13])
 
     result = (5...10).map { |item| item + 10 }
-    expect(result).to eq(__)
+    expect(result).to eq([15, 16, 17, 18, 19])
 
     # NOTE: You can create your own collections that work with each,
     # map, select, and other enumerable methods
