@@ -43,7 +43,7 @@ RSpec.describe 'Class methods' do
 
     expect do
       rover.wag
-    end.to raise_error(__)
+    end.to raise_error(:fidos_wag)
   end
 
   class Dog2
