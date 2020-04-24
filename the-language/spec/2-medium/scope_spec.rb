@@ -3,36 +3,34 @@
 # Notice that we have define everything inside the Scopes module
 module Scopes
   RSpec.describe 'scope' do
-    module Jims
-      class Dog
+    module Jim
+      class Otter
         def identify
-          :jims_dog
+          :jims_otter
         end
       end
     end
 
-    module Joes
-      class Dog
+    module Joe
+      class Otter
         def identify
-          :joes_dog
+          :joes_otter
         end
       end
     end
 
-    it 'cannot access Dog in the current scope' do
-      expect do
-        Dog.new
-      end.to raise_error(__)
+    it 'cannot access Otter in the current scope' do
+      expect {  Otter.new }.to raise_error(__)
     end
 
     it 'can reference nested classes using the scope operator' do
-      fido = Jims::Dog.new
-      rover = Joes::Dog.new
-      expect(fido.identify).to eq(__)
-      expect(rover.identify).to eq(__)
+      alfie = Jim::Otter.new
+      bonnie = Joe::Otter.new
+      expect(alfie.identify).to eq(__)
+      expect(bonnie.identify).to eq(__)
 
-      expect(fido.class != rover.class).to eq(__)
-      expect(Jims::Dog != Joes::Dog).to eq(__)
+      expect(alfie.class != bonnie.class).to eq(__)
+      expect(Jim::Otter != Joe::Otter).to eq(__)
     end
 
     class String
@@ -69,7 +67,7 @@ module Scopes
     end
 
     it 'can give you a list of all constants for any class or module' do
-      expect(Jims.constants).to eq(__)
+      expect(Jim.constants).to eq(__)
       expect(Object.constants.size > __).to be_truthy
     end
   end

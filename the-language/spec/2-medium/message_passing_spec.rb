@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.describe 'message passing' do
+  # The purpose of this Koan is to start showing you a VERY brief introduction
+  # to metaprogramming, i.e. programming on-the-fly, or programmatically
+  # create code that can be dynamic
+  #
+  # This is a concept that isn't used in a lot of instances, and where it is
+  # used developers tend to use as simple a case as possible, as you can
+  # imagine, this can get VERY complex, very quickly!
   class MessageCatcher
     def caught?
       true
