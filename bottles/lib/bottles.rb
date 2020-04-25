@@ -8,8 +8,6 @@ class Bottles
   def line_1(beers)
     if number == 0
       "No more bottles of beer on the wall, no more bottles of beer.\n"
-    elsif number == 2
-      "2 bottles of beer on the wall, 2 bottles of beer.\n"
     elsif number == 1
       "1 bottle of beer on the wall, 1 bottle of beer.\n"
     else
