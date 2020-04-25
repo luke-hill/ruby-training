@@ -10,10 +10,10 @@ RSpec.describe "Ruby's Hash structure" do
 
   it 'can be created using the hash literal syntax' do
     empty_hash = {}
-    expect(empty_hash).to eq(__)
+    expect(empty_hash).to eq({})
 
     hash = { one: 1, two: 2 }
-    expect(hash.length).to eq(__)
+    expect(hash.length).to eq(2)
   end
 
   it 'has a subscript syntax for accessing elements' do
