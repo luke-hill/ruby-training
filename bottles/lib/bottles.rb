@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
 class Bottles
-  def verse(beers)
-    line_1(beers)line_2(beers)
+  def verses(start_verse, end_verse)
+    total_verses = (start_verse..end_verse)
+    
   end
 
-  def line_1(beers)
+  def verse(number)
+    "#{line_1(number)}#{line_2(number)}"
+  end
+
+  def line_1(number)
     if number == 0
       "No more bottles of beer on the wall, no more bottles of beer.\n"
     elsif number == 1
@@ -15,7 +20,7 @@ class Bottles
     end
   end
 
-  def line_2(beers)
+  def line_2(number)
     if number == 0
       "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
     elsif number == 2
