@@ -2,15 +2,30 @@
 
 class Bottles
   def verse(beers)
-    number = beers
+    line_1(beers)line_2(beers)
+  end
+
+  def line_1(beers)
     if number == 0
-      verse = "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
+      "No more bottles of beer on the wall, no more bottles of beer.\n"
     elsif number == 2
-      verse = "2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n"
+      "2 bottles of beer on the wall, 2 bottles of beer.\n"
     elsif number == 1
-      verse = "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
+      "1 bottle of beer on the wall, 1 bottle of beer.\n"
     else
-      verse =   "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number - 1} bottles of beer on the wall.\n"
+      "#{number} bottles of beer on the wall, #{number} bottles of beer.\n"
+    end
+  end
+
+  def line_2(beers)
+    if number == 0
+      "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+    elsif number == 2
+      "Take one down and pass it around, 1 bottle of beer on the wall.\n"
+    elsif number == 1
+      "Take it down and pass it around, no more bottles of beer on the wall.\n"
+    else
+      "Take one down and pass it around, #{number - 1} bottles of beer on the wall.\n"
     end
   end
 end
