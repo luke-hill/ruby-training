@@ -52,21 +52,13 @@ RSpec.describe "Ruby's True and False" do
     end
 
     it 'can match true exactly with be(true) or eq(true) matchers' do
-      # pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
       expect(true).to be(true)
       expect(true).to eq(true)
-
-      expect(1).not_to be(true)
-      expect(0).not_to eq(true)
     end
 
     it 'can match false exactly with be(false) or be(true) matchers' do
-      # pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
       expect(false).to be(false)
       expect(false).to eq(false)
-
-      expect(nil).not_to be(true)
-      expect(nil).not_to eq(true)
     end
   end
 end

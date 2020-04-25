@@ -26,4 +26,29 @@ RSpec.describe 'nil in Ruby' do
     expect(nil.to_s).to eq('')
     expect(nil.inspect).to eq('nil')
   end
+
+  context 'rspec matchers' do
+    class NilObject
+      def nil?
+        true
+      end
+    end
+
+    class NotNilObject
+      def nil?
+        false
+      end
+    end
+
+    it 'can match objects to nil directly' do
+      expect(__).to be nil
+      expect(__).to eq nil
+    end
+
+    it 'can match objects that respond to nil?' do
+      # Make sure you use the objects above
+      expect(__).to be_nil
+      expect(__).not_to be_nil
+    end
+  end
 end
