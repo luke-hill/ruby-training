@@ -21,22 +21,13 @@ RSpec.describe 'exceptions' do
 
     expect(result).to eq(:exception_handled)
 
-<<<<<<< HEAD
     expect(e.is_a?(StandardError)).to eq(true), 'Should be a Standard Error'
     expect(e.is_a?(RuntimeError)).to eq(true),  'Should be a Runtime Error'
-=======
-    expect(e.is_a?(StandardError)).to eq(__), 'Should be a Standard Error'
-    expect(e.is_a?(RuntimeError)).to eq(__),  'Should be a Runtime Error'
->>>>>>> luke/master
 
     expect(RuntimeError.ancestors.include?(StandardError))
       .to be(true), 'RuntimeError is a subclass of StandardError'
 
-<<<<<<< HEAD
     expect(e.message).to eq('Oops')
-=======
-    expect(e.message).to eq(__)
->>>>>>> luke/master
   end
 
   it 'can raise a specific error' do

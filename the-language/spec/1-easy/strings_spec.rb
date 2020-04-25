@@ -1,6 +1,8 @@
+
+
 RSpec.describe 'a string in Ruby' do
   it 'can be created with double quotes' do
-    string = 'Hello, world!'
+    string = "Hello, world!"
     expect(string.is_a?(String)).to eq(true)
   end
 
@@ -131,35 +133,22 @@ Humpty dumpty had a great fall
   end
 
   it 'represents single characters as strings' do
-<<<<<<< HEAD
-    expect('a').to eq("a")
-    expect('a' == 97).to eq(false)
-=======
-    expect(?a).to eq(__)
-    expect(?a == 97).to eq(__)
->>>>>>> luke/master
+    expect(?a).to eq('a')
+    expect(?a == 97).to eq(false)
   end
 
   it 'can split a string' do
     string = 'Strings Are Fun'
     words = string.split
 
-<<<<<<< HEAD
     expect(words).to eq(["Strings", "Are", "Fun"])
-=======
-    expect(words).to eq(__)
->>>>>>> luke/master
   end
 
   it 'can split a string on other characters' do
     string = 'has:many:through'
     words = string.split(':')
 
-<<<<<<< HEAD
     expect(words).to eq(["has", "many", "through"])
-=======
-    expect(words).to eq(__)
->>>>>>> luke/master
   end
 
   it 'can join strings' do
@@ -173,17 +162,12 @@ Humpty dumpty had a great fall
     a = 'Hello, world!'
     b = 'Hello, world!'
 
-<<<<<<< HEAD
-    expect(a == b).to eq(true)
-    expect(a.object_id == b.object_id).to eq(true)
-=======
     expect(a == b).to eq(__)
     puts a.object_id
     puts b.object_id
 
     # What does the above 2 commands show you in the console?
     # Why do you think this is the case, have a quick think / google
-    expect(a.object_id == b.object_id).to eq(__)
->>>>>>> luke/master
+    expect(a.object_id == b.object_id).to eq(false)
   end
 end

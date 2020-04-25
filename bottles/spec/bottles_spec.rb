@@ -11,25 +11,25 @@ describe Bottles do
   end
 
   it 'can sing another typical verse' do
-    skip
+    #skip
     expected = "3 bottles of beer on the wall, 3 bottles of beer.\nTake one down and pass it around, 2 bottles of beer on the wall.\n"
     expect(song.verse(3)).to eq(expected)
   end
 
   it 'can sing about 1 bottle' do
-    skip
+    #skip
     expected = "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
     expect(song.verse(1)).to eq(expected)
   end
 
   it 'can sing about 2 bottles' do
-    skip
+    #skip
     expected = "2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n"
     expect(song.verse(2)).to eq(expected)
   end
 
   it 'can sing about no more bottles' do
-    skip
+    #skip
     expected = "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
     expect(song.verse(0)).to eq(expected)
   end
