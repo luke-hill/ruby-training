@@ -4,10 +4,9 @@ A small set of ruby code tests, each of them is split into a small lib file (Whi
 and then a set of specs that need to be fulfilled
 
 1. Create a class that can convert numbers into words
-1. Create a class that can iterate through an array, and return the missing number
 1. Create a fizz-buzz game that works up to 30.
 1. Create a class that can convert an array of numbers into a more human readable range-style set
-1. Create a simple Mars Rover that can move in some directions and respond to human input.
+1. Create a class that can iterate through an array, and return the missing number
 
 ## Setup
 

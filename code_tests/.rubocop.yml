@@ -9,6 +9,9 @@ AllCops:
 Layout/LineLength:
   Max: 140
 
+Lint/StructNewOverride:
+  Enabled: true
+
 Lint/RaiseException:
   Enabled: true
 
