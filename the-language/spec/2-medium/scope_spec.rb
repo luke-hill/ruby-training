@@ -20,7 +20,7 @@ module Scopes
     end
 
     it 'cannot access Otter in the current scope' do
-      expect {  Otter.new }.to raise_error(__)
+      expect { Otter.new }.to raise_error(__)
     end
 
     it 'can reference nested classes using the scope operator' do
