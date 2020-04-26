@@ -2,6 +2,10 @@ require:
 - rubocop-performance
 - rubocop-rspec
 
+AllCops:
+  Exclude:
+    - 'sample_answers/*.rb'
+
 Layout/LineLength:
   Max: 140
 
