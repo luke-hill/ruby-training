@@ -2,8 +2,14 @@ require:
 - rubocop-performance
 - rubocop-rspec
 
+Layout/LineLength:
+  Max: 140
+
 Lint/RaiseException:
   Enabled: true
+
+Metrics/BlockLength:
+  Max: 75
 
 Style/HashEachMethods:
   Enabled: true
