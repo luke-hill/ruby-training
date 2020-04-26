@@ -1,0 +1,25 @@
+require:
+- rubocop-performance
+- rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'sample_answers/*.rb'
+
+Layout/LineLength:
+  Max: 140
+
+Lint/RaiseException:
+  Enabled: true
+
+Metrics/BlockLength:
+  Max: 75
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
