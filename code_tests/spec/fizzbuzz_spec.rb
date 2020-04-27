@@ -5,7 +5,7 @@ require 'fizzbuzz'
 RSpec.describe Fizzbuzz do
   let(:fizzbuzz) { subject }
 
-  it 'plays fizzbuzz to 5 with fizz rules' do
+  it 'plays fizzbuzz to 3 with fizz rules' do
     expect(fizzbuzz.play(3)).to eq([1, 2, 'fizz'])
   end
 
