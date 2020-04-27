@@ -10,6 +10,14 @@ called [RSpec](https://github.com/rspec/rspec). Some of the syntax used may look
 unfamiliar, but it should be quite readable. We will learn what all of the
 syntax means as we work through the problems.
 
+We are going to perform a set of exercises called Koans. Adapted from the Ruby-Koans guide.
+Koans are akin to how you may have solved primary school maths, with such problems as
+`2 + _ = 5` - What is the missing number? It is obviously 3.
+
+Here we have the same problem. Starting with nice easy ones like `expect(1 + 1).to eq (__)` and
+ending with metaprogramming concepts that will allow you to send messages between 2 different "Classes"
+(A class is just a single thing, like a dog or cat).
+
 ## Setup
 
 Install the dependencies:
