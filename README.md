@@ -2,8 +2,38 @@
 
 ## Dependencies
 
-* git([windows](http://msysgit.github.com/), [mac os x: using brew](http://brew.sh/), linux: [ubuntu_rvm](https://github.com/rvm/ubuntu_rvm))
-* rvm - With Ruby `2.5.8` and `2.7.1` installed
+### Dependency installation on mac
+
+```shell
+ # Install brew from http://brew.sh/
+ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ $ brew doctor
+ $ xcode-select --install
+ $ brew update
+ $ brew install git
+ $ git --version # This should output a number
+ $ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+ # Quit the terminal once this has installed, and restart your machine
+ $ type rvm | head -1
+ $ rvm -v # This should output a number
+ $ rvm install 2.5.8
+ $ rvm install 2.7.1
+```
+
+### Dependency installation on ubuntu
+
+```shell
+  $ sudo apt-get install git
+  $ sudo apt-get install software-properties-common
+  $ sudo apt-add-repository -y ppa:rael-gc/rvm
+  $ sudo apt-get update
+  $ sudo apt-get install rvm
+  # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
+  # Restart your terminal completely, and restart your machine
+  $ rvm -v # This should output a number
+  $ rvm install 2.5.8
+  $ rvm install 2.7.1
+```
 
 ## Setup
 

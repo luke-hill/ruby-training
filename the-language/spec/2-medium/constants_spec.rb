@@ -51,8 +51,8 @@ describe 'Ruby Constant' do
     end
   end
 
-  it 'inherits constants in subclasses from the parent class' do
-    expect(Reptile.new.legs_in_reptile).to eq(4)
+  it 'inherits constants when subclassed from the parent class' do
+    expect(Reptile.new.legs_in_reptile).to eq(__)
   end
 
   class MyAnimals
@@ -65,8 +65,8 @@ describe 'Ruby Constant' do
     end
   end
 
-  it 'can add a new constant in a subclass' do
-    expect(MyAnimals::Bird.new.legs_in_bird).to eq(2)
+  it 'can add a new overridden constant in a subclass' do
+    expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
   end
 
   class MyAnimals
@@ -77,7 +77,9 @@ describe 'Ruby Constant' do
     end
   end
 
-  it 'is different when the lexical scope changes' do
-    expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(2)
+  context 'with an inherited class and an enclosing class' do
+    it 'uses the top level enclosing class as the source of truth' do
+      expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(__)
+    end
   end
 end

@@ -80,8 +80,6 @@ Style/FrozenStringLiteralComment:
 
 Style/HashEachMethods:
   Enabled: true
-  Exclude:
-  - 'spec/3-hard/1_dice_project_spec.rb'
 
 Style/HashTransformKeys:
   Enabled: true

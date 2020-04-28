@@ -37,9 +37,7 @@ RSpec.describe 'sandwich code' do
     expect(find_line(EXAMPLE_FILE)).to eq(__)
   end
 
-  # What do you notice about `find_line` and `count_lines`?
-  #
-  # How are they similar?
+  # What do you notice with `find_line` & `count_lines`? How are they similar?
   #
   # They both follow a similar pattern - but the difference is in the
   # middle - like a sandwich.
@@ -50,7 +48,8 @@ RSpec.describe 'sandwich code' do
   # Pulling out the top and bottom parts into a library is difficult in
   # many languages.
   #
-  # Consider the following code:
+  # Consider the following code, where we try to start "simplifying" our
+  # construct of the sandwhich, so we have re-usable code
 
   def file_sandwich(file_name)
     file = open(file_name)
@@ -94,6 +93,6 @@ RSpec.describe 'sandwich code' do
   end
 
   it 'supports passing a block to open' do
-    expect(count_lines3('example_file.txt')).to eq(__)
+    expect(count_lines3(EXAMPLE_FILE)).to eq(__)
   end
 end

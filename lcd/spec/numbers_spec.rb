@@ -3,12 +3,12 @@
 require 'lcd'
 
 describe LCD do
-  context 'viewing a single digit' do
+  context 'when viewing a single digit' do
     let(:zero)  { described_class.new(0) }
     let(:six)   { described_class.new(6) }
     let(:eight) { described_class.new(8) }
 
-    it 'should render a 0' do
+    it 'renders a 0' do
       expected = <<~SQUIGGLY_HEREDOC
          _ 
         | |
@@ -18,7 +18,7 @@ describe LCD do
       expect(zero.render).to eq(expected)
     end
 
-    it 'should render a 6' do
+    it 'renders a 6' do
       expected = <<~SQUIGGLY_HEREDOC
          _ 
         |_ 
@@ -28,7 +28,7 @@ describe LCD do
       expect(six.render).to eq(expected)
     end
 
-    it 'should render an 8' do
+    it 'renders an 8' do
       expected = <<~SQUIGGLY_HEREDOC
          _ 
         |_|
@@ -39,11 +39,11 @@ describe LCD do
     end
   end
 
-  context 'viewing multiple digits' do
+  context 'when viewing multiple digits' do
     let(:four_eight_seven) { described_class.new(487) }
     let(:nine_nine_one_three) { described_class.new(9913) }
 
-    it 'should render 487' do
+    it 'renders 487' do
       expected = <<~SQUIGGLY_HEREDOC
             _  _ 
         |_||_|  |
@@ -53,7 +53,7 @@ describe LCD do
       expect(four_eight_seven.render).to eq(expected)
     end
 
-    it 'should render 9913' do
+    it 'renders 9913' do
       expected = <<~SQUIGGLY_HEREDOC
          _  _     _ 
         |_||_|  | _|
