@@ -29,13 +29,13 @@ RSpec.describe 'methods in ruby' do
     expect { eval(code) }.to raise_error(SyntaxError)
   end
 
-  #it 'is not possible to call methods with the wrong number of arguments' do
+  it 'is not possible to call methods with the wrong number of arguments' do
     # HINT: Fill in the error and part of the message
-    #expect { a_global_method }.to raise_error(SyntaxError, /ArgumentError/)
+    expect { a_global_method }.to raise_error(ArgumentError, /wrong number of arguments/)
 
     # HINT: Fill in the error and part of the message
-    #expect { a_global_method(1, 2, 3) }.to raise_error(__, /__/)
-  #end
+    expect { a_global_method(1, 2, 3) }.to raise_error(ArgumentError, /wrong number of arguments/)
+  end
 
   def a_method_with_defaults(a, b = :default_value)
     [a, b]
@@ -119,18 +119,18 @@ RSpec.describe 'methods in ruby' do
       expect(an_object.calls_the_method_on_self).to eq(:the_value)
     end
 
-   # it 'raises an error when calling a private method' do
+    it 'raises an error when calling a private method' do
       # Fill in the error and part of the message to move on
-      #expect { an_object.the_private_method }.to raise_error(__, /__/)
-   # end
+      expect { an_object.the_private_method }.to raise_error(NoMethodError, /private method/)
+    end
 
     it 'can all a private method on the same object' do
       expect(an_object.calls_the_private_method).to eq(:the_private_value)
     end
 
-    #it 'raises an error if a private method has an explicit receiver' do
-    #  expect { an_object.calls_the_private_method_on_self }
-     #   .to raise_error(__, /__/)
-    #end
+    it 'raises an error if a private method has an explicit receiver' do
+      expect { an_object.calls_the_private_method_on_self }
+      expect { a_global_method(1, 2, 3) }.to raise_error(ArgumentError, /wrong number of arguments/)
+    end
   end
 end
