@@ -5,25 +5,25 @@ RSpec.describe 'Class methods' do
   end
 
   it 'all objects are Objects' do
-    fido = Dog.new
-    expect(fido.is_a?(Object)).to eq(__)
+    percy = Cat.new
+    expect(percy.is_a?(Object)).to eq(true)
   end
 
   it 'all classes are Classes' do
-    expect(Dog.is_a?(Class)).to eq(__)
+    expect(Cat.is_a?(Class)).to eq(true)
   end
 
   it 'classes are objects too' do
-    expect(Dog.is_a?(Object)).to eq(__)
+    expect(Cat.is_a?(Object)).to eq(true)
   end
 
   it 'has methods on objects' do
-    fido = Dog.new
-    expect(fido.methods.size > __).to eq(true)
+    percy = Cat.new
+    expect(percy.methods.size > 0).to eq(true)
   end
 
   it 'has methods on classes' do
-    expect(Dog.methods.size > __).to eq(true)
+    expect(Cat.methods.size > 0).to eq(true)
   end
 
   it 'is possible to define a method on an individual object' do
@@ -31,7 +31,7 @@ RSpec.describe 'Class methods' do
     def percy.wag
       :percys_wag
     end
-    expect(fido.wag).to eq(__)
+    expect(percy.wag).to eq(:percys_wag)
   end
 
   it 'does not affect other objects with singleton methods' do
@@ -42,8 +42,8 @@ RSpec.describe 'Class methods' do
     end
 
     expect do
-      rover.wag
-    end.to raise_error(__)
+      not_percy.wag
+    end.to raise_error(NoMethodError)
   end
 
   class Cat2
@@ -57,13 +57,13 @@ RSpec.describe 'Class methods' do
   end
 
   it 'is possible to define singleton methods on classes; they are objects' do
-    expect(Dog2.wag).to eq(__)
+    expect(Cat2.wag).to eq(:class_level_wag)
   end
 
   it 'keeps class and instance methods indepedent' do
-    fido = Dog2.new
-    expect(fido.wag).to eq(__)
-    expect(Dog2.wag).to eq(__)
+    percy = Cat2.new
+    expect(percy.wag).to eq(:instance_level_wag)
+    expect(Cat2.wag).to eq(:class_level_wag)
   end
 
   class Cat3
@@ -75,20 +75,20 @@ RSpec.describe 'Class methods' do
   end
 
   it 'does not share instance variables between classes and instances' do
-    fido = Dog.new
-    fido.name = 'Fido'
-    expect(fido.name).to eq(__)
-    expect(Dog.name).to eq(__)
+    percy = Cat3.new
+    percy.name = 'percy'
+    expect(percy.name).to eq('percy')
+    expect(Cat3.name).to eq(nil)
   end
 
   class Cat4
     def self.a_class_method
-      :dogs_class_method
+      :Cats_class_method
     end
   end
 
   it 'is possible to define a class method inside the class' do
-    expect(Dog.a_class_method).to eq(__)
+    expect(Cat4.a_class_method).to eq(:Cats_class_method)
   end
 
   LAST_EXPRESSION_IN_CLASS_STATEMENT = class Cat5
@@ -96,7 +96,7 @@ RSpec.describe 'Class methods' do
                                        end
 
   it 'returns the last expression inside a class statement' do
-    expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(__)
+    expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(21)
   end
 
   SELF_INSIDE_OF_CLASS_STATEMENT = class Cat5
@@ -104,7 +104,7 @@ RSpec.describe 'Class methods' do
                                    end
 
   it 'uses self to refer to the class, not an instance inside the definition' do
-    expect(Dog == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(__)
+    expect(Cat5 == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(true)
   end
 
   class Cat6
@@ -114,7 +114,7 @@ RSpec.describe 'Class methods' do
   end
 
   it 'is possible to use self to define a class method' do
-    expect(Dog.class_method2).to eq(__)
+    expect(Cat6.class_method).to eq( :another_way_to_write_class_methods)
   end
 
   class Cat7
@@ -126,7 +126,7 @@ RSpec.describe 'Class methods' do
   end
 
   it 'has a third way to define a class method' do
-    expect(Dog.another_class_method).to eq(__)
+    expect(Cat7.another_class_method).to eq( :still_another_way)
   end
 
   # THINK ABOUT IT:
@@ -154,6 +154,6 @@ RSpec.describe 'Class methods' do
       self.class.another_class_method
     end
 
-    expect(fido.instance_method).to eq(__)
+    expect(percy.instance_method).to eq(:still_another_way)
   end
 end
