@@ -16,7 +16,7 @@ RSpec.describe 'sandwich code' do
       count += 1
     end
     count
-  ensure
+  ensure   # make sure this runs even if everything crashes
     file.close if file
   end
 
