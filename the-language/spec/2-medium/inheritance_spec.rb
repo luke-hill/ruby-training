@@ -9,7 +9,7 @@ RSpec.describe 'inheritance' do
     end
 
     def bark
-      'WOOF'
+      'woof'
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe 'inheritance' do
     expect(chico.name).to eq(__)
   end
 
-  it 'can add behaviour in subclass, not in a parent class' do
+  it 'can add behaviour in subclass that does not exist in parent class' do
     chico = Chihuahua.new('Chico')
     expect(chico.wag).to eq(__)
 
@@ -56,7 +56,7 @@ RSpec.describe 'inheritance' do
 
   class BullDog < OtherDog
     def bark
-      super + ', GROWL'
+      super.upcase
     end
   end
 
@@ -67,14 +67,12 @@ RSpec.describe 'inheritance' do
 
   class GreatDane < OtherDog
     def growl
-      super.bark + ', GROWL'
+      super.bark.upcase
     end
   end
 
   it "can't invoke other methods using super" do
     george = GreatDane.new('George')
-    expect do
-      george.growl
-    end.to raise_error(__)
+    expect { george.growl }.to raise_error(__)
   end
 end
