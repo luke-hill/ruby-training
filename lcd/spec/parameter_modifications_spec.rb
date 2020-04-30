@@ -4,11 +4,11 @@ require 'lcd'
 
 describe LCD do
   context 'with parameter modifications' do
-    context 'viewing digits with modified width' do
+    context 'when viewing digits with modified width' do
       let(:eight) { described_class.new(8, width: 2) }
       let(:nine_one_three) { described_class.new(913, width: 4) }
 
-      it 'should render a widened 8' do
+      it 'renders a widened 8' do
         expected = <<~SQUIGGLY_HEREDOC
            __ 
           |__|
@@ -18,7 +18,7 @@ describe LCD do
         expect(eight.render).to eq(expected)
       end
 
-      it 'should render a widened 913' do
+      it 'renders a widened 913' do
         expected = <<~SQUIGGLY_HEREDOC
            ____        ____ 
           |____|     | ____|
@@ -29,11 +29,11 @@ describe LCD do
       end
     end
 
-    context 'viewing digits with modified height' do
+    context 'when viewing digits with modified height' do
       let(:four) { described_class.new(4, height: 3) }
       let(:eight_seven) { described_class.new(87, height: 4) }
 
-      it 'should render a heightened 2' do
+      it 'renders a heightened 2' do
         expected = <<~SQUIGGLY_HEREDOC
              
           | |
@@ -47,7 +47,7 @@ describe LCD do
         expect(four.render).to eq(expected)
       end
 
-      it 'should render a heightened 87' do
+      it 'renders a heightened 87' do
         expected = <<~SQUIGGLY_HEREDOC
            _  _ 
           | |  |
@@ -64,11 +64,11 @@ describe LCD do
       end
     end
 
-    context 'viewing digits with modified width AND height' do
+    context 'when viewing digits with modified width AND height' do
       let(:eight) { described_class.new(8, height: 3, width: 2) }
       let(:four_one_nine) { described_class.new(419, height: 5, width: 7) }
 
-      it 'should render a heightened AND widened 8' do
+      it 'renders a heightened AND widened 8' do
         expected = <<~SQUIGGLY_HEREDOC
            __ 
           |  |
@@ -82,7 +82,7 @@ describe LCD do
         expect(eight.render).to eq(expected)
       end
 
-      it 'should render a heightened AND widened 47189' do
+      it 'renders a heightened AND widened 47189' do
         expected = <<~SQUIGGLY_HEREDOC
                              _______ 
           |       |        ||       |
@@ -101,10 +101,10 @@ describe LCD do
       end
     end
 
-    context 'viewing letters from a-f with modified width AND height' do
-      let(:abcdef) { LCD.new('abcfed', height: 4, width: 6) }
+    context 'when viewing letters from a-f with modified width AND height' do
+      let(:abcfed) { described_class.new('abcfed', height: 4, width: 6) }
 
-      it 'should render a heightened AND widened abcdef' do
+      it 'renders a heightened AND widened abcdef' do
         expected = <<~SQUIGGLY_HEREDOC
            ______                  ______  ______         
                  ||               |       |              |
@@ -117,7 +117,7 @@ describe LCD do
           |______||______||______ |       |______ |______|
         SQUIGGLY_HEREDOC
 
-        expect(abcdef.render).to eq(expected)
+        expect(abcfed.render).to eq(expected)
       end
     end
   end

@@ -2,6 +2,9 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Lint/RaiseException:
   Enabled: true
 
@@ -11,6 +14,9 @@ Lint/StructNewOverride:
 Metrics/BlockLength:
   Max: 100
 
+Style/ExponentialNotation:
+  Enabled: true
+  
 Style/HashEachMethods:
   Enabled: true
   Exclude:

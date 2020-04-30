@@ -2,6 +2,9 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Lint/RaiseException:
   Enabled: true
 
@@ -23,6 +26,9 @@ RSpec/ExampleLength:
 
 RSpec/MultipleExpectations:
   Max: 4
+
+Style/ExponentialNotation:
+  Enabled: true
 
 Style/HashEachMethods:
   Enabled: true

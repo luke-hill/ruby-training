@@ -1,25 +1,26 @@
 require:
-  - rubocop-performance
-  - rubocop-rspec
+- rubocop-performance
+- rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'sample_answers/*.rb'
 
 Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 140
+
+Lint/StructNewOverride:
   Enabled: true
 
 Lint/RaiseException:
   Enabled: true
 
-Lint/StructNewOverride:
-  Enabled: true
-
 Metrics/BlockLength:
   Max: 75
 
-RSpec/DescribedClass:
-  Enabled: false
-
-RSpec/PredicateMatcher:
-  Enabled: false
-  
 Style/ExponentialNotation:
   Enabled: true
 
