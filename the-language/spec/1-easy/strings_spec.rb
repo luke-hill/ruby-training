@@ -162,7 +162,7 @@ Humpty dumpty had a great fall
     a = 'Hello, world!'
     b = 'Hello, world!'
 
-    expect(a == b).to eq(__)
+    expect(a == b).to eq(true)
     puts a.object_id
     puts b.object_id
 

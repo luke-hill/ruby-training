@@ -41,13 +41,13 @@ RSpec.describe 'nil in Ruby' do
     end
 
     it 'can match objects to nil directly' do
-      expect(__).to be nil
-      expect(__).to eq nil
+      expect(nil).to be nil
+      expect(nil).to eq nil
     end
 
     it 'can match objects that respond to nil?' do
       # Make sure you use the objects above
-      expect(__).to be_nil
+      expect(nil).to be_nil
       expect(__).not_to be_nil
     end
   end
