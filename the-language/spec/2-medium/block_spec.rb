@@ -17,7 +17,7 @@ RSpec.describe "ruby's blocks" do
   end
 
   def method_with_block_arguments
-    yield('Jim')  # Not much to do with the String Jim here so it stays the same
+    yield('Jim')  
   end
 
   it 'can pass an argument to a block' do
