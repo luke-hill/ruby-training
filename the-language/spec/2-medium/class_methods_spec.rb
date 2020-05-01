@@ -40,7 +40,6 @@ RSpec.describe 'Class methods' do
     def percy.wag
       :percys_wag
     end
-
     expect { not_percy.wag }.to raise_error(__)
   end
 
@@ -94,7 +93,7 @@ RSpec.describe 'Class methods' do
                                        end
 
   it 'returns the last expression inside a class statement' do
-    expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(__)
+    expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(21)
   end
 
   SELF_INSIDE_OF_CLASS_STATEMENT = class Cat5
@@ -140,7 +139,7 @@ RSpec.describe 'Class methods' do
   #     end
   #   end
   #
-  # Which do you prefer and why?
+  # Which do you prefer and why? First one looks cleaner second one seems useful for grouping multiple methods
   # Are there times you might prefer one over the other?
 
   it 'has an easy way to call class methods from instance methods' do
