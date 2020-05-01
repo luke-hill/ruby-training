@@ -64,10 +64,10 @@ RSpec.describe "ruby's blocks" do
     add_one = lambda do |n|
       n + 1
     end
-    expect(add_one.call(10)).to eq(__)
+    expect(add_one.call(10)).to eq(11)
 
     # Alternative calling syntax
-    expect(add_one[10]).to eq(__)
+    expect(add_one[10]).to eq(11)
   end
 
   it 'can pass a stand-alone block to method expecting a block' do
@@ -75,7 +75,7 @@ RSpec.describe "ruby's blocks" do
       n.upcase
     end
     result = method_with_block_arguments(&make_upper)
-    expect(result).to eq(__)
+    expect(result).to eq('JIM')
   end
 
   def method_with_explicit_block(&block)
@@ -83,11 +83,11 @@ RSpec.describe "ruby's blocks" do
   end
 
   it 'can define a method with an explicit block argument' do
-    expect(method_with_explicit_block { |n| n * 2 }).to eq(__)
+    expect(method_with_explicit_block { |n| n * 2 }).to eq(20)
 
     add_one = lambda do |n|
       n + 1
     end
-    expect(method_with_explicit_block(&add_one)).to eq(__)
+    expect(method_with_explicit_block(&add_one)).to eq(11)
   end
 end
