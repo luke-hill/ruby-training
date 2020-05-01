@@ -3,11 +3,11 @@
 require 'lcd'
 
 describe LCD do
-  context 'viewing letters from a-f' do
+  context 'when viewing letters from a-f' do
     let(:acb) { described_class.new('acb') }
     let(:fed) { described_class.new('fed') }
 
-    it 'should render acb' do
+    it 'renders acb' do
       expected = <<~SQUIGGLY_HEREDOC
          _       
          _| _ |_ 
@@ -17,7 +17,7 @@ describe LCD do
       expect(acb.render).to eq(expected)
     end
 
-    it 'should render fed' do
+    it 'renders fed' do
       expected = <<~SQUIGGLY_HEREDOC
          _  _    
         |_ |_  _|

@@ -12,8 +12,10 @@ RSpec.describe "ruby's blocks" do
   end
 
   it 'can pass a block using do end' do
-    yielded_result = method_with_block { 1 + 2 }
-    expect(yielded_result).to eq(3)
+    yielded_result = method_with_block do
+      1 + 2
+    end
+    expect(yielded_result).to eq(__)
   end
 
   def method_with_block_arguments

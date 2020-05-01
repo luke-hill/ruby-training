@@ -1,3 +1,10 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Layout/TrailingWhitespace:
   Enabled: false
 
@@ -9,6 +16,12 @@ Lint/StructNewOverride:
 
 Metrics/BlockLength:
   Max: 150
+
+RSpec/ExampleLength:
+  Max: 15
+
+Style/ExponentialNotation:
+  Enabled: true
 
 Style/HashEachMethods:
   Enabled: true
