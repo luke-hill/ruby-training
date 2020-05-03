@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'quadrilateral' # RSpec automatically adds `lib/` to the LOAD_PATH
-# edit lib/quadrilteral.rb to fix these tests
+# edit lib/quadrilateral.rb to fix these tests
 
 RSpec.describe 'handling errors' do
   it 'throws errors for quadrilaterals with an angle of 0' do
