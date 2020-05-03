@@ -1,21 +1,26 @@
 # frozen_string_literal: true
 
-require 'rolling'
+require 'dice'
 
-RSpec.describe Rolling do
+RSpec.describe Dice do
   let(:dice) { subject }
 
-  it 'can create a new dice rolling class' do
+  it 'can create a new dice class' do
     expect(dice).to be_a described_class
   end
 
-  it 'can roll a dice' do
+  it 'can roll some dice' do
     expect { dice.roll }.not_to raise_error
   end
 
   it 'returns an array of values when rolled' do
     dice.roll(5)
     expect(dice.values).to be_an(Array)
+  end
+
+  it 'returns an array of 1 die by default' do
+    dice.roll
+    expect(dice.values.size).to eq(1)
   end
 
   it 'returns an array of values the same size as the requested amount' do
