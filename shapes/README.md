@@ -20,11 +20,16 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-By now you should know that to start with all of the examples will fail!
+By now you should know that to start with all of the examples will fail! The output should end with
 
-Now we need to fix the specs. There are 3 files inside the `/lib` directory that we need to edit.
+```
+Finished in 0.02349 seconds (files took 0.12234 seconds to load)
+24 examples, 24 failures
+```
+
+Now we need to fix the specs. There are 3 files inside the `lib/` directory that we need to edit.
 These three files will tell us how to solve the following problems.
- 
+
 1. Classify type of triangle, based on its side lengths
 1. Classify type of 4-sided shape - based on its angles
 1. What are the internal and external angles of regular 5-10 sided shapes?
