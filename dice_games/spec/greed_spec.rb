@@ -5,7 +5,11 @@ require 'greed'
 RSpec.describe Greed do
   let(:greed) { subject }
 
-  it 'scores an empty list as 0' do
+  it 'requires an array input' do
+    expect { greed.score }.to raise_error(GreedError)
+  end
+
+  it 'scores a blank array as 0' do
     expect(greed.score([])).to eq(0)
   end
 
@@ -84,21 +88,21 @@ RSpec.describe Greed do
       expect(greed.score([4, 5, 5, 5, 5])).to eq(550)
     end
 
-    it 'scores 700 for 4 6s and a 1' do
-      expect(greed.score([1, 6, 6, 6, 6])).to eq(700)
+    it 'scores 600 for 2 1s and 3 4s' do
+      expect(greed.score([1, 4, 4, 4, 1])).to eq(600)
     end
   end
 
   context 'with a high scoring hand' do
-    it 'scores 1100 for 4 1s and a 6' do
-      expect(greed.score([1, 1, 1, 1, 6])).to eq(1100)
+    it 'scores 800 for 2 1s and 3 6s' do
+      expect(greed.score([1, 6, 1, 6, 6])).to eq(800)
     end
 
-    it 'scores 1150 for 4 1s and a 5' do
-      expect(greed.score([1, 1, 1, 5, 1])).to eq(1150)
+    it 'scores 1050 for 3 1s a 5 and a 6' do
+      expect(greed.score([1, 1, 1, 5, 6])).to eq(1050)
     end
 
-    it 'scores 1200 (Perfect Game) for 5 1s' do
+    it 'scores 1200 (a perfect game), for 5 1s' do
       expect(greed.score([1, 1, 1, 1, 1])).to eq(1200)
     end
   end

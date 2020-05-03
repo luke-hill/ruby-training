@@ -20,7 +20,7 @@ Style/ExponentialNotation:
 Style/HashEachMethods:
   Enabled: true
   Exclude:
-    - 'spec/rolling_spec.rb'
+    - 'spec/dice_spec.rb'
 
 Style/HashTransformKeys:
   Enabled: true
