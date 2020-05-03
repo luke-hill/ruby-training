@@ -24,7 +24,7 @@ By now you should know that to start with all of the examples will fail!
 
 Now we need to fix the specs. There are 3 files inside the `/lib` directory that we need to edit.
 These three files will tell us how to solve the following problems.
- 
+
 1. Classify type of triangle, based on its side lengths
 1. Classify type of 4-sided shape - based on its angles
 1. What are the internal and external angles of regular 5-10 sided shapes?
