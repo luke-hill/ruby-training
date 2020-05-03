@@ -5,7 +5,11 @@ require 'greed'
 RSpec.describe Greed do
   let(:greed) { subject }
 
-  it 'scores an empty list as 0' do
+  it 'requires an array input' do
+    expect { greed.score }.to raise_error(GreedError)
+  end
+
+  it 'scores a blank array as 0' do
     expect(greed.score([])).to eq(0)
   end
 
