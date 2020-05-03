@@ -1,7 +1,7 @@
-# Dice
+# Dice Games
 
-We can roll dice, and sometimes the dice aren't fair. Here we are going to test 2 simple dice games
-and work out how to write the code
+We can roll dice whilst playing games. Here we are going to test 2 simple dice games and work out
+how we can write the code to simulate rolling the dice in the different situations
 
 ## Setup
 
@@ -24,7 +24,7 @@ The tests will fail, but the output will end with
 
 ```
 Finished in 0.02651 seconds (files took 0.11729 seconds to load)
-30 examples, 29 failures
+32 examples, 31 failures
 ```
 
 One of the tests already passes! But we still have another 29 to fix...
