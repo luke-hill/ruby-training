@@ -22,7 +22,7 @@ module Nim
     end
 
     def padding
-      ' ' * 20
+      ' ' * (20 - value * 2)
     end
 
     def number_display
@@ -30,3 +30,8 @@ module Nim
     end
   end
 end
+
+# 2.7.1 :010 > g.board.rows[0].display
+# => "| | | | |                     (5)"
+# 2.7.1 :014 > g.board.rows[0].display
+# => "| | | | | | | |                     (8)"
