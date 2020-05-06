@@ -3,6 +3,9 @@
 require 'nim/row'
 
 module Nim
+  # Nim::Board
+  # The class that controls the board state. It mainly consists of a bunch of
+  # +Nim::Row+ classes
   class Board
     attr_reader :rows, :active_player
 

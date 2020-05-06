@@ -53,6 +53,16 @@ RSpec.describe Nim::Game do
         expect { game.start }.to change(game, :active_player).to(:player_one)
       end
 
+      it 'assigns Player 2 as the inactive player' do
+        expect { game.start }.to change(game, :inactive_player).to(:player_two)
+      end
+
+      it 'stores the player names' do
+        game.start
+
+        expect(game.players).to eq(%w[Player1 Player2])
+      end
+
       it 'creates the starting Board' do
         game.start
 
