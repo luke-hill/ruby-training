@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Nim
+  # Nim::Row
+  # This contains the elements that will be reduced (or eliminated), during
+  # the players playing the game
   class Row
     attr_accessor :value
 
@@ -15,11 +18,11 @@ module Nim
     private
 
     def stick_display
-      "| " * value
+      '| ' * value
     end
 
     def padding
-      " " * 20
+      ' ' * 20
     end
 
     def number_display

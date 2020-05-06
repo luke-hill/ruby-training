@@ -18,3 +18,8 @@ Each Row class should store the number of items, possibly visually and numerical
 30 Percent Update
 Game class is complete - For now. And contains both an active player and and a board
 Board class is next to be created. This should just be an array of `Nim::Row` classes
+
+-------------------------
+
+40 Percent Update
+Game Board and Row are all complete and working in isolation
