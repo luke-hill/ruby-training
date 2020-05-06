@@ -32,6 +32,8 @@ Once you have these small components, these should then become your classes.
 
 Make sure to Namespace everything under `Nim` as a top level module. You "should" not need a 2nd level namespace.
 
+**Everything that is a public method should be tested. 100%. No exceptions!**
+
 #### Hints
 
 - The method `gets.chomp` will be your friend. This is a top level method so doesn't need namespacing.
