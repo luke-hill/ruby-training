@@ -30,3 +30,13 @@ Game Board and Row are all complete and working in isolation
 
 Refactor into running class so I can actually start testing this all together
 Amend row to be formatted a bit neater and aligned
+
+-------------------------
+
+60 Percent Update
+
+Fix runner to return class to be acted upon
+Begin to add randomness factors in
+Add initial attempt at play/turn logic
+
+-------------------------

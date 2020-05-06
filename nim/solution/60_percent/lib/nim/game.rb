@@ -18,6 +18,21 @@ module Nim
       self.board = Board.new(active_player: active_player)
     end
 
+    def take_turn
+      puts "#{active_player} it is your turn."
+      puts "Which row do you want to act on? (Type the row number)"
+      row = user_input.to_i
+      puts "You have selected row #{row}. This row has a value of #{value_of(row)}"
+      puts "How many items do you wish to remove? (Type the amount)"
+      amount = user_input.to_i
+      puts "Removing #{amount} from row #{row}"
+      remove_from(row, amount)
+      puts "Row #{row}, now has a value of #{value_of(row)}"
+      puts "#{active_player} your turn is now over."
+      switch_players
+      puts "#{active_player} it is now your turn."
+    end
+
     private
 
     def validate_player_names
@@ -33,18 +48,18 @@ module Nim
     def player_one
       @player_one ||= begin
         puts 'Enter Player One Name:'
-        determine_player_name
+        user_input
       end
     end
 
     def player_two
       @player_two ||= begin
         puts 'Enter Player Two Name:'
-        determine_player_name
+        user_input
       end
     end
 
-    def determine_player_name
+    def user_input
       gets.chomp
     end
 
@@ -54,6 +69,18 @@ module Nim
       self.players = [player_one, player_two]
       puts "Active player is: #{active_player}"
       puts "Inactive player is: #{inactive_player}"
+    end
+
+    def value_of(row)
+      board[row - 1].value
+    end
+
+    def remove_from(row, amount)
+      board[row - 1].value -= amount
+    end
+
+    def switch_players
+      active_player, inactive_player = inactive_player, active_player
     end
   end
 end
