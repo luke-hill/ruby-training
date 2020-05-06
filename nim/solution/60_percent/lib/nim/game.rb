@@ -72,15 +72,15 @@ module Nim
     end
 
     def value_of(row)
-      board[row - 1].value
+      board.rows[row - 1].value
     end
 
     def remove_from(row, amount)
-      board[row - 1].value -= amount
+      board.rows[row - 1].value -= amount
     end
 
     def switch_players
-      active_player, inactive_player = inactive_player, active_player
+      self.active_player, self.inactive_player = self.inactive_player, self.active_player
     end
   end
 end
