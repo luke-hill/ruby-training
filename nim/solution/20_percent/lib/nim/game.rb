@@ -3,6 +3,8 @@
 require 'nim/board'
 
 module Nim
+  # Nim::Game
+  # The class that controls the overall game. Running the `#start` protocol
   class Game
     attr_accessor :active_player, :board
 
@@ -10,9 +12,7 @@ module Nim
       player_one = determine_player_one_name
       player_two = determine_player_two_name
 
-      if invalid_players?(player_one, player_two)
-        raise GameSetupError
-      end
+      raise GameSetupError if invalid_players?(player_one, player_two)
 
       self.active_player = :player_one
       self.board = Board.new

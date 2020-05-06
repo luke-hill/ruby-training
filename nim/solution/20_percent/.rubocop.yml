@@ -11,6 +11,9 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
+Metrics/BlockLength:
+  Max: 50
+
 Style/ExponentialNotation:
   Enabled: true
 
