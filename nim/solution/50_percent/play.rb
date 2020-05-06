@@ -1,4 +1,4 @@
-require 'nim/game'
+require_relative 'lib/nim/game'
 
 g = Nim::Game.new
 g.start

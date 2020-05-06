@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nim/board'
+require_relative 'board'
 
 module Nim
   # Nim::Game

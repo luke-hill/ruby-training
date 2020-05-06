@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nim/row'
+require_relative 'row'
 
 module Nim
   # Nim::Board
