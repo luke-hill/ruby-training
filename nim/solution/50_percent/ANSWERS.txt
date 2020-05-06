@@ -1,0 +1,11 @@
+luke@luke-VirtualBox:~/Code/ruby-training/nim/solution/40_percent$ rubocop
+rspec
+Inspecting 7 files
+.......
+
+7 files inspected, no offenses detected
+luke@luke-VirtualBox:~/Code/ruby-training/nim/solution/40_percent$ rspec
+.............
+
+Finished in 0.02069 seconds (files took 0.18488 seconds to load)
+13 examples, 0 failures
