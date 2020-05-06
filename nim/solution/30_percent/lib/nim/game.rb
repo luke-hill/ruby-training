@@ -43,8 +43,8 @@ module Nim
     end
 
     def store_player_data
-      self.active_player = :player_one
-      self.inactive_player = :player_two
+      self.active_player = player_one
+      self.inactive_player = player_two
       self.players = [player_one, player_two]
     end
   end
