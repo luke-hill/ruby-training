@@ -9,10 +9,9 @@ module Nim
     attr_accessor :active_player, :board
 
     def start
-      player_one = determine_player_one_name
-      player_two = determine_player_two_name
-
-      raise GameSetupError if invalid_players?(player_one, player_two)
+      if invalid_players?(determine_player_name, determine_player_name)
+        raise GameSetupError
+      end
 
       self.active_player = :player_one
       self.board = Board.new
@@ -20,10 +19,9 @@ module Nim
 
     private
 
-    def determine_player_one_name
+    def determine_player_name
       gets.chomp
     end
-    alias determine_player_two_name determine_player_one_name
 
     def invalid_players?(player_one, player_two)
       player_one.empty? ||

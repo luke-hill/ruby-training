@@ -8,8 +8,7 @@ RSpec.describe Nim::Game do
 
     context 'with no players' do
       before do
-        allow(game).to receive(:determine_player_one_name).and_return('')
-        allow(game).to receive(:determine_player_two_name).and_return('')
+        allow(game).to receive(:determine_player_name).and_return('')
       end
 
       it 'fails to create a game' do
@@ -19,8 +18,7 @@ RSpec.describe Nim::Game do
 
     context 'with 1 player' do
       before do
-        allow(game).to receive(:determine_player_one_name).and_return('Player1')
-        allow(game).to receive(:determine_player_two_name).and_return('')
+        allow(game).to receive(:determine_player_name).and_return('Player1', '')
       end
 
       it 'fails to create a game' do
@@ -30,8 +28,9 @@ RSpec.describe Nim::Game do
 
     context 'with 2 identically named players' do
       before do
-        allow(game).to receive(:determine_player_one_name).and_return('Player1')
-        allow(game).to receive(:determine_player_two_name).and_return('Player2')
+        allow(game)
+          .to receive(:determine_player_name)
+          .and_return('Player1', 'Player1')
       end
 
       it 'fails to create a game' do
@@ -41,8 +40,9 @@ RSpec.describe Nim::Game do
 
     context 'with 2 different players' do
       before do
-        allow(game).to receive(:determine_player_one_name).and_return('Player1')
-        allow(game).to receive(:determine_player_two_name).and_return('Player2')
+        allow(game)
+          .to receive(:determine_player_name)
+          .and_return('Player1', 'Player2')
       end
 
       it 'creates a game' do
