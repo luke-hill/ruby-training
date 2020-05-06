@@ -6,9 +6,7 @@ class Bottles
   end
 
   def verses(arg1, arg2)
-    args = *(arg2..arg1)
-    x = args.reverse.map { |num| verse(num) }.join
-    x << "\n"
+    (arg2..arg1).map { |num| verse(num) }.reverse.join + "\n"
   end
 
   def verse(num)
