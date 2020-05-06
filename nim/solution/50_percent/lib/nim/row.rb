@@ -18,19 +18,19 @@ module Nim
     private
 
     def value_too_big?
-      value > 9
+      value > 8
     end
 
     def stick_display
       if value_too_big?
-        '| | |...| | | '
+        '| | | ... | | | '
       else
         '| ' * value
       end
     end
 
     def padding
-      ' ' * (20 - value * 2)
+      ' ' * (20 - stick_display.length)
     end
 
     def number_display
