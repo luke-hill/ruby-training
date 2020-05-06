@@ -32,6 +32,25 @@ Once you have these small components, these should then become your classes.
 
 Make sure to Namespace everything under `Nim` as a top level module. You "should" not need a 2nd level namespace.
 
+#### Hints
+
+- The method `gets.chomp` will be your friend. This is a top level method so doesn't need namespacing.
+- Testing `gets.chomp` is particularly tricky. As such it is advised that you "mock" or "stub" the random input.
+- With Nim, there are no real restrictions on the game. As such you should put either advisory, or compulsory
+blocks on certain features. **My advice:** Limit to the number of rows to 10. Limit the elements in a row to only
+show if they number below 20.
+- The exercise is not to show solutions or optimal playing strategies, but to simply allow two people to play the
+game.
+- Try not to be solving more than one problem at once. Get a simple version of the game working before attempting
+to make a more complex version of the game work. This is called Iterative development.
+
+
+Abraham Lincoln once said
+
+```
+Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
+```
+
 ## Committing your work
 
 It's important to commit your work regularly. Make sure you are working on a
