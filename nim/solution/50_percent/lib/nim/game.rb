@@ -31,11 +31,15 @@ module Nim
     end
 
     def player_one
-      @player_one ||= determine_player_name
+      @player_one ||=
+        puts 'Enter Player One Name:'
+        determine_player_name
     end
 
     def player_two
-      @player_two ||= determine_player_name
+      @player_two ||=
+        puts 'Enter Player Two Name:'
+        determine_player_name
     end
 
     def determine_player_name
@@ -46,6 +50,8 @@ module Nim
       self.active_player = player_one
       self.inactive_player = player_two
       self.players = [player_one, player_two]
+      puts "Active player is: #{active_player}"
+      puts "Inactive player is: #{inactive_player}"
     end
   end
 end
