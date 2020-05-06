@@ -21,7 +21,7 @@ $ bundle
 
 ## Working through the exercise
 
-The rules of Nim are found here: 
+The rules of Nim are found here: https://en.wikipedia.org/wiki/Nim
 
 When trying to isolate the parts of the game. First try and split the game up into "rough" areas or components.
 For an easy start, the largest encompassing "part" of Nim is the full game itself. Now (using pen and paper), try and
