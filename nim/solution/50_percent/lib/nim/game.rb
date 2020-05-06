@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+  # frozen_string_literal: true
 
 require_relative 'board'
 
@@ -31,15 +31,17 @@ module Nim
     end
 
     def player_one
-      @player_one ||=
+      @player_one ||= begin
         puts 'Enter Player One Name:'
         determine_player_name
+      end
     end
 
     def player_two
-      @player_two ||=
+      @player_two ||= begin
         puts 'Enter Player Two Name:'
         determine_player_name
+      end
     end
 
     def determine_player_name

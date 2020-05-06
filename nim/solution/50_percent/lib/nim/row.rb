@@ -17,8 +17,16 @@ module Nim
 
     private
 
+    def value_too_big?
+      value > 9
+    end
+
     def stick_display
-      '| ' * value
+      if value_too_big?
+        '| | |...| | | '
+      else
+        '| ' * value
+      end
     end
 
     def padding
@@ -30,8 +38,3 @@ module Nim
     end
   end
 end
-
-# 2.7.1 :010 > g.board.rows[0].display
-# => "| | | | |                     (5)"
-# 2.7.1 :014 > g.board.rows[0].display
-# => "| | | | | | | |                     (8)"
