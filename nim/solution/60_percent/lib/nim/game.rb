@@ -60,17 +60,6 @@ module Nim
       puts "Inactive player is: #{inactive_player}"
     end
 
-    def value_of(row)
-      board.rows[row - 1].value
-    end
-
-    def remove_from(row, amount)
-      board.rows[row - 1].value -= amount
-    end
-
-    def switch_players
-      self.active_player, self.inactive_player = self.inactive_player, self.active_player
-    end
   end
 end
 
