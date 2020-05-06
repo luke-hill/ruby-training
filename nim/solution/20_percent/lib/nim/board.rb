@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 module Nim
-  class Game
-    def start
-
-    end
+  class Board
   end
 end
