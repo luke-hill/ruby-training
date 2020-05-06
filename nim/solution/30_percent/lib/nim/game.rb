@@ -14,7 +14,7 @@ module Nim
       end
 
       self.active_player = :player_one
-      self.board = Board.new
+      self.board = Board.new(active_player: active_player)
     end
 
     private

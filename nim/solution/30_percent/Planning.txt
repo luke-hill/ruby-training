@@ -12,3 +12,9 @@ Inside a Game we have 2 Player classes, and a series of Row classes. The rows sh
 Each player class should have a name property and perhaps some other menial bits, it could also possibly store state of what they did
 Each Board class should just store the Rows, nothing else
 Each Row class should store the number of items, possibly visually and numerically. If it's a large number we need to restrict it.
+
+-------------------------
+
+30 Percent Update
+Game class is complete - For now. And contains both an active player and and a board
+Board class is next to be created. This should just be an array of `Nim::Row` classes
