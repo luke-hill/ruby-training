@@ -84,7 +84,7 @@ RSpec.describe 'message passing' do
   it 'raises an error if you send undefined messages' do
     typical = TypicalObject.new
 
-    expect { typical.foobar }.to raise_error(__, /__/)
+    expect { typical.send(:foobar) }.to raise_error(__, /__/)
   end
 
   it 'raises the NoMethodError by calling method_missing' do
@@ -149,10 +149,10 @@ RSpec.describe 'message passing' do
     expect { catcher.normal_undefined_method }.to raise_error(__)
   end
 
-  # (note: just reopening class from above)
+  # NOTE: just reopening class from above
   class WellBehavedFooCatcher
     def respond_to?(method_name, include_private = false)
-      if method_name.to_s[0, 4] == '_'
+      if method_name.to_s[0, 4] == 'foo_'
         true
       else
         super(method_name, include_private)
