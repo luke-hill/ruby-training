@@ -4,21 +4,32 @@ require 'nim/row'
 
 RSpec.describe Nim::Row do
   let(:row) { described_class.new(amount) }
-  let(:amount) { 10 }
-
-  describe '#value' do
-    it 'equals the total number of | elements in the row' do
-      expect(row.value).to eq(amount)
-    end
-  end
+  let(:small_amount) { 5 }
+  let(:large_amount) { 10 }
 
   describe '#display' do
-    it 'will show the number of | elements' do
-      expect(row.display).to start_with('| ' * amount)
+    context 'with a small value' do
+      let(:amount) { small_amount }
+
+      it 'will show the number of | elements' do
+        expect(row.display).to start_with('| ' * amount)
+      end
+
+      it 'will show the value at the end in brackets' do
+        expect(row.display).to end_with("(#{amount})")
+      end
     end
 
-    it 'will show the value at the end in brackets' do
-      expect(row.display).to end_with("(#{amount})")
+    context 'with a large value' do
+      let(:amount) { large_amount }
+
+      it 'equals the maximum displayed amount' do
+        expect(row.display).to start_with('| | | ... | | | ')
+      end
+
+      it 'will show the value at the end in brackets' do
+        expect(row.display).to end_with("(#{amount})")
+      end
     end
   end
 end
