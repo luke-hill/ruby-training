@@ -7,8 +7,10 @@ RSpec.describe Nim::Game do
     let(:game) { described_class.new }
 
     context 'with no players' do
-      allow(game).to receive(:determine_player_one_name) { '' }
-      allow(game).to receive(:determine_player_two_name) { '' }
+      before do
+        allow(game).to receive(:determine_player_one_name) { '' }
+        allow(game).to receive(:determine_player_two_name) { '' }
+      end
 
       it 'fails to create a game' do
         expect { game.start }.to raise_error(GameSetupError)
@@ -16,8 +18,10 @@ RSpec.describe Nim::Game do
     end
 
     context 'with 1 player' do
-      allow(game).to receive(:determine_player_one_name) { 'Player One' }
-      allow(game).to receive(:determine_player_two_name) { '' }
+      before do
+        allow(game).to receive(:determine_player_one_name) { 'Player One' }
+        allow(game).to receive(:determine_player_two_name) { '' }
+      end
 
       it 'fails to create a game' do
         expect { game.start }.to raise_error(GameSetupError)
@@ -25,8 +29,10 @@ RSpec.describe Nim::Game do
     end
 
     context 'with 2 identically named players' do
-      allow(game).to receive(:determine_player_one_name) { 'Player One' }
-      allow(game).to receive(:determine_player_two_name) { 'Player One' }
+      before do
+        allow(game).to receive(:determine_player_one_name) { 'Player One' }
+        allow(game).to receive(:determine_player_two_name) { 'Player One' }
+      end
 
       it 'fails to create a game' do
         expect { game.start }.to raise_error(PlayerNameError)
@@ -34,8 +40,10 @@ RSpec.describe Nim::Game do
     end
 
     context 'with 2 different players' do
-      allow(game).to receive(:determine_player_one_name) { 'Player One' }
-      allow(game).to receive(:determine_player_two_name) { 'Player Two' }
+      before do
+        allow(game).to receive(:determine_player_one_name) { 'Player One' }
+        allow(game).to receive(:determine_player_two_name) { 'Player Two' }
+      end
 
       it 'creates a game' do
         expect { game.start }.not_to raise_error
