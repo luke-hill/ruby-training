@@ -23,3 +23,10 @@ Board class is next to be created. This should just be an array of `Nim::Row` cl
 
 40 Percent Update
 Game Board and Row are all complete and working in isolation
+
+-------------------------
+
+50 Percent Update
+
+Refactor into running class so I can actually start testing this all together
+Amend row to be formatted a bit neater and aligned
