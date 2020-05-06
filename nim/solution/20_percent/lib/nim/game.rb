@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require 'nim/board'
+
 module Nim
   class Game
-    attr_accessor :active_player
+    attr_accessor :active_player, :board
 
     def start
       player_one = determine_player_one_name
@@ -11,6 +13,9 @@ module Nim
       if invalid_players?(player_one, player_two)
         raise GameSetupError
       end
+
+      self.active_player = :player_one
+      self.board = Board.new
     end
 
     private

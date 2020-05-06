@@ -50,7 +50,7 @@ RSpec.describe Nim::Game do
       end
 
       it 'assigns Player 1 as the active player' do
-        expect { game.start }.to change { :active_player }.to(:player_one)
+        expect { game.start }.to change { game.active_player }.to(:player_one)
       end
 
       it 'creates the starting Board' do
