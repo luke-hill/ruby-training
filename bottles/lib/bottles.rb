@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class Bottles
-  def song
+  def sing
       verses(99,0)
   end
 
   def verses(arg1, arg2)
-    (arg2..arg1).map { |num| verse(num) }.reverse.join + "\n"
+    (arg2..arg1).map { |num| verse(num) }.reverse.join("\n") + "\n"
   end
 
   def verse(num)
