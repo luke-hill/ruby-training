@@ -2,15 +2,17 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Lint/RaiseException:
   Enabled: true
 
 Lint/StructNewOverride:
   Enabled: true
 
-RSpec/PredicateMatcher:
-  Enabled: false
-
+Style/ExponentialNotation:
+  Enabled: true
 
 Style/HashEachMethods:
   Enabled: true
