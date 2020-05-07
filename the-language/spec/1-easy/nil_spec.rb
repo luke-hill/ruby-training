@@ -47,8 +47,8 @@ RSpec.describe 'nil in Ruby' do
 
     it 'can match objects that respond to nil?' do
       # Make sure you use the objects above
-      expect(nil).to be_nil
-      expect(true).not_to be_nil # false is fine too
+      expect(NilObject.new).to be_nil
+      expect(NotNilObject.new).not_to be_nil # false is fine too
     end
   end
 end

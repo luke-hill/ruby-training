@@ -35,6 +35,8 @@ RSpec.describe "Ruby's True and False" do
     it 'matches truthy things with be_truthy' do
       # Remove this line to continue
       # pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
+      # Everythin except False and Nil is truthy because everything that exists is truthy
+      # false is obviously falsey because it is false and nil is falsey because it "doesnt exist"
       expect(true).to be_truthy
       expect(1).to be_truthy
       expect(1).to be_truthy

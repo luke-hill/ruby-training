@@ -15,11 +15,11 @@ RSpec.describe "ruby's blocks" do
     yielded_result = method_with_block do
       1 + 2
     end
-    expect(yielded_result).to eq(__)
+    expect(yielded_result).to eq(3)
   end
 
   def method_with_block_arguments
-    yield('Jim')  
+    yield('Jim')
   end
 
   it 'can pass an argument to a block' do
@@ -43,7 +43,7 @@ RSpec.describe "ruby's blocks" do
 
   def yield_tester
     if block_given?
-      yield
+      yield   # Yield will return the eval statement from the block given
     else
       :no_block
     end
