@@ -88,7 +88,8 @@ RSpec.describe 'Class methods' do
     expect(Cat4.a_class_method).to eq(:dogs_class_method)
   end
 
-  LAST_EXPRESSION_IN_CLASS_STATEMENT = class Cat5
+
+  LAST_EXPRESSION_IN_CLASS_STATEMENT = class Cat4
                                          21
                                        end
 
@@ -96,25 +97,25 @@ RSpec.describe 'Class methods' do
     expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(21)
   end
 
-  SELF_INSIDE_OF_CLASS_STATEMENT = class Cat5
+  SELF_INSIDE_OF_CLASS_STATEMENT = class Cat4
                                      self
                                    end
 
   it 'uses self to refer to the class, not an instance inside the definition' do
-    expect(Cat5 == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(true)
+    expect(Cat4 == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(true)
   end
 
-  class Cat6
+  class Cat5
     def self.class_method
       :another_way_to_write_class_methods
     end
   end
 
   it 'is possible to use self to define a class method' do
-    expect(Cat6.class_method).to eq(:another_way_to_write_class_methods)
+    expect(Cat5.class_method).to eq(:another_way_to_write_class_methods)
   end
 
-  class Cat7
+  class Cat6
     class << self
       def another_class_method
         :still_another_way
@@ -123,7 +124,7 @@ RSpec.describe 'Class methods' do
   end
 
   it 'has a third way to define a class method' do
-    expect(Cat7.another_class_method).to eq(:still_another_way)
+    expect(Cat6.another_class_method).to eq(:still_another_way)
   end
 
   # THINK ABOUT IT:
@@ -143,12 +144,26 @@ RSpec.describe 'Class methods' do
   # Are there times you might prefer one over the other?
 
   it 'has an easy way to call class methods from instance methods' do
-    percy = Cat7.new
+    percy = Cat6.new
 
     def percy.instance_method
       self.class.another_class_method
     end
 
     expect(percy.instance_method).to eq(:still_another_way)
+  end
+
+  # NOTE: Reopening Cat6 class
+
+  class Cat6
+    def call_class_method_from_instance_method
+      self.class.another_class_method
+    end
+  end
+
+  it 'can define a better way to call class methods from instance methods' do
+    percy = Cat6.new
+
+    expect(percy.call_class_method_from_instance_method).to eq(__)
   end
 end
