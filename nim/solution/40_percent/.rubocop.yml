@@ -12,7 +12,7 @@ Lint/StructNewOverride:
   Enabled: true
 
 Metrics/BlockLength:
-  Max: 50
+  Max: 60
 
 Style/ExponentialNotation:
   Enabled: true
