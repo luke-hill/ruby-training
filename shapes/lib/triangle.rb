@@ -4,7 +4,7 @@ def triangle(a, b, c)
   case
     when [a,b,c].select { |side| side <= 0}.size > 0
       raise TriangleError
-    when
+    when a + b <= c || b + c <= a || a + c <= b
       raise TriangleError
     when  a == b && b == c
       :equilateral
