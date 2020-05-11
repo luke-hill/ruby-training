@@ -1,0 +1,42 @@
+Nim as a game involves 2 people.
+These 2 people must be different.
+The game involves a series of rows. Potentially infinite (Probably should restrict this to save processing power)
+Each row can have infinite items. But as you can remove all of these, we shouldn't restrict the number.
+Initially a game should require a user to specify the number on each row and the number of rows (Possibly randomise this)
+The game alternates, player 1 then player 2.
+
+Deductions for classes
+
+Top level we have a Game
+Inside a Game we have 2 Player classes, and a series of Row classes. The rows should be comprised of something that has a name like Board
+Each player class should have a name property and perhaps some other menial bits, it could also possibly store state of what they did
+Each Board class should just store the Rows, nothing else
+Each Row class should store the number of items, possibly visually and numerically. If it's a large number we need to restrict it.
+
+-------------------------
+
+30 Percent Update
+Game class is complete - For now. And contains both an active player and and a board
+Board class is next to be created. This should just be an array of `Nim::Row` classes
+
+-------------------------
+
+40 Percent Update
+Game Board and Row are all complete and working in isolation
+
+-------------------------
+
+50 Percent Update
+
+Refactor into running class so I can actually start testing this all together
+Amend row to be formatted a bit neater and aligned
+
+-------------------------
+
+60 Percent Update
+
+Fix runner to return class to be acted upon
+Begin to add randomness factors in
+Add initial attempt at play/turn logic
+
+-------------------------
