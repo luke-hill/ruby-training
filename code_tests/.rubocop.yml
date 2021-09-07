@@ -5,9 +5,13 @@ require:
 AllCops:
   Exclude:
     - 'sample_answers/*.rb'
+  NewCops: enable
 
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
+
+Lint/EmptyClass:
+  Enabled: false
 
 Layout/LineLength:
   Max: 140
