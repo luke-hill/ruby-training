@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require 'setup'
+require_relative 'setup'
 
 Setup.new

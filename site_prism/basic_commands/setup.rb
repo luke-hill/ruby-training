@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require 'ca_testing'
+require 'bundler'
+Bundler.setup
+
+require 'ca_testing/drivers'
 require 'capybara'
 require 'site_prism'
 require 'selenium-webdriver'
@@ -37,6 +40,6 @@ class Setup
   end
 
   def setup_driver
-    CaTesting::Drivers::Local.new(browser).register
+    CaTesting::Drivers::Local.new(:chrome).register
   end
 end
