@@ -2,6 +2,9 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
+AllCops:
+  NewCops: enable
+
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
@@ -16,6 +19,12 @@ Metrics/BlockLength:
 
 Layout/LineLength:
   Max: 400
+
+Lint/EmptyClass:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
 
 Style/ExponentialNotation:
   Enabled: true
