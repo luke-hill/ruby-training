@@ -3,10 +3,14 @@
 require_relative 'setup'
 require_relative 'pages/inputs'
 Setup.new
-using Rainbow
 
+# Create and load the page
 page = Inputs.new
 page.load
-title = page.title.text
-puts title.yellow.bright.underline
+
+# Find the title and then grab the text
+title = page.title
+puts title.text
+
+# Wait and close
 sleep 2

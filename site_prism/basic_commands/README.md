@@ -12,12 +12,12 @@ $ gem install bundler # if you don't have it already
 $ bundle
 ```
 
-## Working through the exercise
+## Working through the examples
 
-To run the exercise, you just need to run:
+To run the examples, you just need to run:
 
 ```
-$ ruby exercise_1.rb
+$ ruby example_1.rb
 ```
 
 ## How this will work
