@@ -7,5 +7,6 @@ using Rainbow
 
 page = Inputs.new
 page.load
-puts page.title.text.yellow.bright.underline
-sleep 1
+title = page.title.text
+puts title.yellow.bright.underline
+sleep 2
