@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Pre-requisite setup required for each test
 require_relative 'setup'
 require_relative 'pages/inputs'
 Setup.new

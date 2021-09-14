@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Pre-requisite setup required for each test
 require_relative 'setup'
 require_relative 'pages/inputs'
 Setup.new
@@ -13,12 +14,12 @@ number_box = page.number_box
 
 # Type in some numbers
 number_box.send_keys('123')
-sleep 2
 
 # Type in some more numbers
 number_box.send_keys('456')
-sleep 2
 
-# Find out what value is in the number box
+# Find out what 'value' is in the number box
 puts number_box['value']
+
+# Wait and close
 sleep 2
