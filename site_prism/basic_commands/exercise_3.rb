@@ -11,11 +11,6 @@ page.load
 
 # EXERCISE 3
 # Natively we are going to simulate a user using a mouse to pick the last option from a dropdown menu
-#
-# THOUGHT(s)
-# When something fails, read the error. Maybe we need to use a different name for one of our previous methods?
-# When indexing items, and we want to read in reverse, how do we signify this?
-# In computers, the = sign does not mean is equal to. How do we do this?
 
 # 1) Find the original dropdown with its label
 
@@ -31,3 +26,8 @@ page.load
 
 # Wait and close
 sleep 2
+
+# THOUGHT(s)
+# When something fails, read the error. Maybe we need to use a different name for one of our previous methods?
+# When indexing items, and we want to read in reverse, how do we signify this?
+# In computers, the = sign does not mean is equal to. How do we say are 2 things equal?

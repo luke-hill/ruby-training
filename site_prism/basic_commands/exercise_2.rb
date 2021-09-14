@@ -22,3 +22,7 @@ page.load
 
 # Wait and close
 sleep 2
+
+# THOUGHT(s)
+# Why did your answer that you obtained look different to what expected? What do we think
+# this says about the way in which automated tests work different to humans?
