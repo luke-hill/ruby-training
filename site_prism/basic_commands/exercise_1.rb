@@ -15,12 +15,12 @@ page.load
 #
 # HINT
 #
-# To type the backspace key on a keyboard, you must use the symbol reference to
-# backspace which is +:backspace+
+# To type the up/backspace key on a keyboard, you must use the symbol reference to
+# the keys which is the name of the key preceded by a colon
 
 # 1) Find the number box on the page
 
-# 2) Type in any 5 digit number i.e. 12345
+# 2) Type in any odd 5 digit number i.e. 12345
 
 # 3) Using the up arrow, increase the number by 5
 
