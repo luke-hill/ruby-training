@@ -80,7 +80,7 @@ over time to see how you are progressing.
 ```bash
 # On your current branch
 $ git push -u origin <name_of_branch>
-$ git checkout master
+$ git checkout main
 # Make the requisite PR on github and merge
 $ git pull -p # the -p is optional but just helps tidy up the branch
 # Then create a new branch straight away to continue working, with the latest changes you made
@@ -108,7 +108,7 @@ $ git reset --hard HEAD
 
 You will find you are back at clean directory, where you last committed.
 
-### Did you commit to master by mistake?
+### Did you commit to main by mistake?
 
 Make a branch to keep all your changes:
 
@@ -122,8 +122,8 @@ Make sure you've got the latest version from GitHub
 git fetch origin
 ```
 
-Then tell git to create a new copy of master, throwing away the old one:
+Then tell git to create a new copy of main, throwing away the old one:
 
 ```bash
-$ git reset --hard origin/master
+$ git reset --hard origin/main
 ```

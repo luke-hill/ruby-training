@@ -56,6 +56,6 @@ Give me six hours to chop down a tree and I will spend the first four sharpening
 ## Committing your work
 
 It's important to commit your work regularly. Make sure you are working on a
-branch, not master. Ideally use your commits to keep your own
+branch, not main. Ideally use your commits to keep your own
 comments and notes about what you've learnt. As you work through the exercises
 we'll try to come back together periodically to discuss.
