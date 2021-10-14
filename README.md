@@ -31,6 +31,10 @@
   $ sudo apt-add-repository -y ppa:rael-gc/rvm
   $ sudo apt-get update
   $ sudo apt-get install rvm
+  $ source /etc/profile.d/rvm.sh
+  $ rvm fix-permissions system
+  $ rvm group add rvm $USER
+  $ rvm autolibs disable
   # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
   # Restart your terminal completely, and restart your machine
   $ rvm -v # This should output a number
