@@ -14,6 +14,9 @@ $ brew update
 $ brew upgrade
 $ brew install git
 $ git --version # This should output a number
+# If running on Big Sur - Uncomment the next lines and run them
+# $ export warnflags=-Wno-error=implicit-function-declaration
+# $ softwareupdate --install-rosetta
 $ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
 # Quit the terminal once this has installed, and restart your machine
 $ type rvm | head -1
