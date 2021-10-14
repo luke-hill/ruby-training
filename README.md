@@ -5,19 +5,22 @@
 ### Dependency installation on mac
 
 ```shell
- # Install brew from http://brew.sh/
- $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
- $ brew doctor
- $ xcode-select --install
- $ brew update
- $ brew install git
- $ git --version # This should output a number
- $ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
- # Quit the terminal once this has installed, and restart your machine
- $ type rvm | head -1
- $ rvm -v # This should output a number
- $ rvm install 2.5.9
- $ rvm install 2.7.4
+  # Install brew from http://brew.sh/
+  $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  $ brew doctor
+  $ softwareupdate --all --install --force
+  $ sudo xcode-select --install
+  $ brew update
+  $ brew upgrade
+  $ brew install git
+  $ git --version # This should output a number
+  $ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+  # Quit the terminal once this has installed, and restart your machine
+  $ type rvm | head -1
+  $ rvm -v # This should output a number
+  $ rvm -v # This should output a number
+  $ rvm install 2.5.9
+  $ rvm install 2.7.4
 ```
 
 ### Dependency installation on ubuntu
