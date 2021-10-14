@@ -1,3 +1,6 @@
+AllCops:
+  NewCops: disable
+
 Lint/InterpolationCheck:
   Exclude:
     - 'spec/1-easy/strings_spec.rb'
@@ -95,7 +98,7 @@ Style/InfiniteLoop:
   Exclude:
   - 'spec/1-easy/control_statements_spec.rb'
 
-Style/MethodMissingSuper:
+Lint/MissingSuper:
   Exclude:
   - 'spec/2-medium/message_passing_spec.rb'
 
