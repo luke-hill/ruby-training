@@ -17,7 +17,7 @@
  $ type rvm | head -1
  $ rvm -v # This should output a number
  $ rvm install 2.5.8
- $ rvm install 2.7.1
+ $ rvm install 2.7.4
 ```
 
 ### Dependency installation on ubuntu
@@ -32,7 +32,7 @@
   # Restart your terminal completely, and restart your machine
   $ rvm -v # This should output a number
   $ rvm install 2.5.8
-  $ rvm install 2.7.1
+  $ rvm install 2.7.4
 ```
 
 ## Setup
