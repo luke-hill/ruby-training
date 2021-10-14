@@ -18,6 +18,8 @@ $ git --version # This should output a number
 # $ export warnflags=-Wno-error=implicit-function-declaration
 # $ softwareupdate --install-rosetta
 $ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+$ rvm update
+$ rvm reload
 # Quit the terminal once this has installed, and restart your machine
 $ type rvm | head -1
 $ rvm -v # This should output a number
@@ -38,6 +40,7 @@ $ source /etc/profile.d/rvm.sh
 $ rvm fix-permissions system
 $ rvm group add rvm $USER
 $ rvm autolibs disable
+$ rvm update
 $ rvm reload
 # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
 # Restart your terminal completely, and restart your machine
