@@ -29,7 +29,8 @@ $ rvm install 2.7.4
 
 ```bash
 $ sudo apt-get install git
-$ sudo apt-get install software-properties-common
+$ sudo apt-get install gnome-tweak-tool libappindicator1 software-properties-common curl perl gcc --fix-missing -y
+$ sudo apt-get install libcurl3-gnutls libcurl4-openssl-dev libcurl4 libgmp3-dev libpq-dev libmagic-dev libssl1.0-dev --fix-missing -y
 $ sudo apt-add-repository -y ppa:rael-gc/rvm
 $ sudo apt-get update
 $ sudo apt-get install rvm
@@ -37,6 +38,7 @@ $ source /etc/profile.d/rvm.sh
 $ rvm fix-permissions system
 $ rvm group add rvm $USER
 $ rvm autolibs disable
+$ rvm reload
 # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
