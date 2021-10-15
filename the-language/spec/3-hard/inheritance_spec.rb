@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'inheritance' do
   class OtherDog
     attr_reader :name

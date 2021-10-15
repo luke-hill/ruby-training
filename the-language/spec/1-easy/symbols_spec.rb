@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'A symbol in Ruby' do
   it 'is a Symbol' do
     symbol = :a_symbol

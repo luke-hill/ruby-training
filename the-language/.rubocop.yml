@@ -78,8 +78,7 @@ Style/For:
   - 'spec/2-medium/control_statements_spec.rb'
 
 Style/FrozenStringLiteralComment:
-  Exclude:
-  - 'spec/1-easy/strings_spec.rb'
+  Enabled: false
 
 Style/HashEachMethods:
   Enabled: true
@@ -97,6 +96,9 @@ Style/IfUnlessModifier:
 Style/InfiniteLoop:
   Exclude:
   - 'spec/2-medium/control_statements_spec.rb'
+
+Style/MutableConstant:
+  Enabled: false
 
 Lint/MissingSuper:
   Exclude:

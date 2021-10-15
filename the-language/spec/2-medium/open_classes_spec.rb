@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'Open Classes' do
   class Dog
     def bark

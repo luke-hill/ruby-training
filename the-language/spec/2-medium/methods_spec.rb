@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def a_global_method(a, b)
   a + b
 end

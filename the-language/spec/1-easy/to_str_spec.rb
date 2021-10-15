@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'to_str' do
   class NotTreatableAsString
     def to_s

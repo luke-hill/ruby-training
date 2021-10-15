@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'nil in Ruby' do
   it 'is an object' do
     expect(nil.is_a?(Object)).to eq(__), 'unlike NULL in some other languages'

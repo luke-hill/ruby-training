@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Ruby's True and False" do
   def truth_value(condition)
     if condition

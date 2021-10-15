@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'ruby classes' do
   class Dog
   end

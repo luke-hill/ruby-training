@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'exceptions' do
   class MySpecialError < RuntimeError
   end

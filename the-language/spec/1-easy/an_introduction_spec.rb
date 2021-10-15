@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'Learning ruby' do
   context 'using expectations' do
     it 'checks reality' do
