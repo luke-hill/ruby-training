@@ -60,4 +60,19 @@ RSpec.describe 'exceptions' do
       raise MySpecialError.new('New instances can be raised directly.')
     end.to raise_error(__)
   end
+
+  it 'can also throw errors if we try editing things we are not meant to' do
+    cold_string = 'ice cube'.freeze
+    hot_string = 'hot water bottle'
+
+    expect { cold_string << hot_string }.to raise_error(__)
+
+    # What would you expect if you did the above operation the other way around
+    # Are there other ways to perform a similar action?
+
+    cold_array = [1, 2].freeze
+    hot_array = [100, 200]
+
+    expect { cold_array.push(hot_array) }.to raise_error(__)
+  end
 end
