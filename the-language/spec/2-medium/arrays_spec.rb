@@ -80,14 +80,15 @@ RSpec.describe 'Ruby Arrays' do
   end
 
   it 'can be used as a queue' do
-    array = %i[first second]
+    array = [:first, :second]
     array.push(:third)
 
     value = array.shift
     expect(value).to eq(__)
     expect(array).to eq(__)
 
-    # Sometimes you need to get things to the front of a queue
+    # Sometimes you need to force things to the front of a queue
+    # A bit like if someone was pushing in at the supermarket!
     array.unshift(value)
 
     expect(array).to eq(__)
