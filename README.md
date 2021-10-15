@@ -4,6 +4,9 @@
 
 ### Dependency installation on mac
 
+NB: These are partially based on the setup instructions found here:
+https://github.com/luke-hill/setup_info/blob/main/mac_setup.md
+
 ```bash
 # Install brew from http://brew.sh/
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -28,6 +31,9 @@ $ rvm install 2.7.4
 ```
 
 ### Dependency installation on ubuntu
+
+NB: These are partially based on the setup instructions found here: 
+https://github.com/luke-hill/setup_info/blob/main/setup.md
 
 ```bash
 $ sudo apt-get install git

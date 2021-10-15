@@ -6,7 +6,7 @@ require:
 
 Layout/LineLength:
   Max: 120
-  
+
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
