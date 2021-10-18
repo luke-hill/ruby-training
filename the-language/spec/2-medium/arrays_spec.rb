@@ -1,4 +1,4 @@
-RSpec.describe 'Ruby Arrays' do
+RSpec.describe 'arrays' do
   it 'can be created like any other object' do
     empty = []
 

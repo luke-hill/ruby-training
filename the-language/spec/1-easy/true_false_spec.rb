@@ -1,4 +1,4 @@
-RSpec.describe "Ruby's True and False" do
+RSpec.describe 'true/truthy and false/falsy' do
   def truth_value(condition)
     if condition
       :true_stuff

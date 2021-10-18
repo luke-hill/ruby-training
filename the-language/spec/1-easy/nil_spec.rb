@@ -1,4 +1,4 @@
-RSpec.describe 'nil in Ruby' do
+RSpec.describe 'nil in ruby' do
   it 'is an object' do
     expect(nil.is_a?(Object)).to eq(__), 'unlike NULL in some other languages'
   end

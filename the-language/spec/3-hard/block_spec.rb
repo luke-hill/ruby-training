@@ -1,4 +1,4 @@
-RSpec.describe "ruby's blocks" do
+RSpec.describe 'blocks' do
   def method_with_block
     result = yield
     result

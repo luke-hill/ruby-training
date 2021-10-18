@@ -1,4 +1,4 @@
-RSpec.describe 'ruby classes' do
+RSpec.describe 'classes' do
   class Dog
   end
 

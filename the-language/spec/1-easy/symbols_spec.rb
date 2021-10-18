@@ -1,4 +1,4 @@
-RSpec.describe 'A symbol in Ruby' do
+RSpec.describe 'symbols' do
   it 'is a Symbol' do
     symbol = :a_symbol
     expect(symbol.is_a?(Symbol)).to eq(__)

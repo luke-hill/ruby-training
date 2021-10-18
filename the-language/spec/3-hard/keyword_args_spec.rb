@@ -1,4 +1,4 @@
-RSpec.describe "ruby's keyword args" do
+RSpec.describe 'keyword args' do
   def method_with_keyword_arguments(one: 1, two: 'two')
     [one, two]
   end

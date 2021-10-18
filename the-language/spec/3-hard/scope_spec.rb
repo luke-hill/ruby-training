@@ -1,4 +1,4 @@
-# Notice that we have define everything inside the Scopes module
+# Notice that we have define everything inside a Scopes module
 module Scopes
   RSpec.describe 'scope' do
     module Jim

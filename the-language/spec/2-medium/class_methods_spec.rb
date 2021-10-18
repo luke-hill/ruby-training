@@ -1,4 +1,4 @@
-RSpec.describe 'Class methods' do
+RSpec.describe 'class methods' do
   class Cat
   end
 
