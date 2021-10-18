@@ -2,7 +2,7 @@ RSpec.describe 'pass by reference vs pass by value' do
   it 'originally seems as if ruby is pass by value' do
     x = 123
     y = x
-    x = x * 2
+    x += 2
 
     expect(y).to eq(__)
   end
@@ -18,7 +18,7 @@ RSpec.describe 'pass by reference vs pass by value' do
   it 'is also possible to mutate a larger standard object and pass by reference' do
     x = [1, 2, 3]
     y = x
-    x.map! { |x| x * 2 }
+    x.map! { |number| number * 2 }
 
     expect(y).to eq(__)
   end

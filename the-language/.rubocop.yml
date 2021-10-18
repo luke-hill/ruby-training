@@ -9,6 +9,10 @@ Lint/LiteralAsCondition:
   Exclude:
     - 'spec/2-medium/control_statements_spec.rb'
 
+Lint/MissingSuper:
+  Exclude:
+    - 'spec/3-hard/message_passing_spec.rb'
+
 Lint/RaiseException:
   Enabled: true
 
@@ -26,8 +30,9 @@ Lint/UnusedMethodArgument:
 
 Lint/UselessAssignment:
   Exclude:
-    - 'spec/2-medium/exceptions_spec.rb'
     - 'spec/1-easy/strings_spec.rb'
+    - 'spec/2-medium/exceptions_spec.rb'
+    - 'spec/3-hard/pass_by_original_reference_spec.rb'
 
 Lint/Void:
   Exclude:
@@ -99,10 +104,6 @@ Style/InfiniteLoop:
 
 Style/MutableConstant:
   Enabled: false
-
-Lint/MissingSuper:
-  Exclude:
-  - 'spec/3-hard/message_passing_spec.rb'
 
 Style/MissingRespondToMissing:
   Exclude:
