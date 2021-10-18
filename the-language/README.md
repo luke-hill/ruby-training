@@ -12,10 +12,11 @@ syntax means as we work through the problems.
 
 We are going to perform a set of exercises called Koans. Adapted from the Ruby-Koans guide.
 Koans are akin to how you may have solved primary school maths, with such problems as
-`2 + _ = 5` - What is the missing number? It is obviously 3.
+`2 + _ = 5` - What is the missing number? Here it is 3.
 
-Here we have the same problem. Starting with nice easy ones like `expect(1 + 1).to eq (__)` and
-ending with metaprogramming concepts that will allow you to send messages between 2 different "Classes"
+In these exercises in `the-language`, we will encounter the same problem - hundreds of times.
+Starting with nice easy ones like `expect(1 + 1).to eq (__)` and ending with
+metaprogramming concepts that will allow you to send messages between 2 different "Classes"
 (A class is just a single thing, like a dog or cat).
 
 ## Setup
@@ -47,17 +48,18 @@ Failures:
      
        expected false
             got true
-     # ./spec/1-easy/an_introduction_spec.rb:6:in `block (3 levels) in <top (required)>'
+     # ./spec/1-easy/an_introduction_spec.rb:4:in `block (3 levels) in <top (required)>'
 
 Finished in 0.0085 seconds (files took 0.07892 seconds to load)
 1 example, 1 failure
 
 Failed examples:
 
-rspec ./spec/1-easy/an_introduction_spec.rb:5 # Learning ruby using expectations checks reality
+rspec ./spec/1-easy/an_introduction_spec.rb:3 # Learning ruby using expectations checks reality
 ```
 
-This is telling you there is a failing test in the `spec/introduction_spec.rb` file on line 6.
+This is telling you there is a failing test in the `spec/introduction_spec.rb`
+file on line 4. The `:4` is a common syntax that shows you what line something is on.
 
 For this first test, the test says that `true` should be `false`. Which is obviously wrong.
 Fix this up and then re-run your tests using the `rspec` command.
