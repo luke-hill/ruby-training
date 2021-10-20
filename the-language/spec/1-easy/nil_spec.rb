@@ -1,6 +1,6 @@
 RSpec.describe 'nil in ruby' do
   it 'is an object' do
-    expect(nil.is_a?(Object)).to eq(__), 'unlike NULL in some other languages'
+    expect(nil.is_a?(Object)).to eq(true), 'unlike NULL in some other languages'
   end
 
   it "doesn't throw null pointer exceptions" do
