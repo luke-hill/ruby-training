@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def a_global_method(a, b)
   a + b
 end
@@ -60,7 +58,7 @@ RSpec.describe 'methods in ruby' do
   def method_with_explicit_return
     :a_value
     return :the_value
-    :another_value
+    :i_am_redundant_code
   end
 
   it 'is possible to return an explicit value' do
@@ -68,8 +66,8 @@ RSpec.describe 'methods in ruby' do
   end
 
   def method_without_explicit_return
-    :a_value
-    :the_value
+    :redundant_value
+    :useful_value
   end
 
   it 'returns the last evaluated statement' do

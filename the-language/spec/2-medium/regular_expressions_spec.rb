@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-RSpec.describe 'Regular expressions' do
+RSpec.describe 'regular expressions' do
   it 'is a pattern' do
     expect(/pattern/.class).to eq(__)
   end

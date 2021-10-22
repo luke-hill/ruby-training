@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 C = 'top level'
 
 class More
@@ -14,7 +12,7 @@ class More
   end
 end
 
-describe 'Ruby Constant' do
+describe 'constants in ruby are different' do
   it 'references local constants' do
     expect(More.local).to eq(__)
   end

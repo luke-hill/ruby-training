@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-RSpec.describe 'A symbol in Ruby' do
+RSpec.describe 'symbols' do
   it 'is a Symbol' do
     symbol = :a_symbol
     expect(symbol.is_a?(Symbol)).to eq(__)
@@ -15,7 +13,7 @@ RSpec.describe 'A symbol in Ruby' do
     expect(a_symbol == another_symbol).to eq(__)
   end
 
-  it 'is a single, internal object' do
+  it 'is a single, non-unique internal object' do
     a_symbol        = :a_symbol
     the_same_symbol = :a_symbol
 
@@ -45,7 +43,15 @@ RSpec.describe 'A symbol in Ruby' do
   it 'can be created with spaces' do
     symbol = :"hello world"
 
-    expect(symbol).to eq(__)
+    expect(symbol.is_a?(Symbol)).to eq(__)
+  end
+
+  it 'can be created with an underscore or a hyphen' do
+    underscore_symbol = :"hello_world"
+    hyphenated_symbol = :"hello_world"
+
+    expect(underscore_symbol.is_a?(Symbol)).to eq(__)
+    expect(hyphenated_symbol.is_a?(Symbol)).to eq(__)
   end
 
   it 'can be created with interpolated values' do

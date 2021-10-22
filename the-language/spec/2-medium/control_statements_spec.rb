@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-RSpec.describe 'Control statements in ruby' do
+RSpec.describe 'control statements' do
   it 'has if-else statements' do
     if true
       result = :true_value

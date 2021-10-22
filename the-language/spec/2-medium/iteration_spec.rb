@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'iterating in ruby' do
   it 'has an each method on arrays' do
     expect([].methods.include?(:each)).to eq(__)
@@ -32,14 +30,14 @@ RSpec.describe 'iterating in ruby' do
     expect(sum).to eq(__)
   end
 
-  it 'can transform elements of an array using `collect`' do
+  it 'can transform elements of an array using `map`' do
     array = [1, 2, 3]
-    new_array = array.collect { |item| item + 10 }
-    expect(new_array).to eq(__)
+    mapped_array = array.map { |item| item + 10 }
+    expect(mapped_array).to eq(__)
 
-    # NOTE: 'map' is another name for the 'collect' operation
-    another_array = array.map { |item| item + 10 }
-    expect(another_array).to eq(__)
+    # NOTE: 'collect' is another name for the 'map' operation
+    collected_array = array.collect { |item| item + 10 }
+    expect(collected_array).to eq(__)
   end
 
   it 'can select certain elements' do
@@ -83,7 +81,7 @@ RSpec.describe 'iterating in ruby' do
     result = (5...10).map { |item| item + 10 }
     expect(result).to eq(__)
 
-    # NOTE: You can create your own collections that work with each,
-    # map, select, and other enumerable methods
+    # NOTE: You can create your own custom Objects that can work with these methods
+    # like 'each', 'map', 'select' and other enumerable methods
   end
 end

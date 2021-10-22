@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-RSpec.describe 'ruby classes' do
+RSpec.describe 'a ruby class' do
   class Dog
   end
 

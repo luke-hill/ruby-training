@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 RSpec.describe 'Objects in ruby' do
+=======
+RSpec.describe 'objects in ruby' do
+>>>>>>> a5edea71e9d500fc0506b986b8e988ffafff862c
   it 'is fundamental - everything is an object' do
     expect(10.is_a?(Object)).to eq(true)
     expect(3.5.is_a?(Object)).to eq(true)

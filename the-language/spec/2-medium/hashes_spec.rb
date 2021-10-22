@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-RSpec.describe "Ruby's Hash structure" do
+RSpec.describe 'hashes' do
   it 'can be created like any other object' do
     empty_hash = {}
 

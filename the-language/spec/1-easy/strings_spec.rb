@@ -1,4 +1,4 @@
-RSpec.describe 'a string in Ruby' do
+RSpec.describe 'strings' do
   it 'can be created with double quotes' do
     string = "Hello, world!"
     expect(string.is_a?(String)).to eq(__)

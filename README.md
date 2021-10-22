@@ -4,35 +4,55 @@
 
 ### Dependency installation on mac
 
-```shell
- # Install brew from http://brew.sh/
- $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
- $ brew doctor
- $ xcode-select --install
- $ brew update
- $ brew install git
- $ git --version # This should output a number
- $ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
- # Quit the terminal once this has installed, and restart your machine
- $ type rvm | head -1
- $ rvm -v # This should output a number
- $ rvm install 2.5.9
- $ rvm install 2.7.4
+NB: These are partially based on the setup instructions found here:
+https://github.com/luke-hill/setup_info/blob/main/mac_setup.md
+
+```bash
+# Install brew from http://brew.sh/
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ brew doctor
+$ softwareupdate --all --install --force
+$ sudo xcode-select --install
+$ brew update
+$ brew upgrade
+$ brew install git
+$ git --version # This should output a number
+# If running on Big Sur - Uncomment the next lines and run them
+# $ export warnflags=-Wno-error=implicit-function-declaration
+# $ softwareupdate --install-rosetta
+$ curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+$ rvm update
+$ rvm reload
+# Quit the terminal once this has installed, and restart your machine
+$ type rvm | head -1
+$ rvm -v # This should output a number
+$ rvm install 2.5.9
+$ rvm install 2.7.4
 ```
 
 ### Dependency installation on ubuntu
 
-```shell
-  $ sudo apt-get install git
-  $ sudo apt-get install software-properties-common
-  $ sudo apt-add-repository -y ppa:rael-gc/rvm
-  $ sudo apt-get update
-  $ sudo apt-get install rvm
-  # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
-  # Restart your terminal completely, and restart your machine
-  $ rvm -v # This should output a number
-  $ rvm install 2.5.9
-  $ rvm install 2.7.4
+NB: These are partially based on the setup instructions found here: 
+https://github.com/luke-hill/setup_info/blob/main/setup.md
+
+```bash
+$ sudo apt-get install git
+$ sudo apt-get install gnome-tweak-tool libappindicator1 software-properties-common curl perl gcc --fix-missing -y
+$ sudo apt-get install libcurl3-gnutls libcurl4-openssl-dev libcurl4 libgmp3-dev libpq-dev libmagic-dev libssl1.0-dev --fix-missing -y
+$ sudo apt-add-repository -y ppa:rael-gc/rvm
+$ sudo apt-get update
+$ sudo apt-get install rvm
+$ source /etc/profile.d/rvm.sh
+$ rvm fix-permissions system
+$ rvm group add rvm $USER
+$ rvm autolibs disable
+$ rvm update
+$ rvm reload
+# In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
+# Restart your terminal completely, and restart your machine
+$ rvm -v # This should output a number
+$ rvm install 2.5.9
+$ rvm install 2.7.4
 ```
 
 ## Setup
@@ -67,7 +87,7 @@ When you want to save your work, stage and commit changes:
 
 ```bash
 $ git checkout -b my_first_branch
-$ git add . # the dot is important
+$ git add . # the dot is important
 $ git commit -m "Explain your change - try be descriptive"
 ```
 

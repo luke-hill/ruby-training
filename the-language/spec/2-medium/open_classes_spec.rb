@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-RSpec.describe 'Open Classes' do
+RSpec.describe 'classes can be opened in ruby' do
   class Dog
     def bark
       'WOOF'
