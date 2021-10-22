@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+rspec# frozen_string_literal: true
 
 RSpec.describe 'nil in Ruby' do
   it 'is an object' do
@@ -13,18 +13,18 @@ RSpec.describe 'nil in Ruby' do
       nil.a_method_that_does_not_exist
     rescue NoMethodError => e
       # What sort of exception is thrown
-      expect(e.class).to eq(__)
+      expect(e.class).to eq(NoMethodError)
 
       # What extra information does ruby give us?
       # You can replace __ here with part of the message
-      expect(e.message).to match(/__/)
+      expect(e.message).to match(/a_method_that_does_not_exist/)
     end
   end
 
   it 'has a few methods defined on it' do
-    expect(nil.nil?).to eq(__)
-    expect(nil.to_s).to eq(__)
-    expect(nil.inspect).to eq(__)
+    expect(nil.nil?).to eq(true)
+    expect(nil.to_s).to eq("")
+    expect(nil.inspect).to eq("nil")
   end
 
   context 'rspec matchers' do
@@ -41,14 +41,14 @@ RSpec.describe 'nil in Ruby' do
     end
 
     it 'can match objects to nil directly' do
-      expect(__).to be nil
-      expect(__).to eq nil
+      expect(nil).to be nil
+      expect(nil).to eq nil
     end
 
     it 'can match objects that respond to nil?' do
       # Make sure you use the objects above
-      expect(__).to be_nil
-      expect(__).not_to be_nil
+      expect(NilObject.new).to be_nil
+      expect(NotNilObject).not_to be_nil
     end
   end
 end
