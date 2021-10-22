@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-rspec# frozen_string_literal: true
-
-RSpec.describe 'nil in Ruby' do
-=======
 RSpec.describe 'nil in ruby' do
->>>>>>> a5edea71e9d500fc0506b986b8e988ffafff862c
   it 'is an object' do
     expect(nil.is_a?(Object)).to eq(__), 'unlike NULL in some other languages'
   end
@@ -20,14 +14,9 @@ RSpec.describe 'nil in ruby' do
       expect(e.class).to eq(NoMethodError)
 
       # What extra information does ruby give us?
-<<<<<<< HEAD
-      # You can replace __ here with part of the message
-      expect(e.message).to match(/a_method_that_does_not_exist/)
-=======
       # You should replace __ here with part of the message
       # / / is regex and just means that the item inside is "contained"
-      expect(e.message).to match(/__/)
->>>>>>> a5edea71e9d500fc0506b986b8e988ffafff862c
+      expect(e.message).to match(/a_method_that_does_not_exist/)
     end
   end
 
