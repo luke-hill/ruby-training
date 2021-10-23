@@ -15,6 +15,7 @@ RSpec.describe 'nil in ruby' do
 
       # What extra information does ruby give us?
       # You can replace __ here with part of the message
+      # / / is regex and just means that the item inside is "contained"
       expect(e.message).to match(/a_method_that_does_not_exist/)
     end
   end
