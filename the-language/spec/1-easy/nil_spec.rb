@@ -4,7 +4,7 @@ RSpec.describe 'nil in ruby' do
   end
 
   it "doesn't throw null pointer exceptions" do
-    # Here we're created a begin - rescue - end block so that we can
+    # Here we have created a begin -> rescue -> end block so that we can
     # capture the exception thrown, when we send nil a message that it
     # does not understand.
     begin
