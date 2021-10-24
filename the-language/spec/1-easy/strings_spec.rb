@@ -146,26 +146,26 @@ Humpty dumpty had a great fall
     string = 'has:many:through'
     words = string.split(':')
 
-    expect(words).to eq(__)
+    expect(words).to eq(["has", "many", "through"])
   end
 
   it 'can join strings' do
     words = ['Welcome', 'to', 'the', 'joinery']
     string = words.join(' ')
 
-    expect(string).to eq(__)
+    expect(string).to eq("Welcome to the joinery")
   end
 
   it 'is a unique object' do
     a = 'Hello, world!'
     b = 'Hello, world!'
 
-    expect(a == b).to eq(__)
+    expect(a == b).to eq(true)
     puts a.object_id
     puts b.object_id
 
     # What does the above 2 commands show you in the console?
     # Why do you think this is the case, have a quick think / google
-    expect(a.object_id == b.object_id).to eq(__)
+    expect(a.object_id == b.object_id).to eq(false)
   end
 end
