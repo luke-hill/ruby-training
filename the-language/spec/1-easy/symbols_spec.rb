@@ -48,7 +48,7 @@ RSpec.describe 'symbols' do
 
   it 'can be created with an underscore or a hyphen' do
     underscore_symbol = :"hello_world"
-    hyphenated_symbol = :"hello_world"
+    hyphenated_symbol = :"hello-world"
 
     expect(underscore_symbol.is_a?(Symbol)).to eq(true)
     expect(hyphenated_symbol.is_a?(Symbol)).to eq(true)
