@@ -40,6 +40,11 @@ RSpec.describe 'numbers' do
     expect(Float('456')).to eq(__)
   end
 
+  it 'can also try to convert garbage strings numbers' do
+    expect('12ab34'.to_i).to eq(__)
+    expect('cd34ef'.to_f).to eq(__)
+  end
+
   it 'can list all of the digits of a number' do
     # NB: This method sometimes is thought of as add because of the return value
     number = 123456
