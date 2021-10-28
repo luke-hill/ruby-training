@@ -164,5 +164,8 @@ RSpec.describe 'a ruby class' do
 
     expect('STRING'.to_s).to eq(__)
     expect('STRING'.inspect).to eq(__)
+
+    expect(Dog.to_s).to eq(__)
+    expect(Dog.inspect).to eq(__)
   end
 end
