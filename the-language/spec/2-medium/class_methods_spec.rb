@@ -56,7 +56,7 @@ RSpec.describe 'class methods' do
     expect(Cat2.wag).to eq(__)
   end
 
-  it 'keeps class and instance methods indepedent' do
+  it 'is possible to have both a class and instance method identically named (independent)' do
     percy = Cat2.new
     expect(percy.wag).to eq(__)
     expect(Cat2.wag).to eq(__)
