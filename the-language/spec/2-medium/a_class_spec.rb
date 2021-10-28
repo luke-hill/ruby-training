@@ -4,7 +4,7 @@ RSpec.describe 'a ruby class' do
 
   it 'creates new instances of Dog with new' do
     fido = Dog.new
-    expect(fido.class).to eq(__)
+    expect(fido.class).to eq(Dog)
   end
 
   class Dog2
@@ -15,36 +15,36 @@ RSpec.describe 'a ruby class' do
 
   it 'sets instance variables by assigning to them ' do
     fido = Dog2.new
-    expect(fido.instance_variables).to eq(__)
+    expect(fido.instance_variables).to eq([])
 
     fido.set_name('Fido')
-    expect(fido.instance_variables).to eq(__)
+    expect(fido.instance_variables).to eq([:@name])
   end
 
   it 'can not access instance variables outside of the class' do
     fido = Dog2.new
     fido.set_name('Fido')
 
-    expect { fido.name }.to raise_error(__)
+    expect { fido.name }.to raise_error(NoMethodError)
     expect do
       eval 'fido.@name'
       # NOTE: Using eval because the above line is a syntax error.
-    end.to raise_error(__)
+    end.to raise_error(SyntaxError)
   end
 
   it 'is possible to ask for an instance variable, politely' do
     fido = Dog2.new
     fido.set_name('Fido')
 
-    expect(fido.instance_variable_get('@name')).to eq(__)
+    expect(fido.instance_variable_get('@name')).to eq('Fido')
   end
 
   it 'can rip out the instance variable using instance_eval' do
     fido = Dog2.new
     fido.set_name('Fido')
 
-    expect(fido.instance_eval('@name')).to eq(__) # string version
-    expect(fido.instance_eval { @name }).to eq(__) # block version
+    expect(fido.instance_eval('@name')).to eq('Fido') # string version
+    expect(fido.instance_eval { @name }).to eq('Fido') # block version
   end
 
   class Dog3
@@ -61,7 +61,7 @@ RSpec.describe 'a ruby class' do
     fido = Dog3.new
     fido.set_name('Fido')
 
-    expect(fido.name).to eq(__)
+    expect(fido.name).to eq('Fido')
   end
 
   class Dog4
@@ -76,7 +76,7 @@ RSpec.describe 'a ruby class' do
     fido = Dog4.new
     fido.set_name('Fido')
 
-    expect(fido.name).to eq(__)
+    expect(fido.name).to eq('Fido')
   end
 
   class Dog5
@@ -87,7 +87,7 @@ RSpec.describe 'a ruby class' do
     fido = Dog5.new
 
     fido.name = 'Fido'
-    expect(fido.name).to eq(__)
+    expect(fido.name).to eq('Fido')
   end
 
   class Dog6
@@ -99,11 +99,11 @@ RSpec.describe 'a ruby class' do
 
   it 'uses initialize to set up initial values of instance variables' do
     fido = Dog6.new('Fido')
-    expect(fido.name).to eq(__)
+    expect(fido.name).to eq('Fido')
   end
 
   it 'match args to new with initializer' do
-    expect { Dog6.new }.to raise_error(__)
+    expect { Dog6.new }.to raise_error(ArgumentError)
     # THINK ABOUT IT: Why is this so?
   end
 
