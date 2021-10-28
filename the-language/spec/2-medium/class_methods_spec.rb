@@ -2,12 +2,12 @@ RSpec.describe 'class methods' do
   class Cat
   end
 
-  it 'all objects are Objects' do
+  it 'all instances are Objects' do
     percy = Cat.new
     expect(percy.is_a?(Object)).to eq(__)
   end
 
-  it 'all classes are Classes' do
+  it 'all classes (constructors), are Classes' do
     expect(Cat.is_a?(Class)).to eq(__)
   end
 
@@ -15,12 +15,12 @@ RSpec.describe 'class methods' do
     expect(Cat.is_a?(Object)).to eq(__)
   end
 
-  it 'has methods on objects' do
+  it 'instances have methods' do
     percy = Cat.new
     expect(percy.methods.size > __).to eq(true)
   end
 
-  it 'has methods on classes' do
+  it 'classes have methods' do
     expect(Cat.methods.size > __).to eq(true)
   end
 
