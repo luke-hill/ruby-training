@@ -32,14 +32,14 @@ RSpec.describe 'a ruby class' do
     end.to raise_error(__)
   end
 
-  it 'is possible to ask for an instance variable, politely' do
+  it 'can obtain the value of an instance variable using instance_variable_get' do
     fido = Dog2.new
     fido.set_name('Fido')
 
     expect(fido.instance_variable_get('@name')).to eq(__)
   end
 
-  it 'can rip out the instance variable using instance_eval' do
+  it 'can also obtain the value of an instance variable using instance_eval' do
     fido = Dog2.new
     fido.set_name('Fido')
 
