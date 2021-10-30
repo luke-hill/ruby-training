@@ -66,7 +66,6 @@ Humpty dumpty had a great fall
     greeting = 'Hello, '
     subject  = 'World!'
     string = greeting + subject
-
     expect(string).to eq("Hello, World!")
     expect(greeting).to eq("Hello, ")
     expect(subject).to eq("World!")
