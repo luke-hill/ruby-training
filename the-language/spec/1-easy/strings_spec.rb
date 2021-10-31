@@ -132,6 +132,12 @@ Humpty dumpty had a great fall
     expect(string[1]).to eq(__)
   end
 
+  it 'can split a string into individual characters' do
+    string = 'Bacon, lettuce and tomato'
+
+    expect(string.chars).to eq(__)
+  end
+
   it 'represents single characters as strings' do
     expect(?a).to eq(__)
     expect(?a == 97).to eq(__)
