@@ -17,11 +17,11 @@ RSpec.describe 'class methods' do
 
   it 'instances have methods' do
     percy = Cat.new
-    expect(percy.methods.size > __).to eq(true)
+    expect(percy.methods.size > __).to be true
   end
 
   it 'classes have methods' do
-    expect(Cat.methods.size > __).to eq(true)
+    expect(Cat.methods.size > __).to be true
   end
 
   it 'is possible to define a method on an individual object' do
@@ -32,7 +32,7 @@ RSpec.describe 'class methods' do
     expect(percy.wag).to eq(__)
   end
 
-  it 'does not affect other objects with singleton methods' do
+  it 'does not affect other objects (instances), when defining singleton methods' do
     percy = Cat.new
     not_percy = Cat.new
     def percy.wag
@@ -52,11 +52,11 @@ RSpec.describe 'class methods' do
     :class_level_wag
   end
 
-  it 'is possible to define singleton methods on classes; they are objects' do
+  it 'is possible to define singleton methods on classes (remember they are objects)' do
     expect(Cat2.wag).to eq(__)
   end
 
-  it 'keeps class and instance methods indepedent' do
+  it 'is possible to have both a class and instance method identically named (they are independent)' do
     percy = Cat2.new
     expect(percy.wag).to eq(__)
     expect(Cat2.wag).to eq(__)
@@ -81,7 +81,7 @@ RSpec.describe 'class methods' do
                                          21
                                        end
 
-  it 'returns the last expression inside a class statement' do
+  it 'returns the last expression inside a class statement (when defining a class)' do
     expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(__)
   end
 
@@ -89,7 +89,7 @@ RSpec.describe 'class methods' do
                                      self
                                    end
 
-  it 'uses self to refer to the class, not an instance inside the definition' do
+  it 'uses self to refer to the class (not an instance of it), when inside the definition' do
     expect(Cat4 == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(__)
   end
 
@@ -149,7 +149,7 @@ RSpec.describe 'class methods' do
     end
   end
 
-  it 'can define a better way to call class methods from instance methods' do
+  it 'has a better way to call class methods from instance methods' do
     percy = Cat6.new
 
     expect(percy.call_class_method_from_instance_method).to eq(__)
