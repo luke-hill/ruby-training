@@ -15,7 +15,7 @@ RSpec.describe 'modules' do
     end.to raise_error(__)
   end
 
-  class Dog
+  class Dog8
     include Nameable
 
     attr_reader :name
@@ -34,28 +34,25 @@ RSpec.describe 'modules' do
   end
 
   it 'has access to normal instance methods' do
-    fido = Dog.new
+    fido = Dog8.new
     expect(fido.bark).to eq(__)
   end
 
   it 'also has access to methods defined by the included module' do
-    fido = Dog.new
-
-    raise "remove this line when you've read and understood the code below"
-    expect do
-      fido.set_name('Rover')
-    end.not_to raise_error
+    fido = Dog8.new
+    expect(fido.methods.include?(:set_name)).to eq(__)
+    expect(fido.methods.include?(:here)).to eq(__)
   end
 
   it 'can change instance variables from a method defined in a module' do
-    fido = Dog.new
+    fido = Dog8.new
     expect(fido.name).to eq(__)
     fido.set_name('Rover')
     expect(fido.name).to eq(__)
   end
 
   it 'a method defined in a class overrides an included method from a module' do
-    fido = Dog.new
+    fido = Dog8.new
     expect(fido.here).to eq(__)
   end
 end
