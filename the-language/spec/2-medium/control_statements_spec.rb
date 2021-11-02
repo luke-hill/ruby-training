@@ -43,13 +43,9 @@ RSpec.describe 'control statements' do
   end
 
   it 'has a condition (ternary) operator' do
-    expect(
-      true ? :true_value : :false_value
-    ).to eq(__)
+    expect(true ? :true_value : :false_value).to eq(__)
 
-    expect(
-      false ? :true_value : :false_value
-    ).to eq(__)
+    expect(false ? :true_value : :false_value).to eq(__)
   end
 
   it 'can use an if as a statement modifier' do
@@ -104,11 +100,12 @@ RSpec.describe 'control statements' do
 
   it 'can return a value with break' do
     i = 1
-    result = while i <= 10
-               break i if i % 2 == 0
+    result =
+      while i <= 10
+        break i if i % 2 == 0
 
-               i += 1
-             end
+        i += 1
+      end
 
     expect(result).to eq(__)
   end

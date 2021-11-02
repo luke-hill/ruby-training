@@ -2,8 +2,8 @@ RSpec.describe 'arrays' do
   it 'can be created like any other object' do
     empty = []
 
-    expect(empty.class).to eq __
-    expect(empty.size).to eq __
+    expect(empty.class).to eq(__)
+    expect(empty.size).to eq(__)
   end
 
   it 'can also be created using an array literal' do
@@ -19,7 +19,7 @@ RSpec.describe 'arrays' do
     expect(array).to eq(__)
   end
 
-  it 'provides the subscript operator for accessing elements' do
+  it 'provides the subscript (index), operator for accessing elements' do
     array = ['New York', 'Paris', 'London', 'Milan']
 
     expect(array[0]).to eq(__)
@@ -47,10 +47,13 @@ RSpec.describe 'arrays' do
     expect(array.slice(4, 0)).to eq(__)
     expect(array.slice(4, 10)).to eq(__)
     expect(array.slice(5, 0)).to eq(__)
+    expect(array.slice(1, 1)).to eq(__)
+    expect(array.slice(2, 1)).to eq(__)
   end
 
   it 'is similar to a range' do
     expect((1..5).class).to eq(__)
+    # Given these two items are not equal what do we expect to do with the tests below?
     expect([1, 2, 3, 4, 5]).not_to eq((1..5))
     expect(__).to eq((1..5).to_a)
     expect(__).to eq((1...5).to_a)
@@ -80,6 +83,7 @@ RSpec.describe 'arrays' do
   it 'can be used as a queue' do
     array = [:first, :second]
     array.push(:third)
+    expect(array).to eq(__)
 
     value = array.shift
     expect(value).to eq(__)
