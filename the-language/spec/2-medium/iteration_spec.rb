@@ -74,7 +74,7 @@ RSpec.describe 'iterating in ruby' do
   end
 
   it 'can use iteration methods on all collections, not just array' do
-    # Ranges act like a collection
+    # Ranges act like a collection, but when using map, they need to be co-erced
     result = (1..3).map { |item| item + 10 }
     expect(result).to eq(__)
 
