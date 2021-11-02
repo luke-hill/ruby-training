@@ -1,24 +1,24 @@
 RSpec.describe 'classes can be opened in ruby' do
-  class Dog
+  class Dog9
     def bark
       'WOOF'
     end
   end
 
   it 'barks as defined' do
-    fido = Dog.new
+    fido = Dog9.new
     expect(fido.bark).to eq(__)
   end
 
-  # Open the existing Dog class and add a new method.
-  class Dog
+  # Open the existing Dog9 class and add a new method.
+  class Dog9
     def wag
       'HAPPY'
     end
   end
 
   it 'can now wag too' do
-    fido = Dog.new
+    fido = Dog9.new
     expect(fido.wag).to eq(__)
     expect(fido.bark).to eq(__)
   end
