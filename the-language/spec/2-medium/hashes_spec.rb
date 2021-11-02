@@ -50,6 +50,7 @@ RSpec.describe 'hashes' do
     expect(hash.keys.size).to eq(__)
     expect(hash.keys.include?(:one)).to eq(__)
     expect(hash.keys.include?(:two)).to eq(__)
+    expect(hash.keys.include?(:three)).to eq(__)
     expect(hash.keys.class).to eq(__)
   end
 
@@ -73,6 +74,7 @@ RSpec.describe 'hashes' do
 
     expect(hash_with_default[:one]).to eq(__)
     expect(hash_with_default[:two]).to eq(__)
+    expect(hash_with_default[:three]).to eq(__)
   end
 
   it 'always returns the same object as the default value' do
