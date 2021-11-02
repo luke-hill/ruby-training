@@ -110,7 +110,7 @@ RSpec.describe 'control statements' do
     expect(result).to eq(__)
   end
 
-  it 'can skip on using next' do
+  it 'can skip an iterating step by using next (With a truthy condition)' do
     i = 0
     result = []
     while i < 10
