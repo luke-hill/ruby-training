@@ -1,6 +1,6 @@
 RSpec.describe 'hashes' do
   it 'can be created like any other object' do
-    empty_hash = {}
+    empty_hash = Hash.new
 
     expect(empty_hash.class).to eq(__)
     expect(empty_hash.size).to eq(__)
