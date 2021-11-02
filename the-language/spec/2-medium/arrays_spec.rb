@@ -1,6 +1,6 @@
 RSpec.describe 'arrays' do
   it 'can be created like any other object' do
-    empty = []
+    empty = Array.new
 
     expect(empty.class).to eq(__)
     expect(empty.size).to eq(__)
