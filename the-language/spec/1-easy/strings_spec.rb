@@ -133,7 +133,32 @@ Humpty dumpty had a great fall
   it 'can split a string into individual characters' do
     string = 'Bacon, lettuce and tomato'
 
-    expect(string.chars).to eq(__)
+    expect(string.chars).to eq(["B",
+                                + "a",
+                                + "c",
+                                + "o",
+                                + "n",
+                                + ",",
+                                + " ",
+                                + "l",
+                                + "e",
+                                + "t",
+                                + "t",
+                                + "u",
+                                + "c",
+                                + "e",
+                                + " ",
+                                + "a",
+                                + "n",
+                                + "d",
+                                + " ",
+                                + "t",
+                                + "o",
+                                + "m",
+                                + "a",
+                                + "t",
+                                + "o"]
+                            )
   end
 
   it 'represents single characters as strings' do
