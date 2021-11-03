@@ -2,8 +2,8 @@ RSpec.describe 'hashes' do
   it 'can be created like any other object' do
     empty_hash = {}
 
-    expect(empty_hash.class).to eq(__)
-    expect(empty_hash.size).to eq(__)
+    expect(empty_hash.class).to eq(Hash)
+    expect(empty_hash.size).to eq(0)
   end
 
   it 'can be created using the hash literal syntax' do
