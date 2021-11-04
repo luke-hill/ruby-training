@@ -8,7 +8,7 @@ RSpec.describe 'methods in ruby' do
   end
 
   it 'is possible to call a method without parentheses' do
-    expect(a_global_method(4, 8)).to eq(__)
+    expect(a_global_method 4, 8).to eq(__)
   end
 
   it 'is sometimes ambiguous to leave out parentheses' do
