@@ -72,7 +72,9 @@ RSpec.describe 'blocks' do
     make_upper = lambda do |n|
       n.upcase
     end
-    result = method_with_block_arguments(&make_upper)
+    result = method_with_block_arguments do |argument|
+      make_upper.call(argument)
+    end
     expect(result).to eq(__)
   end
 
@@ -86,6 +88,7 @@ RSpec.describe 'blocks' do
     add_one = lambda do |n|
       n + 1
     end
+    # This is a slightly shorter syntax for what we did on Lines 75-77
     expect(method_with_explicit_block(&add_one)).to eq(__)
   end
 end
