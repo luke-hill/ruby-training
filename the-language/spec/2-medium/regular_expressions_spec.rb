@@ -107,7 +107,7 @@ RSpec.describe 'regular expressions' do
     expect($2).to eq(__)
   end
 
-  it 'uses a | to show alternatives' do
+  it 'uses a | to offer alternatives for a group' do
     simpsons = /(Bart|Lisa|Maggie) Simpson/
 
     expect('Bart Simpson'[simpsons]).to eq(__)
@@ -115,15 +115,15 @@ RSpec.describe 'regular expressions' do
     expect('Montgomery Simpson'[simpsons]).to eq(__)
   end
 
-  it 'uses scan to find all' do
+  it 'uses scan to find all instances that match a specific regex' do
     expect('one two-three'.scan(/\w+/)).to eq(__)
   end
 
-  it 'uses sub to find and replace' do
+  it 'can use #sub to find and replace using regex' do
     expect('one two-three'.sub(/(t\w*)/) { $1[0, 1] }).to eq(__)
   end
 
-  it 'uses gsub to find and replace all' do
+  it 'can use #gsub to find and replace all instances of something using regex' do
     expect('one two-three'.gsub(/(t\w*)/) { $1[0, 1] }).to eq(__)
   end
 end

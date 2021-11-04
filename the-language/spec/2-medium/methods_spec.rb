@@ -7,11 +7,11 @@ RSpec.describe 'methods in ruby' do
     expect(a_global_method(5, 9)).to eq(__)
   end
 
-  it 'is possible to call a method without parens' do
+  it 'is possible to call a method without parentheses' do
     expect(a_global_method(4, 8)).to eq(__)
   end
 
-  it 'is sometimes ambiguous to leave out parens' do
+  it 'is sometimes ambiguous to leave out parentheses' do
     # We have used a string and eval here because the code below causes
     # a syntax error.
     code = 'a_global_method 4, a_global_method 3, 2'
