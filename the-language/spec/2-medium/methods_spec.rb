@@ -4,11 +4,11 @@ end
 
 RSpec.describe 'methods in ruby' do
   it 'is possible to call a global method' do
-    expect(a_global_method(5, 9)).to eq(__)
+    expect(a_global_method(5, 9)).to eq(14)
   end
 
   it 'is possible to call a method without parens' do
-    expect(a_global_method(4, 8)).to eq(__)
+    expect(a_global_method 4, 8).to eq(12)
   end
 
   it 'is sometimes ambiguous to leave out parens' do
