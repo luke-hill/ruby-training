@@ -68,7 +68,7 @@ RSpec.describe 'sandwich code' do
     end
   end
 
-  it 'can count lines in file again' do
+  it 'can count lines in a file again' do
     expect(count_lines2(EXAMPLE_FILE)).to eq(__)
   end
 
@@ -76,7 +76,7 @@ RSpec.describe 'sandwich code' do
     # Rewrite find_line using the file_sandwich library function.
   end
 
-  it 'can count lines in file, again' do
+  it 'can find lines in a file again' do
     expect(find_line2(EXAMPLE_FILE)).to eq(__)
   end
 
@@ -91,6 +91,8 @@ RSpec.describe 'sandwich code' do
   end
 
   it 'supports passing a block to open' do
+    # So this shows that the sandwhich methodology exists in ruby and is quite common
+    # This is one of the powerful attributes of blocks
     expect(count_lines3(EXAMPLE_FILE)).to eq(__)
   end
 end
