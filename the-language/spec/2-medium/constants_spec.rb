@@ -63,7 +63,7 @@ describe 'constants in ruby are different' do
     end
   end
 
-  it 'can add a new overridden constant in a subclass' do
+  it 'can add a new overridden constant (from the enclosing class), in a subclass' do
     expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
   end
 
@@ -76,6 +76,7 @@ describe 'constants in ruby are different' do
   end
 
   context 'with an inherited class and an enclosing class' do
+    # Remember that we have already defined what MyAnimals::LEGS was earlier
     it 'uses the top level enclosing class as the source of truth' do
       expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(__)
     end

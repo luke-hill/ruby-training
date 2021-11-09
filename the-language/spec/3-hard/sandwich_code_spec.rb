@@ -1,7 +1,7 @@
 RSpec.describe 'sandwich code' do
   # This is a common pattern you will see in ruby for finding files
-  # relative to the current path. Look up whats happening in the docs if
-  # you wan to know more.
+  # relative to the current path. Look up whats happening on the ruby docs
+  # if you want to know more.
   #
   # Here we are setting EXAMPLE_FILE to the path of a file called
   # "example_file.txt" in the same directory as this file.

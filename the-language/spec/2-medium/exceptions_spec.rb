@@ -38,7 +38,7 @@ RSpec.describe 'exceptions' do
     end
 
     expect(result).to eq(__)
-    expect(ex.message).to eq(__)
+    expect(e.message).to eq(__)
   end
 
   it 'can `ensure` code is always run' do
