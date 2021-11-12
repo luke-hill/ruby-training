@@ -30,10 +30,10 @@ RSpec.describe 'message passing' do
     expect(mc.send('caught?')).to eq(__)
 
     # What do you need to add to the first string?
-    expect(mc.send('caught' + __)).to eq(true)
+    expect(mc.send('caught' + '?')).to eq(__)
 
     # What would you need to do to the string?
-    expect(mc.send('CAUGHT?'.__)).to eq(true)
+    expect(mc.send('CAUGHT?'.downcase)).to eq(__)
   end
 
   it 'can also use __send__ to perform the same behaviour' do
@@ -61,7 +61,6 @@ RSpec.describe 'message passing' do
 
   it 'can "send" a message with arguments' do
     mc = MessageCatcher.new
-
     expect(mc.add_a_payload).to eq(__)
     expect(mc.send(:add_a_payload)).to eq(__)
 
@@ -82,14 +81,14 @@ RSpec.describe 'message passing' do
   it 'raises an error if you send undefined messages' do
     typical = TypicalObject.new
 
-    expect { typical.send(:foobar) }.to raise_error(__, /__/)
+    expect { typical.send(:foobar) }.to raise_error(__, //)
   end
 
   it 'raises the NoMethodError by calling method_missing' do
     typical = TypicalObject.new
 
     expect(typical.respond_to?(:method_missing, true)).to eq(__)
-    expect { typical.send(:method_missing) }.to raise_error(__, /__/)
+    expect { typical.send(:method_missing) }.to raise_error(__, //)
 
     # THINK ABOUT IT:
     #
