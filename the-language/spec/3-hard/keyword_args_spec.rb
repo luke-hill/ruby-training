@@ -4,10 +4,10 @@ RSpec.describe 'keyword args' do
   end
 
   it 'is possible to define a method with keyword arguments' do
-    expect(method_with_keyword_arguments.class).to eq(__)
-    expect(method_with_keyword_arguments).to eq(__)
-    expect(method_with_keyword_arguments(one: 'one')).to eq(__)
-    expect(method_with_keyword_arguments(two: 2)).to eq(__)
+    expect(method_with_keyword_arguments.class).to eq(Array)
+    expect(method_with_keyword_arguments).to eq([1,'two'])
+    expect(method_with_keyword_arguments(one: 'one')).to eq(['one', 'two'])
+    expect(method_with_keyword_arguments(two: 2)).to eq([1, 2])
   end
 
   def method_with_keyword_arguments_including_mandatory(one, two: 2, three: 3)
@@ -16,6 +16,6 @@ RSpec.describe 'keyword args' do
 
   it 'is possible to define a method with regular and keyword arguments' do
     expect { method_with_keyword_arguments_including_mandatory }
-      .to raise_error(__, /__/)
+      .to raise_error(ArgumentError, /wrong number of arguments/)
   end
 end
