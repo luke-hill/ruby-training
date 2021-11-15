@@ -79,7 +79,7 @@ Failed examples:
 rspec ./spec/bottles_spec.rb:8 # singing 99 bottles of beer can sing a typical verse
 ```
 
-This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 8.
+This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 10.
 
 **NB:** We introduce a new keyword here - `skip`. This is rspec syntax that simply allows you
 to ignore a test, be it passing or failing.

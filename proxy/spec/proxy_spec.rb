@@ -5,10 +5,10 @@ require 'television'
 
 RSpec.describe Proxy do
   context 'with a tv proxy' do
-    let(:tv_proxy) { Proxy.new(Television.new) }
+    subject(:tv_proxy) { described_class.new(Television.new) }
 
     it 'returns a wrapped object' do
-      expect(tv_proxy).to be_a(Proxy)
+      expect(tv_proxy).to be_a(described_class)
     end
 
     it 'operates the TV channel button as expected' do
@@ -37,13 +37,13 @@ RSpec.describe Proxy do
     it 'reports proxy methods that have been called' do
       tv_proxy.power
 
-      expect(tv_proxy.called?(:power)).to be_truthy
+      expect(tv_proxy).to be_called(:power)
     end
 
     it 'does not report proxy methods that have not been called' do
       tv_proxy.channel = 10
 
-      expect(tv_proxy.called?(:power)).to be_falsey
+      expect(tv_proxy).not_to be_called(:power)
     end
 
     it 'can count if a method has not been called' do
@@ -69,10 +69,10 @@ RSpec.describe Proxy do
   end
 
   context 'with a string proxy' do
-    let(:string_proxy) { Proxy.new('Code Mash 2009') }
+    let(:string_proxy) { described_class.new('Code Mash 2009') }
 
     it 'returns a wrapped object' do
-      expect(string_proxy).to be_a(Proxy)
+      expect(string_proxy).to be_a(described_class)
     end
 
     it 'can perform basic string methods' do

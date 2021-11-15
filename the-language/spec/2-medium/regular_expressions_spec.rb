@@ -1,9 +1,10 @@
 RSpec.describe 'regular expressions' do
-  it 'is a pattern' do
+
+  it 'is a type of regexp' do
     expect(/pattern/.class).to eq(Regexp)
   end
 
-  it 'can search a string for content that matches the pattern' do
+  it 'can fetch the first instance of a pattern that is found in a string' do
     expect('a string that matches'[/match/]).to eq('match')
   end
 
@@ -11,12 +12,14 @@ RSpec.describe 'regular expressions' do
     expect('a string that matches'[/fails/]).to eq(nil)
   end
 
-  it 'uses a ? for optional' do
+
+  it 'uses a ? for optional (0 or 1 of the preceding item)' do
     expect('abcd'[/ab?/]).to eq('ab')
     expect('abcd'[/ae?/]).to eq('a')
   end
 
   it 'uses + to mean one or more' do
+    expect('abcccd'[/ac+/]).to eq(nil)
     expect('abcccd'[/bc+/]).to eq('bccc')
   end
 
@@ -32,10 +35,11 @@ RSpec.describe 'regular expressions' do
 
   it 'can use character classes to provide options' do
     words = ['cat', 'sat', 'mat']
-    expect(words.select { |w| w[/[cm]at/] }).to eq(['cat', 'mat'])
+
+    expect(words.select { |word| word[/[cm]at/] }).to eq(['cat', 'mat'])
   end
 
-  it "uses \d as a shortcut for a digit character class" do
+  it 'uses \d as a shortcut for a digit character class' do
     expect('3 is the magic number'[/[0123456789]/]).to eq('3')
     expect('3 is the magic number'[/\d/]).to eq('3')
   end
@@ -69,12 +73,13 @@ RSpec.describe 'regular expressions' do
     expect('magic_number_1 = 42'[/\W+/]).to eq(" = ")
   end
 
-  it "uses \A to mark the start of the string" do
+
+  it 'uses \A to mark the start of the string' do
     expect('start end'[/\Astart/]).to eq('start')
     expect('start end'[/\Aend/]).to eq(nil)
   end
 
-  it "uses \z to mark the end of the string" do
+  it 'uses \z to mark the end of the string' do
     expect('start end'[/end\z/]).to eq('end')
     expect('start end'[/start\z/]).to eq(nil)
   end
@@ -91,13 +96,14 @@ RSpec.describe 'regular expressions' do
     expect('wildcat cats'[/\bcat.+/]).to eq('cats')
   end
 
-  it 'uses parens to group content' do
+
+  it 'uses parentheses to group content' do
     expect('yohoho'[/(ho)+/]).to eq('hoho')
   end
 
-  it 'also uses parens to capture content' do
-    expect('Gray, James'[/(\w+), (\w+)/, 1]).to eq("Gray")
-    expect('Gray, James'[/(\w+), (\w+)/, 2]).to eq("James")
+  it 'also uses parentheses to capture content' do
+    expect('Gray, James'[/(\w+), (\w+)/, 1]).to eq('Gray')
+    expect('Gray, James'[/(\w+), (\w+)/, 2]).to eq('James')
   end
 
   it 'has special variables to access captures' do
@@ -106,7 +112,7 @@ RSpec.describe 'regular expressions' do
     expect($2).to eq("James")
   end
 
-  it 'uses a | to show alternatives' do
+  it 'uses a | to offer alternatives for a group' do
     simpsons = /(Bart|Lisa|Maggie) Simpson/
 
     expect('Bart Simpson'[simpsons]).to eq('Bart Simpson')
@@ -114,15 +120,16 @@ RSpec.describe 'regular expressions' do
     expect('Montgomery Simpson'[simpsons]).to eq(nil)
   end
 
-  it 'uses scan to find all' do
-    expect('one two-three'.scan(/\w+/)).to eq(['one', 'two', 'three'])
+
+  it 'uses scan to find all instances that match a specific regex' do
+    expect('one two-three'.scan(/\w+/)).to eq(["one","two", "three"])
   end
 
-  it 'uses sub to find and replace' do
-    expect('one two-three'.sub(/(t\w*)/) { $1[0, 1] }).to eq('one t-three')
+  it 'can use #sub to find and replace using regex' do
+    expect('one two-three'.sub(/(t\w*)/) { $1[0, 1] }).to eq("one t-three")
   end
 
-  it 'uses gsub to find and replace all' do
+  it 'can use #gsub to find and replace all instances of something using regex' do
     expect('one two-three'.gsub(/(t\w*)/) { $1[0, 1] }).to eq('one t-t')
   end
 end

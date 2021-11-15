@@ -39,6 +39,7 @@ RSpec.describe 'exceptions' do
 
     expect(result).to eq(:exception_handled)
     expect(e.message).to eq('My Message')
+
   end
 
   it 'can `ensure` code is always run' do

@@ -34,7 +34,7 @@ RSpec.describe 'inheritance' do
     expect(chico.name).to eq('Chico')
   end
 
-  it 'can add behaviour in subclass that does not exist in parent class' do
+  it 'can add behaviour in subclass that does not exist in the parent class' do
     chico = Chihuahua.new('Chico')
     expect(chico.wag).to eq(:happy)
 
@@ -69,7 +69,7 @@ RSpec.describe 'inheritance' do
     end
   end
 
-  it "can't invoke other methods using super" do
+  it 'is not able to use super to invoke different methods' do
     george = GreatDane.new('George')
     expect { george.growl }.to raise_error(NoMethodError)
   end

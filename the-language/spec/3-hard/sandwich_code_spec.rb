@@ -1,7 +1,7 @@
 RSpec.describe 'sandwich code' do
   # This is a common pattern you will see in ruby for finding files
-  # relative to the current path. Look up whats happening in the docs if
-  # you wan to know more.
+  # relative to the current path. Look up whats happening on the ruby docs
+  # if you want to know more.
   #
   # Here we are setting EXAMPLE_FILE to the path of a file called
   # "example_file.txt" in the same directory as this file.
@@ -68,7 +68,8 @@ RSpec.describe 'sandwich code' do
     end
   end
 
-  it 'can count lines in file again' do
+
+  it 'can count lines in a file again' do
     expect(count_lines2(EXAMPLE_FILE)).to eq(4)
   end
 
@@ -76,7 +77,8 @@ RSpec.describe 'sandwich code' do
     # Rewrite find_line using the file_sandwich library function.
   end
 
-  it 'can count lines in file, again' do
+
+  it 'can find lines in a file again' do
     expect(find_line2(EXAMPLE_FILE)).to eq(nil)
   end
 
@@ -91,6 +93,9 @@ RSpec.describe 'sandwich code' do
   end
 
   it 'supports passing a block to open' do
+
+    # So this shows that the sandwhich methodology exists in ruby and is quite common
+    # This is one of the powerful attributes of blocks
     expect(count_lines3(EXAMPLE_FILE)).to eq(4)
   end
 end

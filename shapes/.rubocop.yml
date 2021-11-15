@@ -5,46 +5,21 @@ require:
 AllCops:
   NewCops: enable
 
-Lint/EmptyClass:
-  Enabled: false
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
 Metrics/BlockLength:
-  Max: 40
+  Enabled: false
 
 Naming/MethodParameterName:
-  Enabled: false
+  AllowedNames:
+    - a
+    - b
+    - c
+    - d
 
 RSpec/DescribeClass:
   Enabled: false
 
-RSpec/ExampleLength:
-  Exclude:
-  - 'spec/invalid_quadrilateral_spec.rb'
-
 RSpec/MultipleExpectations:
-  Max: 4
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
+  Enabled: false
 
 Style/SymbolArray:
   Enabled: false
-

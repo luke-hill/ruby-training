@@ -1,6 +1,6 @@
 RSpec.describe 'hashes' do
   it 'can be created like any other object' do
-    empty_hash = {}
+    empty_hash = Hash.new
 
     expect(empty_hash.class).to eq(Hash)
     expect(empty_hash.size).to eq(0)
@@ -47,9 +47,11 @@ RSpec.describe 'hashes' do
   it 'has a list of its keys' do
     hash = { one: 1, two: 2 }
 
+
     expect(hash.keys.size).to eq(2)
     expect(hash.keys.include?(:one)).to eq(true)
     expect(hash.keys.include?(:two)).to eq(true)
+    expect(hash.keys.include?(:three)).to eq(false)
     expect(hash.keys.class).to eq(Array)
   end
 
@@ -71,8 +73,10 @@ RSpec.describe 'hashes' do
     hash_with_default = Hash.new(2)
     hash_with_default[:one] = 1
 
+
     expect(hash_with_default[:one]).to eq(1)
     expect(hash_with_default[:two]).to eq(2)
+    expect(hash_with_default[:three]).to eq(2)
   end
 
   it 'always returns the same object as the default value' do
