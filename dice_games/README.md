@@ -20,14 +20,14 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-The tests will fail, but the output will end with
+The tests will (mostly), fail, but the output will contain
 
 ```
-Finished in 0.02651 seconds (files took 0.11729 seconds to load)
+Finished in 0.01159 seconds (files took 0.05049 seconds to load)
 32 examples, 31 failures
 ```
 
-One of the tests already passes! But we still have another 29 to fix...
+One of the tests already passes! But we still have another 31 tests to fix...
 
 Now we need to fix the specs. There are 2 files inside the `lib/` directory that we need to edit.
 These two files will tell us how to solve the following problems.

@@ -8,32 +8,5 @@ AllCops:
 Lint/EmptyClass:
   Enabled: false
 
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
 Metrics/BlockLength:
   Max: 75
-
-RSpec/DescribedClass:
-  Enabled: false
-
-RSpec/PredicateMatcher:
-  Enabled: false
-  
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true

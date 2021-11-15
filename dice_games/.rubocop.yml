@@ -8,28 +8,8 @@ AllCops:
 Lint/EmptyClass:
   Enabled: false
 
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
 Metrics/BlockLength:
-  Max: 100
+  Enabled: false
 
-Style/ExponentialNotation:
-  Enabled: true
-  
 Style/HashEachMethods:
-  Enabled: true
-  Exclude:
-    - 'spec/dice_spec.rb'
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
+  Enabled: false

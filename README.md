@@ -26,8 +26,8 @@ $ rvm reload
 # Quit the terminal once this has installed, and restart your machine
 $ type rvm | head -1
 $ rvm -v # This should output a number
-$ rvm install 2.5.9
 $ rvm install 2.7.4
+$ rvm install 3.0.2
 ```
 
 ### Dependency installation on ubuntu
@@ -51,8 +51,8 @@ $ rvm reload
 # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
-$ rvm install 2.5.9
 $ rvm install 2.7.4
+$ rvm install 3.0.2
 ```
 
 ## Setup
