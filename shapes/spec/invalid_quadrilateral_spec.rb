@@ -12,12 +12,9 @@ RSpec.describe 'handling errors' do
   end
 
   it 'throws errors for quadrilaterals with negative angles' do
-    expect { quadrilateral(300, 40, 30, -10) }
-      .to raise_error(QuadrilateralError)
-    expect { quadrilateral(360, 40, -30, -10) }
-      .to raise_error(QuadrilateralError)
-    expect { quadrilateral(440, -40, -30, -10) }
-      .to raise_error(QuadrilateralError)
+    expect { quadrilateral(300, 40, 30, -10) }.to raise_error(QuadrilateralError)
+    expect { quadrilateral(360, 40, -30, -10) }.to raise_error(QuadrilateralError)
+    expect { quadrilateral(440, -40, -30, -10) }.to raise_error(QuadrilateralError)
   end
 
   it 'throws errors for illegal quadrilaterals that are not constructable' do
