@@ -1,6 +1,6 @@
 # Notice that we have define everything inside a Scopes module
 module Scopes
-  RSpec.describe 'scope' do
+  RSpec.describe 'scopes' do
     module Jim
       class Otter
         def identify
@@ -18,10 +18,11 @@ module Scopes
     end
 
     it 'cannot access Otter in the current scope' do
+      # This fails because it assumes a Current Scope for our Otter which is what?
       expect { Otter.new }.to raise_error(__)
     end
 
-    it 'can reference nested classes using the scope operator' do
+    it 'can reference nested classes using the scope operator (::)' do
       alfie = Jim::Otter.new
       bonnie = Joe::Otter.new
       expect(alfie.identify).to eq(__)

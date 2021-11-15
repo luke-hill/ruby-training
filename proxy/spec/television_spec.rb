@@ -3,7 +3,7 @@
 require 'television'
 
 RSpec.describe Television do
-  let(:tv) { Television.new }
+  subject(:tv) { described_class.new }
 
   it 'turns on' do
     tv.power

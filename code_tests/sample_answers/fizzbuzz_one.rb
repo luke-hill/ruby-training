@@ -4,11 +4,11 @@ class Fizzbuzz
   def play(n)
     1.upto(n).map do |value|
       if (value % 15).zero?
-        "fizzbuzz"
+        'fizzbuzz'
       elsif (value % 3).zero?
-        "fizz"
+        'fizz'
       elsif (value % 5).zero?
-        "buzz"
+        'buzz'
       else
         value
       end
