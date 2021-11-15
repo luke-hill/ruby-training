@@ -20,11 +20,11 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-By now you should know that to start with all of the examples will fail! The output should end with
+By now you should know that to start with all of the examples will fail! The output should contain (near the bottom)
 
 ```
-Finished in 0.02349 seconds (files took 0.12234 seconds to load)
-24 examples, 24 failures
+Finished in 0.01063 seconds (files took 0.05284 seconds to load)
+25 examples, 25 failures
 ```
 
 Now we need to fix the specs. There are 3 files inside the `lib/` directory that we need to edit.
