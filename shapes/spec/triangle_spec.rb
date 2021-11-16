@@ -3,6 +3,21 @@
 require 'triangle' # RSpec automatically adds `lib/` to the LOAD_PATH
 # edit lib/triangle.rb to fix these tests
 
+def triangle(a, b, c)
+  # WRITE THIS CODE
+  if (a == b) && (a == c) && (b == c)
+    :equilateral
+  elsif (a == b) && ((a || b) != c)
+    :isosceles
+  elsif (a == c) && ((a || c) != b)
+    :isosceles
+  elsif (b == c) && ((b || c) != a)
+    :isosceles
+  else
+    :scalene
+end
+end
+
 RSpec.describe 'triangle types' do
   it 'is equilateral when all sides are the same length' do
     expect(triangle(2, 2, 2)).to eq(:equilateral)
