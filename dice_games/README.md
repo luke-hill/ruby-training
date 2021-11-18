@@ -23,14 +23,12 @@ $ rspec
 The tests will (mostly), fail, but the output will contain
 
 ```
-Finished in 0.01159 seconds (files took 0.05049 seconds to load)
-32 examples, 31 failures
+Finished in 0.01999 seconds (files took 0.06172 seconds to load)
+31 examples, 31 failures
 ```
 
-One of the tests already passes! But we still have another 31 tests to fix...
-
 Now we need to fix the specs. There are 2 files inside the `lib/` directory that we need to edit.
-These two files will tell us how to solve the following problems.
+These two files will tell us how to play the following games.
 
 1. Roll any number of dice and observe their values
 1. Play a game of greed, a single player dice scoring game (Rules you need to deduce from the spec)
