@@ -5,8 +5,20 @@
 # end
 
 def triangle(a, b, c)
-  if a==0 && b==0 && c==0
+  if a==0 || b==0 || c==0 || a<0 || b<0 || c<0
     raise new.TriangleError
+  # else a<0 || b<0 || c<0
+  #   raise new.TriangleError
+  # else (a + c ) > b
+  #   raise new.TriangleError
+end
+  # if (a + c ) > b
+  # raise new.TriangleError
+  #  if x, y, z = [a,b,c].sort
+  # raise TriangleError if x + y <= z
+  if  array = []
+    x, y, z = [a,b,c].sort
+    raise TriangleError if x + y <= z
 end
   if (a == b) && (a == c) && (b == c)
     :equilateral
@@ -50,11 +62,11 @@ RSpec.describe 'triangle types' do
     expect(triangle(10, 10, 2)).to eq(:isosceles)
   end
 
-  it 'is right angle when one of the interior angles is 90 degrees' do
-    expect(triangle(90, 50, 40)).to eq(:rightangle)
-    expect(triangle(60, 90, 30)).to eq(:rightangle)
-    expect(triangle(30, 60, 90)).to eq(:rightangle)
-  end
+  # it 'is right angle when one of the interior angles is 90 degrees' do
+  #   expect(triangle(90, 50, 40)).to eq(:rightangle)
+  #   expect(triangle(60, 90, 30)).to eq(:rightangle)
+  #   expect(triangle(30, 60, 90)).to eq(:rightangle)
+  # end
 
   it 'is scalene when no sides are equal' do
     expect(triangle(3, 4, 5)).to eq(:scalene)
@@ -62,11 +74,20 @@ RSpec.describe 'triangle types' do
     expect(triangle(5, 4, 2)).to eq(:scalene)
   end
 
-  it 'can raise a  error' do
-
+  it 'can raise a  error if any angle = 0' do
     expect{(triangle(0, 90, 90)).to raise_error}
     expect{(triangle(90, 0, 90)).to raise_error}
     expect{(triangle(90, 90, 0)).to raise_error}
+  end
 
+  it 'throws errors for triangles with a negative side length' do
+    expect {triangle(3, 4, -5).to raise_error(TriangleError)}
+    expect {triangle(-1, -1, 3).to raise_error(TriangleError)}
+    expect {triangle(-2, -4, -2).to raise_error(TriangleError)}
+  end
+
+  it 'throws errors for illegal triangles that are not constructable' do
+    expect {triangle(1, 1, 3).to raise_error(TriangleError)}
+    expect {triangle(2, 4, 2).to raise_error(TriangleError)}
   end
 end
