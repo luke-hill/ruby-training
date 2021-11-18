@@ -5,68 +5,70 @@ require 'greed'
 RSpec.describe Greed do
   let(:greed) { subject }
 
-  it 'requires an array input' do
-    expect { greed.score }.to raise_error(GreedError)
-  end
+  context 'with simple scoring hands' do
+    it 'requires an array input' do
+      expect { greed.score }.to raise_error(GreedError)
+    end
 
-  it 'scores a blank array as 0' do
-    expect(greed.score([])).to eq(0)
-  end
+    it 'scores a blank array as 0' do
+      expect(greed.score([])).to eq(0)
+    end
 
-  it 'scores a single 5 as 50' do
-    expect(greed.score([5])).to eq(50)
-  end
+    it 'scores a single 5 as 50' do
+      expect(greed.score([5])).to eq(50)
+    end
 
-  it 'scores a single 1 as 100' do
-    expect(greed.score([1])).to eq(100)
-  end
+    it 'scores a single 1 as 100' do
+      expect(greed.score([1])).to eq(100)
+    end
 
-  it 'scores a single 2 as 0' do
-    expect(greed.score([2])).to eq(0)
-  end
+    it 'scores a single 2 as 0' do
+      expect(greed.score([2])).to eq(0)
+    end
 
-  it 'scores a single 3 as 0' do
-    expect(greed.score([3])).to eq(0)
-  end
+    it 'scores a single 3 as 0' do
+      expect(greed.score([3])).to eq(0)
+    end
 
-  it 'scores a single 4 as 0' do
-    expect(greed.score([4])).to eq(0)
-  end
+    it 'scores a single 4 as 0' do
+      expect(greed.score([4])).to eq(0)
+    end
 
-  it 'scores a single 6 as 0' do
-    expect(greed.score([6])).to eq(0)
-  end
+    it 'scores a single 6 as 0' do
+      expect(greed.score([6])).to eq(0)
+    end
 
-  it 'scores multiple 1s and 5s as a sum of the individual scores' do
-    expect(greed.score([1, 5, 5, 1])).to eq(300)
-  end
+    it 'scores multiple 1s and 5s as a sum of the individual scores' do
+      expect(greed.score([1, 5, 5, 1])).to eq(300)
+    end
 
-  it 'scores a combination of 2s, 3s, 4s and 6s as 0' do
-    expect(greed.score([2, 3, 4, 6])).to eq(0)
-  end
+    it 'scores a combination of 2s, 3s, 4s and 6s as 0' do
+      expect(greed.score([2, 3, 4, 6])).to eq(0)
+    end
 
-  it 'scores triple 1 as 1000' do
-    expect(greed.score([1, 1, 1])).to eq(1000)
-  end
+    it 'scores triple 1 as 1000' do
+      expect(greed.score([1, 1, 1])).to eq(1000)
+    end
 
-  it 'scores triple 2 as 200' do
-    expect(greed.score([2, 2, 2])).to eq(200)
-  end
+    it 'scores triple 2 as 200' do
+      expect(greed.score([2, 2, 2])).to eq(200)
+    end
 
-  it 'scores triple 3 as 300' do
-    expect(greed.score([3, 3, 3])).to eq(300)
-  end
+    it 'scores triple 3 as 300' do
+      expect(greed.score([3, 3, 3])).to eq(300)
+    end
 
-  it 'scores triple 4 as 200' do
-    expect(greed.score([4, 4, 4])).to eq(400)
-  end
+    it 'scores triple 4 as 200' do
+      expect(greed.score([4, 4, 4])).to eq(400)
+    end
 
-  it 'scores triple 5 as 500' do
-    expect(greed.score([5, 5, 5])).to eq(500)
-  end
+    it 'scores triple 5 as 500' do
+      expect(greed.score([5, 5, 5])).to eq(500)
+    end
 
-  it 'scores triple 6 as 600' do
-    expect(greed.score([6, 6, 6])).to eq(600)
+    it 'scores triple 6 as 600' do
+      expect(greed.score([6, 6, 6])).to eq(600)
+    end
   end
 
   context 'with a low scoring hand' do

@@ -5,10 +5,6 @@ require 'dice'
 RSpec.describe Dice do
   let(:dice) { subject }
 
-  it 'can create a new dice class' do
-    expect(dice).to be_a described_class
-  end
-
   it 'can roll some dice' do
     expect { dice.roll }.not_to raise_error
   end
