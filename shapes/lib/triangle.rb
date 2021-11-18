@@ -6,7 +6,7 @@
 
 def triangle(a, b, c)
   if a==0 || b==0 || c==0 || a<0 || b<0 || c<0
-    raise new.TriangleError
+    raise new.TriangleError 
   # else a<0 || b<0 || c<0
   #   raise new.TriangleError
   # else (a + c ) > b

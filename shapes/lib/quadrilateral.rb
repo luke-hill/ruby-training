@@ -3,25 +3,15 @@
 def quadrilateral(a, b, c, d)
   # WRITE THIS CODE
   array = []
-  if (a == b) && (a == c) && (b == c)
+  if (a == b) && (a == c) && (b == c) && ((a + b) == (c + d))
     [:square, :rectangle]
-  elsif ((a + b) >= (c + d)) && ((a == b) || (a == c) || (a == d)) && ((a >= b))
+  elsif ((a == b) || (a == c) || (a == d)) && ((a >= b)) && ((a >= c)) && ((a + b) >= (c + d))
     [:parallelogram, :rhombus]
   elsif (a != b) && (a != c) && (a != d)
     [:quadrilateral]
-  # elsif (b != d) && (a != d)
-  # else (a == b) || (a != c) || (a != d)
-  #   [:quadrilateral]
-  elsif (b != d) && (a != d)
-  elsif (a == b) || (a != c) || (a != d)
+  else (a != d) && (b != d) && (c != d)
     [:quadrilateral]
-  # else (a == b) && (a <= c) && ((a + b) != (c + d)) && ((a + c) != (b + d))
-    # else (a == b) || (a != c) || (a != d)
-  # else  ((a < d) && (b < d)) && ((a + c) < (b + d))
-  # elsif (a < d) && (b < d) && (b != d) && (c != d)
-  # else ((a < d) && (b < d)) && ((a + b) < (c + d))
-  else ((a + b) < (c + d)) && ((a == b))
-      [:quadrilateral]
+
   end
 end
 
