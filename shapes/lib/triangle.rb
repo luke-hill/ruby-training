@@ -9,6 +9,10 @@ def triangle(a, b, c)
   if sides.first <= 0 || sides[0] + sides[1] <= sides[2]
     raise TriangleError
   end
+  # Below code will check for
+  # equilateral triangles
+  # isosceles triangles
+  # scalene triangles
   case [a, b, c].uniq.size
   when 1 then :equilateral
   when 2 then :isosceles
