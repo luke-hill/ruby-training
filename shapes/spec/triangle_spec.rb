@@ -37,7 +37,7 @@ RSpec.describe 'triangle types' do
       expect { triangle(-2, -4, -2) }.to raise_error(TriangleError)
     end
 
-    it 'throws errors for illegal triangles that are not constructable' do
+    it 'throws errors for illegal triangles that are not constructible' do
       expect { triangle(1, 1, 3) }.to raise_error(TriangleError)
       expect { triangle(2, 4, 2) }.to raise_error(TriangleError)
     end
