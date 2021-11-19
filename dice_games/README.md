@@ -20,7 +20,7 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-The tests will (mostly), fail, but the output will contain
+The tests will fail and the output will contain
 
 ```
 Finished in 0.01999 seconds (files took 0.06172 seconds to load)
