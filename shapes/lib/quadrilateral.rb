@@ -2,6 +2,12 @@
 
 def quadrilateral(a, b, c, d)
   # WRITE THIS CODE
+  if a==0 || b==0 || c==0 || d==0 || a<0 || b<0 || c<0 || d<0
+    raise new.TriangleError
+end
+  if ((a + b + c + d ) > 360) || ((a + b + c + d ) < 360)
+  raise new.TriangleError
+end
   array = []
   if (a == b) && (a == c) && (b == c) && ((a + b) == (c + d))
     [:square, :rectangle]
@@ -39,5 +45,23 @@ RSpec.describe 'quadrilateral types' do
   it 'is a quadrilateral when there is not 2 pairs of equal angles' do
     expect(quadrilateral(10, 10, 300, 40)).to eq([:quadrilateral])
     expect(quadrilateral(80, 80, 80, 120)).to eq([:quadrilateral])
+  end
+
+  it 'throws errors for quadrilaterals with angles of 0' do
+    expect {quadrilateral(300, 40, 20, 0).to raise_error(QuadrilateralError)}
+    expect { quadrilateral(300, 60, 0, 0).to raise_error(QuadrilateralError)}
+    expect { quadrilateral(360, 0, 0, 0).to raise_error(QuadrilateralError)}
+    expect { quadrilateral(0, 0, 0, 0).to raise_error(QuadrilateralError)}
+  end
+
+  it 'throws errors for quadrilaterals with negative angles' do
+    expect { quadrilateral(300, 40, 30, -10).to raise_error(QuadrilateralError)}
+    expect { quadrilateral(360, 40, -30, -10).to raise_error(QuadrilateralError)}
+    expect { quadrilateral(440, -40, -30, -10).to raise_error(QuadrilateralError)}
+  end
+
+  it 'throws errors for illegal quadrilaterals that are not constructable' do
+    expect { quadrilateral(300, 40, 10, 9).to raise_error(QuadrilateralError)}
+    expect { quadrilateral(300, 40, 12, 9).to raise_error(QuadrilateralError)}
   end
   end
