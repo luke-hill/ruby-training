@@ -6,7 +6,9 @@
 #   # WRITE THIS CODE
 # end
 def internal_angle(n)
-
+  if n==0 || n<0
+    raise PolygonError, "Angle cannot be '0' or 'negative'"
+  end
   (((n-2) * 180).to_f / n).round(2)
 end
 def external_angle(n)
@@ -14,14 +16,15 @@ def external_angle(n)
 end
 
 # # Error class used in invalid_triangle_spec. No need to change this code.
-# class PolygonError < StandardError
-# end
+class PolygonError < StandardError
+end
 
 RSpec.describe 'polygon angle calculation' do
   context 'with interior angles' do
     it 'calculates the interior angle of a regular pentagon' do
       expect(internal_angle(5)).to eq(108)
     end
+
 
     it 'calculates the interior angle of a regular hexagon' do
       expect(internal_angle(6)).to eq(120)
@@ -68,6 +71,13 @@ RSpec.describe 'polygon angle calculation' do
     it 'calculates the exterior angle of a regular decagon' do
       expect(external_angle(10)).to eq(36)
     end
+  end
+
+  it 'throws error for polygon with angle = 0' do
+    expect(internal_angle(0)).to eq(108)
+  end
+  it 'throws errors for polygon with negative angles' do
+    expect(internal_angle(-20)).to eq(108)
   end
   end
 
