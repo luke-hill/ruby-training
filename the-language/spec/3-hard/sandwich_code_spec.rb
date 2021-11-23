@@ -47,7 +47,7 @@ RSpec.describe 'sandwich code' do
   # many languages.
   #
   # Consider the following code, where we try to start "simplifying" our
-  # construct of the sandwhich, so we have re-usable code
+  # construct of the sandwich, so we have re-usable code
 
   def file_sandwich(file_name)
     file = open(file_name)
