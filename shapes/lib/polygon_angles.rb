@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-# def internal_angle(number_of_sides)
-  # WRITE THIS CODE
-# def external_angle(number_of_sides)
-#   # WRITE THIS CODE
-# end
 def internal_angle(n)
   if n==0 || n<0
     raise PolygonError, "Angle cannot be '0' or 'negative'"
