@@ -1,13 +1,16 @@
 # 99 Bottles of Beer!
 
-Whilst I am english, given the nursery rhyme here is written in American style, we will go with that.
+The nursery rhyme here is the americanized version of 10 green bottles
 
-The purpose of this is a first pass introduction at TDD - Test Driven Development. The principle of which
+The purpose of this is a further look at TDD - Test Driven Development. The principle of which
 states that if you wish to develop good software, first you develop good tests for what the software
 should do or conform to. Then **and only then**, do you write the actual software to do the job.
 
-Here we have a problem, which has all of the tests defined, but no application code - Our job is
-to write the application code, such that all of the tests pass.
+We should be familiar with TDD now having completed one or more previous mini-projects on TDD. Here however
+our challenge is a bit trickier, and the code we will need to write is required to have a variety of methods
+
+Our problem here, like before, is that we have all the tests defined, but no application code - Our job is
+to write the application code, such that all of the tests pass. Again similar to the other mini-projects
 
 In the real workplace, this is sometimes done, but often a hybrid of TDD, BDD (Behaviour Driven Development),
 and coding upfront is done. So this exercise, should give you the skills to isolate a problem down
