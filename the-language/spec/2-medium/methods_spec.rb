@@ -129,7 +129,29 @@ RSpec.describe 'methods in ruby' do
 
     it 'raises an error if a private method has an explicit receiver' do
       expect { an_object.calls_the_private_method_on_self }
-        .to raise_error(NoMethodError, //)
+        .to raise_error(NoMethodError, /private method `the_private_method' called for/)
     end
+
+    # NB: Be careful with using private methods and self.
+    # Previously (In Ruby 2.6 and below) the below koan (Commented out), was
+    # a valid koan to showcase an interesting feature of ruby.
+    #
+    # However its use was also frowned upon because it also showcased an unintended side-bug, where
+    # writer methods were permissible, where reader methods were not.
+    #
+    # As such in ruby 2.7 it was patched by the community. Because they couldn't find a way to prevent
+    # writer methods from working in this instance, they fixed it in the other way, which was
+    # to permit reader methods used in this way.
+    #
+    # i.e. Having a method who's signature was self.the_private_method would now "WORK" because
+    # they want the reader method to behave the same as the writer method!
+    #
+    # This is a good showcase of how community effort managed to remove an unknown / odd bug in ruby
+
+    # it 'raises an error if a private method has an explicit receiver' do
+    #   expect { an_object.calls_the_private_method_on_self }
+    #     .to raise_error
+    # end
+
   end
 end

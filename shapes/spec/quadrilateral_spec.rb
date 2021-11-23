@@ -41,7 +41,7 @@ RSpec.describe 'quadrilateral types' do
       expect { quadrilateral(440, -40, -30, -10) }.to raise_error(QuadrilateralError)
     end
 
-    it 'throws errors for illegal quadrilaterals that are not constructable' do
+    it 'throws errors for illegal quadrilaterals that are not constructible' do
       expect { quadrilateral(300, 40, 10, 9) }.to raise_error(QuadrilateralError)
       expect { quadrilateral(300, 40, 12, 9) }.to raise_error(QuadrilateralError)
     end

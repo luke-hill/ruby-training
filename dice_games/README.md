@@ -1,7 +1,7 @@
 # Dice Games
 
-We can roll dice whilst playing games. Here we are going to test 2 simple dice games and work out
-how we can write the code to simulate rolling the dice in the different situations
+We can roll dice whilst playing games. Here we are going to test 2 dice games and
+write the code that simulates the games being played
 
 ## Setup
 
@@ -20,7 +20,7 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-The tests will (mostly), fail, but the output will contain
+The tests will fail and the output will contain
 
 ```
 Finished in 0.01999 seconds (files took 0.06172 seconds to load)
@@ -31,7 +31,7 @@ Now we need to fix the specs. There are 2 files inside the `lib/` directory that
 These two files will tell us how to play the following games.
 
 1. Roll any number of dice and observe their values
-1. Play a game of greed, a single player dice scoring game (Rules you need to deduce from the spec)
+2. Play a game of greed, a single player dice scoring game (Rules you need to deduce from the spec)
 
 ## Committing your work
 
