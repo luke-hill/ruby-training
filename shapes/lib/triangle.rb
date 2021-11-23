@@ -15,7 +15,7 @@ def triangle(a, b, c)
   end
 
   if (a == b) && (a == c)
-    return :equilateral 
+    return :equilateral
   end
 
   if (a == b) || (b == c) || (a == c)
