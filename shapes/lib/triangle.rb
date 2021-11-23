@@ -1,21 +1,9 @@
 # frozen_string_literal: true
 
-# def triangle(a, b, c)
-#   # WRITE THIS CODE
-# end
-
 def triangle(a, b, c)
   if a==0 || b==0 || c==0 || a<0 || b<0 || c<0
-    raise new.TriangleError 
-  # else a<0 || b<0 || c<0
-  #   raise new.TriangleError
-  # else (a + c ) > b
-  #   raise new.TriangleError
+    raise new.TriangleError
 end
-  # if (a + c ) > b
-  # raise new.TriangleError
-  #  if x, y, z = [a,b,c].sort
-  # raise TriangleError if x + y <= z
   if  array = []
     x, y, z = [a,b,c].sort
     raise TriangleError if x + y <= z
@@ -34,12 +22,6 @@ end
     :rightangle
   elsif ((c > a) && (c > b)) && (c == (a + b)) &&  ((a || b) != c)
     :rightangle
-  # elsif (a == (b + c) && a!=b)
-  #   :rightangle
-  # elsif (b == (a + c) && b!=a)
-  #   :rightangle
-  # elsif (c == (b + a) && c!=a)
-  #   :rightangle
   else
     :scalene
 end
@@ -61,12 +43,6 @@ RSpec.describe 'triangle types' do
     expect(triangle(4, 4, 3)).to eq(:isosceles)
     expect(triangle(10, 10, 2)).to eq(:isosceles)
   end
-
-  # it 'is right angle when one of the interior angles is 90 degrees' do
-  #   expect(triangle(90, 50, 40)).to eq(:rightangle)
-  #   expect(triangle(60, 90, 30)).to eq(:rightangle)
-  #   expect(triangle(30, 60, 90)).to eq(:rightangle)
-  # end
 
   it 'is scalene when no sides are equal' do
     expect(triangle(3, 4, 5)).to eq(:scalene)
