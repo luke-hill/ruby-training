@@ -7,5 +7,5 @@ def internal_angle(number_of_sides)
 end
 
 def external_angle(number_of_sides)
-  # WRITE THIS CODE
+  
 end
