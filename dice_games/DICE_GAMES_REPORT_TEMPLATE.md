@@ -20,6 +20,7 @@ Each of the following points will be used
   * Have you removed all redundant code
 * Miscellaneous Criteria - **10%**
   * Git commit history (Easy to understand / follow)
+  * Did you manage to refactor the test on `spec/dice_spec.rb:41`
 
 ## Grades
 
