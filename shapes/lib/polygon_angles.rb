@@ -7,5 +7,5 @@ def internal_angle(number_of_sides)
 end
 
 def external_angle(number_of_sides)
-  sum1 = ((360 / number_of_sides.to_f) ).round(2)
+  sum1 = ((360 / number_of_sides.to_f)).round(2)
 end
