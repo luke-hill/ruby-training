@@ -4,6 +4,6 @@ class Dice
   attr_reader :values
 
   def roll(amount = 1)
-    @values = amount.times.map { |i| rand(1..6) }
+    @values = amount.times.map { rand(1..6) }
   end
 end
