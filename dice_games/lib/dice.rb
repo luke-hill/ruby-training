@@ -4,8 +4,6 @@ class Dice
   attr_reader :values
 
   def roll(amount = 1)
-    @values = []
-    amount.times { |i| @values << i }
-    @values
+    @values = amount.times.map { |i| i }
   end
 end
