@@ -2,9 +2,9 @@
 
 class Dice
   def roll(amount = 1)
-    array = []
-    amount.times { |i| array << i }
-    @values = array
+    @values = []
+    amount.times { |i| @values << i }
+    @values
   end
 
   def values
