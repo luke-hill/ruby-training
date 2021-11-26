@@ -5,6 +5,6 @@ class Dice
   end
 
   def values
-    []
+    [1]
   end
 end
