@@ -2,9 +2,18 @@
 
 class Dice
 
-      def roll()
-        @result = []
-      end
+      def roll(n)
+        @values = []
+          i=0
+          while(i<=(n-1))
+            @values[i]=rand(1..5)
+            i +=1
+          end
+          @values
+          end
+      def values
+        @values
+        end
       end
 
 RSpec.describe Dice do

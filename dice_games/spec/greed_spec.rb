@@ -58,7 +58,7 @@ RSpec.describe Greed do
       expect(greed.score([3, 3, 3])).to eq(300)
     end
 
-    it 'scores triple 4 as 200' do
+    it 'scores triple 4 as 400' do
       expect(greed.score([4, 4, 4])).to eq(400)
     end
 
