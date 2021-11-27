@@ -17,7 +17,7 @@ RSpec.describe 'triangle types' do
       expect(triangle(10, 10, 2)).to eq(:isosceles)
     end
 
-    it 'is scalene when no sides are equal' do
+    it 'is scalene when no two sides are equal' do
       expect(triangle(3, 4, 5)).to eq(:scalene)
       expect(triangle(10, 11, 12)).to eq(:scalene)
       expect(triangle(5, 4, 2)).to eq(:scalene)

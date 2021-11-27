@@ -127,11 +127,6 @@ RSpec.describe 'methods in ruby' do
       expect(an_object.calls_the_private_method).to eq(:the_private_value)
     end
 
-    it 'raises an error if a private method has an explicit receiver' do
-      expect { an_object.calls_the_private_method_on_self }
-        .to raise_error(NoMethodError, /private method `the_private_method' called for/)
-    end
-
     # NB: Be careful with using private methods and self.
     # Previously (In Ruby 2.6 and below) the below koan (Commented out), was
     # a valid koan to showcase an interesting feature of ruby.
@@ -152,6 +147,5 @@ RSpec.describe 'methods in ruby' do
     #   expect { an_object.calls_the_private_method_on_self }
     #     .to raise_error
     # end
-
   end
 end
