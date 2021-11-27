@@ -4,7 +4,7 @@ require 'polygon_angles' # RSpec automatically adds `lib/` to the LOAD_PATH
 # edit lib/polygon_angles.rb to fix these tests
 
 RSpec.describe 'polygon angle calculation' do
-  context 'with interior angles' do
+  context 'with an interior angle' do
     it 'calculates the interior angle of a regular pentagon' do
       expect(internal_angle(5)).to eq(108)
     end
@@ -30,7 +30,7 @@ RSpec.describe 'polygon angle calculation' do
     end
   end
 
-  context 'with exterior angles' do
+  context 'with an exterior angle' do
     it 'calculates the exterior angle of a regular pentagon' do
       expect(external_angle(5)).to eq(72)
     end

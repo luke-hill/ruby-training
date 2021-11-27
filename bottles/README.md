@@ -1,13 +1,14 @@
 # 99 Bottles of Beer!
 
-The nursery rhyme here is the americanized version of 10 green bottles
+The nursery rhyme here is the americanised version of 10 green bottles
 
 The purpose of this is a further look at TDD - Test Driven Development. The principle of which
 states that if you wish to develop good software, first you develop good tests for what the software
 should do or conform to. Then **and only then**, do you write the actual software to do the job.
 
-We should be familiar with TDD now having completed one or more previous mini-projects on TDD. Here however
-our challenge is a bit trickier, and the code we will need to write is required to have a variety of methods
+You may be familiar with TDD after having completed some previous projects on TDD. Here however
+your challenge is a bit trickier, and the code you will need to write will be required to have a bit more
+complexity than some of the previous projects you may have undertaken.
 
 Our problem here, like before, is that we have all the tests defined, but no application code - Our job is
 to write the application code, such that all of the tests pass. Again similar to the other mini-projects
@@ -84,8 +85,8 @@ rspec ./spec/bottles_spec.rb:8 # singing 99 bottles of beer can sing a typical v
 
 This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 10.
 
-**NB:** We introduce a new keyword here - `skip`. This is rspec syntax that simply allows you
-to ignore a test, be it passing or failing.
+**NB:** We introduce a new keyword here - `skip`. This is an rspec method that simply allows you
+to ignore a test, be it passing or failing. This does not contribute to the overall failure rate of the test suite.
 
 That is why in the window pane you see 1 failure and 6 pending tests. To run these additional tests
 simply delete the keyword `skip` and the test will then run.
