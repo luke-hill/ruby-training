@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class Dice
-    def roll(count)
-        [1,2,3,4,5,6].each {|e| e.rand(1..6)}
+    attr_reader :values
+    def roll(number)
+    @values = []
+     number.times {@values.push rand(7) }
     end
 end
+
