@@ -1,7 +1,9 @@
 # Dice Games
 
 We can roll dice whilst playing games. Here we are going to test 2 dice games and
+
 write the code that permits the games to be played
+
 
 ## Setup
 
