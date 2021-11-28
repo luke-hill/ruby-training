@@ -4,7 +4,6 @@ We can roll dice whilst playing games. Here we are going to test 2 dice games an
 
 write the code that simulates the games being played
 
-
 ## Setup
 
 Install the dependencies:
