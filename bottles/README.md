@@ -1,5 +1,6 @@
 # 99 Bottles of Beer!
 
+
 The nursery rhyme here is the americanized version of 10 green bottles
 
 The purpose of this is a further look at TDD - Test Driven Development. The principle of which
@@ -84,8 +85,8 @@ rspec ./spec/bottles_spec.rb:8 # singing 99 bottles of beer can sing a typical v
 
 This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 10.
 
-**NB:** We introduce a new keyword here - `skip`. This is rspec syntax that simply allows you
-to ignore a test, be it passing or failing.
+**NB:** We introduce a new keyword here - `skip`. This is an rspec method that simply allows you
+to ignore a test, be it passing or failing. This does not contribute to the overall failure rate of the test suite.
 
 That is why in the window pane you see 1 failure and 6 pending tests. To run these additional tests
 simply delete the keyword `skip` and the test will then run.

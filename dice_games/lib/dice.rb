@@ -8,5 +8,3 @@ class Dice
     end
 end
 
-
-
