@@ -1,25 +1,21 @@
 # frozen_string_literal: true
 
 class Greed
-  def initialize
-    @cumulative_score = 0
-  end
-
   def score(array = nil)
     raise GreedError unless array
 
-    array.tally.each do |value, quantity|
-      if quantity >= 3
-        @cumulative_score += enhanced_score(value, quantity)
-      else
-        @cumulative_score += regular_score(value, quantity)
-      end
-    end
-
-    @cumulative_score
+    array.tally.map { |value, quantity| score_amount(value, quantity) }.sum
   end
 
   private
+
+  def score_amount(digit, quantity)
+    if quantity >= 3
+      enhanced_score(digit, quantity)
+    else
+      regular_score(digit, quantity)
+    end
+  end
 
   def enhanced_score(digit, quantity)
     if digit == 1
