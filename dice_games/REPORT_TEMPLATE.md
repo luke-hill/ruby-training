@@ -1,6 +1,6 @@
-# Report Grade - {project_name}
+# Report Grade - Dice Games
 
-Report for {person_name}, for {project_name} project
+Report for {person_name}, for the Dice Games project
 
 ## Grading Criteria
 

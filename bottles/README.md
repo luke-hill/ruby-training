@@ -96,7 +96,7 @@ discuss in groups if appropriate and work out what code you need to write to mak
 
 For TDD, as a purist, you want to write the bare minimum code to make the tests pass.
 
-For this exercise, it is advised that the finished PR/PR's should have at least 6 commits in total,
+For this exercise, it is advised that the finished PR/PR's should have at least 10 commits in total,
 detailing what changes you made and why. 
 
 ## Committing your work
