@@ -10,7 +10,7 @@ class Greed
 
     array.tally.each do |value, quantity|
       if quantity >= 3
-        @cumulative_score += triple_score(value)
+        @cumulative_score += enhanced_score(value, quantity)
       else
         @cumulative_score += regular_score(value, quantity)
       end
@@ -21,9 +21,11 @@ class Greed
 
   private
 
-  def triple_score(digit)
+  def enhanced_score(digit, quantity)
     if digit == 1
-      1000
+      1000 + (quantity - 3) * 100
+    elsif digit == 5
+      500 + (quantity - 3) * 50
     else
       100 * digit
     end
@@ -56,15 +58,19 @@ class GreedOther
   end
 
   def one_score(quantity)
-    return 1000 if quantity >= 3
-
-    100 * quantity
+    if quantity >= 3
+      1000 + (quantity - 3) * 100
+    else
+      100 * quantity
+    end
   end
 
   def five_score(quantity)
-    return 500 if quantity >= 3
-
-    50 * quantity
+    if quantity >= 3
+      500 + (quantity - 3) * 50
+    else
+      50 * quantity
+    end
   end
 
   def other_score(value, quantity)
