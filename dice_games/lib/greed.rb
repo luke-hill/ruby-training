@@ -41,18 +41,10 @@ class Greed
 end
 
 class GreedOther
-  def initialize
-    @cumulative_score = 0
-  end
-
   def score(array = nil)
     raise GreedError unless array
 
-    array.tally.each do |value, quantity|
-      @cumulative_score += score_amount(value, quantity)
-    end
-
-    @cumulative_score
+    array.tally.map { |value, quantity| score_amount(value, quantity) }.sum
   end
 
   private
