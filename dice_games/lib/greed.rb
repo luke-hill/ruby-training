@@ -12,7 +12,7 @@ class Greed
       if quantity == 3
         @cumulative_score += triple_score(value)
       else
-        @cumulative_score += single_score(value)
+        @cumulative_score += regular_score(value, quantity)
       end
     end
 
@@ -29,11 +29,11 @@ class Greed
     end
   end
 
-  def single_score(digit)
+  def regular_score(digit, quantity)
     if digit == 1
-      100
+      100 * quantity
     elsif digit == 5
-      50
+      50 * quantity
     else
       0
     end
@@ -48,7 +48,7 @@ class GreedOther
   def score(array = nil)
     raise GreedError unless array
 
-    array.each do |value|
+    array.tally.each do |value, quantity|
       @cumulative_score += score_amount(value, quantity)
     end
 
@@ -60,7 +60,7 @@ class GreedOther
   def score_amount(digit, quantity)
     return one_score(quantity) if digit == 1
     return five_score(quantity) if digit == 5
-    other_score(digit)
+    other_score(digit, quantity)
   end
 
   def one_score(quantity)
