@@ -9,7 +9,7 @@ class Greed
     raise GreedError unless array
 
     array.tally.each do |value, quantity|
-      if quantity == 3
+      if quantity >= 3
         @cumulative_score += triple_score(value)
       else
         @cumulative_score += regular_score(value, quantity)
@@ -56,19 +56,19 @@ class GreedOther
   end
 
   def one_score(quantity)
-    return 1000 if quantity == 3
+    return 1000 if quantity >= 3
 
     100 * quantity
   end
 
   def five_score(quantity)
-    return 500 if quantity == 3
+    return 500 if quantity >= 3
 
     50 * quantity
   end
 
   def other_score(value, quantity)
-    return 100 * value if quantity == 3
+    return 100 * value if quantity >= 3
 
     0
   end
