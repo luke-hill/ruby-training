@@ -15,6 +15,7 @@ RSpec.describe 'arrays' do
     array[1] = 2
     expect(array).to eq([1, __])
 
+    # This is sometimes referred to as the shovel operator
     array << 333
     expect(array).to eq(__)
   end
