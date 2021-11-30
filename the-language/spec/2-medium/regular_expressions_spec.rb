@@ -11,17 +11,17 @@ RSpec.describe 'regular expressions' do
     expect('a string that matches'[/fails/]).to eq(__)
   end
 
-  it 'uses a ? for optional (0 or 1 of the preceding item)' do
+  it 'uses a ? on its own to signify "optional" (0 or 1 of the preceding item)' do
     expect('abcd'[/ab?/]).to eq(__)
     expect('abcd'[/ae?/]).to eq(__)
   end
 
-  it 'uses + to mean one or more' do
+  it 'uses + to mean one or more (of the preceding group)' do
     expect('abcccd'[/ac+/]).to eq(__)
     expect('abcccd'[/bc+/]).to eq(__)
   end
 
-  it 'uses * to mean zero or more' do
+  it 'uses * to mean zero or more (of the preceding group)' do
     expect('abbcccdddd'[/ab*/]).to eq(__)
     expect('abbcccdddd'[/az*/]).to eq(__)
     expect('abbcccdddd'[/z*/]).to eq(__)
@@ -97,8 +97,8 @@ RSpec.describe 'regular expressions' do
   end
 
   it 'also uses parentheses to capture content' do
-    expect('Gray, James'[/(\w+), (\w+)/, 1]).to eq(__)
-    expect('Gray, James'[/(\w+), (\w+)/, 2]).to eq(__)
+    expect('Gary, James'[/(\w+), (\w+)/, 1]).to eq(__)
+    expect('Gary, James'[/(\w+), (\w+)/, 2]).to eq(__)
   end
 
   it 'has special variables to access captures' do
@@ -119,11 +119,11 @@ RSpec.describe 'regular expressions' do
     expect('one two-three'.scan(/\w+/)).to eq(__)
   end
 
-  it 'can use #sub to find and replace using regex' do
+  it 'can use #sub to find and replace (a single instance), using regex' do
     expect('one two-three'.sub(/(t\w*)/) { $1[0, 1] }).to eq(__)
   end
 
-  it 'can use #gsub to find and replace all instances of something using regex' do
+  it 'can use #gsub to find and replace (all instances), using regex' do
     expect('one two-three'.gsub(/(t\w*)/) { $1[0, 1] }).to eq(__)
   end
 end
