@@ -15,6 +15,7 @@ RSpec.describe 'arrays' do
     array[1] = 2
     expect(array).to eq([1, __])
 
+    # This is sometimes referred to as the shovel operator
     array << 333
     expect(array).to eq(__)
   end
@@ -94,5 +95,17 @@ RSpec.describe 'arrays' do
     array.unshift(value)
 
     expect(array).to eq(__)
+  end
+
+  it 'has short-hand notation for arrays of strings or symbols' do
+    string_array = ['Welcome', 'to', 'the', 'joinery']
+    simplified_string_array = %w[Welcome to the joinery]
+
+    expect(string_array == simplified_string_array).to eq(__)
+
+    symbol_array = [:foo, :bar, :baz, :bay]
+    simplified_symbol_array = %i[foo bar baz bay]
+
+    expect(symbol_array == simplified_symbol_array).to eq(__)
   end
 end

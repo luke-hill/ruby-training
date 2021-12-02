@@ -22,8 +22,8 @@ RSpec.describe 'exceptions' do
     expect(e.is_a?(StandardError)).to eq(__), 'Should be a Standard Error'
     expect(e.is_a?(RuntimeError)).to eq(__),  'Should be a Runtime Error'
 
-    expect(RuntimeError.ancestors.include?(StandardError))
-      .to be(true), 'RuntimeError is a subclass of StandardError'
+    # Think why the answer to this test is what it is?
+    expect(RuntimeError.ancestors.include?(StandardError)).to eq(__)
 
     expect(e.message).to eq(__)
   end

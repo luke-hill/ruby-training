@@ -3,7 +3,7 @@ RSpec.describe 'iterating in ruby' do
     expect([].methods.include?(:each)).to eq(__)
   end
 
-  it 'can iterate using each' do
+  it 'can iterate using each and a do end block' do
     array = [1, 2, 3]
     sum = 0
     array.each do |item|
@@ -12,7 +12,7 @@ RSpec.describe 'iterating in ruby' do
     expect(sum).to eq(__)
   end
 
-  it 'can use {} instead of do end' do
+  it 'can use {} instead of a do end block' do
     array = [1, 2, 3]
     sum = 0
     array.each { |item| sum += item }
@@ -74,7 +74,7 @@ RSpec.describe 'iterating in ruby' do
   end
 
   it 'can use iteration methods on all collections, not just array' do
-    # Ranges act like a collection, but when using map, they need to be co-erced
+    # Ranges act like a collection, but when using map, they need to be co-erced into a new object type
     result = (1..3).map { |item| item + 10 }
     expect(result).to eq(__)
 

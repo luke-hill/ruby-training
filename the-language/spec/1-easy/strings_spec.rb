@@ -27,6 +27,7 @@ RSpec.describe 'strings' do
   end
 
   it 'has flexible quoting when things get difficult' do
+    # NB: Most of these options in this test aren't used commonly
     a = %(flexible quotes allow both " and ' characters)
     b = %!flexible quotes allow both " and ' characters!
     c = %{flexible quotes allow both " and ' characters}
@@ -137,6 +138,7 @@ Humpty dumpty had a great fall
   end
 
   it 'represents single characters as strings' do
+    # Again this isn't used very often
     expect(?a).to eq(__)
     expect(?a == 97).to eq(__)
   end
