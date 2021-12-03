@@ -3,9 +3,21 @@
 class Bottles
   def verse(number)
     if number == 1
-      "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
+      "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}.\nTake it down and pass it around, #{bottle_amount(number - 1)} on the wall.\n"
     else
-      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number - 1} bottles of beer on the wall.\n"
+      "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}.\nTake one down and pass it around, #{bottle_amount(number - 1)} on the wall.\n"
+    end
+  end
+
+  private
+
+  def bottle_amount(number)
+    if number == 0
+      "no more bottles of beer"
+    elsif number == 1
+      "1 bottle of beer"
+    else
+      "#{number} bottles of beer"
     end
   end
 end
