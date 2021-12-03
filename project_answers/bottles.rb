@@ -3,13 +3,29 @@
 class Bottles
   def verse(number)
     if number == 1
-      "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}.\nTake it down and pass it around, #{bottle_amount(number - 1)} on the wall.\n"
+      "#{verse_intro(number)}\n#{verse_outro(number)}\n"
     else
-      "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}.\nTake one down and pass it around, #{bottle_amount(number - 1)} on the wall.\n"
+      "#{verse_intro(number)}\n#{verse_outro(number)}\n"
     end
   end
 
   private
+
+  def verse_intro(number)
+    if number == 1
+      "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}."
+    else
+      "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}."
+    end
+  end
+
+  def verse_outro(number)
+    if number == 1
+      "Take it down and pass it around, #{bottle_amount(number - 1)} on the wall."
+    else
+      "Take one down and pass it around, #{bottle_amount(number - 1)} on the wall."
+    end
+  end
 
   def bottle_amount(number)
     if number == 0
