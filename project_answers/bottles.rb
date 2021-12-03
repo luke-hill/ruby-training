@@ -9,6 +9,10 @@ class Bottles
     starting_number.downto(ending_number).map { |number| verse(number) }.join("\n") + "\n"
   end
 
+  def sing
+    verses(99, 0)
+  end
+
   private
 
   def verse_intro(number)
