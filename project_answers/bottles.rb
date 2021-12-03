@@ -2,17 +2,15 @@
 
 class Bottles
   def verse(number)
-    if number == 1
-      "#{verse_intro(number)}\n#{verse_outro(number)}\n"
-    else
-      "#{verse_intro(number)}\n#{verse_outro(number)}\n"
-    end
+    "#{verse_intro(number)}\n#{verse_outro(number)}\n"
   end
 
   private
 
   def verse_intro(number)
-    if number == 1
+    if number == 0
+      "#{bottle_amount(number).capitalize} on the wall, #{bottle_amount(number)}."
+    elsif number == 1
       "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}."
     else
       "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}."
@@ -20,7 +18,9 @@ class Bottles
   end
 
   def verse_outro(number)
-    if number == 1
+    if number == 0
+      "Go to the store and buy some more, 99 bottles of beer on the wall."
+    elsif number == 1
       "Take it down and pass it around, #{bottle_amount(number - 1)} on the wall."
     else
       "Take one down and pass it around, #{bottle_amount(number - 1)} on the wall."
