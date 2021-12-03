@@ -11,7 +11,6 @@ describe Bottles do
   end
 
   it 'can sing another typical verse' do
-    skip
     expected = "3 bottles of beer on the wall, 3 bottles of beer.\nTake one down and pass it around, 2 bottles of beer on the wall.\n"
     expect(song.verse(3)).to eq(expected)
   end
