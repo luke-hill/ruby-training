@@ -5,6 +5,10 @@ class Bottles
     "#{verse_intro(number)}\n#{verse_outro(number)}\n"
   end
 
+  def verses(starting_number, ending_number)
+    starting_number.downto(ending_number).map { |number| verse(number) }.join("\n") + "\n"
+  end
+
   private
 
   def verse_intro(number)
