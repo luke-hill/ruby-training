@@ -4,7 +4,7 @@ require 'proxy'
 require 'television'
 
 RSpec.describe Proxy do
-  context 'with a tv proxy' do
+  context 'with a TV proxy' do
     subject(:tv_proxy) { described_class.new(Television.new) }
 
     it 'returns a wrapped object' do
@@ -53,18 +53,18 @@ RSpec.describe Proxy do
     end
 
     it 'can count if a method has been called once' do
+      tv_proxy.power
       tv_proxy.channel = 48
 
       expect(tv_proxy.number_of_times_called(:channel=)).to eq(1)
     end
 
     it 'can count if a method has been called multiple times' do
-      tv_proxy.power
-      tv_proxy.power
+      2.times { tv_proxy.power }
       tv_proxy.channel = 48
-      tv_proxy.power
+      3.times { tv_proxy.power }
 
-      expect(tv_proxy.number_of_times_called(:power)).to eq(3)
+      expect(tv_proxy.number_of_times_called(:power)).to eq(5)
     end
   end
 
