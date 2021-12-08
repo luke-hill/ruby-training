@@ -44,7 +44,7 @@ class Setup
   end
 
   def setup_driver
-    CaTesting::Drivers::Local.new(browser).register
+    AutomationHelpers::Drivers::Local.new(browser).register
   end
 
   def browser

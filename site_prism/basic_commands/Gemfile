@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'ca_testing', github: 'citizensadvice/ca_testing', tag: 'v2.2'
+gem 'automation_helpers', '~> 4.0'
 gem 'rspec', '~> 3.10'
 gem 'rubocop', '~> 1.19.0'
 gem 'rubocop-performance', '~> 1.11.0'
