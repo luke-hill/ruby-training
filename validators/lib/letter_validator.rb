@@ -9,8 +9,9 @@ class LetterValidator
   def validate(letter)
     group << validate_type(letter)
     group << validate_position(letter)
+    group << validate_frequency(letter)
   end
-  
+
   private
 
   def validate_type(letter)
@@ -23,6 +24,10 @@ class LetterValidator
     return :first_half if letter.match?(/[a-m]/)
 
     :second_half
+  end
+
+  def validate_frequency(letter)
+    return :common_letter if letter.match?(/[etaio]/)
   end
 end
 
