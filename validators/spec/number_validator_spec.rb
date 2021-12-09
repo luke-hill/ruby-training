@@ -6,7 +6,7 @@ require 'number_validator' # RSpec automatically adds `lib/` to the LOAD_PATH
 RSpec.describe NumberValidator do
   subject(:validation) { described_class.new }
 
-  context 'for an integer' do
+  context 'with an integer' do
     it 'validates odd numbers' do
       [-1, 1, 3, 5, 7, 9, 101, 103].each do |number|
         expect(validation.validate(number)).to include(:odd)
@@ -21,30 +21,30 @@ RSpec.describe NumberValidator do
 
     it 'validates multiples of 3' do
       [-3, 0, 3, 9, 12, 99, 606].each do |number|
-        expect(validation.validate(number)).to include(:divisible_by_3)
+        expect(validation.validate(number)).to include(:divisible_by_three)
       end
     end
 
     it 'validates multiples of 5' do
       [-5, 0, 5, 10, 35, 120, 300, 605].each do |number|
-        expect(validation.validate(number)).to include(:divisible_by_5)
+        expect(validation.validate(number)).to include(:divisible_by_five)
       end
     end
 
     it 'validates multiples of 7' do
       [-7, 0, 7, 14, 98, 350, 357, 707].each do |number|
-        expect(validation.validate(number)).to include(:divisible_by_7)
+        expect(validation.validate(number)).to include(:divisible_by_seven)
       end
     end
 
     it 'validates multiples of 9' do
       [-9, 0, 9, 99, 909, 9999].each do |number|
-        expect(validation.validate(number)).to include(:divisible_by_9)
+        expect(validation.validate(number)).to include(:divisible_by_nine)
       end
     end
   end
 
-  context 'for a non-integer' do
+  context 'with a non-integer' do
     subject { described_class.new.validate('ab') }
 
     it { is_expected.to raise_error(ArgumentError) }
