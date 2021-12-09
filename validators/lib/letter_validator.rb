@@ -5,12 +5,12 @@ class LetterValidator
   def initialize
     @group = []
   end
-  
+
   def validate(letter)
     if letter.match?(/[aeiou]/)
-      [:vowel]
+      group << :vowel
     else
-      [:consonant]
+      group << :consonant
     end
   end
 end
