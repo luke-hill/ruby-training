@@ -45,8 +45,6 @@ RSpec.describe NumberValidator do
   end
 
   context 'with a non-integer' do
-    subject { described_class.new.validate('ab') }
-
-    it { is_expected.to raise_error(ArgumentError) }
+    it { expect { validation.validate('ab') }.to raise_error(ArgumentError) }
   end
 end

@@ -40,8 +40,6 @@ RSpec.describe LetterValidator do
   end
 
   context 'with multiple letters' do
-    subject { described_class.new.validate('ab') }
-
-    it { is_expected.to raise_error(InvalidLetterError) }
+    it { expect { validation.validate('ab') }.to raise_error(InvalidLetterError) }
   end
 end
