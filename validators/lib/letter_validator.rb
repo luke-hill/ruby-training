@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
 class LetterValidator
+  attr_reader :group
+  def initialize
+    @group = []
+  end
+  
   def validate(letter)
-    return [:vowel] if letter.match?(/[aeiou]/)
+    if letter.match?(/[aeiou]/)
+      [:vowel]
+    else
+      [:consonant]
+    end
   end
 end
 
