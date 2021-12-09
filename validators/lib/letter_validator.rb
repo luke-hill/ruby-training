@@ -7,17 +7,22 @@ class LetterValidator
   end
 
   def validate(letter)
-    if letter.match?(/[aeiou]/)
-      group << :vowel
-    else
-      group << :consonant
-    end
+    group << validate_type(letter)
+    group << validate_position(letter)
+  end
+  
+  private
 
-    if letter.match?(/[a-m]/)
-      group << :first_half
-    else
-      group << :second_half
-    end
+  def validate_type(letter)
+    return :vowel if letter.match?(/[aeiou]/)
+
+    :consonant
+  end
+
+  def validate_position(letter)
+    return :first_half if letter.match?(/[a-m]/)
+
+    :second_half
   end
 end
 
