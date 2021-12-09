@@ -12,6 +12,8 @@ class LetterValidator
     group << validate_type(letter)
     group << validate_position(letter)
     group << validate_frequency(letter)
+    # This does return an extra nil inside our responses, but the spec doesn't forbid this!
+    # We can just `#compact` things if this is the case
   end
 
   private
