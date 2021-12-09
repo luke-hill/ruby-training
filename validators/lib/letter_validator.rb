@@ -7,6 +7,8 @@ class LetterValidator
   end
 
   def validate(letter)
+    raise InvalidLetterError if letter.length > 1
+
     group << validate_type(letter)
     group << validate_position(letter)
     group << validate_frequency(letter)
