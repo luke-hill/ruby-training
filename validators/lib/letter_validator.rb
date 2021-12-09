@@ -2,7 +2,7 @@
 
 class LetterValidator
   def validate(letter)
-    # WRITE THIS CODE
+    return [:vowel] if letter.match?(/[aeiou]/)
   end
 end
 
