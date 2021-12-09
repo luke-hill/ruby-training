@@ -2,6 +2,6 @@
 
 class NumberValidator
   def validate(number)
-    # WRITE THIS CODE
+    [:odd]
   end
 end
