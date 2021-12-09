@@ -12,6 +12,12 @@ class LetterValidator
     else
       group << :consonant
     end
+
+    if letter.match?(/[a-m]/)
+      group << :first_half
+    else
+      group << :second_half
+    end
   end
 end
 
