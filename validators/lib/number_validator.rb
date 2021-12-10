@@ -11,12 +11,7 @@ class NumberValidator
     raise ArgumentError unless number.is_a?(Integer)
 
     validate_divisibility
-
-    if number.even?
-      group << :even
-    else
-      group << :odd
-    end
+    validate_type
   end
 
   private
@@ -42,5 +37,13 @@ class NumberValidator
 
   def validate_divisible_by_nine
     group << :divisible_by_nine if (number % 9).zero?
+  end
+
+  def validate_type
+    if number.even?
+      group << :even
+    else
+      group << :odd
+    end
   end
 end
