@@ -8,6 +8,8 @@ class NumberValidator
   end
 
   def validate(number)
+    raise ArgumentError unless number.is_a?(Integer)
+
     group.tap do |grp|
       grp << :even if number.even?
       grp << :odd if number.odd?
