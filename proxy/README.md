@@ -4,13 +4,22 @@
 
 **NB:** Whilst a small amount of coding will take place here. This is one of the harder mini-projects
 
-Our task is to solve the proxying problem, so we can have our tv proxy talk to the tv.
+Our task is to solve a proxying problem. A "Proxy" is essentially a way in which one "thing" can do the job
+of another "thing". One example could be making Coffee. We could make it ourselves, or we can buy a fancy
+Coffee Maker, press 2 buttons, and walk away for 5 minutes whilst it works its magic.
+
+In our project here we are dealing with a TV Remote control, which is another form of Proxy. We could walk up
+to the TV and change the channel manually. But most of us just use the TV Remote control. So here we are going
+to look at how we can tell one "thing" (The Remote Control), talk to another "thing" (The TV).
+
+We will do this in the following way
 
 1. Create an initial proxy class
-1. Allow the proxy object to be initialized with any object Ruby _could_ provide
-1. Ensure that when proxying, messages sent are correctly targeted
-1. As each message is being sent, a record should be created once the message passing has been completed
-1. During the coding, ensure you add the correct handlers for `method_messing?` as well as other items
+2. Allow the proxy object to be initialized with any object Ruby _could_ provide
+3. Ensure that when proxying, messages sent are correctly targeted
+4. As each message is being sent, a record should be created once the message passing **has been completed**
+5. During the coding, ensure you add the correct handlers for `method_messing?` as well as the other items that
+are required when performing the standard ruby overrides
 
 ## Setup
 
