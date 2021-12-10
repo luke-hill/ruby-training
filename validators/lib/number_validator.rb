@@ -13,10 +13,10 @@ class NumberValidator
     group.tap do |grp|
       grp << :even if number.even?
       grp << :odd if number.odd?
-      grp << :divisible_by_three if number % 3 == 0
-      grp << :divisible_by_five if number % 5 == 0
-      grp << :divisible_by_seven if number % 7 == 0
-      grp << :divisible_by_nine if number % 9 == 0
+      grp << :divisible_by_three if (number % 3).zero?
+      grp << :divisible_by_five if (number % 5).zero?
+      grp << :divisible_by_seven if (number % 7).zero?
+      grp << :divisible_by_nine if (number % 9).zero?
     end
   end
 end

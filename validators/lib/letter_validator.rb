@@ -2,6 +2,7 @@
 
 class LetterValidator
   attr_reader :group
+
   def initialize
     @group = []
   end
