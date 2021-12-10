@@ -24,9 +24,9 @@ $ bundle
 The rules of Nim are found here: https://en.wikipedia.org/wiki/Nim
 
 When trying to isolate the parts of the game. First try and split the game up into "rough" areas or components.
-For an easy start, the largest encompassing "part" of Nim is the full game itself. Now (using pen and paper), try and
-then split a game into the next largest building blocks, and from there continue down until you have nice granular
-small components.
+For an easy start, the largest encompassing "part" of Nim is the full game itself. Now (using pen and paper), try
+and split the game into the next largest building blocks, and from there continue down until you have
+a set of nice granular (small), parts.
 
 Once you have these small components, these should then become your classes.
 
@@ -39,13 +39,12 @@ Make sure to Namespace everything under `Nim` as a top level module. You "should
 - The method `gets.chomp` will be your friend. This is a top level method so doesn't need namespacing.
 - Testing `gets.chomp` is particularly tricky. As such it is advised that you "mock" or "stub" the random input.
 - With Nim, there are no real restrictions on the game. As such you should put either advisory, or compulsory
-blocks on certain features. **My advice:** Limit to the number of rows to 10. Limit the elements in a row to only
-show if they number below 20.
+restrictions on certain features. **My advice:** Limit to the number of rows to 10. Limit the elements in
+a row to only show if they are less than 20.
 - The exercise is not to show solutions or optimal playing strategies, but to simply allow two people to play the
 game.
-- Try not to be solving more than one problem at once. Get a simple version of the game working before attempting
+- Try not to solve more than one problem at once. Get a simple version of the game working before attempting
 to make a more complex version of the game work. This is called Iterative development.
-
 
 Abraham Lincoln once said
 
