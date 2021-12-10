@@ -8,10 +8,8 @@ class NumberValidator
   end
 
   def validate(number)
-    if number.even?
-      group << :even
-    else
-      group << :odd
-    end
+    group << :even if number.even?
+    group << :odd if number.odd?
+    group
   end
 end
