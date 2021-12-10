@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This uses the quantity of a specific number as the primarily determinant
 class Greed
   def score(array = nil)
     raise GreedError unless array
