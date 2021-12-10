@@ -10,6 +10,8 @@ class NumberValidator
   def validate(number)
     group << :even if number.even?
     group << :odd if number.odd?
+    group << :divisible_by_three if number % 3 == 0
+
     group
   end
 end
