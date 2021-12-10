@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This uses the value on the die as the primary determinant
 class Greed
   def score(array = nil)
     raise GreedError unless array

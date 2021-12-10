@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This uses the combination of "what" type of score you are checking, as the primary determinant
 class Greed
   def score(array = nil)
     raise GreedError unless array
