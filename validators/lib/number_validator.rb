@@ -10,13 +10,37 @@ class NumberValidator
   def validate(number)
     raise ArgumentError unless number.is_a?(Integer)
 
-    group.tap do |grp|
-      grp << :even if number.even?
-      grp << :odd if number.odd?
-      grp << :divisible_by_three if (number % 3).zero?
-      grp << :divisible_by_five if (number % 5).zero?
-      grp << :divisible_by_seven if (number % 7).zero?
-      grp << :divisible_by_nine if (number % 9).zero?
+    validate_divisibility
+
+    if number.even?
+      group << :even
+    else
+      group << :odd
     end
+  end
+
+  private
+
+  def validate_divisibility
+    validate_divisible_by_three
+    validate_divisible_by_five
+    validate_divisible_by_seven
+    validate_divisible_by_nine
+  end
+
+  def validate_divisible_by_three
+    group << :divisible_by_three if (number % 3).zero?
+  end
+
+  def validate_divisible_by_five
+    group << :divisible_by_five if (number % 5).zero?
+  end
+
+  def validate_divisible_by_seven
+    group << :divisible_by_seven if (number % 7).zero?
+  end
+
+  def validate_divisible_by_nine
+    group << :divisible_by_nine if (number % 9).zero?
   end
 end
