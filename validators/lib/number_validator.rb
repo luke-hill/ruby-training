@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
 class NumberValidator
+  attr_reader :group
+
+  def initialize
+    @group = []
+  end
+
   def validate(number)
     if number.even?
-      [:even]
+      group << :even
     else
-      [:odd]
+      group << :odd
     end
   end
 end
