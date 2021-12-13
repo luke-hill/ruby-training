@@ -40,7 +40,7 @@ describe Bottles do
     expect(bottles.verses(8, 6)).to eq(expected)
   end
 
-  it 'can sing the whole bottles' do
+  it 'can sing the whole song' do
     skip
     expect(bottles.sing).to eq(bottles.verses(99, 0))
   end
