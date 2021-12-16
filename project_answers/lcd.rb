@@ -18,15 +18,13 @@ class LCD
   private
 
   def render_height_between_lines_one_and_two
-    spaces = ' ' * width
-    one_line = number_as_digits.map { |digit| first_height_extender(digit, spaces) }.join
+    one_line = number_as_digits.map { |digit| first_height_extender(digit) }.join
 
     "#{one_line}\n" * (height - 1)
   end
 
   def render_height_between_lines_two_and_three
-    spaces = ' ' * width
-    one_line = number_as_digits.map { |digit| second_height_extender(digit, spaces) }.join
+    one_line = number_as_digits.map { |digit| second_height_extender(digit) }.join
 
     "#{one_line}\n" * (height - 1)
   end
@@ -55,7 +53,8 @@ class LCD
     " #{underscore(digit, 0)} "
   end
 
-  def first_height_extender(digit, spaces)
+  def first_height_extender(digit)
+    spaces = ' ' * width
     "#{pipe(digit, 1)}#{spaces}#{pipe(digit, 3)}"
   end
 
@@ -63,7 +62,8 @@ class LCD
     "#{pipe(digit, 1)}#{underscore(digit, 2)}#{pipe(digit, 3)}"
   end
 
-  def second_height_extender(digit, spaces)
+  def second_height_extender(digit)
+    spaces = ' ' * width
     "#{pipe(digit, 4)}#{spaces}#{pipe(digit, 6)}"
   end
 
