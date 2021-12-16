@@ -60,16 +60,16 @@ class LCD
   end
 
   def line_one(digit)
-    " #{underscore(digit, 0)} "
+    " #{underscore(digit, :top)} "
   end
 
   def first_height_extender(digit)
     spaces = ' ' * width
-    "#{pipe(digit, 1)}#{spaces}#{pipe(digit, 3)}"
+    "#{pipe(digit, :mid_left)}#{spaces}#{pipe(digit, 3)}"
   end
 
   def line_two(digit)
-    "#{pipe(digit, 1)}#{underscore(digit, 2)}#{pipe(digit, 3)}"
+    "#{pipe(digit, :mid_left)}#{underscore(digit, 2)}#{pipe(digit, 3)}"
   end
 
   def second_height_extender(digit)
@@ -112,22 +112,22 @@ class LCD
     # 6 -> Bottom-Right
     #
     {
-      0 => [0, 1, 3, 4, 5, 6],
+      0 => [:top, :mid_left, 3, 4, 5, 6],
       1 => [3, 6],
-      2 => [0, 2, 3, 4, 5],
-      3 => [0, 2, 3, 5, 6],
-      4 => [1, 2, 3, 6],
-      5 => [0, 1, 2, 5, 6],
-      6 => [0, 1, 2, 4, 5, 6],
-      7 => [0, 3, 6],
-      8 => [0, 1, 2, 3, 4, 5, 6],
-      9 => [0, 1, 2, 3, 5, 6],
-      'a' => [0, 1, 2, 3, 4, 6],
-      'b' => [1, 2, 4, 5, 6],
-      'c' => [0, 1, 4, 5],
+      2 => [:top, 2, 3, 4, 5],
+      3 => [:top, 2, 3, 5, 6],
+      4 => [:mid_left, 2, 3, 6],
+      5 => [:top, :mid_left, 2, 5, 6],
+      6 => [:top, :mid_left, 2, 4, 5, 6],
+      7 => [:top, 3, 6],
+      8 => [:top, :mid_left, 2, 3, 4, 5, 6],
+      9 => [:top, :mid_left, 2, 3, 5, 6],
+      'a' => [:top, :mid_left, 2, 3, 4, 6],
+      'b' => [:mid_left, 2, 4, 5, 6],
+      'c' => [:top, :mid_left, 4, 5],
       'd' => [2, 3, 4, 5, 6],
-      'e' => [0, 1, 2, 4, 5],
-      'f' => [0, 1, 2, 4]
+      'e' => [:top, :mid_left, 2, 4, 5],
+      'f' => [:top, :mid_left, 2, 4]
     }
   end
 end
