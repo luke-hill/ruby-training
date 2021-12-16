@@ -65,20 +65,20 @@ class LCD
 
   def first_height_extender(digit)
     spaces = ' ' * width
-    "#{pipe(digit, :mid_left)}#{spaces}#{pipe(digit, 3)}"
+    "#{pipe(digit, :mid_left)}#{spaces}#{pipe(digit, :mid_right)}"
   end
 
   def line_two(digit)
-    "#{pipe(digit, :mid_left)}#{underscore(digit, 2)}#{pipe(digit, 3)}"
+    "#{pipe(digit, :mid_left)}#{underscore(digit, :mid)}#{pipe(digit, :mid_right)}"
   end
 
   def second_height_extender(digit)
     spaces = ' ' * width
-    "#{pipe(digit, 4)}#{spaces}#{pipe(digit, 6)}"
+    "#{pipe(digit, :bottom_left)}#{spaces}#{pipe(digit, :bottom_right)}"
   end
 
   def line_three(digit)
-    "#{pipe(digit, 4)}#{underscore(digit, 5)}#{pipe(digit, 6)}"
+    "#{pipe(digit, :bottom_left)}#{underscore(digit, :bottom)}#{pipe(digit, :bottom_right)}"
   end
 
   def underscore(digit, position)
@@ -112,22 +112,22 @@ class LCD
     # 6 -> Bottom-Right
     #
     {
-      0 => [:top, :mid_left, 3, 4, 5, 6],
-      1 => [3, 6],
-      2 => [:top, 2, 3, 4, 5],
-      3 => [:top, 2, 3, 5, 6],
-      4 => [:mid_left, 2, 3, 6],
-      5 => [:top, :mid_left, 2, 5, 6],
-      6 => [:top, :mid_left, 2, 4, 5, 6],
-      7 => [:top, 3, 6],
-      8 => [:top, :mid_left, 2, 3, 4, 5, 6],
-      9 => [:top, :mid_left, 2, 3, 5, 6],
-      'a' => [:top, :mid_left, 2, 3, 4, 6],
-      'b' => [:mid_left, 2, 4, 5, 6],
-      'c' => [:top, :mid_left, 4, 5],
-      'd' => [2, 3, 4, 5, 6],
-      'e' => [:top, :mid_left, 2, 4, 5],
-      'f' => [:top, :mid_left, 2, 4]
+      0 => [:top, :mid_left, :mid_right, :bottom_left, :bottom, :bottom_right],
+      1 => [:mid_right, :bottom_right],
+      2 => [:top, :mid, :mid_right, :bottom_left, :bottom],
+      3 => [:top, :mid, :mid_right, :bottom, :bottom_right],
+      4 => [:mid_left, :mid, :mid_right, :bottom_right],
+      5 => [:top, :mid_left, :mid, :bottom, :bottom_right],
+      6 => [:top, :mid_left, :mid, :bottom_left, :bottom, :bottom_right],
+      7 => [:top, :mid_right, :bottom_right],
+      8 => [:top, :mid_left, :mid, :mid_right, :bottom_left, :bottom, :bottom_right],
+      9 => [:top, :mid_left, :mid, :mid_right, :bottom, :bottom_right],
+      'a' => [:top, :mid_left, :mid, :mid_right, :bottom_left, :bottom_right],
+      'b' => [:mid_left, :mid, :bottom_left, :bottom, :bottom_right],
+      'c' => [:top, :mid_left, :bottom_left, :bottom],
+      'd' => [:mid, :mid_right, :bottom_left, :bottom, :bottom_right],
+      'e' => [:top, :mid_left, :mid, :bottom_left, :bottom],
+      'f' => [:top, :mid_left, :mid, :bottom_left]
     }
   end
 end
