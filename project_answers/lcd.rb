@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LCD
   attr_reader :input, :width, :height
 
@@ -18,15 +20,23 @@ class LCD
   private
 
   def render_height_between_lines_one_and_two
+    return if no_height_extension?
+
     one_line = number_as_digits.map { |digit| first_height_extender(digit) }.join
 
     "#{one_line}\n" * (height - 1)
   end
 
   def render_height_between_lines_two_and_three
+    return if no_height_extension?
+
     one_line = number_as_digits.map { |digit| second_height_extender(digit) }.join
 
     "#{one_line}\n" * (height - 1)
+  end
+
+  def no_height_extension?
+    height == 1
   end
 
   def render_line_one
@@ -117,7 +127,7 @@ class LCD
       'c' => [0, 1, 4, 5],
       'd' => [2, 3, 4, 5, 6],
       'e' => [0, 1, 2, 4, 5],
-      'f' => [0, 1, 2, 4],
+      'f' => [0, 1, 2, 4]
     }
   end
 end
