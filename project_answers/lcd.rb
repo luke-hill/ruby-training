@@ -96,6 +96,7 @@ class LCD
     # 0 -> 6 correlating to
     # Top, Mid-Left, Mid, Mid-Right, Bottom-Left, Bottom, Bottom-Right
     {
+      0 => [0, 1, 3, 4, 5, 6],
       1 => [3, 6],
       2 => [0, 2, 3, 4, 5],
       3 => [0, 2, 3, 5, 6],
