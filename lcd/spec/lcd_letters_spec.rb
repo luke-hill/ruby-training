@@ -10,7 +10,7 @@ describe LCD do
 
     it 'renders acb' do
       expected = <<~SQUIGGLY_HEREDOC
-         _  _      
+         _  _    
         |_||  |_ 
         | ||_ |_|
       SQUIGGLY_HEREDOC
@@ -31,7 +31,7 @@ describe LCD do
     it 'renders all letters' do
       expected = <<~SQUIGGLY_HEREDOC
          _     _  _  _    
-        |_||_ |  |_ |_  _| 
+        |_||_ |  |_ |_  _|
         | ||_||_ |  |_ |_|
       SQUIGGLY_HEREDOC
 
