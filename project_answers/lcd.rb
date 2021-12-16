@@ -102,32 +102,23 @@ class LCD
   end
 
   def lcd_table
-    # Key reference is as follows ...
-    # 0 -> Top
-    # 1 -> Mid-Left
-    # 2 -> Mid
-    # 3 -> Mid-Right
-    # 4 -> Bottom-Left
-    # 5 -> Bottom
-    # 6 -> Bottom-Right
-    #
     {
-      0 => [:top, :mid_left, :mid_right, :bottom_left, :bottom, :bottom_right],
-      1 => [:mid_right, :bottom_right],
-      2 => [:top, :mid, :mid_right, :bottom_left, :bottom],
-      3 => [:top, :mid, :mid_right, :bottom, :bottom_right],
-      4 => [:mid_left, :mid, :mid_right, :bottom_right],
-      5 => [:top, :mid_left, :mid, :bottom, :bottom_right],
-      6 => [:top, :mid_left, :mid, :bottom_left, :bottom, :bottom_right],
-      7 => [:top, :mid_right, :bottom_right],
-      8 => [:top, :mid_left, :mid, :mid_right, :bottom_left, :bottom, :bottom_right],
-      9 => [:top, :mid_left, :mid, :mid_right, :bottom, :bottom_right],
-      'a' => [:top, :mid_left, :mid, :mid_right, :bottom_left, :bottom_right],
-      'b' => [:mid_left, :mid, :bottom_left, :bottom, :bottom_right],
-      'c' => [:top, :mid_left, :bottom_left, :bottom],
-      'd' => [:mid, :mid_right, :bottom_left, :bottom, :bottom_right],
-      'e' => [:top, :mid_left, :mid, :bottom_left, :bottom],
-      'f' => [:top, :mid_left, :mid, :bottom_left]
+      0 => %i[top mid_left mid_right bottom_left bottom bottom_right],
+      1 => %i[mid_right bottom_right],
+      2 => %i[top mid mid_right bottom_left bottom],
+      3 => %i[top mid mid_right bottom bottom_right],
+      4 => %i[mid_left mid mid_right bottom_right],
+      5 => %i[top mid_left mid bottom bottom_right],
+      6 => %i[top mid_left mid bottom_left bottom bottom_right],
+      7 => %i[top mid_right bottom_right],
+      8 => %i[top mid_left mid mid_right bottom_left bottom bottom_right],
+      9 => %i[top mid_left mid mid_right bottom bottom_right],
+      'a' => %i[top mid_left mid mid_right bottom_left bottom_right],
+      'b' => %i[mid_left mid bottom_left bottom bottom_right],
+      'c' => %i[top mid_left bottom_left bottom],
+      'd' => %i[mid mid_right bottom_left bottom bottom_right],
+      'e' => %i[top mid_left mid bottom_left bottom],
+      'f' => %i[top mid_left mid bottom_left]
     }
   end
 end
