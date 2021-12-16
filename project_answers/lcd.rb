@@ -91,7 +91,10 @@ class LCD
     lcd_table[digit].include?(position)
   end
 
-  def lcd_table #Top,Mid-Left,Mid,Mid-Right,Bot-Left,Bot,Bot-Right
+  def lcd_table
+    # Key reference is as follows ...
+    # 0 -> 6 correlating to
+    # Top, Mid-Left, Mid, Mid-Right, Bottom-Left, Bottom, Bottom-Right
     {
       1 => [3, 6],
       2 => [0, 2, 3, 4, 5],
