@@ -10,9 +10,9 @@ describe LCD do
 
     it 'renders acb' do
       expected = <<~SQUIGGLY_HEREDOC
-         _       
-         _| _ |_ 
-        |_||_ |_|
+         _  _      
+        |_||  |_ 
+        | ||_ |_|
       SQUIGGLY_HEREDOC
 
       expect(acb.render).to eq(expected)
@@ -30,9 +30,9 @@ describe LCD do
 
     it 'renders all letters' do
       expected = <<~SQUIGGLY_HEREDOC
-         _        _  _    
-         _||_  _ |_ |_  _| 
-        |_||_||_ |  |_ |_|
+         _     _  _  _    
+        |_||_ |  |_ |_  _| 
+        | ||_||_ |  |_ |_|
       SQUIGGLY_HEREDOC
 
       expect(abcfed.render).to eq(expected)

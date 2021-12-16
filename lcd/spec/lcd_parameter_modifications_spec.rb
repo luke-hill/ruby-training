@@ -6,7 +6,7 @@ describe LCD do
   context 'with parameter modifications' do
     context 'when viewing digits with modified width' do
       let(:eight) { described_class.new(8, width: 2) }
-      let(:nine_one_three) { described_class.new(913, width: 4) }
+      let(:nine_one_three) { described_class.new(913, width: 5) }
 
       it 'renders a widened 8' do
         expected = <<~SQUIGGLY_HEREDOC
@@ -20,9 +20,9 @@ describe LCD do
 
       it 'renders a widened 913' do
         expected = <<~SQUIGGLY_HEREDOC
-           ____        ____ 
-          |____|     | ____|
-           ____|     | ____|
+           _____         _____ 
+          |_____|      | _____|
+           _____|      | _____|
         SQUIGGLY_HEREDOC
 
         expect(nine_one_three.render).to eq(expected)
@@ -33,7 +33,7 @@ describe LCD do
       let(:four) { described_class.new(4, height: 3) }
       let(:eight_seven) { described_class.new(87, height: 4) }
 
-      it 'renders a heightened 2' do
+      it 'renders a heightened 4' do
         expected = <<~SQUIGGLY_HEREDOC
              
           | |
@@ -83,7 +83,7 @@ describe LCD do
         expect(eight.render).to eq(expected)
       end
 
-      it 'renders a heightened AND widened 47189' do
+      it 'renders a heightened AND widened 419' do
         expected = <<~SQUIGGLY_HEREDOC
                              _______ 
           |       |        ||       |
@@ -117,17 +117,17 @@ describe LCD do
     context 'when viewing letters from a-f with modified width AND height' do
       let(:abcfed) { described_class.new('abcfed', height: 4, width: 6) }
 
-      it 'renders a heightened AND widened abcdef' do
+      it 'renders a heightened AND widened abcfed' do
         expected = <<~SQUIGGLY_HEREDOC
-           ______                  ______  ______         
-                 ||               |       |              |
-                 ||               |       |              |
-                 ||               |       |              |
-           ______||______  ______ |______ |______  ______|
+           ______          ______  ______  ______         
+          |      ||       |       |       |              |
+          |      ||       |       |       |              |
+          |      ||       |       |       |              |
+          |______||______ |       |______ |______  ______|
           |      ||      ||       |       |       |      |
           |      ||      ||       |       |       |      |
           |      ||      ||       |       |       |      |
-          |______||______||______ |       |______ |______|
+          |      ||______||______ |       |______ |______|
         SQUIGGLY_HEREDOC
 
         expect(abcfed.render).to eq(expected)
