@@ -93,8 +93,14 @@ class LCD
 
   def lcd_table
     # Key reference is as follows ...
-    # 0 -> 6 correlating to
-    # Top, Mid-Left, Mid, Mid-Right, Bottom-Left, Bottom, Bottom-Right
+    # 0 -> Top
+    # 1 -> Mid-Left
+    # 2 -> Mid
+    # 3 -> Mid-Right
+    # 4 -> Bottom-Left
+    # 5 -> Bottom
+    # 6 -> Bottom-Right
+    #
     {
       0 => [0, 1, 3, 4, 5, 6],
       1 => [3, 6],
