@@ -45,7 +45,7 @@ $ rspec
 And again, you'll notice some failures.... However, there will also be some passing tests.
 
 Do not fret though, these tests are simply here to ensure that you adhere to the rules whereby you
-only edit the single `proxy.rb` file
+only edit the single `proxy.rb` file. You are **not permitted** to edit the `lib/television.rb` file!
 
 ## Committing your work
 
