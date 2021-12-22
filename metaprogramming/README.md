@@ -11,6 +11,9 @@ In our project here we are just going to create some basic concepts, so you can 
 for ruby. Fundamentally we will be using the method `define_method` which allows you to define methods on the
 fly and adapt them at runtime.
 
+**NB:** Define method is defined on an Eigenclass. i.e. the Constructor, not the instance. So you need to think
+about how you manipulate yourself from instance to class!
+
 ## Setup
 
 Install the dependencies:
