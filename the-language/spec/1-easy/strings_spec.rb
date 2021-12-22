@@ -9,12 +9,12 @@ RSpec.describe 'strings' do
     expect(string.is_a?(String)).to eq(__)
   end
 
-  it 'can create a string with double quotes using single quotes' do
+  it 'can create a string with single quotes that contains double quotes within it' do
     string = '"What a curious feeling!" said Alice.'
     expect(string).to eq(__)
   end
 
-  it 'can create a string with single quotes using double quotes' do
+  it 'can create a string with double quotes that contains single quotes within it' do
     string = "Isn't that useful?"
     expect(string).to eq(__)
   end
@@ -58,19 +58,19 @@ Humpty dumpty had a great fall
     expect(string[0, 1]).to eq(__)
   end
 
-  it 'can be concatenated with the +' do
+  it 'can be concatenated with +' do
     string = 'Hello, ' + 'World!'
     expect(string).to eq(__)
   end
 
-  it 'will not modify the original string using +' do
-    greeting = 'Hello, '
-    subject  = 'World!'
-    string = greeting + subject
+  it 'does not modify the original string using +' do
+    prefix = 'Hello, '
+    suffix  = 'World!'
+    greeting = prefix + suffix
 
-    expect(string).to eq(__)
     expect(greeting).to eq(__)
-    expect(subject).to eq(__)
+    expect(prefix).to eq(__)
+    expect(suffix).to eq(__)
   end
 
   it 'will concatenate on the end of a string using +=' do
@@ -112,7 +112,7 @@ Humpty dumpty had a great fall
     expect(string).to eq(__)
   end
 
-  it 'will interporlate any ruby expression' do
+  it 'will interpolate any ruby expression' do
     count = 99
     string = "#{(count - 1) / 2} bottles of beer on the wall."
 
@@ -150,7 +150,7 @@ Humpty dumpty had a great fall
     expect(words).to eq(__)
   end
 
-  it 'can split a string on other characters' do
+  it 'can split a string on any character' do
     string = 'has:many:through'
     words = string.split(':')
 
