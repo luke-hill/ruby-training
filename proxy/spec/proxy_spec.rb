@@ -23,15 +23,15 @@ RSpec.describe Proxy do
       expect(tv_proxy).to be_on
     end
 
+    it 'handles invalid messages' do
+      expect { tv_proxy.no_such_method }.to raise_error(NoMethodError)
+    end
+
     it 'records messages sent to the tv' do
       tv_proxy.power
       tv_proxy.channel = 10
 
       expect(tv_proxy.messages).to eq(%i[power channel=])
-    end
-
-    it 'handles invalid messages' do
-      expect { tv_proxy.no_such_method }.to raise_error(NoMethodError)
     end
 
     it 'reports proxy methods that have been called' do
