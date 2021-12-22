@@ -31,8 +31,8 @@ $ rspec
 By now you should know that to start with all of the examples will fail! The output should contain (near the bottom)
 
 ```
-Finished in 0.01162 seconds (files took 0.05812 seconds to load)
-9 examples, 9 failures
+Finished in 0.00809 seconds (files took 0.12821 seconds to load)
+5 examples, 5 failures
 ```
 
 ## Committing your work
