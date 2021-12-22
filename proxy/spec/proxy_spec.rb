@@ -3,7 +3,7 @@
 require 'proxy'
 require 'television'
 
-RSpec.describe Proxy do
+RSpec.describe RuntimeMethodGenerator do
   context 'with a TV proxy' do
     subject(:tv_proxy) { described_class.new(Television.new) }
 

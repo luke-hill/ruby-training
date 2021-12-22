@@ -1,0 +1,9 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Lint/EmptyClass:
+  Enabled: false
