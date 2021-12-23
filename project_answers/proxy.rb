@@ -16,4 +16,8 @@ class Proxy
   def respond_to?(method)
     proxy_object.respond_to?(method)
   end
+
+  def called?(proxied_method)
+    messages.include?(proxied_method)
+  end
 end
