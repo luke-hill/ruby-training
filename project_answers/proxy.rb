@@ -14,7 +14,11 @@ class Proxy
   end
 
   def respond_to?(method)
-    proxy_object.respond_to?(method)
+    if self.respond_to?(method)
+      true
+    else
+      proxy_object.respond_to?(method)
+    end
   end
 
   def called?(proxied_method)
