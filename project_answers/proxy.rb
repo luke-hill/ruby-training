@@ -7,8 +7,8 @@ class Proxy
     @proxy_object = proxy_object
   end
 
-  def method_missing(method, args, &block)
-
+  def method_missing(method, *args, &block)
+    proxy_object.method(args, &block)
   end
 
   def respond_to?(method)
