@@ -9,4 +9,4 @@ Lint/EmptyClass:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 75
+  Enabled: false
