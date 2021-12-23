@@ -14,14 +14,17 @@ class Proxy
   end
 
   def respond_to?(method)
-    if self.respond_to?(method)
-      true
-    else
-      proxy_object.respond_to?(method)
-    end
+    proxy_object.respond_to?(method) ||
+      internally_defined_method?(method)
   end
 
   def called?(proxied_method)
     messages.include?(proxied_method)
+  end
+
+  private
+
+  def internally_defined_method?(method)
+    method == :called?
   end
 end
