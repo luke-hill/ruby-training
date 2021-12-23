@@ -4,6 +4,3 @@ require:
 
 AllCops:
   NewCops: enable
-
-Lint/EmptyClass:
-  Enabled: false
