@@ -11,7 +11,7 @@ class Proxy
 
   end
 
-  def respond_to?(method, args, &block)
-
+  def respond_to?(method)
+    proxy_object.respond_to?(method)
   end
 end
