@@ -68,17 +68,16 @@ RSpec.describe Proxy do
   end
 
   context 'with a string proxy' do
-    let(:string_proxy) { described_class.new('Code Mash 2009') }
+    let(:string_proxy) { described_class.new('Ruby Training 2021 and onwards') }
 
     it 'returns a wrapped object' do
       expect(string_proxy).to be_a(described_class)
     end
 
     it 'can perform basic string methods' do
-      string_proxy.upcase!
       result = string_proxy.split
 
-      expect(result).to eq(%w[CODE MASH 2009])
+      expect(result).to eq(%w[Ruby Training 2021 and onwards])
     end
 
     it 'records messages sent to the string' do
