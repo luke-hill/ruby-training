@@ -29,6 +29,6 @@ class Proxy
   private
 
   def internally_defined_method?(method)
-    method == :called?
+    method == :called? || method == :number_of_times_called
   end
 end
