@@ -9,8 +9,8 @@ class Proxy
   end
 
   def method_missing(method, *args, &block)
-    proxy_object.send(method, *args, &block)
     messages << method
+    proxy_object.send(method, *args, &block)
   end
 
   def respond_to?(method)
