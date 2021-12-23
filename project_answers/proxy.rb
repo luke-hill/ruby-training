@@ -22,6 +22,10 @@ class Proxy
     messages.include?(proxied_method)
   end
 
+  def number_of_times_called(method)
+    messages.count(method)
+  end
+
   private
 
   def internally_defined_method?(method)
