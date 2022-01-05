@@ -3,7 +3,7 @@
 # Pre-requisite setup required for each test
 require_relative 'setup'
 require_relative 'pages/inputs'
-Setup.new
+Setup.setup
 
 # Create and load the page
 page = Inputs.new

@@ -78,20 +78,22 @@ The folders will consist of various exercises, which are split according to week
  
 Each exercise will be in a subfolder of this directory, and should contain a README with more information.
 
-It will be the aim that a mixture of theory and discussion will take place for each exercise, and then self-study / exercise completion.
+It will be the aim that a mixture of theory and discussion will take place for each exercise, and then
+self-study / exercise completion.
 
 It is advised that each pupil will start with a clean copy of this repo on their machine, and by the
-end will have as close to a full completed copy.
+end will have as close as possible; to a full completed copy.
 
 When you want to save your work, stage and commit changes:
 
 ```bash
-$ git checkout -b my_first_branch
 $ git add . # the dot is important
 $ git commit -m "Explain your change - try be descriptive"
 ```
 
-When we start working on a new exercise - or are moving forwards with this
+> (Ensure you are working on a branch to start with and **not main**).
+
+When we start working on a new exercise - or are moving forwards with a specific
 problem, save your work as described above, and then make a Pull Request to your own fork.
 
 Doing this will give you a backup of all of your work, and also allow you to track your changes
@@ -120,13 +122,13 @@ First of all make sure git knows about all of your files:
 $ git add .
 ```
 
-Then throw away the changes:
+Then throw away all of the changes:
 
 ```bash
 $ git reset --hard HEAD
 ```
 
-You will find you are back at clean directory, where you last committed.
+You will find you are back at a clean directory, from when you last committed.
 
 ### Did you commit to main by mistake?
 

@@ -1,5 +1,5 @@
 RSpec.describe 'objects in ruby' do
-  it 'is fundamental - everything is an object' do
+  it 'is fundamental - everything in ruby is an object' do
     expect(10.is_a?(Object)).to eq(__)
     expect(3.5.is_a?(Object)).to eq(__)
     expect('string'.is_a?(Object)).to eq(__)
@@ -12,7 +12,7 @@ RSpec.describe 'objects in ruby' do
     expect(nil.to_s).to eq(__)
   end
 
-  it 'can be inspected' do
+  it 'can be inspected (as if you had done so in a console)' do
     expect(123.inspect).to eq(__)
     expect(nil.inspect).to eq(__)
   end
