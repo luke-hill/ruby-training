@@ -1,4 +1,4 @@
-# Report Grade - Dice Games
+# Report Grade - Proxy
 
 Report for {person_name}, for the Proxy project
 
