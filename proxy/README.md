@@ -20,10 +20,9 @@ We will do this in the following way
 
 1. Create an initial proxy class
 2. Allow the proxy object to be initialized with any object Ruby _could_ provide
-3. Ensure that when proxying, messages sent are correctly targeted
-4. As each message is being sent, a record should be created once the message passing **has been completed**
-5. During the coding, ensure you add the correct handlers for `method_messing?` as well as the other items that
-are required when performing the standard ruby overrides
+3. Ensure that when proxying, messages sent are correctly targeted (Ensure you add
+the correct handlers for `method_messing` as well as `respond_to?`)
+4. A record should be created for each message sent
 
 ## Setup
 
