@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 class LCD
-  require_relative '../../project_answers/lcd'
+  # Write your code in here
 end
