@@ -14,8 +14,7 @@ class Proxy
   end
 
   def respond_to?(method)
-    proxy_object.respond_to?(method) ||
-      internally_defined_method?(method)
+    proxy_object.respond_to?(method) || (methods - Object.methods).include?(method)
   end
 
   def called?(proxied_method)
@@ -24,11 +23,5 @@ class Proxy
 
   def number_of_times_called(method)
     messages.count(method)
-  end
-
-  private
-
-  def internally_defined_method?(method)
-    method == :called? || method == :number_of_times_called
   end
 end
