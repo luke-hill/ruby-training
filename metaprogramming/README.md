@@ -1,4 +1,4 @@
-# Proxying
+# Metaprogramming - Programming ... "on the fly"
 
 ### Project: Basic Metaprogramming
 
