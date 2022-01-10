@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-# This class needs to have some methods added to it that generate other methods
+# This class has some methods that return some symbols
+# It ALSO needs to have some methods that can then generate other methods
 #
-# Do NOT AMEND the predefined methods. They are designed to be obstrusive!
+# Do NOT AMEND the predefined methods. They are designed to be obtrusive!
+#
 class RuntimeMethodGenerator
   def predefined
     :predefined
