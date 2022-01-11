@@ -58,6 +58,15 @@ Humpty dumpty had a great fall
     expect(string[0, 1]).to eq(__)
   end
 
+  it 'can also be written on multiple lines by "continuing" the string' do
+    string = "Humpty dumpty sat on the wall,"\
+             "Humpty dumpty had a great fall"
+
+    expect(string.length).to eq(__)
+    expect(string.lines.count).to eq(__)
+    expect(string[0, 1]).to eq(__)
+  end
+
   it 'can be concatenated with +' do
     string = 'Hello, ' + 'World!'
     expect(string).to eq(__)
