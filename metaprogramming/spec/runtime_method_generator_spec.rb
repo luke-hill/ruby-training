@@ -5,6 +5,12 @@ require 'runtime_method_generator'
 RSpec.describe RuntimeMethodGenerator do
   let(:metaprogram) { subject }
 
+  describe '#funky_method' do
+    it 'does not exist by default' do
+      expect { metaprogram.funky_method }.to raise_error(NoMethodError)
+    end
+  end
+
   describe '#add_a_method' do
     it 'generates a method' do
       expect(metaprogram.add_a_method).not_to raise_error

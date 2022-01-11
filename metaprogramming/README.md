@@ -31,11 +31,14 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-By now you should know that to start with all of the examples will fail! The output should contain (near the bottom)
+And again, you'll notice some failures.... However, there will also be some passing tests.
+
+Do not fret though, these tests are simply here to ensure that you adhere to the rules whereby you
+do not edit or remove the pre-existing methods.
 
 ```
-Finished in 0.00809 seconds (files took 0.12821 seconds to load)
-5 examples, 5 failures
+Finished in 0.00414 seconds (files took 0.04523 seconds to load)
+6 examples, 5 failures
 ```
 
 ## Committing your work
