@@ -62,9 +62,9 @@ Humpty dumpty had a great fall
     string = "Humpty dumpty sat on the wall,"\
              "Humpty dumpty had a great fall"
 
-    expect(string.length).to eq(__)
-    expect(string.lines.count).to eq(__)
-    expect(string[0, 1]).to eq(__)
+    expect(string.length).to eq(60)
+    expect(string.lines.count).to eq(1)
+    expect(string[0, 1]).to eq('H')
   end
 
   it 'can be concatenated with +' do
