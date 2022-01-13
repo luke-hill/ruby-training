@@ -13,7 +13,7 @@ RSpec.describe RuntimeMethodGenerator do
 
   describe '#add_a_method' do
     it 'generates a method' do
-      expect(metaprogram.add_a_method).not_to raise_error
+      expect { metaprogram.add_a_method }.not_to raise_error
     end
 
     it 'permits the newly generated method to be called' do
@@ -25,7 +25,7 @@ RSpec.describe RuntimeMethodGenerator do
 
   describe '#add_custom_method' do
     it 'must supply an argument' do
-      expect(metaprogram.add_custom_method).to raise_error(ArgumentError)
+      expect { metaprogram.add_custom_method }.to raise_error(ArgumentError)
     end
 
     it 'permits the newly generated method to be called' do
