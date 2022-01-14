@@ -4,11 +4,11 @@ RSpec.describe 'class methods' do
 
   it 'all instances are Objects' do
     percy = Cat.new
-    expect(percy.is_a?(Object)).to eq(__)
+    expect(percy.is_a?(Object)).to eq(true)
   end
 
   it 'all classes (constructors), are Classes' do
-    expect(Cat.is_a?(Class)).to eq(__)
+    expect(Cat.is_a?(Class)).to eq(true)
   end
 
   it 'classes are objects too' do
@@ -39,7 +39,7 @@ RSpec.describe 'class methods' do
       :percys_wag
     end
 
-    expect { not_percy.wag }.to raise_error(__)
+    expect { not_percy.wag }.to raise_error(NoMethodError)
   end
 
   class Cat2
@@ -53,13 +53,13 @@ RSpec.describe 'class methods' do
   end
 
   it 'is possible to define singleton methods on classes (remember they are objects)' do
-    expect(Cat2.wag).to eq(__)
+    expect(Cat2.wag).to eq(:instance_level_wag)
   end
 
   it 'is possible to have both a class and instance method identically named (they are independent)' do
     percy = Cat2.new
-    expect(percy.wag).to eq(__)
-    expect(Cat2.wag).to eq(__)
+    expect(percy.wag).to eq(:instance_level_wag)
+    expect(Cat2.wag).to eq(:class_level_wag)
   end
 
   class Cat3
