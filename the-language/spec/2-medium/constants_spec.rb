@@ -14,16 +14,16 @@ end
 
 describe 'constants in ruby are different' do
   it 'references local constants' do
-    expect(More.local).to eq(__)
+    expect(More.local).to eq('nested')
   end
 
   it 'uses double colon to reference global constants' do
-    expect(More.double_colon).to eq(__)
+    expect(More.double_colon).to eq('top level')
   end
 
   it 'references nested constants using their complete path' do
-    expect(More::C).to eq(__)
-    expect(::More::C).to eq(__)
+    expect(More::C).to eq('nested')
+    expect(::More::C).to eq('nested')
   end
 
   class Animal
@@ -37,7 +37,7 @@ describe 'constants in ruby are different' do
   end
 
   it 'inherits constants from enclosing classes' do
-    expect(Animal::NestedAnimal.new.legs_in_nested_animal).to eq(__)
+    expect(Animal::NestedAnimal.new.legs_in_nested_animal).to eq(4)
   end
 
   class Reptile < Animal
@@ -47,7 +47,7 @@ describe 'constants in ruby are different' do
   end
 
   it 'inherits constants when subclassed from the parent class' do
-    expect(Reptile.new.legs_in_reptile).to eq(__)
+    expect(Reptile.new.legs_in_reptile).to eq(4)
   end
 
   class MyAnimals
@@ -62,7 +62,7 @@ describe 'constants in ruby are different' do
 
   context 'with an inherited class and an enclosing class' do
     it 'can add a new overridden constant (from the enclosing class), in a subclass' do
-      expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
+      expect(MyAnimals::Bird.new.legs_in_bird).to eq(2)
     end
 
     class MyAnimals
@@ -75,7 +75,7 @@ describe 'constants in ruby are different' do
 
     # Remember that we have already defined what MyAnimals::LEGS was earlier
     it 'always uses the top level enclosing class if previously defined' do
-      expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(__)
+      expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(2)
     end
   end
 end
