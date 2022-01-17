@@ -19,6 +19,6 @@ class RuntimeMethodGenerator
   end
 
   def add_custom_method(method_name)
-    self.class.define_method(method_name) { puts "Called new method: #{method_name}" }
+    self.class.define_method(method_name) { method_name }
   end
 end
