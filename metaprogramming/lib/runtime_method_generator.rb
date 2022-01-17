@@ -13,4 +13,8 @@ class RuntimeMethodGenerator
   def return_funky
     :funky
   end
+
+  def add_a_method
+    
+  end
 end
