@@ -22,7 +22,3 @@ class RuntimeMethodGenerator
     self.class.define_method(method_name) { puts "Called new method: #{method_name}" }
   end
 end
-
-r = RuntimeMethodGenerator.new
-r.add_custom_method(:foobarbaz)
-r.foobarbaz
