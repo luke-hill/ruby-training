@@ -27,7 +27,6 @@ $ rvm reload
 $ type rvm | head -1
 $ rvm -v # This should output a number
 $ rvm install 2.7.4
-$ rvm install 3.0.2
 $ rvm install 3.0.3
 ```
 
@@ -53,7 +52,6 @@ $ rvm reload
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
 $ rvm install 2.7.4
-$ rvm install 3.0.2
 $ rvm install 3.0.3
 ```
 
