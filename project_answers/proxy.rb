@@ -14,7 +14,7 @@ class Proxy
   end
 
   def respond_to?(method)
-    proxy_object.respond_to?(method) || (methods - Object.methods).include?(method)
+    proxy_object.respond_to?(method) || super(method)
   end
 
   def called?(proxied_method)
