@@ -44,7 +44,7 @@ RSpec.describe 'exceptions' do
   it 'can `ensure` code is always run' do
     result = nil
     begin
-      fail 'Oops'
+      raise 'Oops'
     rescue StandardError
       # no code here
     ensure
