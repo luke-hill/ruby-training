@@ -27,7 +27,7 @@ RSpec.describe 'strings' do
   end
 
   it 'has flexible quoting when things get difficult' do
-    # NB: Most of these options in this test aren't used commonly
+    # NB: These are not used!!
     a = %(flexible quotes allow both " and ' characters)
     b = %!flexible quotes allow both " and ' characters!
     c = %{flexible quotes allow both " and ' characters}
@@ -72,7 +72,7 @@ Humpty dumpty had a great fall
     expect(string).to eq(__)
   end
 
-  it 'does not modify the original string using +' do
+  it 'does not modify the original string when using +' do
     prefix = 'Hello, '
     suffix  = 'World!'
     greeting = prefix + suffix
@@ -86,6 +86,8 @@ Humpty dumpty had a great fall
     original_greeting = 'Hello, '
     greeting = original_greeting
     subject  = 'World!'
+
+    # NB: This mutates the original string, and is something frowned upon in normal ruby
     greeting += subject
 
     expect(original_greeting).to eq(__)
@@ -102,7 +104,7 @@ Humpty dumpty had a great fall
     expect(string.size).to eq(__)
   end
 
-  it 'does interpret some escape characters with single quotes though' do
+  it 'can interpret some escape characters with single quotes' do
     string = '\\\\'
     expect(string.size).to eq(__)
   end
@@ -159,7 +161,7 @@ Humpty dumpty had a great fall
     expect(words).to eq(__)
   end
 
-  it 'can split a string on any character' do
+  it 'can split a string on a different character' do
     string = 'has:many:through'
     words = string.split(':')
 
