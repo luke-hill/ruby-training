@@ -102,7 +102,7 @@ RSpec.describe 'regular expressions' do
   end
 
   it 'has special variables to access captures' do
-    expect('Name: Gray, James'[/(\w+), (\w+)/]).to eq(__)
+    expect('Name: Gary, James'[/(\w+), (\w+)/]).to eq(__)
     expect($1).to eq(__)
     expect($2).to eq(__)
   end
@@ -112,7 +112,7 @@ RSpec.describe 'regular expressions' do
 
     expect('Bart Simpson'[simpsons]).to eq(__)
     expect('Maggie Simpson'[simpsons]).to eq(__)
-    expect('Montgomery Simpson'[simpsons]).to eq(__)
+    expect('Homer Simpson'[simpsons]).to eq(__)
   end
 
   it 'uses scan to find all instances that match a specific regex' do
