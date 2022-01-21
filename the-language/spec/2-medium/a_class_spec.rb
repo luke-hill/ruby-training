@@ -2,7 +2,7 @@ RSpec.describe 'a ruby class' do
   class Dog
   end
 
-  it 'creates new instances of Dog with new' do
+  it 'creates new instances of a class using the new method' do
     fido = Dog.new
     expect(fido.class).to eq(Dog)
   end
@@ -13,7 +13,7 @@ RSpec.describe 'a ruby class' do
     end
   end
 
-  it 'sets instance variables by assigning to them ' do
+  it 'can set instance variables' do
     fido = Dog2.new
     expect(fido.instance_variables).to eq([])
 
@@ -21,7 +21,7 @@ RSpec.describe 'a ruby class' do
     expect(fido.instance_variables).to eq([:@name])
   end
 
-  it 'can not access instance variables outside of the class' do
+  it 'can not access instance variables by default' do
     fido = Dog2.new
     fido.set_name('Fido')
 
@@ -57,7 +57,7 @@ RSpec.describe 'a ruby class' do
     end
   end
 
-  it 'can have accessor methods to access instance variables' do
+  it 'can create a basic method (reader), to access an instance variable' do
     fido = Dog3.new
     fido.set_name('Fido')
 
@@ -72,7 +72,7 @@ RSpec.describe 'a ruby class' do
     end
   end
 
-  it 'can automatically define an accessor using attr_reader' do
+  it 'can automatically define a reader method using attr_reader' do
     fido = Dog4.new
     fido.set_name('Fido')
 
@@ -92,6 +92,7 @@ RSpec.describe 'a ruby class' do
 
   class Dog6
     attr_reader :name
+
     def initialize(initial_name)
       @name = initial_name
     end
@@ -102,7 +103,7 @@ RSpec.describe 'a ruby class' do
     expect(fido.name).to eq('Fido')
   end
 
-  it 'match args to new with initializer' do
+  it 'must match args to new with initializer' do
     expect { Dog6.new }.to raise_error(ArgumentError)
     # THINK ABOUT IT: Why is this so?
   end
@@ -134,7 +135,7 @@ RSpec.describe 'a ruby class' do
     end
   end
 
-  it 'uses self inside method to refer to the containing object' do
+  it 'uses self to refer to the current object (whatever it is)' do
     fido = Dog7.new('Fido')
 
     fidos_self = fido.get_self
@@ -146,7 +147,7 @@ RSpec.describe 'a ruby class' do
     expect(fido.to_s).to eq('Fido')
   end
 
-  it 'uses to_s inside string interpolation' do
+  it 'automatically uses to_s inside string interpolation' do
     fido = Dog7.new('Fido')
     expect("My dog is #{fido}").to eq('My dog is Fido')
   end

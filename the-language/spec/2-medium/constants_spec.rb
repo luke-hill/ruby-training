@@ -28,9 +28,6 @@ describe 'constants in ruby are different' do
 
   class Animal
     LEGS = 4
-    def legs_in_animal
-      LEGS
-    end
 
     class NestedAnimal
       def legs_in_nested_animal
@@ -63,21 +60,21 @@ describe 'constants in ruby are different' do
     end
   end
 
-  it 'can add a new overridden constant (from the enclosing class), in a subclass' do
-    expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
-  end
+  context 'with an inherited class and an enclosing class' do
+    it 'can add a new overridden constant (from the enclosing class), in a subclass' do
+      expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
+    end
 
-  class MyAnimals
-    class Oyster < Animal
-      def legs_in_oyster
-        LEGS
+    class MyAnimals
+      class Oyster < Animal
+        def legs_in_oyster
+          LEGS
+        end
       end
     end
-  end
 
-  context 'with an inherited class and an enclosing class' do
     # Remember that we have already defined what MyAnimals::LEGS was earlier
-    it 'uses the top level enclosing class as the source of truth' do
+    it 'always uses the top level enclosing class if previously defined' do
       expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(__)
     end
   end

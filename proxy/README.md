@@ -16,14 +16,14 @@ But most of us just use a TV Remote control. So here we are going to look at how
 It is worth pointing out this exercise will allow you to generate a mutable proxy. That is a Proxy that in theory
 could work in multiple ways (The spec file will explain this in more detail)
 
-We will do this in the following way
+We will do this in the following way ...
 
 1. Create an initial proxy class
-2. Allow the proxy object to be initialized with any object Ruby _could_ provide
-3. Ensure that when proxying, messages sent are correctly targeted
-4. As each message is being sent, a record should be created once the message passing **has been completed**
-5. During the coding, ensure you add the correct handlers for `method_messing?` as well as the other items that
-are required when performing the standard ruby overrides
+2. Allow the proxy object to be initialized with **ANY** object Ruby could provide
+3. Ensure that when proxying, messages sent are correctly targeted (Ensure you add
+the correct handlers for `method_messing` as well as `respond_to?`)
+> NB: The handler for `respond_to?` will need 2 specific checks. One for the proxy object **but also itself!**
+4. A record should be created for each message sent
 
 ## Setup
 

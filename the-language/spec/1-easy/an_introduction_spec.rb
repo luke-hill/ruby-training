@@ -1,5 +1,5 @@
 RSpec.describe 'an introduction to ruby' do
-  context 'using expectations' do
+  context 'using rspec expectations' do
     it 'checks reality' do
       expect(true).to be true # it should be true
     end

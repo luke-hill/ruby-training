@@ -1,5 +1,5 @@
 RSpec.describe 'symbols' do
-  it 'is a Symbol' do
+  it 'is a type of symbol class' do
     symbol = :a_symbol
     expect(symbol.is_a?(Symbol)).to eq(true)
   end
@@ -41,13 +41,15 @@ RSpec.describe 'symbols' do
   end
 
   it 'can be created with spaces' do
+    #NB: This is not common.. please don't do this!
     symbol = :"hello world"
 
     expect(symbol.is_a?(Symbol)).to eq(true)
   end
 
   it 'can be created with an underscore or a hyphen' do
-    underscore_symbol = :"hello_world"
+    underscore_symbol = :hello_world
+    #NB: The hyphenated variant is not common, please don't do this!
     hyphenated_symbol = :"hello-world"
 
     expect(underscore_symbol.is_a?(Symbol)).to eq(true)

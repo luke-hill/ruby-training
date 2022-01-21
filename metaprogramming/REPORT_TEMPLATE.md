@@ -1,4 +1,4 @@
-# Report Grade - Dice Games
+# Report Grade - Metaprogramming
 
 Report for {person_name}, for the Metaprogramming project
 

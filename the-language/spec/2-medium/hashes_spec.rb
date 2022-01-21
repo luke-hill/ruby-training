@@ -30,6 +30,16 @@ RSpec.describe 'hashes' do
     expect { hash.fetch(:three) }.to raise_error(__)
   end
 
+  it 'has a fallback method for fetch' do
+    hash = { one: 1, two: 2 }
+
+    expect(hash.fetch(:three, 3)).to eq(__)
+    expect(hash.fetch(:three) { 3 }).to eq(__)
+
+    # THINK: Why are there two ways for expressing this fallback behaviour? Have a google
+    # on this topic and note down your findings
+  end
+
   it 'allows you to change the value at a specific location' do
     hash = { one: 1, two: 2 }
     hash[:one] = 'ONE'

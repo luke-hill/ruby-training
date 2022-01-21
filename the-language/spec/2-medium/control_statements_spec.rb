@@ -35,20 +35,19 @@ RSpec.describe 'control statements' do
     # just if statements.
   end
 
-  it "even returns a value when the if fails, and there's no else" do
+  it "returns a value when the if fails, and there's no else" do
     value = if false
               :true_value
             end
     expect(value).to eq(nil)
   end
 
-  it 'has a condition (ternary) operator' do
+  it 'has a ternary operator' do
     expect(true ? :true_value : :false_value).to eq(:true_value)
-
     expect(false ? :true_value : :false_value).to eq(:false_value)
   end
 
-  it 'can use an if as a statement modifier' do
+  it 'can use if as a statement modifier' do
     result = :default_value
     result = :true_value if true
 
@@ -56,6 +55,7 @@ RSpec.describe 'control statements' do
   end
 
   it 'has an unless statement' do
+    #NB: We don't traditionally use else here, but you could add an else if you wanted - Don't though!
     result = :default_value
     unless false # same as saying 'if !false', which evaluates as 'if true'
       result = :false_value
@@ -110,7 +110,7 @@ RSpec.describe 'control statements' do
     expect(result).to eq(2)
   end
 
-  it 'can skip an iterating step by using next (With a truthy condition)' do
+  it 'can skip an iteration by using next (With a truthy condition)' do
     i = 0
     result = []
     while i < 10

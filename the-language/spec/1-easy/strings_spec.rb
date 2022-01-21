@@ -27,7 +27,7 @@ RSpec.describe 'strings' do
   end
 
   it 'has flexible quoting when things get difficult' do
-    # NB: Most of these options in this test aren't used commonly
+    # NB: These are not used!!
     a = %(flexible quotes allow both " and ' characters)
     b = %!flexible quotes allow both " and ' characters!
     c = %{flexible quotes allow both " and ' characters}
@@ -58,15 +58,24 @@ Humpty dumpty had a great fall
     expect(string[0, 1]).to eq('H')
   end
 
-  it 'can be concatenated with the +' do
+  it 'can also be written on multiple lines by "continuing" the string' do
+    string = "Humpty dumpty sat on the wall,"\
+             "Humpty dumpty had a great fall"
+
+    expect(string.length).to eq(__)
+    expect(string.lines.count).to eq(__)
+    expect(string[0, 1]).to eq(__)
+  end
+
+  it 'can be concatenated with +' do
     string = 'Hello, ' + 'World!'
     expect(string).to eq('Hello, World!')
   end
 
-  it 'will not modify the original string using +' do
-    greeting = 'Hello, '
-    subject  = 'World!'
-    string = greeting + subject
+  it 'does not modify the original string when using +' do
+    prefix = 'Hello, '
+    suffix  = 'World!'
+    greeting = prefix + suffix
 
     expect(string).to eq('Hello, World!')
     expect(greeting).to eq('Hello, ')
@@ -77,6 +86,8 @@ Humpty dumpty had a great fall
     original_greeting = 'Hello, '
     greeting = original_greeting
     subject  = 'World!'
+
+    # NB: This mutates the original string, and is something frowned upon in normal ruby
     greeting += subject
 
     expect(original_greeting).to eq('Hello, ')
@@ -93,7 +104,7 @@ Humpty dumpty had a great fall
     expect(string.size).to eq(2)
   end
 
-  it 'does interpret some escape characters with single quotes though' do
+  it 'can interpret some escape characters with single quotes' do
     string = '\\\\'
     expect(string.size).to eq(2)
   end
@@ -150,7 +161,7 @@ Humpty dumpty had a great fall
     expect(words).to eq(["Strings", "Are", "Fun"])
   end
 
-  it 'can split a string on other characters' do
+  it 'can split a string on a different character' do
     string = 'has:many:through'
     words = string.split(':')
 
