@@ -13,12 +13,11 @@ RSpec.describe 'keyword args' do
     # Why do we want to use keyword arguments in ruby often? Think about methods that may have 3/4/5 inputs
   end
 
-  def method_with_keyword_arguments_including_mandatory(one, two: 2, three: 3)
+  def method_with_keyword_arguments_and_regular_arguments(one, two: 2, three: 3)
     [one, two, three]
   end
 
   it 'is possible to define a method with regular and keyword arguments' do
-    expect { method_with_keyword_arguments_including_mandatory }
-      .to raise_error(__, /__/)
+    expect { method_with_keyword_arguments_and_regular_arguments }.to raise_error(__, /__/)
   end
 end
