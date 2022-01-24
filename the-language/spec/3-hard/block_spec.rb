@@ -58,7 +58,7 @@ RSpec.describe 'blocks' do
     expect(value).to eq(__)
   end
 
-  it 'can assign a block to variable and be called explicitly' do
+  it 'can assign a block to a variable and then be called explicitly' do
     add_one = lambda do |n|
       n + 1
     end
