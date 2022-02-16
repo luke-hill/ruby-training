@@ -3,7 +3,7 @@
 def triangle(a, b, c)
   if a==b && a==c
     :equilateral
-  else
+  elsif a==b || b==c || a==c
     :isosceles
   end
 end
