@@ -45,9 +45,9 @@ RSpec.describe NumberValidator do
   end
 
   context 'with a non-integer' do
-    it { expect { validation.validate('ab') }.to raise_error(ArgumentError) }
-    it { expect { validation.validate(:symbol) }.to raise_error(ArgumentError) }
-    it { expect { validation.validate(3.14159) }.to raise_error(ArgumentError) }
-    it { expect { validation.validate(Class.new) }.to raise_error(ArgumentError) }
+    it { expect { validation.validate('ab') }.to raise_error(InvalidNumberError) }
+    it { expect { validation.validate(:symbol) }.to raise_error(InvalidNumberError) }
+    it { expect { validation.validate(3.14159) }.to raise_error(InvalidNumberError) }
+    it { expect { validation.validate(Class.new) }.to raise_error(InvalidNumberError) }
   end
 end

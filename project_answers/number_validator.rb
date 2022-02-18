@@ -8,7 +8,7 @@ class NumberValidator
   end
 
   def validate(number)
-    raise ArgumentError unless number.is_a?(Integer)
+    raise InvalidNumberError unless number.is_a?(Integer)
 
     validate_divisibility
     validate_type
@@ -47,3 +47,6 @@ class NumberValidator
     end
   end
 end
+
+# Do not edit this code!
+class InvalidNumberError < ArgumentError; end
