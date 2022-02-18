@@ -3,7 +3,7 @@
 def quadrilateral(a, b, c, d)
   if a==90 && b==90 && c==90 && d==90
   [:square, :rectangle]
-  else
+  elsif a==b && c==d || b==d && a==c || a==d && b==c
     [:parallelogram, :rhombus]
   end
 end
