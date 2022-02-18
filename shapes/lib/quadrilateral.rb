@@ -2,6 +2,8 @@
 
 def quadrilateral(a, b, c, d)
   raise QuadrilateralError if a<=0 || b<=0 || c<=0 ||d<=0
+  raise QuadrilateralError if a + b + c + d <360
+  raise QuadrilateralError if a + b + c + d >360
   if a==90 && b==90 && c==90 && d==90
   [:square, :rectangle]
   elsif a==b && c==d || b==d && a==c || a==d && b==c
