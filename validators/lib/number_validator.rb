@@ -5,3 +5,6 @@ class NumberValidator
     # WRITE THIS CODE
   end
 end
+
+# Do not edit this code!
+class InvalidNumberError < ArgumentError; end
