@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class NumberValidator
-  attr_reader :group
+  attr_reader :group, :number
 
   def initialize
     @group = []
   end
 
   def validate(number)
+    @number = number
     raise InvalidNumberError unless number.is_a?(Integer)
 
     validate_divisibility
