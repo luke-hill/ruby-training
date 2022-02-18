@@ -5,6 +5,8 @@ def quadrilateral(a, b, c, d)
   [:square, :rectangle]
   elsif a==b && c==d || b==d && a==c || a==d && b==c
     [:parallelogram, :rhombus]
+  else
+    [:quadrilateral]
   end
 end
 
