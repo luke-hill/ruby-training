@@ -10,11 +10,13 @@ def internal_angle(number_of_sides)
      128.57
    elsif number_of_sides == 8
      135
-   else
+   elsif number_of_sides == 9
      140
+   else
+     144
   end
 end
 
 def external_angle(number_of_sides)
-  # WRITE THIS CODE
+
 end
