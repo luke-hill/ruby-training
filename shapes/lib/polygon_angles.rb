@@ -29,6 +29,7 @@ def external_angle(number_of_sides)
     45
   when 9
     40
-
+  else
+    36
   end
 end
