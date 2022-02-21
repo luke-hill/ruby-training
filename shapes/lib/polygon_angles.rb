@@ -6,8 +6,10 @@ def internal_angle(number_of_sides)
     108
    elsif number_of_sides == 6
      120
-   else
+   elsif number_of_sides == 7
      128.57
+   else
+     135
   end
 end
 
