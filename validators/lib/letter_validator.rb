@@ -2,9 +2,10 @@
 
 class LetterValidator
   def validate(letter)
-    # WRITE THIS CODE
+    [:vowel]
   end
 end
 
 # Do not edit this code!
 class InvalidLetterError < ArgumentError; end
+
