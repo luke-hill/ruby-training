@@ -2,10 +2,20 @@
 
 class LetterValidator
   def validate(letter)
-    [:vowel]
+    vowels = %w[a e i o u]
+    case letter
+    when *vowels
+      [:vowel]
+    else
+      [:consonant]
+    end
   end
 end
 
 # Do not edit this code!
-class InvalidLetterError < ArgumentError; end
+class InvalidLetterError < ArgumentError;
+end
+
+
+
 
