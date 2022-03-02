@@ -23,7 +23,13 @@ class LetterValidator
     end
   end
   def check_first_half(letter)
-    :first_half
+    case letter
+    when 'a'..'m'
+      :first_half
+    else
+      :second_half
+    end
+
   end
 
 end
