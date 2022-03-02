@@ -11,6 +11,7 @@ class LetterValidator
     raise InvalidLetterError if letter.length> 1
     alphabet<<vowels_check(letter)
     alphabet<<check_first_half(letter)
+    alphabet<<check_common_letter(letter)
   end
 
   def vowels_check(letter)
@@ -22,6 +23,7 @@ class LetterValidator
       :consonant
     end
   end
+
   def check_first_half(letter)
     case letter
     when 'a'..'m'
@@ -29,12 +31,12 @@ class LetterValidator
     else
       :second_half
     end
-
   end
 
+  def check_common_letter(letter)
+    :common_letter
+  end
 end
-
-
 
 # Do not edit this code!
 class InvalidLetterError < ArgumentError;
