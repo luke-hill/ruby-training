@@ -10,6 +10,7 @@ class LetterValidator
   def validate(letter)
     raise InvalidLetterError if letter.length> 1
     alphabet<<vowels_check(letter)
+    alphabet<<check_first_half(letter)
   end
 
   def vowels_check(letter)
@@ -21,7 +22,9 @@ class LetterValidator
       :consonant
     end
   end
-
+  def check_first_half(letter)
+    :first_half
+  end
 
 end
 
