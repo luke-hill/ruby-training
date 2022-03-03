@@ -8,6 +8,7 @@ class NumberValidator
   end
 
   def validate(number)
+    raise ArgumentError if number.is_a?(String)
     values<<even_odd(number)
     values<<divisible_by_three(number)
     values<<divisible_by_seven(number)
