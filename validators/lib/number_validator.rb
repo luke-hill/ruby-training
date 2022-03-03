@@ -2,6 +2,11 @@
 
 class NumberValidator
   def validate(number)
-    [:odd]
+    if number % 2 != 0
+      [:odd]
+    else
+      [:even]
+    end
+
   end
 end
