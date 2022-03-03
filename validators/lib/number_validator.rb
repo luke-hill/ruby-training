@@ -9,6 +9,7 @@ class NumberValidator
 
   def validate(number)
     values<<even_odd(number)
+    values<<divisible_by_three(number)
   end
 
   def even_odd(number)
@@ -16,6 +17,14 @@ class NumberValidator
       :odd
     else
       :even
+    end
+  end
+
+  def divisible_by_three(number)
+    if number % 3 ==0
+      :divisible_by_three
+    else
+      :divisible_by_five
     end
   end
 end
