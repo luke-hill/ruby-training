@@ -1,6 +1,6 @@
 # Report Grade - Validators
 
-Report for {person_name}, for the Validators project
+Report for Isaac, for the Validators project
 
 ## Grading Criteria
 
