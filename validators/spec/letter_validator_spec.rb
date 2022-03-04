@@ -37,6 +37,13 @@ RSpec.describe LetterValidator do
         expect(validation.validate(letter)).to include(:common_letter)
       end
     end
+
+    it 'does not validate letters that are not common' do
+      uncommon_letters = ('a'..'z').to_a - %w[e t a i o]
+      uncommon_letters.each do |letter|
+        expect(validation.validate(letter)).not_to include(:common_letter)
+      end
+    end
   end
 
   context 'with multiple letters' do
