@@ -25,9 +25,21 @@ RSpec.describe NumberValidator do
       end
     end
 
+    it 'does not validate non-multiples of 3' do
+      [-5, 5, 14, 21, 700].each do |number|
+        expect(validation.validate(number)).not_to include(:divisible_by_three)
+      end
+    end
+
     it 'validates multiples of 5' do
       [-5, 0, 5, 10, 35, 120, 300, 605].each do |number|
         expect(validation.validate(number)).to include(:divisible_by_five)
+      end
+    end
+
+    it 'does not validate non-multiples of 5' do
+      [-7, -3, 12, 18, 909].each do |number|
+        expect(validation.validate(number)).not_to include(:divisible_by_five)
       end
     end
 
@@ -37,9 +49,21 @@ RSpec.describe NumberValidator do
       end
     end
 
+    it 'does not validate non-multiples of 7' do
+      [-5, -3, 12, 18, 909].each do |number|
+        expect(validation.validate(number)).not_to include(:divisible_by_seven)
+      end
+    end
+
     it 'validates multiples of 9' do
       [-9, 0, 9, 99, 909, 9999].each do |number|
         expect(validation.validate(number)).to include(:divisible_by_nine)
+      end
+    end
+
+    it 'does not validate non-multiples of 9' do
+      [-7, 5, 33, 330, 700].each do |number|
+        expect(validation.validate(number)).not_to include(:divisible_by_nine)
       end
     end
   end
