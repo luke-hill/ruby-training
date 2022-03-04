@@ -26,7 +26,7 @@ RSpec.describe NumberValidator do
     end
 
     it 'does not validate non-multiples of 3' do
-      [-5, 5, 14, 21, 700].each do |number|
+      [-5, 5, 14, 28, 700].each do |number|
         expect(validation.validate(number)).not_to include(:divisible_by_three)
       end
     end
