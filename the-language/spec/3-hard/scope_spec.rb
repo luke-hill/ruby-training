@@ -18,7 +18,7 @@ module Scopes
     end
 
     it 'cannot access Otter in the current scope' do
-      # This fails because it assumes a Current Scope for our Otter which is what?
+      # This fails because it assumes the current Scope for our Otter is what?
       expect { Otter.new }.to raise_error(__)
     end
 
@@ -39,7 +39,7 @@ module Scopes
       expect(Scopes::String == String).to eq(__)
     end
 
-    it 'creates new constants - our nested string is not identical to other' do
+    it 'creates new constants - our nested string is not identical to other String classes' do
       expect(String == 'HI'.class).to eq(__)
     end
 
