@@ -17,7 +17,7 @@ describe Bottles do
   end
 
   it 'can sing about 1 bottle' do
-    skip
+    
     expected = "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
     expect(bottles.verse(1)).to eq(expected)
   end
@@ -29,7 +29,7 @@ describe Bottles do
   end
 
   it 'can sing about no more bottles' do
-    
+
     expected = "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
     expect(bottles.verse(0)).to eq(expected)
   end
