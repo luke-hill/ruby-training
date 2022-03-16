@@ -25,6 +25,10 @@ class Bottles
     upper.downto(lower).map {|number| verse(number)}.join("\n")+ "\n"
   end
 
+  def sing
+    verses(99,0)
+  end
+
   end
 
 
