@@ -20,7 +20,12 @@ class Bottles
       "bottles"
     end
   end
-end
+
+  def verses(upper,lower)
+    upper.downto(lower).map {|number| verse(number)}.join("\n")+ "\n"
+  end
+
+  end
 
 
 
