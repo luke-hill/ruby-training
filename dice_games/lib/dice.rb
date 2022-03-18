@@ -2,16 +2,9 @@
 
 class Dice
   attr_reader :values
-
-  def initialize
+  
+  def roll(number)
     @values = []
-  end
-
-  def values
-    @values
-  end
-
-  def roll(number_of_dice)
   end
 
 end
