@@ -52,5 +52,13 @@ RSpec.describe Dice do
     # If the rolls are random, then it is possible (although not
     # likely) that two consecutive rolls are equal.  What would be a
     # better way to test this?
+    #
+    # Answer:
+    # If one die is rolled 1 time then it has a probability of 1/6
+    # if a die rolled 2 times it has a probability of 1/36
+    # In my opinion there is no best way to test this due the randomness of it.
+    # In Testing we need to have a state true or false, its possibility is a fraction in a million random rolling of dice.
+    # In the current implementation of Dice, we are rolling dice randomly with 5 times- first 4 iteration at IRB is random, it will be random for other iterations
+    # We can run while loop until the values are same.
   end
 end
