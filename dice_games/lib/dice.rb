@@ -3,7 +3,7 @@
 class Dice
   attr_reader :values
 
-  def roll(number)
+  def roll(number = 1)
     @values = []
     (number).times { |roll| @values << rand(1..6) }
     @values
