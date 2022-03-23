@@ -2,6 +2,19 @@
 
 class Greed
   def score(dice)
-    0
+    score = 0
+    dice.each do |die|
+      if die == 5
+        score += 50
+      elsif die== 1
+        score += 100
+      elsif
+        0
+      end
+    end
+    score
   end
 end
+
+
+
