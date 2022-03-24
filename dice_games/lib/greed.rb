@@ -16,6 +16,9 @@ class Greed
       if number == 5
         if dice.count(5) >= 3
           score += 5  * 100
+          score += 50 * (dice.count(5) - 3)
+        else
+          score += 50 * dice.count(5)
         end
         end
 
