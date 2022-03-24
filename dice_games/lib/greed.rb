@@ -13,6 +13,13 @@ class Greed
         end
       end
 
+      if number == 5
+        if dice.count(5) >= 3
+          score += 5  * 100
+        end
+        end
+
+
     end
     score
   end
