@@ -7,7 +7,7 @@ class Greed
       if number == 1
         if dice.count(1) >= 3
           score += 1000
-          score += 100 * (dice.count(1) - 3)
+          score += 100 * (dice.count(1) - 4)
         else
           score += 100 * dice.count(1)
         end
@@ -20,8 +20,9 @@ class Greed
         else
           score += 50 * dice.count(5)
         end
-        end
-
+      else
+        score += number * 100 if dice.count(number) >= 3
+      end
 
     end
     score
