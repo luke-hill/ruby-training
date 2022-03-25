@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Greed
-  def score(dice)
+  def score(dice = nil)
+    raise GreedError if dice == nil
     score= 0
     dice.uniq.each do |number|
       if number == 1
@@ -29,7 +30,8 @@ class Greed
   end
   end
 
-
+class GreedError < ArgumentError
+end
 
 
 
