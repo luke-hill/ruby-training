@@ -26,10 +26,15 @@ $ bundle
 To run the exercise, you just need to run:
 
 ```
-$ ruby run_examples.rb
+$ ruby ./spec/easy_example.rb
+$ ruby ./spec/medium_example.rb
+$ ruby ./spec/hard_example.rb
 ```
 
-However.... If this were regular spec. We would get a lot of diagnostic data.
+Naturally there are bugs and failures. Our challenge is to start improving each of them to such a state
+where we think the output is correct for that level of granularity
+
+To start with.... if this were regular spec. We would get a lot of diagnostic data.
 
 So one of the first challenges, is to take the existing items. To this we can add some diagnostic data
 
