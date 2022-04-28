@@ -8,9 +8,17 @@ class LCD
   end
 
   def render
-
   end
 
+  def single_number_or_letter
+    if number_or_string.is_a?(Numeric)
+      number_or_string.digits.reverse
+    else
+      number_or_string.chars
+    end
+  end
+
+  
 
   def horizontal_segment(type)
     case type
