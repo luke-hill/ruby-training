@@ -26,7 +26,7 @@ $ bundle
 To run the exercise, you just need to run:
 
 ```
-$ ruby run_examples
+$ ruby run_examples.rb
 ```
 
 However.... If this were regular spec. We would get a lot of diagnostic data.

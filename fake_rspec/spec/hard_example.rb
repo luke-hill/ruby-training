@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../lib/fake_rspec'
+
 FakeRSpec.run 'hard example' do
   it 'Running Test 1' do
     5 == 3
