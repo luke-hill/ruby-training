@@ -14,7 +14,7 @@ FakeRSpec.run 'easy example' do
   123.is_a?(Integer)
 
   # Test 5
-  [1,2,3,4].all?(&:even)
+  [1,2,3,4].all?(&:even?)
 
   # Test 6
   String.is_a?(Class)
