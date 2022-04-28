@@ -4,8 +4,8 @@ class FakeRSpec
   FakeRSpecError = Class.new(StandardError)
 
   def self.run(_description)
-    puts "Running tests"
+    puts 'Running tests'
     yield
-    puts "Tests finished"
+    puts 'Tests finished'
   end
 end
