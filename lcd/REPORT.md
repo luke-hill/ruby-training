@@ -1,6 +1,6 @@
 # Report Grade - LCD
 
-Report for {person_name}, for the LCD project
+Report for Aiman, for the LCD project
 
 ## Grading Criteria
 
