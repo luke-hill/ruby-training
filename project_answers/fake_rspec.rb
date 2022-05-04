@@ -1,19 +1,29 @@
 # frozen_string_literal: true
 
+require 'rainbow'
+
 class FakeRSpec
   FakeRSpecError = Class.new(StandardError)
 
-  def self.run(_description)
-    puts 'Running entire suite of tests'
-    yield
-    puts 'All Tests finished'
-  end
+  class << self
+    attr_accessor :results
 
-  def self.it(description)
-    puts "Running test #{description}"
-    result = yield
-    puts "Result: #{result}"
-    puts "Test finished"
+    def run(description)
+      puts "Running #{description} tests"
+      self.results = []
+      yield
+      puts 'All Tests finished'
+      puts "Result-set: #{results}"
+    end
+
+    def it(description)
+      puts "Running test #{description}"
+      yield.tap do |result|
+        puts "Result: #{result}"
+        results << result
+      end
+      puts "Test finished"
+    end
   end
 end
 
