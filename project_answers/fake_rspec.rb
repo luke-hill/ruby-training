@@ -4,14 +4,15 @@ class FakeRSpec
   FakeRSpecError = Class.new(StandardError)
 
   def self.run(_description)
-    puts 'Running tests'
+    puts 'Running entire suite of tests'
     yield
-    puts 'Tests finished'
+    puts 'All Tests finished'
   end
 
   def self.it(description)
     puts "Running test #{description}"
-    yield
+    result = yield
+    puts "Result: #{result}"
     puts "Test finished"
   end
 end
