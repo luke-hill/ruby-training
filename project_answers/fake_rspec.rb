@@ -8,4 +8,14 @@ class FakeRSpec
     yield
     puts 'Tests finished'
   end
+
+  def self.it(description)
+    puts "Running test #{description}"
+    yield
+    puts "Test finished"
+  end
+end
+
+def self.it(*args, &block)
+  FakeRSpec.it(*args, &block)
 end
