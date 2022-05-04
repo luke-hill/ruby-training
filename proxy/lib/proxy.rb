@@ -7,5 +7,4 @@ class Proxy
   def initialize(proxy_object)
     @proxy_object = proxy_object
   end
-  
 end
