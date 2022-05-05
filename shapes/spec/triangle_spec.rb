@@ -37,6 +37,8 @@ RSpec.describe 'triangle types' do
       expect { triangle(-2, -4, -2) }.to raise_error(TriangleError)
     end
 
+    # The below spec validates the rule that a triangle must always pass the rule
+    # That the longest side MUST be shorter than the sum of the 2 shortest sides
     it 'throws errors for illegal triangles that are not constructible' do
       expect { triangle(1, 1, 3) }.to raise_error(TriangleError)
       expect { triangle(2, 4, 2) }.to raise_error(TriangleError)

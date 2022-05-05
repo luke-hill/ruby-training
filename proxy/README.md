@@ -20,10 +20,10 @@ We will do this in the following way ...
 
 1. Create an initial proxy class
 2. Allow the proxy object to be initialized with **ANY** object Ruby could provide
-3. Ensure that when proxying, messages sent are correctly targeted (Ensure you add
-the correct handlers for `method_messing` as well as `respond_to?`)
+3. Ensure that when proxying, messages that are sent are correctly targeted (Ensure you add
+the correct handlers for `method_missing` and `respond_to?`)
 > NB: The handler for `respond_to?` will need 2 specific checks. One for the proxy object **but also itself!**
-4. A record should be created for each message sent
+4. A record should be created for every message sent
 
 ## Setup
 

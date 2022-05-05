@@ -1,0 +1,7 @@
+# A typical .rspec file looks like below (Commented out)
+
+# --color
+# --format progress
+# --order defined
+
+# Could we maybe define some flag arguments for our fake tester to make it better?

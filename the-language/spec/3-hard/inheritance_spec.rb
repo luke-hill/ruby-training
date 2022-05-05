@@ -21,7 +21,7 @@ RSpec.describe 'inheritance' do
     end
   end
 
-  it 'sets the subclass parent as an ancestor' do
+  it 'sets the subclasses parent as one of the ancestors' do
     expect(Chihuahua.ancestors.include?(OtherDog)).to eq(true)
   end
 
@@ -29,7 +29,7 @@ RSpec.describe 'inheritance' do
     expect(Chihuahua.ancestors.include?(Object)).to eq(true)
   end
 
-  it 'inherits behaviour from a parent class' do
+  it 'inherits behaviour from the parent class' do
     chico = Chihuahua.new('Chico')
     expect(chico.name).to eq("Chico")
   end
@@ -58,7 +58,7 @@ RSpec.describe 'inheritance' do
     end
   end
 
-  it 'can invoke the parent behaviour using super' do
+  it 'can invoke the parent method behaviour using super' do
     ralph = BullDog.new('Ralph')
     expect(ralph.bark).to eq("WOOF")
   end

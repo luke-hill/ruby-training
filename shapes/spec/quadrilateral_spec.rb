@@ -42,7 +42,7 @@ RSpec.describe 'quadrilateral types' do
       expect { quadrilateral(440, -40, -30, -10) }.to raise_error(QuadrilateralError)
     end
 
-    it 'throws errors for illegal quadrilaterals that are not constructible' do
+    it 'throws errors for quadrilaterals whose angles do not sum to 360 degrees' do
       expect { quadrilateral(300, 40, 10, 9) }.to raise_error(QuadrilateralError)
       expect { quadrilateral(300, 40, 12, 9) }.to raise_error(QuadrilateralError)
     end

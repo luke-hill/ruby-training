@@ -38,3 +38,6 @@ class NumberValidator
     end
   end
 end
+
+# Do not edit this code!
+class InvalidNumberError < ArgumentError; end

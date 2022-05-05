@@ -59,6 +59,6 @@ RSpec.describe 'modules' do
   # There is also the concept of `extend`ing a module which we don't deal with here.
   #
   # This works in exactly the same way, but it exposes all Module methods as class methods
-  # NOT instance methods. The research / implementation of this is left as an unincluded exercise
+  # NOT instance methods. The research / implementation of this is left as an exercise
   # for the coder
 end

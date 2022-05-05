@@ -94,7 +94,7 @@ RSpec.describe 'message passing' do
     # THINK ABOUT IT:
     #
     # If the method :method_missing causes the NoMethodError, then
-    # what would happen if we redefine method_missing?
+    # what would happen if we redefine method_missing
     #
     # NOTE:
     #
@@ -158,7 +158,7 @@ RSpec.describe 'message passing' do
     end
   end
 
-  it 'now tells the truth using an explictly defined #respond_to? method' do
+  it 'now tells the truth using an explicitly defined #respond_to? method' do
     catcher = WellBehavedFooCatcher.new
 
     expect(catcher.respond_to?(:foo_bar)).to eq(true)
