@@ -2,24 +2,28 @@
 
 class Proxy
 
-  attr_reader :proxy_object
+  attr_reader :proxy_object, :messages
 
   def initialize(proxy_object)
     @object = proxy_object
-    @recorded_messages = []
+    @messages = []
+  end
+
+  def called?(method_name)
+    @messages.include?(method_name)
+  end
+
+  def number_of_times_called(method_name)
+    @messages.count method_name
   end
 
   def method_missing(method_name, *args, &block)
     if @object.respond_to?(method_name)
-      @recorded_messages << method_name
+      @messages << method_name
       @object.send(method_name, *args, &block)
     else
       super method_name, *args, &block
     end
-  end
-
-  def number_of_times_called(method_name)
-    @recorded_messages.count method_name
   end
 
   def respond_to?(method_name, include_private = false)
@@ -31,7 +35,4 @@ class Proxy
     end
   end
 
-  def called?(method_name)
-    @recorded_messages.include?(method_name)
-  end
 end
