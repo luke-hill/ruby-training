@@ -10,15 +10,28 @@ class Proxy
   end
 
   def method_missing(method_name, *args, &block)
-    if @object.respond_to? method_name
+    if @object.respond_to?(method_name)
       @recorded_messages << method_name
-      @object.send method_name, *args
+      @object.send(method_name, *args, &block)
     else
-      super(method_name, *args, &block)
+      super method_name, *args, &block
     end
   end
 
   def number_of_times_called(method_name)
     @recorded_messages.count method_name
+  end
+
+  def respond_to?(method_name, include_private = false)
+    proxy_method_names = @object.methods - Object.methods
+    if proxy_method_names.include?(method_name)
+      true
+    else
+      super method_name, include_private
+    end
+  end
+
+  def called?(method_name)
+    @recorded_messages.include?(method_name)
   end
 end
