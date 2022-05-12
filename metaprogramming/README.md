@@ -37,8 +37,8 @@ Do not fret though, these tests are simply here to ensure that you adhere to the
 do not edit or remove the pre-existing methods.
 
 ```
-Finished in 0.00414 seconds (files took 0.04523 seconds to load)
-6 examples, 5 failures
+7 examples, 5 failures, 2 passed
+Finished in 0.249222376 seconds
 ```
 
 ## Committing your work
