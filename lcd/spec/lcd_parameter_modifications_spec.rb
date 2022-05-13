@@ -67,7 +67,7 @@ describe LCD do
     context 'when viewing digits with modified width AND height' do
       let(:eight) { described_class.new(8, height: 3, width: 2) }
       let(:four_one_nine) { described_class.new(419, height: 5, width: 7) }
-      let(:all_digits) { described_class.new(9876543210, height: 2, width: 5) }
+      let(:all_digits) { described_class.new(9_876_543_210, height: 2, width: 5) }
 
       it 'renders a heightened AND widened 8' do
         expected = <<~SQUIGGLY_HEREDOC
@@ -103,11 +103,11 @@ describe LCD do
 
       it 'renders all digits heightened AND widened' do
         expected = <<~SQUIGGLY_HEREDOC
-         _____  _____  _____  _____  _____         _____  _____         _____ 
-        |     ||     |      ||      |      |     |      |      |      ||     |
-        |_____||_____|      ||_____ |_____ |_____| _____| _____|      ||     |
-              ||     |      ||     |      |      |      ||            ||     |
-         _____||_____|      ||_____| _____|      | _____||_____       ||_____|
+           _____  _____  _____  _____  _____         _____  _____         _____ 
+          |     ||     |      ||      |      |     |      |      |      ||     |
+          |_____||_____|      ||_____ |_____ |_____| _____| _____|      ||     |
+                ||     |      ||     |      |      |      ||            ||     |
+           _____||_____|      ||_____| _____|      | _____||_____       ||_____|
         SQUIGGLY_HEREDOC
 
         expect(all_digits.render).to eq(expected)
