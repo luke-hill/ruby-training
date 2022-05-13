@@ -42,7 +42,7 @@ describe LCD do
   context 'when viewing multiple digits' do
     let(:four_eight_seven) { described_class.new(487) }
     let(:nine_nine_one_three) { described_class.new(9913) }
-    let(:all_digits) { described_class.new(9876543210) }
+    let(:all_digits) { described_class.new(9_876_543_210) }
 
     it 'renders 487' do
       expected = <<~SQUIGGLY_HEREDOC

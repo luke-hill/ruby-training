@@ -11,6 +11,12 @@ RSpec.describe RuntimeMethodGenerator do
     end
   end
 
+  describe '#predefined' do
+    it 'does exist by default' do
+      expect(metaprogram.predefined).to eq(:predefined)
+    end
+  end
+
   describe '#add_a_method' do
     it 'generates a method' do
       expect { metaprogram.add_a_method }.not_to raise_error

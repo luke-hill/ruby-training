@@ -27,7 +27,7 @@ RSpec.describe Dice do
   it 'returns a set of integers between 1 and 6 when rolled' do
     dice.roll(5)
     dice.values.each do |value|
-      expect(value >= 1 && value <= 6).to eq(true)
+      expect(value >= 1 && value <= 6).to be true
     end
   end
 
