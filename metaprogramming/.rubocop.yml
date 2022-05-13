@@ -4,3 +4,7 @@ require:
 
 AllCops:
   NewCops: enable
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/runtime_method_generator_spec.rb
