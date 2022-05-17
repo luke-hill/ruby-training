@@ -19,4 +19,10 @@ class RuntimeMethodGenerator
       return_funky
     end
   end
+
+  def add_custom_method(method_name)
+    self.class.define_method(method_name) do
+      puts " Method called #{method_name}"
+    end
+  end
 end
