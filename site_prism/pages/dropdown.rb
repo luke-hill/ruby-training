@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Dropdown < SitePrism::Page
-  # This DSL statement will procedurally write the base url for this page object
+  # This DSL statement will procedurally set a variable that represents the stub that
+  # attaches to the base url (Set earlier on), for this page object
+  #
   # It will be used only when the `#load` method is called, or similarly named boolean checks
   # such as `#when_loaded` or `#loaded?`
   set_url '/dropdown'

@@ -15,8 +15,8 @@ page.load
 #
 # HINT
 #
-# To type the up/backspace key on a keyboard, you must use the symbol reference to
-# the keys which is the name of the key preceded by a colon
+# The way to type a "special" key such as up/backspace, is by referring to the symbol reference
+# of the key (Name of the key preceded by a colon)
 
 # 1) Find the number box on the page
 

@@ -31,13 +31,7 @@ class Setup
     end
 
     def setup_site_prism
-      SitePrism.configure do |config|
-        config.log_level = log_level
-
-        # This will be required until v4 of SitePrism is released
-        require 'site_prism/all_there'
-        config.use_all_there_gem = true
-      end
+      SitePrism.log_level = log_level
     end
 
     def setup_selenium_webdriver

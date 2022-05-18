@@ -1,7 +1,9 @@
 # Site Prism
 
-This is a framework that allows you to create POM (Page Object Model), objects. Once you have done this, you
-can use these objects to query web pages using a nice clean semantic DSL (Domain Specific Language).
+This is a framework that allows you to create POM (Page Object Model), objects.
+
+Once you have done this, you can use these objects to query web pages using a nice clean
+semantic DSL (Domain Specific Language).
 
 ## Setup
 
