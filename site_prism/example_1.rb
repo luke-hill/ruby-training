@@ -10,7 +10,7 @@ page = Inputs.new
 page.load
 
 # Find the heading and then grab the text
-title = page.title
+title = page.heading
 puts title.text
 
 # Wait and close

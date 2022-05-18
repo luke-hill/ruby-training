@@ -13,7 +13,7 @@ class Dropdown < SitePrism::Page
   #
   # Where the keyword is `element` we define a "single" item.
   # Where the keyword is `elements` we define a "collection" of items
-  element :title, 'h3'
+  element :heading, 'h3'
   element :dropdown_list, '#dropdown'
   elements :dropdown_options, '#dropdown option'
 end
