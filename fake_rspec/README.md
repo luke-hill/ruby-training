@@ -34,7 +34,7 @@ $ ruby ./spec/hard_example.rb
 Naturally there are bugs and failures. Our challenge is to start improving each of them to such a state
 where we think the output is correct for that level of granularity
 
-To start with.... if this were regular spec. We would get a lot of diagnostic data.
+To start with.... if this were regular RSpec. We would get a lot of diagnostic data.
 
 So one of the first challenges, is to take the existing items. To this we can add some diagnostic data
 
