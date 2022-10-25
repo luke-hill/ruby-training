@@ -5,5 +5,7 @@
 # Eventually you will create several other classes, maybe even delete them too!
 #
 class Burger
-  # WRITE CODE HERE
+  def cost
+    # TBC
+  end
 end
