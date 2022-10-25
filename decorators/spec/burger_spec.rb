@@ -3,7 +3,7 @@
 require 'burger'
 
 RSpec.describe Burger do
-  subject(:burger) { subject }
+  subject(:burger) { described_class.new }
 
   describe '#cost' do
     it 'costs £5' do
