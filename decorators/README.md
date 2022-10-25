@@ -46,8 +46,8 @@ $ rspec
 The first time you run this you should see a large output. Which contains:
 
 ```
-Finished in 0.00323 seconds (files took 0.05911 seconds to load)
-14 examples, 14 failures
+Finished in 0.02342 seconds (files took 0.13952 seconds to load)
+9 examples, 9 failures
 ```
 
 ## Committing your work
