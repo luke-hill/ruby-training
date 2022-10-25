@@ -26,6 +26,9 @@ Initially you should start by making all of the burger tests pass. This is a sma
 you should evolve your code, creating new classes and modules and then later eventually removing some of
 these complex classes / modules - replacing them with cleaner / leaner ones.
 
+As you come onto later pieces of code. You shouldn't ever be **breaking** your previous tests. But you _may_
+need to refactor the tests themselves to handle the differing burger instantiations
+
 ## Running the tests
 
 To run the tests for the exercise, you just need to run:
