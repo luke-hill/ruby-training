@@ -68,19 +68,7 @@ RSpec.describe Burger do
       it { is_expected.not_to be_healthy }
     end
 
-    context 'with added cheese' do
-      subject(:burger) { 'FIXME' }
-
-      it { is_expected.not_to be_healthy }
-    end
-
-    context 'with an extra burger' do
-      subject(:burger) { 'FIXME' }
-
-      it { is_expected.not_to be_healthy }
-    end
-
-    context 'with one extra burger, double cheese and an avocado' do
+    context 'with an avocado' do
       subject(:burger) { 'FIXME' }
 
       it { is_expected.to be_healthy }
