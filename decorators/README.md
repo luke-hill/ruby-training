@@ -1,3 +1,9 @@
+### Preface
+
+> The majority of this work is taken / adapted from Nithin Bekal @ https://nithinbekal.com/posts/ruby-decorators/
+> 
+> (C) Nithin Bekal - 24th Sep 2014
+
 # Decorators - An OO Design Pattern
 
 **NB:** Whilst this is structured for Ruby, this pattern exists in any OO language
