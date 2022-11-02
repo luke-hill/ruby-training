@@ -61,17 +61,17 @@ RSpec.describe Burger do
     end
   end
 
-  describe '#healthy?' do
+  describe '#hipster?' do
     context 'with a regular burger' do
       subject(:burger) { 'FIXME' }
 
-      it { is_expected.not_to be_healthy }
+      it { is_expected.not_to be_hipster }
     end
 
     context 'with an avocado' do
       subject(:burger) { 'FIXME' }
 
-      it { is_expected.to be_healthy }
+      it { is_expected.to be_hipster }
     end
   end
 end
