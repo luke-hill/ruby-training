@@ -23,8 +23,8 @@ $ rspec
 By now you should know that to start with all of the examples will fail! The output should contain (near the bottom)
 
 ```
-Finished in 0.01969 seconds (files took 0.09907 seconds to load)
-13 examples, 13 failures
+Finished in 0.01204 seconds (files took 0.04858 seconds to load)
+21 examples, 21 failures
 ```
 
 Now we need to fix the specs. There are 2 files inside the `lib/` directory that we need to edit.
@@ -40,7 +40,6 @@ These two files will tell us how to solve the following problems.
 
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on a
-branch, not main. Ideally use your commits to keep your own
-comments and notes about what you've learnt. As you work through the exercises
-we'll try to come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a branch, not main.
+Ideally use your commits to keep your own comments and notes about what you've learnt.
+As you work through the exercises we'll try to come back together periodically to discuss.
