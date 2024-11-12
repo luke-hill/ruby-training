@@ -23,8 +23,8 @@ $ rspec
 By now you should know that to start with all of the examples will fail! The output should contain (near the bottom)
 
 ```
-Finished in 0.01969 seconds (files took 0.09907 seconds to load)
-13 examples, 13 failures
+Finished in 0.01204 seconds (files took 0.04858 seconds to load)
+21 examples, 21 failures
 ```
 
 Now we need to fix the specs. There are 2 files inside the `lib/` directory that we need to edit.
