@@ -7,7 +7,6 @@
 <!--- Delete any options that are not relevant -->
 
 - :book: Documentation (improvements without changing code)
-- :bank: Refactoring/debt/DX (improvement to code design, tooling, etc. without changing behaviour)
-- :bug: Bug fix (non-breaking change which fixes a defect)
-- :zap: New feature (non-breaking change which adds new behaviour)
-- :boom: Breaking change (incompatible changes to the API)
+- :bank: Refactoring/tech debt (improvement to `the-language` koans or one of the projects)
+- :bug: Bug fix (non-breaking change which fixes a defect or mistake)
+- :zap: New feature or project (non-breaking change which adds new behaviour)
