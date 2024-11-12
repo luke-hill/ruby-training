@@ -1,4 +1,4 @@
-RSpec.describe 'symbols' do
+RSpec.describe 'Symbols' do
   it 'is a type of symbol class' do
     symbol = :a_symbol
     expect(symbol.is_a?(Symbol)).to eq(__)
@@ -23,7 +23,7 @@ RSpec.describe 'symbols' do
   it 'is created for every method name' do
     symbols_as_strings = Symbol.all_symbols.map { |symbol| symbol.to_s }
 
-    # split is a method on String that we have used previously
+    # `split` is a method on String that we have used previously
     expect(symbols_as_strings.include?('split')).to eq(__)
   end
 
@@ -41,7 +41,7 @@ RSpec.describe 'symbols' do
   end
 
   it 'can be created with spaces' do
-    #NB: This is not common.. please don't do this!
+    # NB: Symbols traditionally are snake_case only (Please don't use spaces!)
     symbol = :"hello world"
 
     expect(symbol.is_a?(Symbol)).to eq(__)
@@ -49,7 +49,7 @@ RSpec.describe 'symbols' do
 
   it 'can be created with an underscore or a hyphen' do
     underscore_symbol = :hello_world
-    #NB: The hyphenated variant is not common, please don't do this!
+    # NB: Symbols traditionally are snake_case only (Please don't use hyphens also!)
     hyphenated_symbol = :"hello-world"
 
     expect(underscore_symbol.is_a?(Symbol)).to eq(__)

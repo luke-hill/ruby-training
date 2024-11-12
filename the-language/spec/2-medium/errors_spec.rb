@@ -1,15 +1,15 @@
-RSpec.describe 'exceptions' do
+RSpec.describe 'Errors and Exceptions' do
   class MySpecialError < RuntimeError
   end
 
-  it 'inherits from Exception' do
+  it 'Errors inherit from Exception' do
     expect(MySpecialError.ancestors[1]).to eq(__)
     expect(MySpecialError.ancestors[2]).to eq(__)
     expect(MySpecialError.ancestors[3]).to eq(__)
     expect(MySpecialError.ancestors[4]).to eq(__)
   end
 
-  it 'is possible to `rescue` an exception' do
+  it 'is possible to `rescue` an error' do
     result = nil
     begin
       fail 'Oops'
@@ -31,7 +31,7 @@ RSpec.describe 'exceptions' do
   it 'can raise a specific error' do
     result = nil
     begin
-      # 'raise' and 'fail' are synonyms
+      # 'raise' and 'fail' are synonyms - but raise is used more often
       raise MySpecialError, 'My Message'
     rescue MySpecialError => e
       result = :exception_handled

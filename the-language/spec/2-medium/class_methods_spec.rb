@@ -1,8 +1,8 @@
-RSpec.describe 'class methods' do
+RSpec.describe 'Class methods' do
   class Cat
   end
 
-  it 'all instances are objects' do
+  it 'all instances of a class are objects' do
     percy = Cat.new
     expect(percy.is_a?(Object)).to eq(__)
   end
@@ -43,42 +43,42 @@ RSpec.describe 'class methods' do
     expect { not_percy.wag }.to raise_error(__)
   end
 
-  class Cat2
+  class TabbyCat
     def wag
       :instance_level_wag
     end
   end
 
-  def Cat2.wag
+  def TabbyCat.wag
     :class_level_wag
   end
 
   it 'is possible to define singleton methods on classes (remember they are objects)' do
-    expect(Cat2.wag).to eq(__)
+    expect(TabbyCat.wag).to eq(__)
   end
 
   it 'is possible to have both a class and instance method identically named (they are independent)' do
-    percy = Cat2.new
+    percy = TabbyCat.new
     expect(percy.wag).to eq(__)
-    expect(Cat2.wag).to eq(__)
+    expect(TabbyCat.wag).to eq(__)
   end
 
-  class Cat3
+  class TawnyCat
     attr_accessor :name
   end
 
-  def Cat3.name
+  def TawnyCat.name
     @name
   end
 
   it 'does not share instance variables between classes and instances' do
-    percy = Cat3.new
+    percy = TawnyCat.new
     percy.name = 'Percy'
     expect(percy.name).to eq(__)
-    expect(Cat3.name).to eq(__)
+    expect(TawnyCat.name).to eq(__)
   end
 
-  LAST_EXPRESSION_IN_CLASS_STATEMENT = class Cat4
+  LAST_EXPRESSION_IN_CLASS_STATEMENT = class GingerCat
                                          21
                                        end
 
@@ -86,25 +86,25 @@ RSpec.describe 'class methods' do
     expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(__)
   end
 
-  SELF_INSIDE_OF_CLASS_STATEMENT = class Cat4
+  SELF_INSIDE_OF_CLASS_STATEMENT = class GingerCat
                                      self
                                    end
 
   it 'uses self to refer to the class (not an instance of it), when inside the definition' do
-    expect(Cat4 == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(__)
+    expect(GingerCat == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(__)
   end
 
-  class Cat5
+  class BrownCat
     def self.class_method
       :another_way_to_write_class_methods
     end
   end
 
   it 'is possible to use self to define a class method' do
-    expect(Cat5.class_method).to eq(__)
+    expect(BrownCat.class_method).to eq(__)
   end
 
-  class Cat6
+  class BlackCat
     class << self
       def another_class_method
         :still_another_way
@@ -113,7 +113,7 @@ RSpec.describe 'class methods' do
   end
 
   it 'has a third way to define a class method' do
-    expect(Cat6.another_class_method).to eq(__)
+    expect(BlackCat.another_class_method).to eq(__)
   end
 
   # THINK ABOUT IT:
@@ -133,7 +133,7 @@ RSpec.describe 'class methods' do
   # Are there times you might prefer one over the other?
 
   it 'has an easy way to call class methods from instance methods' do
-    percy = Cat6.new
+    percy = BlackCat.new
 
     def percy.instance_method
       self.class.another_class_method
@@ -142,16 +142,16 @@ RSpec.describe 'class methods' do
     expect(percy.instance_method).to eq(__)
   end
 
-  # NOTE: Reopening Cat6 class
+  # NOTE: Reopening BlackCat class
 
-  class Cat6
+  class BlackCat
     def call_class_method_from_instance_method
       self.class.another_class_method
     end
   end
 
   it 'has a better way to call class methods from instance methods' do
-    percy = Cat6.new
+    percy = BlackCat.new
 
     expect(percy.call_class_method_from_instance_method).to eq(__)
   end

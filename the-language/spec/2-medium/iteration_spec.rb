@@ -1,9 +1,9 @@
-RSpec.describe 'iterating in ruby' do
+RSpec.describe 'Iterations' do
   it 'has an each method on arrays' do
     expect([].methods.include?(:each)).to eq(__)
   end
 
-  it 'can iterate using each and a do end block' do
+  it 'can iterate using each and a do / end block' do
     array = [1, 2, 3]
     sum = 0
     array.each do |item|
@@ -12,7 +12,7 @@ RSpec.describe 'iterating in ruby' do
     expect(sum).to eq(__)
   end
 
-  it 'can use {} instead of a do end block' do
+  it 'can use {} instead of a do / end block' do
     array = [1, 2, 3]
     sum = 0
     array.each { |item| sum += item }
@@ -30,12 +30,12 @@ RSpec.describe 'iterating in ruby' do
     expect(sum).to eq(__)
   end
 
-  it 'can transform elements of an array using `map`' do
+  it 'can transform elements of an array using #map' do
     array = [1, 2, 3]
     mapped_array = array.map { |item| item + 10 }
     expect(mapped_array).to eq(__)
 
-    # NOTE: 'collect' is another name for the 'map' operation
+    # NB: #collect is another name for #map
     collected_array = array.collect { |item| item + 10 }
     expect(collected_array).to eq(__)
   end
@@ -46,7 +46,7 @@ RSpec.describe 'iterating in ruby' do
     even_numbers = array.select { |item| (item % 2) == 0 }
     expect(even_numbers).to eq(__)
 
-    # NOTE: 'find_all' is another name for the 'select' operation
+    # NB: #find_all is another name for #select
     more_even_numbers = array.find_all { |item| (item % 2) == 0 }
     expect(more_even_numbers).to eq(__)
   end
@@ -56,7 +56,7 @@ RSpec.describe 'iterating in ruby' do
 
     expect(array.detect { |item| item.length > 4 }).to eq(__)
 
-    # NOTE: 'find' is another name for the 'detect' operation
+    # NOTE: #find is another name for #detect
     expect(array.find { |item| item.length > 4 }).to eq(__)
   end
 
@@ -70,11 +70,11 @@ RSpec.describe 'iterating in ruby' do
     result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
     expect(result3).to eq(__)
 
-    # Describe in your own words what inject does.
+    # Describe in your own words what #inject does.
   end
 
-  it 'can use iteration methods on all collections, not just array' do
-    # Ranges act like a collection, but when using map, they need to be co-erced into a new object type
+  it 'can use iteration methods on all collections, not just arrays' do
+    # Ranges act like a collection, but when using #map, they need to be co-erced into a new object type
     result = (1..3).map { |item| item + 10 }
     expect(result).to eq(__)
 
@@ -82,6 +82,6 @@ RSpec.describe 'iterating in ruby' do
     expect(result).to eq(__)
 
     # NOTE: You can create your own custom Objects that can work with these methods
-    # like 'each', 'map', 'select' and other enumerable methods
+    # like #each, #map, #select and other enumerable methods
   end
 end

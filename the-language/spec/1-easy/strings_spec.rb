@@ -1,4 +1,4 @@
-RSpec.describe 'strings' do
+RSpec.describe 'Strings' do
   it 'can be created with double quotes' do
     string = "Hello, world!"
     expect(string.is_a?(String)).to eq(__)
@@ -27,7 +27,7 @@ RSpec.describe 'strings' do
   end
 
   it 'has flexible quoting when things get difficult' do
-    # NB: These are not used!!
+    # NB: These are not commonly used!!
     a = %(flexible quotes allow both " and ' characters)
     b = %!flexible quotes allow both " and ' characters!
     c = %{flexible quotes allow both " and ' characters}
@@ -149,7 +149,7 @@ Humpty dumpty had a great fall
   end
 
   it 'represents single characters as strings' do
-    # Again this isn't used very often
+    # This single char representation isn't used in practice
     expect(?a).to eq(__)
     expect(?a == 97).to eq(__)
   end

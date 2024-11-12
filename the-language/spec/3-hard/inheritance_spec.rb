@@ -1,5 +1,5 @@
-RSpec.describe 'inheritance' do
-  class OtherDog
+RSpec.describe 'Inheritance' do
+  class DogBase
     attr_reader :name
 
     def initialize(name)
@@ -11,7 +11,7 @@ RSpec.describe 'inheritance' do
     end
   end
 
-  class Chihuahua < OtherDog
+  class Chihuahua < DogBase
     def wag
       :happy
     end
@@ -22,7 +22,7 @@ RSpec.describe 'inheritance' do
   end
 
   it 'sets the subclasses parent as one of the ancestors' do
-    expect(Chihuahua.ancestors.include?(OtherDog)).to eq(__)
+    expect(Chihuahua.ancestors.include?(DogBase)).to eq(__)
   end
 
   it 'will ultimately inherit from Object' do
@@ -34,12 +34,12 @@ RSpec.describe 'inheritance' do
     expect(chico.name).to eq(__)
   end
 
-  it 'can add behaviour in subclass that does not exist in the parent class' do
+  it 'can add behaviour in a subclass that does not exist in the parent class' do
     chico = Chihuahua.new('Chico')
     expect(chico.wag).to eq(__)
 
     expect do
-      fido = OtherDog.new('Fido')
+      fido = DogBase.new('Fido')
       fido.wag
     end.to raise_error(__)
   end
@@ -48,11 +48,11 @@ RSpec.describe 'inheritance' do
     chico = Chihuahua.new('Chico')
     expect(chico.bark).to eq(__)
 
-    fido = OtherDog.new('Fido')
+    fido = DogBase.new('Fido')
     expect(fido.bark).to eq(__)
   end
 
-  class BullDog < OtherDog
+  class BullDog < DogBase
     def bark
       super.upcase
     end
@@ -63,7 +63,7 @@ RSpec.describe 'inheritance' do
     expect(ralph.bark).to eq(__)
   end
 
-  class GreatDane < OtherDog
+  class GreatDane < DogBase
     def growl
       super.bark.upcase
     end
