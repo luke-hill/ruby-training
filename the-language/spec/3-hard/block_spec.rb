@@ -1,4 +1,4 @@
-RSpec.describe 'blocks' do
+RSpec.describe 'Blocks' do
   def method_with_block
     result = yield
     result
@@ -9,7 +9,7 @@ RSpec.describe 'blocks' do
     expect(yielded_result).to eq(__)
   end
 
-  it 'can pass a block using do end' do
+  it 'can pass a block using do / end' do
     yielded_result = method_with_block do
       1 + 2
     end

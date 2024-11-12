@@ -1,6 +1,6 @@
 # Notice that we have defined EVERYTHING inside the Scopes module!
 module Scopes
-  RSpec.describe 'scopes' do
+  RSpec.describe 'Scopes' do
     module Jim
       class Otter
         def identify
