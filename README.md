@@ -26,15 +26,15 @@ $ rvm reload
 # Quit the terminal once this has installed, and restart your machine
 $ type rvm | head -1
 $ rvm -v # This should output a number
-$ rvm install 2.7.4
-$ rvm install 3.0.4
-$ rvm install 3.1.2
+$ rvm install 2.7.8
+$ rvm install 3.1.6
+$ rvm install 3.3.6
 ```
 
 ### Dependency installation on ubuntu
 
-NB: These are partially based on the setup instructions found here: 
-https://github.com/luke-hill/setup_info/blob/main/setup.md
+NB: These are partially based on the setup instructions found here:
+https://github.com/luke-hill/setup_info/blob/main/ubuntu_2404_setup.md
 
 ```bash
 $ sudo apt-get install git
@@ -52,9 +52,9 @@ $ rvm reload
 # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
-$ rvm install 2.7.4
-$ rvm install 3.0.4
-$ rvm install 3.1.2
+$ rvm install 2.7.8
+$ rvm install 3.1.6
+$ rvm install 3.3.6
 ```
 
 ## Setup
@@ -118,13 +118,13 @@ $ git checkout -b <new_branch_name>
 If you have gone down a blind alley, and you just want to start over, git makes
 it easy to clean up and start again.
 
-First of all make sure git knows about all of your files:
+First of all make sure git knows about all of your files
 
 ```bash
 $ git add .
 ```
 
-Then throw away all of the changes:
+Then throw away all of the changes
 
 ```bash
 $ git reset --hard HEAD
@@ -146,7 +146,7 @@ Make sure you've got the latest version from GitHub
 git fetch origin
 ```
 
-Then tell git to create a new copy of main, throwing away the old one:
+Then tell git to create a new copy of main, throwing away the old one
 
 ```bash
 $ git reset --hard origin/main
