@@ -1,4 +1,4 @@
-RSpec.describe 'a ruby class' do
+RSpec.describe 'Ruby classes' do
   class Dog
   end
 
@@ -7,22 +7,22 @@ RSpec.describe 'a ruby class' do
     expect(fido.class).to eq(__)
   end
 
-  class Dog2
+  class BrownDog
     def set_name(a_name)
       @name = a_name
     end
   end
 
   it 'can set instance variables' do
-    fido = Dog2.new
+    fido = BrownDog.new
     expect(fido.instance_variables).to eq(__)
 
     fido.set_name('Fido')
     expect(fido.instance_variables).to eq(__)
   end
 
-  it 'can not access instance variables by default' do
-    fido = Dog2.new
+  it 'cannot access instance variables by default' do
+    fido = BrownDog.new
     fido.set_name('Fido')
 
     expect { fido.name }.to raise_error(__)
@@ -32,22 +32,22 @@ RSpec.describe 'a ruby class' do
     end.to raise_error(__)
   end
 
-  it 'can obtain the value of an instance variable using instance_variable_get' do
-    fido = Dog2.new
+  it 'can obtain the value of an instance variable using #instance_variable_get' do
+    fido = BrownDog.new
     fido.set_name('Fido')
 
     expect(fido.instance_variable_get('@name')).to eq(__)
   end
 
-  it 'can also obtain the value of an instance variable using instance_eval' do
-    fido = Dog2.new
+  it 'can also obtain the value of an instance variable using #instance_eval' do
+    fido = BrownDog.new
     fido.set_name('Fido')
 
     expect(fido.instance_eval('@name')).to eq(__) # string version
     expect(fido.instance_eval { @name }).to eq(__) # block version
   end
 
-  class Dog3
+  class WhiteDog
     def set_name(a_name)
       @name = a_name
     end
@@ -58,13 +58,13 @@ RSpec.describe 'a ruby class' do
   end
 
   it 'can create a basic method (reader), to access an instance variable' do
-    fido = Dog3.new
+    fido = WhiteDog.new
     fido.set_name('Fido')
 
     expect(fido.name).to eq(__)
   end
 
-  class Dog4
+  class BlackDog
     attr_reader :name
 
     def set_name(a_name)
@@ -72,25 +72,25 @@ RSpec.describe 'a ruby class' do
     end
   end
 
-  it 'can automatically define a reader method using attr_reader' do
-    fido = Dog4.new
+  it 'can automatically define a reader method using #attr_reader' do
+    fido = BlackDog.new
     fido.set_name('Fido')
 
     expect(fido.name).to eq(__)
   end
 
-  class Dog5
+  class SpottedDog
     attr_accessor :name
   end
 
-  it 'can automatically create readers and writers with attr_accessor' do
-    fido = Dog5.new
+  it 'can automatically create readers and writers with #attr_accessor' do
+    fido = SpottedDog.new
 
     fido.name = 'Fido'
     expect(fido.name).to eq(__)
   end
 
-  class Dog6
+  class FluffyDog
     attr_reader :name
 
     def initialize(initial_name)
@@ -98,24 +98,24 @@ RSpec.describe 'a ruby class' do
     end
   end
 
-  it 'uses initialize to set up initial values of instance variables' do
-    fido = Dog6.new('Fido')
+  it 'uses #initialize to set up initial values of instance variables' do
+    fido = FluffyDog.new('Fido')
     expect(fido.name).to eq(__)
   end
 
-  it 'must match args to new with initializer' do
-    expect { Dog6.new }.to raise_error(__)
+  it 'must match the number of arguments when calling `new` with the #initialize method' do
+    expect { FluffyDog.new }.to raise_error(__)
     # THINK ABOUT IT: Why is this so?
   end
 
   it 'has different instance variables for different instances' do
-    fido = Dog6.new('Fido')
-    rover = Dog6.new('Rover')
+    fido = FluffyDog.new('Fido')
+    rover = FluffyDog.new('Rover')
 
     expect(rover.name != fido.name).to eq(__)
   end
 
-  class Dog7
+  class BabyDog
     attr_reader :name
 
     def initialize(initial_name)
@@ -135,29 +135,30 @@ RSpec.describe 'a ruby class' do
     end
   end
 
+  # This is a complicated one
   it 'uses self to refer to the current object (whatever it is)' do
-    fido = Dog7.new('Fido')
+    fido = BabyDog.new('Fido')
 
     fidos_self = fido.get_self
     expect(fidos_self).to eq(__)
   end
 
   it 'provides a string version of the object with to_s' do
-    fido = Dog7.new('Fido')
+    fido = BabyDog.new('Fido')
     expect(fido.to_s).to eq(__)
   end
 
-  it 'automatically uses to_s inside string interpolation' do
-    fido = Dog7.new('Fido')
+  it 'automatically uses #to_s when inside a string being interpolated' do
+    fido = BabyDog.new('Fido')
     expect("My dog is #{fido}").to eq(__)
   end
 
-  it 'uses inspect to provide a string description of the object' do
-    fido = Dog7.new('Fido')
+  it 'uses #inspect to provide a string description of the object' do
+    fido = BabyDog.new('Fido')
     expect(fido.inspect).to eq(__)
   end
 
-  it 'has to_s and inspect on all objects' do
+  it 'has #to_s and #inspect on all objects' do
     array = [1, 2, 3]
 
     expect(array.to_s).to eq(__)
@@ -166,7 +167,7 @@ RSpec.describe 'a ruby class' do
     expect('STRING'.to_s).to eq(__)
     expect('STRING'.inspect).to eq(__)
 
-    expect(Dog.to_s).to eq(__)
-    expect(Dog.inspect).to eq(__)
+    expect(BabyDog.to_s).to eq(__)
+    expect(BabyDog.inspect).to eq(__)
   end
 end

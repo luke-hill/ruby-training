@@ -1,4 +1,4 @@
-RSpec.describe 'arrays' do
+RSpec.describe 'Arrays' do
   it 'can be created like any other object' do
     empty = Array.new
 
@@ -38,7 +38,7 @@ RSpec.describe 'arrays' do
     expect(array.last).to eq(__)
   end
 
-  it 'can be sliced' do
+  it 'can be sliced using #slice with 2 arguments' do
     array = ['New York', 'Paris', 'London', 'Milan']
 
     expect(array.slice(0, 1)).to eq(__)
@@ -63,10 +63,10 @@ RSpec.describe 'arrays' do
   it 'can be sliced by a range' do
     array = ['New York', 'Paris', 'London', 'Milan']
 
-    expect(__).to eq array[0..2]
-    expect(__).to eq array[0...2]
-    expect(__).to eq array[2..-1]
-    expect(__).to eq array[-2..1]
+    expect(__).to eq(array[0..2])
+    expect(__).to eq(array[0...2])
+    expect(__).to eq(array[2..-1])
+    expect(__).to eq(array[-2..1])
   end
 
   it 'can be used as a stack' do
