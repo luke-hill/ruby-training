@@ -31,12 +31,11 @@ Now we need to fix the specs. There are 3 files inside the `lib/` directory that
 These three files will tell us how to solve the following problems.
 
 1. Classify the type of a triangle, based on its side lengths
-1. Classify the type of a 4-sided shape - based on its angles
-1. Work out the internal and external angles of regular 5-10 sided shapes?
+2. Classify the type of a 4-sided shape - based on its angles
+3. Work out the internal and external angles of all regular 5-10 sided shapes?
 
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on a
-branch, not main. Ideally use your commits to keep your own
-comments and notes about what you've learnt. As you work through the exercises
-we'll try to come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a branch, not main.
+Ideally use your commits to keep your own comments and notes about what you've learnt.
+As you work through the exercises we'll try to come back together periodically to discuss.
