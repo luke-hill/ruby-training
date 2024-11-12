@@ -1,4 +1,4 @@
-RSpec.describe 'sandwich code' do
+RSpec.describe 'Sandwich code' do
   # This is a common pattern you will see in ruby for finding files
   # relative to the current path. Look up whats happening on the ruby docs
   # if you want to know more.
@@ -18,7 +18,7 @@ RSpec.describe 'sandwich code' do
     file.close if file
   end
 
-  it 'can count lines in file' do
+  it 'can count the amount of lines in a file' do
     expect(count_lines(EXAMPLE_FILE)).to eq(__)
   end
 

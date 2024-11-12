@@ -1,4 +1,4 @@
-RSpec.describe 'nil in ruby' do
+RSpec.describe 'Nil in ruby' do
   it 'is an object' do
     expect(nil.is_a?(Object)).to eq(__), 'unlike NULL in some other languages'
   end
@@ -26,7 +26,7 @@ RSpec.describe 'nil in ruby' do
     expect(nil.inspect).to eq(__)
   end
 
-  context 'rspec matchers' do
+  context 'RSpec matchers' do
     class NilObject
       def nil?
         true
@@ -37,11 +37,6 @@ RSpec.describe 'nil in ruby' do
       def nil?
         false
       end
-    end
-
-    it 'can match objects to nil directly' do
-      expect(__).to be nil
-      expect(__).to eq nil
     end
 
     it 'can match objects that respond to nil?' do

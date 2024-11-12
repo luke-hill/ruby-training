@@ -12,7 +12,7 @@ class More
   end
 end
 
-describe 'constants in ruby are different' do
+describe 'Constants in ruby are different' do
   it 'references local constants' do
     expect(More.local).to eq(__)
   end
@@ -50,7 +50,7 @@ describe 'constants in ruby are different' do
     expect(Reptile.new.legs_in_reptile).to eq(__)
   end
 
-  class MyAnimals
+  class Zoo
     LEGS = 2
 
     class Bird < Animal
@@ -62,10 +62,10 @@ describe 'constants in ruby are different' do
 
   context 'with an inherited class and an enclosing class' do
     it 'can add a new overridden constant (from the enclosing class), in a subclass' do
-      expect(MyAnimals::Bird.new.legs_in_bird).to eq(__)
+      expect(Zoo::Bird.new.legs_in_bird).to eq(__)
     end
 
-    class MyAnimals
+    class Zoo
       class Oyster < Animal
         def legs_in_oyster
           LEGS
@@ -73,9 +73,9 @@ describe 'constants in ruby are different' do
       end
     end
 
-    # Remember that we have already defined what MyAnimals::LEGS was earlier
+    # Remember that we have already defined what Zoo::LEGS was earlier
     it 'always uses the top level enclosing class if previously defined' do
-      expect(MyAnimals::Oyster.new.legs_in_oyster).to eq(__)
+      expect(Zoo::Oyster.new.legs_in_oyster).to eq(__)
     end
   end
 end

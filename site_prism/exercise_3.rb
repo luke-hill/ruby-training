@@ -6,7 +6,7 @@ require_relative 'pages/dropdown'
 Setup.setup
 
 # Create and load the page
-page = Inputs.new
+page = Dropdown.new
 page.load
 
 # EXERCISE 3

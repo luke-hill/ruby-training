@@ -1,4 +1,4 @@
-RSpec.describe 'message passing' do
+RSpec.describe 'Message passing' do
   # The purpose of this Koan is to start showing you a VERY brief introduction
   # to metaprogramming, i.e. programming on-the-fly, or programmatically
   # create code that can be dynamic
@@ -59,7 +59,7 @@ RSpec.describe 'message passing' do
     end
   end
 
-  it 'can "send" a message with arguments' do
+  it 'can #send a message with arguments' do
     mc = MessageCatcher.new
 
     expect(mc.add_a_payload).to eq(__)
@@ -117,7 +117,7 @@ RSpec.describe 'message passing' do
     expect(catcher.sum(1, 2, 3, 4, 5, 6)).to eq(__)
   end
 
-  it 'now lies when you ask if it respond_to?' do
+  it 'now lies when you ask if it does #respond_to?' do
     catcher = AllMessageCatcher.new
 
     expect { catcher.any_method }.not_to raise_error

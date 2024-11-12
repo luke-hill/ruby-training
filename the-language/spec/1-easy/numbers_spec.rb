@@ -1,4 +1,4 @@
-RSpec.describe 'numbers' do
+RSpec.describe 'Numbers' do
   it 'can be created by typing the number' do
     integer = 42
     expect(integer.is_a?(Integer)).to eq(__)
@@ -46,7 +46,7 @@ RSpec.describe 'numbers' do
   end
 
   it 'can list all the digits of a number' do
-    # NB: This method does look a bit odd because of the return value
+    # NB: This method does seem odd because of what is returned
     number = 123456
 
     expect(number.digits).to eq(__)

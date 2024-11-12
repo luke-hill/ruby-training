@@ -1,4 +1,4 @@
-RSpec.describe 'pass by reference vs pass by value' do
+RSpec.describe 'Pass by reference vs Pass by value' do
   it 'originally seems as if ruby is pass by value' do
     x = 123
     y = x

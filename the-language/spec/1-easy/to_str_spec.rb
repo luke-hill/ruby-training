@@ -1,4 +1,4 @@
-RSpec.describe 'to_str' do
+RSpec.describe '#to_str' do
   class NotLikeAString
     def to_s
       'non-string-like'

@@ -1,4 +1,4 @@
-RSpec.describe 'an introduction to ruby' do
+RSpec.describe 'An introduction to ruby' do
   context 'using rspec expectations' do
     it 'checks reality' do
       expect(true).to be false # it should be true
@@ -15,7 +15,7 @@ RSpec.describe 'an introduction to ruby' do
       expected = __
       actual   = 1 + 1
 
-      expect(actual).to eq expected
+      expect(actual).to eq(expected)
     end
 
     it 'allows you to fill in values' do

@@ -1,4 +1,4 @@
-RSpec.describe 'regular expressions' do
+RSpec.describe 'Regular expressions' do
   it 'is a type of regexp' do
     expect(/pattern/.class).to eq(__)
   end
@@ -63,6 +63,7 @@ RSpec.describe 'regular expressions' do
   end
 
   it 'uses capitals to negate shortcut characters' do
+    # Capitals are less commonly used as they're not as comprehensible
     expect('3 is the magic number'[/\D+/]).to eq(__)
     expect("space: \t\n"[/\S+/]).to eq(__)
     # ... a programmer would most likely do
