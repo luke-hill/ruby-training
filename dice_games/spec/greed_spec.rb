@@ -3,7 +3,7 @@
 require 'greed'
 
 RSpec.describe Greed do
-  let(:greed) { subject }
+  subject(:greed) { described_class.new }
 
   context 'with simple scoring hands' do
     it 'requires an array input' do
