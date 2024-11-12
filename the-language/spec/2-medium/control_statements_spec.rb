@@ -1,5 +1,5 @@
-RSpec.describe 'control statements' do
-  it 'has if-else statements' do
+RSpec.describe 'Control statements' do
+  it 'has if / else statements' do
     if true
       result = :true_value
     else
@@ -8,7 +8,7 @@ RSpec.describe 'control statements' do
     expect(result).to eq(__)
   end
 
-  it 'has if then statements' do
+  it 'has if statements' do
     result = :default_value
     if true
       result = :true_value
@@ -31,8 +31,7 @@ RSpec.describe 'control statements' do
             end
     expect(value).to eq(__)
 
-    # NOTE: Actually, EVERY statement in Ruby will return a value, not
-    # just if statements.
+    # NOTE: Actually, EVERY statement in Ruby will return a value, not just if statements.
   end
 
   it "returns a value when the if fails, and there's no else" do
@@ -56,7 +55,7 @@ RSpec.describe 'control statements' do
   end
 
   it 'has an unless statement' do
-    #NB: We don't traditionally use else here, but you could add an else if you wanted - Don't though!
+    # NB: We don't traditionally use else here, but you could add an else if you wanted - Don't though!
     result = :default_value
     unless false # same as saying 'if !false', which evaluates as 'if true'
       result = :false_value

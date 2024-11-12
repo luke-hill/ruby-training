@@ -1,4 +1,4 @@
-RSpec.describe 'hashes' do
+RSpec.describe 'Hashes' do
   it 'can be created like any other object' do
     empty_hash = Hash.new
 
