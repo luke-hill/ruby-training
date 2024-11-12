@@ -32,8 +32,8 @@ GEM
       rack (>= 1.3)
     rainbow (3.0.0)
     regexp_parser (2.2.0)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.3.3)
+      strscan
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
