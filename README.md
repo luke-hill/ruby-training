@@ -26,15 +26,15 @@ $ rvm reload
 # Quit the terminal once this has installed, and restart your machine
 $ type rvm | head -1
 $ rvm -v # This should output a number
-$ rvm install 2.7.4
-$ rvm install 3.0.4
-$ rvm install 3.1.2
+$ rvm install 2.7.8
+$ rvm install 3.1.6
+$ rvm install 3.3.6
 ```
 
 ### Dependency installation on ubuntu
 
-NB: These are partially based on the setup instructions found here: 
-https://github.com/luke-hill/setup_info/blob/main/setup.md
+NB: These are partially based on the setup instructions found here:
+https://github.com/luke-hill/setup_info/blob/main/ubuntu_2404_setup.md
 
 ```bash
 $ sudo apt-get install git
@@ -52,9 +52,9 @@ $ rvm reload
 # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
-$ rvm install 2.7.4
-$ rvm install 3.0.4
-$ rvm install 3.1.2
+$ rvm install 2.7.8
+$ rvm install 3.1.6
+$ rvm install 3.3.6
 ```
 
 ## Setup
@@ -74,10 +74,19 @@ $ cd ruby-training
 
 ## Exercises
 
-The classes are split into a variety of technical challenges.
- 
-The folders will consist of various exercises, which are split according to week and complexity.
- 
+The classes are split into a variety of technical challenges. Each folder consists of various
+exercises, which are split according to week and complexity. A rough indicative guide is as follows
+
+- Week 1: Repo Introduction, Machine Setup, `the-language` (Easy)
+- Week 2: `the-language` (Medium), `the-language` (Hard)
+- Week 3: `shapes`, `bottles`
+- Week 4: `dice_games` (Both), `validators`
+- Week 5: `lcd` (Start, Single Digits & Composition)
+- Week 6: `lcd` (Completion / Stretch goals), `fake_rspec`
+- Week 7: `decorators`
+- Week 8: `metaprogramming`, `proxy`
+- Week 9: `site_prism`
+
 Each exercise will be in a subfolder of this directory, and should contain a README with more information.
 
 It will be the aim that a mixture of theory and discussion will take place for each exercise, and then
@@ -118,13 +127,13 @@ $ git checkout -b <new_branch_name>
 If you have gone down a blind alley, and you just want to start over, git makes
 it easy to clean up and start again.
 
-First of all make sure git knows about all of your files:
+First of all make sure git knows about all of your files
 
 ```bash
 $ git add .
 ```
 
-Then throw away all of the changes:
+Then throw away all of the changes
 
 ```bash
 $ git reset --hard HEAD
@@ -146,7 +155,7 @@ Make sure you've got the latest version from GitHub
 git fetch origin
 ```
 
-Then tell git to create a new copy of main, throwing away the old one:
+Then tell git to create a new copy of main, throwing away the old one
 
 ```bash
 $ git reset --hard origin/main
