@@ -46,13 +46,12 @@ $ rspec
 The first time you run this you should see a large output. Which contains:
 
 ```
-Finished in 0.02342 seconds (files took 0.13952 seconds to load)
+Finished in 0.01164 seconds (files took 0.0373 seconds to load)
 9 examples, 9 failures
 ```
 
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on a
-branch, not main. Ideally use your commits to keep your own
-comments and notes about what you've learnt. As you work through the exercises
-we'll try to come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a branch, not main.
+Ideally use your commits to keep your own comments and notes about what you've learnt.
+As you work through the exercises we'll try to come back together periodically to discuss.

@@ -44,12 +44,18 @@ $ rspec
 
 And again, you'll notice some failures.... However, there will also be some passing tests.
 
-Do not fret though, these tests are simply here to ensure that you adhere to the rules whereby you
+The output should contain:
+
+```
+Finished in 0.01232 seconds (files took 0.0374 seconds to load)
+23 examples, 19 failures
+```
+
+Do not fret though, these (passing), tests are simply here to ensure that you adhere to the rules whereby you
 only edit the single `proxy.rb` file. You are **not permitted** to edit the `lib/television.rb` file!
 
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on a
-branch, not main. Ideally use your commits to keep your own
-comments and notes about what you've learnt. As you work through the exercises
-we'll try to come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a branch, not main.
+Ideally use your commits to keep your own comments and notes about what you've learnt.
+As you work through the exercises we'll try to come back together periodically to discuss.
