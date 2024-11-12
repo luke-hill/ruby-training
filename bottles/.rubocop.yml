@@ -11,3 +11,9 @@ Layout/LineLength:
 
 Lint/EmptyClass:
   Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

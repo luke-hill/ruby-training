@@ -41,46 +41,46 @@ F******
 
 Pending: (Failures listed here are expected and do not affect your suite's status)
 
-  1) singing 99 bottles of beer can sing another typical verse
-     # No reason given
-     # ./spec/bottles_spec.rb:13
+  1) Bottles can sing another typical verse
+     # Remove this line once you have written code that passes the above test.
+     # ./spec/bottles_spec.rb:16
 
-  2) singing 99 bottles of beer can sing about 1 bottle
-     # No reason given
-     # ./spec/bottles_spec.rb:19
-
-  3) singing 99 bottles of beer can sing about 2 bottles
-     # No reason given
+  2) Bottles can sing about 1 bottle
+     # Remove this line once you have written code that passes the above test.
      # ./spec/bottles_spec.rb:25
 
-  4) singing 99 bottles of beer can sing about no more bottles
-     # No reason given
-     # ./spec/bottles_spec.rb:31
+  3) Bottles can sing about 2 bottles
+     # Remove this line once you have written code that passes the above test.
+     # ./spec/bottles_spec.rb:34
 
-  5) singing 99 bottles of beer can string a few verses together
-     # No reason given
-     # ./spec/bottles_spec.rb:37
-
-  6) singing 99 bottles of beer can sing the whole song
-     # No reason given
+  4) Bottles can sing about no more bottles
+     # Remove this line once you have written code that passes the above test.
      # ./spec/bottles_spec.rb:43
+
+  5) Bottles can string a few verses together
+     # Remove this line once you have written code that passes the above test.
+     # ./spec/bottles_spec.rb:52
+
+  6) Bottles can sing the whole song
+     # Remove this line once you have written code that passes the above test.
+     # ./spec/bottles_spec.rb:68
 
 
 Failures:
 
-  1) singing 99 bottles of beer can sing a typical verse
-     Failure/Error: expect(song.verse(8)).to eq(expected)
+  1) Bottles can sing a typical verse
+     Failure/Error: expect(bottles.verse(8)).to eq(expected)
      
      NoMethodError:
-       undefined method `verse' for #<Bottles:0x000055de17b99560>
-     # ./spec/bottles_spec.rb:10:in `block (2 levels) in <top (required)>'
+       undefined method `verse' for an instance of Bottles
+     # ./spec/bottles_spec.rb:13:in `block (2 levels) in <top (required)>'
 
-Finished in 0.00226 seconds (files took 0.06216 seconds to load)
+Finished in 0.00131 seconds (files took 0.04012 seconds to load)
 7 examples, 1 failure, 6 pending
 
 Failed examples:
 
-rspec ./spec/bottles_spec.rb:8 # singing 99 bottles of beer can sing a typical verse
+rspec ./spec/bottles_spec.rb:8 # Bottles can sing a typical verse
 ```
 
 This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 10.
