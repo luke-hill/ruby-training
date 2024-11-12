@@ -3,7 +3,7 @@
 require 'dice'
 
 RSpec.describe Dice do
-  let(:dice) { subject }
+  subject(:dice) { described_class.new }
 
   it 'can roll some dice' do
     expect { dice.roll }.not_to raise_error
