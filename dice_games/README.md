@@ -23,7 +23,7 @@ $ rspec
 The tests will fail and the output will contain
 
 ```
-Finished in 0.01999 seconds (files took 0.06172 seconds to load)
+Finished in 0.01055 seconds (files took 0.03836 seconds to load)
 31 examples, 31 failures
 ```
 
@@ -35,7 +35,6 @@ These two files will tell us how to play the following games.
 
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on a
-branch, not main. Ideally use your commits to keep your own
-comments and notes about what you've learnt. As you work through the exercises
-we'll try to come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a branch, not main.
+Ideally use your commits to keep your own comments and notes about what you've learnt.
+As you work through the exercises we'll try to come back together periodically to discuss.
