@@ -84,7 +84,7 @@ exercises, which are split according to week and complexity. A rough indicative 
 - Week 5: `lcd` (Start, Single Digits & Composition)
 - Week 6: `lcd` (Completion / Stretch goals), `fake_rspec`
 - Week 7: `decorators`
-- Week 8: `metaprogramming`, `proxy`
+- Week 8: `proxy`, `metaprogramming`
 - Week 9: `site_prism`
 
 Each exercise will be in a subfolder of this directory, and should contain a README with more information.
