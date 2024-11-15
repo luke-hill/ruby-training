@@ -32,8 +32,14 @@ class FakeRSpec
     def output_test_run_information
       puts 'All Tests finished'.yellow
       puts "Result-set: #{results}"
-      puts "Passing tests: #{results.count(true)}".green.underline
-      puts "Failing tests: #{results.count(false)}".red.underline
+      puts "Passing tests: #{results.count(true)} / #{total}".green.underline
+      puts "Failing tests: #{results.count(false)} / #{total}".red.underline
+    end
+
+    private
+
+    def total
+      results.count
     end
   end
 end
