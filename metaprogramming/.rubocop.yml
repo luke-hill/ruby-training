@@ -3,8 +3,5 @@ require:
   - rubocop-rspec
 
 AllCops:
+  TargetRubyVersion: 3.3
   NewCops: enable
-
-Metrics/BlockLength:
-  Exclude:
-    - spec/runtime_method_generator_spec.rb

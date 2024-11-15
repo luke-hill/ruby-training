@@ -34,20 +34,27 @@ $ bundle
 
 ## Working through the exercise
 
-To run the exercise, you just need to run:
+To run the exercise, you just need to run rspec. To start with we just want to run the simple tests
+that will check individual and composite numbers work. To do this run ...
 
 ```
-$ rspec
+$ rspec spec/numbers_spec.rb
 ```
 
 The first time you run this you should see a large output. Which contains:
 
 ```
-Finished in 0.00323 seconds (files took 0.05911 seconds to load)
-14 examples, 14 failures
+Finished in 0.00201 seconds (files took 0.03775 seconds to load)
+6 examples, 6 failures
 ```
 
-Again as before, our job is to now write the code that makes the specs pass one at a time. However
+Once you've managed to fix up some of these tests, feel free to run all of the tests at once,
+you do this by simply running `rspec` which will then yield an output that indicates there are
+17 tests in total (Of which some may now be passing)
+
+## First steps
+
+Our job is to now write the code that makes the specs pass one at a time. However
 this time it's different as we can tackle them in any way we see fit.
 
 I would advise here we follow a purists view of TDD and make the first couple of tests pass,
@@ -63,9 +70,12 @@ as your original approach will likely not allow you to do 2 digit numbers
 6. Create the logic to construct a 2 digit number
 7. Create the logic to construct any length number
 8. Create the logic to construct a single letter
-9. Create the logic to construct any length word (This is likely trivial now!)
+9. Create the logic to construct any length word with letters from a-f (This is likely trivial now!)
 
-Now you've done all of this, let's make it different, and allow you to stretch a digit width-wise
+## Stretch Goals
+
+Now you've done all of this, let's make it different, and allow you to stretch a digit
+or a letter from a-f width-wise, so they are wider
 
 So previously 312 which looked like this
 
@@ -121,13 +131,13 @@ So previously 'ba' which looked like this
 May now look like this
 
 ```
-      __
-|    |  |
-|    |  |
-|__  |__|
-|  | |  |
-|  | |  |
-|__| |  |
+       ___
+|     |   |
+|     |   |
+|___  |___|
+|   | |   |
+|   | |   |
+|___| |   |
 ```
 
 Numbers and letters will never be mixed - So you won't need to solve for say
@@ -135,7 +145,6 @@ Numbers and letters will never be mixed - So you won't need to solve for say
 
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on a
-branch, not main. Ideally use your commits to keep your own
-comments and notes about what you've learnt. As you work through the exercises
-we'll try to come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a branch, not main.
+Ideally use your commits to keep your own comments and notes about what you've learnt.
+As you work through the exercises we'll try to come back together periodically to discuss.
