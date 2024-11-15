@@ -4,11 +4,11 @@ require_relative '../lib/fake_rspec'
 
 FakeRSpec.run 'hard example' do
   it 'Running Test 1' do
-    5 == 3
+    3.even?.is_a?(TrueClass)
   end
 
   it 'Running Test 2' do
-    3 == 3
+    3.odd?.is_a?(TrueClass)
   end
 
   it 'Running Test 3' do
@@ -20,7 +20,7 @@ FakeRSpec.run 'hard example' do
   end
 
   it 'Running Test 5' do
-    [1,2,3,4].all?(&:even?)
+    [1, 2, 3, 4].all?(&:even?)
   end
 
   it 'Running Test 6' do
