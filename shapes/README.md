@@ -8,7 +8,8 @@ you check if they were correct? i.e. they could be constructed?
 Install the dependencies:
 
 ```bash
-$ gem install bundler # if you don't have it already
+# The -v flag here is important as we're manually installing a version we "know" to work on Ruby 3.1.6
+$ gem install bundler -v 2.5.22
 $ bundle
 ```
 
