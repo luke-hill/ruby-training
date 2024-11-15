@@ -43,9 +43,18 @@ We could then look into more diagnostic data, more flagging e.t.c.
 Once you're happy with fixing up existing ones, there is a sample file for you to edit and make your own
 individual tests in.
 
+As a rough indicative guide ....
+- The `easy_example.rb` run should be able to report (as a minimum)
+  - The name of the test suite
+  - When the test suite completion has finished
+- The `medium_example.rb` run should report the same data plus console information (Unaffected)
+- The `hard_example.rb` run should be able to additionally report (as a minimum)
+  - The individual name of each test case
+  - The success/failure state of each individual test case
+  - How many tests passed / failed overall
+
 ## Committing your work
 
-It's important to commit your work regularly. Make sure you are working on a
-branch, not main. Ideally use your commits to keep your own
-comments and notes about what you've learnt. As you work through the exercises
-we'll try to come back together periodically to discuss.
+It's important to commit your work regularly. Make sure you are working on a branch, not main.
+Ideally use your commits to keep your own comments and notes about what you've learnt.
+As you work through the exercises we'll try to come back together periodically to discuss.

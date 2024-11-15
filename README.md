@@ -96,17 +96,17 @@ Strands (or 'areas'), of work is as follows ...
   - You are able to start understanding how you need to solve simple software problems
 - Strand 5: `lcd` (Start, Single Digits & Composition)
   - You are introduced to the first complex task that needs whiteboarding 
-- Strand 6: `lcd` (Completion / Stretch goals), `fake_rspec`
+- Strand 6: `lcd` (Completion / Stretch goals)
   - Introduction to the concept of refactoring
   - You are starting to understand that Modularity in code and being able to extend is important
+- Strand 7:  `fake_rspec`, `decorators`
   - Revisiting of good software principles (DRY / SOLID e.t.c.)
-- Strand 7: `decorators`
   - Generic Programming concept where you can massively DRY up code by "Decorating" the inner item 
 - Strand 8: `metaprogramming`, `proxy`
   - Introduction to DSL style method invocation, procedural programming 
   - Message Controlling (Sending messages from one location to another) 
 - Strand 9: `site_prism`
-  - The framework you can use to do web based automation - leans heavily on DSL / metaprogramming concepts 
+  - The framework you can use to do web based automation - leans heavily on DSL / metaprogramming concepts
 
 Each exercise will be in a subfolder of this directory, and should contain a README with more information.
 

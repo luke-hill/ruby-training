@@ -4,10 +4,10 @@ require_relative '../lib/fake_rspec'
 
 FakeRSpec.run 'easy example' do
   # Test 1
-  5 == 3
+  3.even?.is_a?(TrueClass)
 
   # Test 2
-  3 == 3
+  3.odd?.is_a?(TrueClass)
 
   # Test 3
   'abc'.is_a?(Symbol)
@@ -16,7 +16,7 @@ FakeRSpec.run 'easy example' do
   123.is_a?(Integer)
 
   # Test 5
-  [1,2,3,4].all?(&:even?)
+  [1, 2, 3, 4].all?(&:even?)
 
   # Test 6
   String.is_a?(Class)
