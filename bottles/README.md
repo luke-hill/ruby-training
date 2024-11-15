@@ -22,7 +22,8 @@ into its smallest components.
 Install the dependencies:
 
 ```bash
-$ gem install bundler # if you don't have it already
+# We don't pass in a -v flag here as every version (Including latest), of bundler should work on Ruby 3.3.6
+$ gem install bundler
 $ bundle
 ```
 
