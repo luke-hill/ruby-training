@@ -3,15 +3,13 @@ require:
   - rubocop-rspec
 
 AllCops:
+  TargetRubyVersion: 3.3
   NewCops: enable
 
 Lint/EmptyClass:
   Enabled: false
 
 Layout/TrailingWhitespace:
-  Enabled: false
-
-Metrics/BlockLength:
   Enabled: false
 
 RSpec/ExampleLength:
