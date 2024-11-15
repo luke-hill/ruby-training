@@ -82,8 +82,8 @@ exercises, which are split according to week and complexity. A rough indicative 
 - Week 3: `shapes`, `bottles`
 - Week 4: `dice_games` (Both), `validators`
 - Week 5: `lcd` (Start, Single Digits & Composition)
-- Week 6: `lcd` (Completion / Stretch goals), `fake_rspec`
-- Week 7: `decorators`
+- Week 6: `lcd` (Completion / Stretch goals)
+- Week 7: `decorators`,  `fake_rspec`
 - Week 8: `metaprogramming`, `proxy`
 - Week 9: `site_prism`
 
