@@ -12,7 +12,7 @@ Each of the following points will be used
   * Did you do red-green-refactor?
 * Pass Rate - **20%**
   * Sequentially did you pass each spec file?
-  * Did you follow the rules set out for completing the work?
+  * Did you follow the expected process set out to complete the work?
 * White box analysis - **50%**
   * Is your code neat and tidy?
   * Is your code easy to understand / follow?
