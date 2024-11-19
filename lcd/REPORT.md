@@ -12,7 +12,7 @@ Each of the following points will be used
   * Did you do red-green-refactor for the suggested steps provided in the README?
   * Did you do red-green-refactor once it came to the stretch goals?
 * Pass Rate - **15%**
-  * Did you follow the rules set out for completing the work?
+  * Did you follow the expected process set out to complete the work?
   * Did you pass the `lcd_numbers_spec.rb` in its entirety?
   * Did you pass all tests?
 * White box analysis - **45%**
