@@ -11,8 +11,8 @@ Each of the following points will be used
   * Did you iterate on your work?
   * Did you do red-green-refactor?
 * Pass Rate - **40%**
-  * Did your code pass when I ran it?
-  * Did you follow the rules set out for completing the work?
+  * Did your code pass when it was ran?
+  * Did you follow the expected process set out to complete the work?
 * White box analysis - **30%**
   * Is your code neat and tidy?
   * Is your code easy to understand / follow?

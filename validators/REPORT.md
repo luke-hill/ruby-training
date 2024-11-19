@@ -1,6 +1,6 @@
-# Report Grade - Dice Games
+# Report Grade - Validators
 
-Report for {person_name}, for the Dice Games project
+Report for {person_name}, for the Validators project
 
 ## Grading Criteria
 
@@ -10,17 +10,15 @@ Each of the following points will be used
   * Did you write the minimum to make some tests pass and then improve?
   * Did you iterate on your work?
   * Did you do red-green-refactor?
-* Pass Rate - **30%**
-  * Did your code pass when I ran it?
-  * Did you follow the rules set out for completing the work?
+* Pass Rate - **35%**
+  * Did your code pass when it was ran?
+  * Did you follow the expected process set out to complete the work?
 * White box analysis - **30%**
   * Is your code neat and tidy?
   * Is your code easy to understand / follow?
   * Does your code solve only the problem stipulated (i.e. you've not tried to over-engineer the solution?)
-  * Have you removed all redundant code
-* Miscellaneous Criteria - **10%**
+* Miscellaneous Criteria - **5%**
   * Git commit history (Easy to understand / follow)
-  * Did you manage to refactor the test on `spec/dice_spec.rb:41`
 
 ## Grades
 
