@@ -20,7 +20,7 @@ number_box.send_keys('456')
 
 # Find out what 'value' property is for the number box
 # Check the W3C Spec or W3Schools for what text box values represent
-puts number_box['value']
+puts "The Number box 'value' is: #{number_box['value']}"
 
 # Wait and close
 sleep 2
