@@ -6,6 +6,6 @@ ruby '3.3.6'
 
 gem 'automation_helpers', '~> 5.0'
 gem 'rubocop', '~> 1.68.0'
-gem 'rubocop-performance', '~> 1.22.0'
-gem 'selenium-webdriver', '4.25.0'
+gem 'rubocop-performance', '~> 1.23.0'
+gem 'selenium-webdriver', '4.26.0'
 gem 'site_prism', '~> 5.0'
