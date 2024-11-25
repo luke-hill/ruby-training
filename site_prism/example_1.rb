@@ -10,8 +10,8 @@ page = Inputs.new
 page.load
 
 # Find the heading and then grab the text
-title = page.heading
-puts title.text
+heading = page.heading
+puts "The h3 heading on the page is: #{heading.text}"
 
 # Wait and close
 sleep 2
