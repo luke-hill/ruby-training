@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This is the Dropdown page represented as a SitePrism object.
+# It is the page found @ 'https://the-internet.herokuapp.com/dropdown'
 class Dropdown < SitePrism::Page
   # This DSL statement will procedurally set a variable that represents the stub that
   # attaches to the base url (Set earlier on), for this page object

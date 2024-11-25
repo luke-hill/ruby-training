@@ -9,6 +9,9 @@ require 'capybara/dsl'
 require 'site_prism'
 require 'selenium-webdriver'
 
+# This is our boilerplate code to get a minimum working example of a Driver (Chrome), and a set of
+# loggers enabled to document any issues. We configure the driver using Capybara and using a library
+# called automation_helpers which provides quick and easy driver instantiation / configuration
 class Setup
   class << self
     def setup
