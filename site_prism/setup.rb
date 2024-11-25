@@ -8,7 +8,6 @@ require 'capybara'
 require 'capybara/dsl'
 require 'site_prism'
 require 'selenium-webdriver'
-require 'webdrivers'
 
 class Setup
   class << self
