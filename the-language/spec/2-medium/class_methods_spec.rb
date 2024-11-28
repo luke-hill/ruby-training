@@ -4,24 +4,24 @@ RSpec.describe 'Class methods' do
 
   it 'all instances of a class are objects' do
     percy = Cat.new
-    expect(percy.is_a?(Object)).to eq(__)
+    expect(percy.is_a?(Object)).to eq(true)
   end
 
   it 'all classes (constructors), are classes' do
-    expect(Cat.is_a?(Class)).to eq(__)
+    expect(Cat.is_a?(Class)).to eq(true)
   end
 
   it 'classes are objects too' do
-    expect(Cat.is_a?(Object)).to eq(__)
+    expect(Cat.is_a?(Object)).to eq(true)
   end
 
   it 'instances have methods' do
     percy = Cat.new
-    expect(percy.methods.size > __).to be true
+    expect(percy.methods.size > 0).to be true
   end
 
   it 'classes also have methods' do
-    expect(Cat.methods.size > __).to be true
+    expect(Cat.methods.size > 0).to be true
   end
 
   it 'is possible to define a method on an individual object' do
@@ -30,7 +30,7 @@ RSpec.describe 'Class methods' do
     def percy.wag
       :percys_wag
     end
-    expect(percy.wag).to eq(__)
+    expect(percy.wag).to eq(:percys_wag)
   end
 
   it 'does not affect other objects (instances), when defining singleton methods' do
@@ -40,7 +40,7 @@ RSpec.describe 'Class methods' do
       :percys_wag
     end
 
-    expect { not_percy.wag }.to raise_error(__)
+    expect { not_percy.wag }.to raise_error(NoMethodError)
   end
 
   class TabbyCat
@@ -54,13 +54,13 @@ RSpec.describe 'Class methods' do
   end
 
   it 'is possible to define singleton methods on classes (remember they are objects)' do
-    expect(TabbyCat.wag).to eq(__)
+    expect(TabbyCat.wag).to eq(:class_level_wag)
   end
 
   it 'is possible to have both a class and instance method identically named (they are independent)' do
     percy = TabbyCat.new
-    expect(percy.wag).to eq(__)
-    expect(TabbyCat.wag).to eq(__)
+    expect(percy.wag).to eq(:instance_level_wag)
+    expect(TabbyCat.wag).to eq(:class_level_wag)
   end
 
   class TawnyCat
@@ -74,8 +74,8 @@ RSpec.describe 'Class methods' do
   it 'does not share instance variables between classes and instances' do
     percy = TawnyCat.new
     percy.name = 'Percy'
-    expect(percy.name).to eq(__)
-    expect(TawnyCat.name).to eq(__)
+    expect(percy.name).to eq('Percy')
+    expect(TawnyCat.name).to eq(nil)
   end
 
   LAST_EXPRESSION_IN_CLASS_STATEMENT = class GingerCat
@@ -83,7 +83,7 @@ RSpec.describe 'Class methods' do
                                        end
 
   it 'returns the last expression inside a class statement (when defining a class)' do
-    expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(__)
+    expect(LAST_EXPRESSION_IN_CLASS_STATEMENT).to eq(21)
   end
 
   SELF_INSIDE_OF_CLASS_STATEMENT = class GingerCat
@@ -91,7 +91,7 @@ RSpec.describe 'Class methods' do
                                    end
 
   it 'uses self to refer to the class (not an instance of it), when inside the definition' do
-    expect(GingerCat == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(__)
+    expect(GingerCat == SELF_INSIDE_OF_CLASS_STATEMENT).to eq(true)
   end
 
   class BrownCat
@@ -101,7 +101,7 @@ RSpec.describe 'Class methods' do
   end
 
   it 'is possible to use self to define a class method' do
-    expect(BrownCat.class_method).to eq(__)
+    expect(BrownCat.class_method).to eq(:another_way_to_write_class_methods)
   end
 
   class BlackCat
@@ -113,7 +113,7 @@ RSpec.describe 'Class methods' do
   end
 
   it 'has a third way to define a class method' do
-    expect(BlackCat.another_class_method).to eq(__)
+    expect(BlackCat.another_class_method).to eq(:still_another_way)
   end
 
   # THINK ABOUT IT:
@@ -139,7 +139,7 @@ RSpec.describe 'Class methods' do
       self.class.another_class_method
     end
 
-    expect(percy.instance_method).to eq(__)
+    expect(percy.instance_method).to eq(:still_another_way)
   end
 
   # NOTE: Reopening BlackCat class
@@ -153,6 +153,6 @@ RSpec.describe 'Class methods' do
   it 'has a better way to call class methods from instance methods' do
     percy = BlackCat.new
 
-    expect(percy.call_class_method_from_instance_method).to eq(__)
+    expect(percy.call_class_method_from_instance_method).to eq(:still_another_way)
   end
 end
