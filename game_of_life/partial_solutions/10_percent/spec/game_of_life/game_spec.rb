@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'game_of_life/game'
-
-# Change this test as it basically does nothing!
 RSpec.describe GameOfLife::Game do
-  it 'works' do
-    expect(true).to be_truthy
+  subject(:game) { described_class.new }
+
+  it 'has an initial state containing cells' do
+    expect(game.cells).to be_an Array
   end
 end
