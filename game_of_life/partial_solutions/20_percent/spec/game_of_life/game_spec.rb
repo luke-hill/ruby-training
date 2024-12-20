@@ -6,4 +6,8 @@ RSpec.describe GameOfLife::Game do
   it 'has an initial state containing cells' do
     expect(game.cells).to be_an Array
   end
+
+  it 'contains a series of GameOfLife::Cells' do
+    expect(game.cells.first).to all be_a GameOfLife::Cell
+  end
 end
