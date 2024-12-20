@@ -27,6 +27,60 @@ RSpec.describe GameOfLife::Game do
     end
   end
 
+  describe '#top_left_neighbour' do
+    context 'when not on the left side or the top of the grid' do
+      it 'returns the individual cell that is one square to the left and one square above the supplied co-ordinates' do
+        expect(game.top_left_neighbour(3, 3)).to be_a GameOfLife::Cell
+      end
+    end
+
+    context 'when on the left side of the grid' do
+      it 'returns no cell' do
+        expect(game.top_left_neighbour(0, 3)).to be_nil
+      end
+    end
+
+    context 'when on the top of the grid' do
+      it 'returns no cell' do
+        expect(game.top_left_neighbour(3, 0)).to be_nil
+      end
+    end
+  end
+
+  describe '#top_neighbour' do
+    context 'when not on the top row of the grid' do
+      it 'returns the individual cell that is one square above the supplied co-ordinates' do
+        expect(game.top_neighbour(0, 3)).to be_a GameOfLife::Cell
+      end
+    end
+
+    context 'when on the top row of the grid' do
+      it 'returns no cell' do
+        expect(game.top_neighbour(0, 0)).to be_nil
+      end
+    end
+  end
+
+  describe '#top_right_neighbour' do
+    context 'when not on the right side or the top of the grid' do
+      it 'returns the individual cell that is one square to the right and one square above the supplied co-ordinates' do
+        expect(game.top_right_neighbour(3, 3)).to be_a GameOfLife::Cell
+      end
+    end
+
+    context 'when on the right side of the grid' do
+      it 'returns no cell' do
+        expect(game.top_right_neighbour(game.grid_size, 3)).to be_nil
+      end
+    end
+
+    context 'when on the top row of the grid' do
+      it 'returns no cell' do
+        expect(game.top_right_neighbour(3, 0)).to be_nil
+      end
+    end
+  end
+
   describe '#left_neighbour' do
     context 'when not on the left side of the grid' do
       it 'returns the individual cell that is one square to the left of the supplied co-ordinates' do
@@ -48,27 +102,32 @@ RSpec.describe GameOfLife::Game do
       end
     end
 
-    context 'when on the left side of the grid' do
+    context 'when on the right side of the grid' do
       it 'returns no cell' do
         expect(game.right_neighbour(game.grid_size, 0)).to be_nil
       end
     end
   end
 
-  describe '#top_neighbour' do
-    context 'when not on the top row of the grid' do
-      it 'returns the individual cell that is one square above the supplied co-ordinates' do
-        expect(game.top_neighbour(0, 3)).to be_a GameOfLife::Cell
+  describe '#bottom_left_neighbour' do
+    context 'when not on the left side or the bottom of the grid' do
+      it 'returns the individual cell that is one square to the left and one square below the supplied co-ordinates' do
+        expect(game.bottom_left_neighbour(3, 3)).to be_a GameOfLife::Cell
       end
     end
 
-    context 'when on the top row of the grid' do
+    context 'when on the left side of the grid' do
       it 'returns no cell' do
-        expect(game.top_neighbour(0, 0)).to be_nil
+        expect(game.bottom_left_neighbour(0, 3)).to be_nil
+      end
+    end
+
+    context 'when on the bottom row of the grid' do
+      it 'returns no cell' do
+        expect(game.bottom_left_neighbour(3, game.grid_size)).to be_nil
       end
     end
   end
-
 
   describe '#bottom_neighbour' do
     context 'when not on the bottom row of the grid' do
@@ -80,6 +139,26 @@ RSpec.describe GameOfLife::Game do
     context 'when on the bottom row of the grid' do
       it 'returns no cell' do
         expect(game.bottom_neighbour(0, game.grid_size)).to be_nil
+      end
+    end
+  end
+
+  describe '#bottom_right_neighbour' do
+    context 'when not on the right side or the bottom of the grid' do
+      it 'returns the individual cell that is one square to the right and one square below the supplied co-ordinates' do
+        expect(game.bottom_right_neighbour(3, 3)).to be_a GameOfLife::Cell
+      end
+    end
+
+    context 'when on the right side of the grid' do
+      it 'returns no cell' do
+        expect(game.bottom_right_neighbour(game.grid_size, 3)).to be_nil
+      end
+    end
+
+    context 'when on the bottom row of the grid' do
+      it 'returns no cell' do
+        expect(game.bottom_right_neighbour(3, game.grid_size)).to be_nil
       end
     end
   end
