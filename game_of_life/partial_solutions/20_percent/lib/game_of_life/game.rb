@@ -10,5 +10,15 @@ module GameOfLife
     def initialize
       @cells = Array.new(10) { Array.new(10) { Cell.new } }
     end
+
+    def cell_at(x, y)
+      cells[y][x]
+    end
+
+    def left_neighbour(x, y)
+      return nil if x.zero?
+
+      cells[y][x - 1]
+    end
   end
 end

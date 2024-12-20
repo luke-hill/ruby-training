@@ -4,10 +4,8 @@ module GameOfLife
   # A single cell in Conway's Game of Life
   class Cell
     # All cells start as alive
-    def initialize(x, y)
+    def initialize
       @state = :alive
-      @x = x
-      @y = y
     end
 
     # Is the cell alive?
