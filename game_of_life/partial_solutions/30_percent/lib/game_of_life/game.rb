@@ -8,17 +8,39 @@ module GameOfLife
     attr_reader :cells
 
     def initialize
-      @cells = Array.new(10) { Array.new(10) { Cell.new } }
+      @cells = Array.new(grid_size) { Array.new(grid_size) { Cell.new } }
     end
 
     def cell_at(x, y)
       cells[y][x]
     end
 
+    def grid_size
+      10
+    end
+
     def left_neighbour(x, y)
       return nil if x.zero?
 
       cells[y][x - 1]
+    end
+
+    def right_neighbour(x, y)
+      return nil if x == grid_size
+
+      cells[y][x + 1]
+    end
+
+    def top_neighbour(x, y)
+      return nil if y.zero?
+
+      cells[y - 1][x]
+    end
+
+    def bottom_neighbour(x, y)
+      return nil if y == grid_size
+
+      cells[y + 1][x]
     end
   end
 end
