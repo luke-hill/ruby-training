@@ -3,9 +3,9 @@ require:
   - rubocop-rspec
 
 AllCops:
-  Exclude:
-    - 'partial_solutions/**/*'
   NewCops: enable
 
-Lint/EmptyClass:
-  Enabled: false
+Naming/MethodParameterName:
+  AllowedNames:
+    - x
+    - y
