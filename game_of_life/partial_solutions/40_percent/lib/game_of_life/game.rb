@@ -40,7 +40,7 @@ module GameOfLife
     end
 
     def top_right_neighbour(x, y)
-      return nil if y.zero? || x == grid_size
+      return nil if y.zero? || x == max_index
 
       cell_at(x + 1, y - 1)
     end
@@ -52,27 +52,33 @@ module GameOfLife
     end
 
     def right_neighbour(x, y)
-      return nil if x == grid_size
+      return nil if x == max_index
 
       cell_at(x + 1, y)
     end
 
     def bottom_left_neighbour(x, y)
-      return nil if y == grid_size || x.zero?
+      return nil if y == max_index || x.zero?
 
       cell_at(x - 1, y + 1)
     end
 
     def bottom_neighbour(x, y)
-      return nil if y == grid_size
+      return nil if y == max_index
 
       cell_at(x, y + 1)
     end
 
     def bottom_right_neighbour(x, y)
-      return nil if y == grid_size || x == grid_size
+      return nil if y == max_index || x == max_index
 
       cell_at(x + 1, y + 1)
+    end
+
+    private
+
+    def max_index
+      grid_size - 1
     end
   end
 end
