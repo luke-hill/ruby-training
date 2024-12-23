@@ -1,0 +1,11 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Naming/MethodParameterName:
+  AllowedNames:
+    - x
+    - y
