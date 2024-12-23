@@ -2,6 +2,8 @@
 
 RSpec.describe GameOfLife::Game do
   subject(:game) { described_class.new }
+  
+  let(:max_index) { game.grid_size - 1 }
 
   it 'has an initial state containing cells' do
     expect(game.cells).to be_an Array
@@ -42,7 +44,7 @@ RSpec.describe GameOfLife::Game do
 
     context 'when at the top right of the grid' do
       it 'returns only 3 neighbours' do
-        expect(game.neighbours(game.grid_size - 1, 0).length).to eq(3)
+        expect(game.neighbours(max_index, 0).length).to eq(3)
       end
     end
 
@@ -54,19 +56,19 @@ RSpec.describe GameOfLife::Game do
 
     context 'when at the bottom left of the grid' do
       it 'returns only 3 neighbours' do
-        expect(game.neighbours(0, game.grid_size - 1).length).to eq(3)
+        expect(game.neighbours(0, max_index).length).to eq(3)
       end
     end
 
     context 'when at the bottom of the grid' do
       it 'returns 5 neighbours' do
-        expect(game.neighbours(3, game.grid_size - 1).length).to eq(5)
+        expect(game.neighbours(3, max_index).length).to eq(5)
       end
     end
 
     context 'when at the bottom right of the grid' do
       it 'returns only 3 neighbours' do
-        expect(game.neighbours(game.grid_size - 1, game.grid_size - 1).length).to eq(3)
+        expect(game.neighbours(max_index, max_index).length).to eq(3)
       end
     end
   end
@@ -114,7 +116,7 @@ RSpec.describe GameOfLife::Game do
 
     context 'when on the right side of the grid' do
       it 'returns no cell' do
-        expect(game.top_right_neighbour(game.grid_size - 1, 3)).to be_nil
+        expect(game.top_right_neighbour(max_index, 3)).to be_nil
       end
     end
 
@@ -148,7 +150,7 @@ RSpec.describe GameOfLife::Game do
 
     context 'when on the right side of the grid' do
       it 'returns no cell' do
-        expect(game.right_neighbour(game.grid_size - 1, 0)).to be_nil
+        expect(game.right_neighbour(max_index, 0)).to be_nil
       end
     end
   end
@@ -168,7 +170,7 @@ RSpec.describe GameOfLife::Game do
 
     context 'when on the bottom row of the grid' do
       it 'returns no cell' do
-        expect(game.bottom_left_neighbour(3, game.grid_size - 1)).to be_nil
+        expect(game.bottom_left_neighbour(3, max_index)).to be_nil
       end
     end
   end
@@ -182,7 +184,7 @@ RSpec.describe GameOfLife::Game do
 
     context 'when on the bottom row of the grid' do
       it 'returns no cell' do
-        expect(game.bottom_neighbour(0, game.grid_size - 1)).to be_nil
+        expect(game.bottom_neighbour(0, max_index)).to be_nil
       end
     end
   end
@@ -196,13 +198,13 @@ RSpec.describe GameOfLife::Game do
 
     context 'when on the right side of the grid' do
       it 'returns no cell' do
-        expect(game.bottom_right_neighbour(game.grid_size - 1, 3)).to be_nil
+        expect(game.bottom_right_neighbour(max_index, 3)).to be_nil
       end
     end
 
     context 'when on the bottom row of the grid' do
       it 'returns no cell' do
-        expect(game.bottom_right_neighbour(3, game.grid_size - 1)).to be_nil
+        expect(game.bottom_right_neighbour(3, max_index)).to be_nil
       end
     end
   end
