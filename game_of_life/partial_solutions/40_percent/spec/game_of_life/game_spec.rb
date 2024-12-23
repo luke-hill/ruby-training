@@ -19,11 +19,11 @@ RSpec.describe GameOfLife::Game do
 
   describe '#grid_size' do
     it 'generates the width of the game board' do
-      expect(game.cells.map(&:length)).to all eq(game.grid_size - 1)
+      expect(game.cells.map(&:length)).to all eq(game.grid_size)
     end
 
     it 'generates the height of the game board' do
-      expect(game.cells.length).to eq(game.grid_size - 1)
+      expect(game.cells.length).to eq(game.grid_size)
     end
   end
 
