@@ -4,6 +4,8 @@ RSpec.describe GameOfLife::Game do
   subject(:game) { described_class.new }
   
   let(:max_index) { game.grid_size - 1 }
+  let(:alive_cell) { instance_double(GameOfLife::Cell, alive?: true, dead?: false) }
+  let(:dead_cell) { instance_double(GameOfLife::Cell, alive?: false, dead?: true) }
 
   it 'has an initial state containing cells' do
     expect(game.cells).to be_an Array
@@ -26,6 +28,50 @@ RSpec.describe GameOfLife::Game do
 
     it 'generates the height of the game board' do
       expect(game.cells.length).to eq(game.grid_size)
+    end
+  end
+
+  describe '#alive_neighbours' do
+    context 'when there are no alive neighbours' do
+      before do
+        allow(game).to receive(:neighbours).and_return([dead_cell, dead_cell, dead_cell])
+      end
+
+      it 'returns 0 alive neighbours' do
+        expect(game.alive_neighbours(0, 0)).to eq(0)
+      end
+    end
+
+    context 'when there are some alive neighbours' do
+      before do
+        allow(game).to receive(:neighbours).and_return([dead_cell, alive_cell, dead_cell])
+      end
+
+      it 'returns 1 alive neighbours' do
+        expect(game.alive_neighbours(0, 0)).to eq(1)
+      end
+    end
+  end
+
+  describe '#dead_neighbours' do
+    context 'when there are no dead neighbours' do
+      before do
+        allow(game).to receive(:neighbours).and_return([alive_cell, alive_cell, alive_cell])
+      end
+
+      it 'returns 0 dead neighbours' do
+        expect(game.dead_neighbours(0, 0)).to eq(0)
+      end
+    end
+
+    context 'when there are some dead neighbours' do
+      before do
+        allow(game).to receive(:neighbours).and_return([dead_cell, alive_cell, dead_cell])
+      end
+
+      it 'returns 2 dead neighbours' do
+        expect(game.dead_neighbours(0, 0)).to eq(2)
+      end
     end
   end
 
