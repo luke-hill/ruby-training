@@ -10,7 +10,7 @@ RSpec.describe 'Modules' do
   end
 
   it 'is not possible to instantiate a module' do
-    expect { Nameable.new }.to raise_error(__)
+    expect { Nameable.new }.to raise_error(NoMethodError)
   end
 
   class Parrot
@@ -33,25 +33,25 @@ RSpec.describe 'Modules' do
 
   it 'has access to normal instance methods' do
     polly = Parrot.new
-    expect(polly.squawk).to eq(__)
+    expect(polly.squawk).to eq("Squawk!")
   end
 
   it 'also has access to methods defined by the included module' do
     polly = Parrot.new
-    expect(polly.methods.include?(:set_name)).to eq(__)
-    expect(polly.methods.include?(:here)).to eq(__)
+    expect(polly.methods.include?(:set_name)).to eq(true)
+    expect(polly.methods.include?(:here)).to eq(true)
   end
 
   it 'can change instance variables from a method defined in a module' do
     polly = Parrot.new
-    expect(polly.name).to eq(__)
+    expect(polly.name).to eq('Polly')
     polly.set_name('Lola')
-    expect(polly.name).to eq(__)
+    expect(polly.name).to eq('Lola')
   end
 
   it 'a method defined in a class overrides an included method from a module' do
     polly = Parrot.new
-    expect(polly.here).to eq(__)
+    expect(polly.here).to eq(:in_object)
   end
 
   # There is also the concept of `extend`ing a module which we don't deal with here.
