@@ -4,11 +4,11 @@ end
 
 RSpec.describe 'Methods' do
   it 'is possible to call a global method' do
-    expect(a_global_method(5, 9)).to eq(__)
+    expect(a_global_method(5, 9)).to eq(14)
   end
 
   it 'is possible to call a method without parentheses' do
-    expect(a_global_method 4, 8).to eq(__)
+    expect(a_global_method 4, 8).to eq(12)
   end
 
   it 'is sometimes ambiguous to leave out parentheses' do
@@ -24,15 +24,15 @@ RSpec.describe 'Methods' do
     #
     #  a_global_method(4, a_global_method(3), 2)
 
-    expect { eval(code) }.to raise_error(__)
+    expect { eval(code) }.to raise_error(SyntaxError)
   end
 
   it 'is not possible to call methods with the wrong number of arguments' do
     # HINT: Fill in the error and part of the message
-    expect { a_global_method }.to raise_error(__, /__/)
+    expect { a_global_method }.to raise_error(ArgumentError, /invalid number of arguments. Expected 2 got 0/)
 
     # HINT: Fill in the error and part of the message
-    expect { a_global_method(1, 2, 3) }.to raise_error(__, /__/)
+    expect { a_global_method(1, 2, 3) }.to raise_error(ArgumentError, /invalid number of arguments. Expected 2 got 3/)
   end
 
   def a_method_with_defaults(a, b = :default_value)
@@ -40,19 +40,19 @@ RSpec.describe 'Methods' do
   end
 
   it 'is possible to use default values' do
-    expect(a_method_with_defaults(1)).to eq([1, __])
-    expect(a_method_with_defaults(1, 2)).to eq([1, __])
+    expect(a_method_with_defaults(1)).to eq([1, :default_value])
+    expect(a_method_with_defaults(1, 2)).to eq([1, 2])
   end
 
-  def method_with_var_args(*args)
+  def method_with_var_args(*args) # splat args or exploded args 
     args
   end
 
   it 'is possible to create a methods with a variable number of arguments' do
-    expect(method_with_var_args.class).to eq(__)
-    expect(method_with_var_args).to eq(__)
-    expect(method_with_var_args(1)).to eq(__)
-    expect(method_with_var_args(1, 2)).to eq(__)
+    expect(method_with_var_args.class).to eq(Array)
+    expect(method_with_var_args).to eq([])
+    expect(method_with_var_args(1)).to eq([1])
+    expect(method_with_var_args(16, 25, :toby, 'egg')).to eq([16, 25, :toby, 'egg'])
   end
 
   def method_with_explicit_return
@@ -62,7 +62,7 @@ RSpec.describe 'Methods' do
   end
 
   it 'is possible to return an explicit value' do
-    expect(method_with_explicit_return).to eq(__)
+    expect(method_with_explicit_return).to eq(:the_value)
   end
 
   def method_without_explicit_return
@@ -71,7 +71,7 @@ RSpec.describe 'Methods' do
   end
 
   it 'returns the last evaluated statement' do
-    expect(method_without_explicit_return).to eq(__)
+    expect(method_without_explicit_return).to eq(:useful_value)
   end
 
   class MyClass

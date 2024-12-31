@@ -3,10 +3,10 @@ RSpec.describe 'Errors and Exceptions' do
   end
 
   it 'Errors inherit from Exception' do
-    expect(MySpecialError.ancestors[1]).to eq(__)
-    expect(MySpecialError.ancestors[2]).to eq(__)
-    expect(MySpecialError.ancestors[3]).to eq(__)
-    expect(MySpecialError.ancestors[4]).to eq(__)
+    expect(MySpecialError.ancestors[1]).to eq(RuntimeError)
+    expect(MySpecialError.ancestors[2]).to eq(StandardError)
+    expect(MySpecialError.ancestors[3]).to eq(Exception)
+    expect(MySpecialError.ancestors[4]).to eq(Object)
   end
 
   it 'is possible to `rescue` an error' do
