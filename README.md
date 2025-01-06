@@ -29,6 +29,7 @@ $ rvm -v # This should output a number
 $ rvm install 2.7.8
 $ rvm install 3.1.6
 $ rvm install 3.3.6
+$ rvm install 3.4.1
 ```
 
 ### Dependency installation on ubuntu
@@ -55,6 +56,7 @@ $ rvm -v # This should output a number
 $ rvm install 2.7.8
 $ rvm install 3.1.6
 $ rvm install 3.3.6
+$ rvm install 3.4.1
 ```
 
 ## Setup
