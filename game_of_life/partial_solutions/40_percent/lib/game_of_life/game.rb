@@ -18,7 +18,7 @@ module GameOfLife
     def grid_size
       10
     end
-    
+
     def alive_neighbours(x, y)
       neighbours(x, y).count(&:alive?)
     end

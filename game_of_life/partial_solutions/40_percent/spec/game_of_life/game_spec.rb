@@ -2,7 +2,7 @@
 
 RSpec.describe GameOfLife::Game do
   subject(:game) { described_class.new }
-  
+
   let(:max_index) { game.grid_size - 1 }
   let(:alive_cell) { instance_double(GameOfLife::Cell, alive?: true, dead?: false) }
   let(:dead_cell) { instance_double(GameOfLife::Cell, alive?: false, dead?: true) }
