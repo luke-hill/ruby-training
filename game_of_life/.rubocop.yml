@@ -1,0 +1,11 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'partial_solutions/**/*'
+  NewCops: enable
+
+Lint/EmptyClass:
+  Enabled: false
