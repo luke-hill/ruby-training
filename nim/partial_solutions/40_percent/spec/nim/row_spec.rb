@@ -13,11 +13,11 @@ RSpec.describe Nim::Row do
   end
 
   describe '#display' do
-    it 'will show the number of | elements' do
+    it 'shows the number of | elements' do
       expect(row.display).to start_with('| ' * amount)
     end
 
-    it 'will show the value at the end in brackets' do
+    it 'shows the value at the end in brackets' do
       expect(row.display).to end_with("(#{amount})")
     end
   end
