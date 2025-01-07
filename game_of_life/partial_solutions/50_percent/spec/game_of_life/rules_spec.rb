@@ -44,8 +44,11 @@ RSpec.describe GameOfLife::Rules do
     end
   end
 
-  describe '#rule3' do
-    let(:cell) { alive_cell }
+  #   Rule3: Any DEAD cell with exactly three LIVE neighbours becomes a LIVE cell, as if by reproduction.
+
+  describe '#reproduction' do
+    subject { rules_engine.reproduction }
+
     let(:neighbours) do
       [
         alive_cell, dead_cell, dead_cell,
@@ -54,8 +57,29 @@ RSpec.describe GameOfLife::Rules do
       ]
     end
 
-    it 'is TBD' do
-      expect(rules_engine.rule3).to eq(:TBD)
+    context 'when the cell is alive' do
+      let(:cell) { alive_cell }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when the cell is dead and there are 3 neighbours' do
+      let(:cell) { dead_cell }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when the cell is dead and there are not 3 neighbours' do
+      let(:cell) { dead_cell }
+      let(:neighbours) do
+        [
+          alive_cell, alive_cell, dead_cell,
+          alive_cell,             dead_cell,
+          alive_cell, alive_cell, dead_cell
+        ]
+      end
+
+      it { is_expected.to be false }
     end
   end
 end
