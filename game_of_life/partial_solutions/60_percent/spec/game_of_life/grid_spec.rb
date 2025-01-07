@@ -16,12 +16,6 @@ RSpec.describe GameOfLife::Grid do
     expect(grid.cells.first).to all be_a GameOfLife::Cell
   end
 
-  describe '#cell_at' do
-    it 'returns the individual cell using its specific co-ordinates' do
-      expect(grid.cell_at(0, 0)).to be_a GameOfLife::Cell
-    end
-  end
-
   describe '#grid_size' do
     it 'generates the width of the grid board' do
       expect(grid.cells.map(&:length)).to all eq(grid.grid_size)

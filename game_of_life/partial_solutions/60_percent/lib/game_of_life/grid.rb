@@ -11,10 +11,6 @@ module GameOfLife
       @cells = Array.new(grid_size) { Array.new(grid_size) { Cell.new } }
     end
 
-    def cell_at(x, y)
-      cells[y][x]
-    end
-
     def grid_size
       10
     end
@@ -84,6 +80,10 @@ module GameOfLife
     end
 
     private
+
+    def cell_at(x, y)
+      cells[y][x]
+    end
 
     def max_index
       cells.length - 1
