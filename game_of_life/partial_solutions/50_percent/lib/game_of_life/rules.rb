@@ -11,11 +11,11 @@ module GameOfLife
       @neighbours = neighbours
     end
 
-    def survival
+    def survival?
       cell.alive? && alive_neighbours.between?(2, 3)
     end
 
-    def reproduction
+    def reproduction?
       cell.dead? && alive_neighbours == 3
     end
 

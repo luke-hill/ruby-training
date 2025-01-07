@@ -6,8 +6,8 @@ RSpec.describe GameOfLife::Rules do
   let(:alive_cell) { instance_double(GameOfLife::Cell, alive?: true, dead?: false) }
   let(:dead_cell) { instance_double(GameOfLife::Cell, alive?: false, dead?: true) }
 
-  describe '#survival' do
-    subject { rules_engine.survival }
+  describe '#survival?' do
+    subject { rules_engine.survival? }
 
     let(:neighbours) do
       [
@@ -46,8 +46,8 @@ RSpec.describe GameOfLife::Rules do
 
   #   Rule3: Any DEAD cell with exactly three LIVE neighbours becomes a LIVE cell, as if by reproduction.
 
-  describe '#reproduction' do
-    subject { rules_engine.reproduction }
+  describe '#reproduction?' do
+    subject { rules_engine.reproduction? }
 
     let(:neighbours) do
       [
