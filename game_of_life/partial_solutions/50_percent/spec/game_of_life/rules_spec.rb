@@ -44,21 +44,6 @@ RSpec.describe GameOfLife::Rules do
     end
   end
 
-  describe '#rule2' do
-    let(:cell) { alive_cell }
-    let(:neighbours) do
-      [
-        alive_cell, dead_cell, dead_cell,
-        alive_cell,            dead_cell,
-        alive_cell, dead_cell, dead_cell
-      ]
-    end
-
-    it 'is TBD' do
-      expect(rules_engine.rule2).to eq(:TBD)
-    end
-  end
-
   describe '#rule3' do
     let(:cell) { alive_cell }
     let(:neighbours) do

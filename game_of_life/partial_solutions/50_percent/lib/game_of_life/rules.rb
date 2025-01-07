@@ -15,10 +15,6 @@ module GameOfLife
       cell.alive? && alive_neighbours.between?(2, 3)
     end
 
-    def rule2
-      :TBD
-    end
-
     def rule3
       :TBD
     end
