@@ -17,15 +17,15 @@ RSpec.describe 'Errors and Exceptions' do
       result = :exception_handled
     end
 
-    expect(result).to eq(__)
+    expect(result).to eq(:exception_handled)
 
-    expect(e.is_a?(StandardError)).to eq(__), 'Should be a Standard Error'
-    expect(e.is_a?(RuntimeError)).to eq(__),  'Should be a Runtime Error'
+    expect(e.is_a?(StandardError)).to eq([2]), 'Should be a Standard Error'
+    expect(e.is_a?(RuntimeError)).to eq([1]),  'Should be a Runtime Error'
 
     # Think why the answer to this test is what it is?
-    expect(RuntimeError.ancestors.include?(StandardError)).to eq(__)
+    expect(RuntimeError.ancestors.include?()).to eq([])
 
-    expect(e.message).to eq(__)
+    expect(e.message).to eq()
   end
 
   it 'can raise a specific error' do
