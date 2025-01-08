@@ -29,10 +29,10 @@ RSpec.describe 'Methods' do
 
   it 'is not possible to call methods with the wrong number of arguments' do
     # HINT: Fill in the error and part of the message
-    expect { a_global_method }.to raise_error(ArgumentError, /invalid number of arguments. Expected 2 got 0/)
+    expect { a_global_method }.to raise_error(ArgumentError, "wrong number of arguments (given 0, expected 2)")
 
     # HINT: Fill in the error and part of the message
-    expect { a_global_method(1, 2, 3) }.to raise_error(ArgumentError, /invalid number of arguments. Expected 2 got 3/)
+    expect { a_global_method(1, 2, 3) }.to raise_error(ArgumentError, "wrong number of arguments (given 3, expected 2)")
   end
 
   def a_method_with_defaults(a, b = :default_value)
@@ -107,24 +107,24 @@ RSpec.describe 'Methods' do
     let(:an_object) { MyClass.new }
 
     it 'is possible to call methods on objects' do
-      expect(an_object.the_method).to eq(__)
+      expect(an_object.the_method).to eq(:the_value)
     end
 
     it 'a method on an object can call other methods on that object' do
-      expect(an_object.calls_the_method).to eq(__)
+      expect(an_object.calls_the_method).to eq(:the_value)
     end
 
     it 'can call a method on self too' do
-      expect(an_object.calls_the_method_on_self).to eq(__)
+      expect(an_object.calls_the_method_on_self).to eq(:the_value)
     end
 
     it 'raises an error when calling a private method' do
       # Fill in the error and part of the message to move on
-      expect { an_object.the_private_method }.to raise_error(__, /__/)
+      expect { an_object.the_private_method }.to raise_error(NoMethodError, /the_private_method/)
     end
 
-    it 'can all a private method on the same object' do
-      expect(an_object.calls_the_private_method).to eq(__)
+    it 'can call a private method on the same object' do
+      expect(an_object.calls_the_private_method).to eq(:the_private_value)
     end
   end
 end
