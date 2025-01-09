@@ -19,6 +19,14 @@ module GameOfLife
       ].compact
     end
 
+    def seed(proportion_of_alive_cells)
+      cells.map do |row|
+        row.map do |cell|
+          cell.dead! if rand > proportion_of_alive_cells
+        end
+      end
+    end
+
     private
 
     def top_left_neighbour(x, y)
