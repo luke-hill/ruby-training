@@ -44,8 +44,6 @@ RSpec.describe GameOfLife::Rules do
     end
   end
 
-  #   Rule3: Any DEAD cell with exactly three LIVE neighbours becomes a LIVE cell, as if by reproduction.
-
   describe '#reproduction?' do
     subject { rules_engine.reproduction? }
 
