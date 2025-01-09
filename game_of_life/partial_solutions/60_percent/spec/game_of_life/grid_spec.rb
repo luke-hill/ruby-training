@@ -18,50 +18,6 @@ RSpec.describe GameOfLife::Grid do
     end
   end
 
-  describe '#alive_neighbours' do
-    context 'when there are no alive neighbours' do
-      before do
-        allow(grid).to receive(:neighbours).and_return([dead_cell, dead_cell, dead_cell])
-      end
-
-      it 'returns 0 alive neighbours' do
-        expect(grid.alive_neighbours(0, 0)).to eq(0)
-      end
-    end
-
-    context 'when there are some alive neighbours' do
-      before do
-        allow(grid).to receive(:neighbours).and_return([dead_cell, alive_cell, dead_cell])
-      end
-
-      it 'returns 1 alive neighbours' do
-        expect(grid.alive_neighbours(0, 0)).to eq(1)
-      end
-    end
-  end
-
-  describe '#dead_neighbours' do
-    context 'when there are no dead neighbours' do
-      before do
-        allow(grid).to receive(:neighbours).and_return([alive_cell, alive_cell, alive_cell])
-      end
-
-      it 'returns 0 dead neighbours' do
-        expect(grid.dead_neighbours(0, 0)).to eq(0)
-      end
-    end
-
-    context 'when there are some dead neighbours' do
-      before do
-        allow(grid).to receive(:neighbours).and_return([dead_cell, alive_cell, dead_cell])
-      end
-
-      it 'returns 2 dead neighbours' do
-        expect(grid.dead_neighbours(0, 0)).to eq(2)
-      end
-    end
-  end
-
   describe '#neighbours' do
     context 'when at the top left of the grid' do
       it 'returns only 3 neighbours' do

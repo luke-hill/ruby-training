@@ -11,14 +11,6 @@ module GameOfLife
       @cells = Array.new(grid_size) { Array.new(grid_size) { Cell.new } }
     end
 
-    def alive_neighbours(x, y)
-      neighbours(x, y).count(&:alive?)
-    end
-
-    def dead_neighbours(x, y)
-      neighbours(x, y).count(&:dead?)
-    end
-
     def neighbours(x, y)
       [
         top_left_neighbour(x, y), top_neighbour(x, y), top_right_neighbour(x, y),
