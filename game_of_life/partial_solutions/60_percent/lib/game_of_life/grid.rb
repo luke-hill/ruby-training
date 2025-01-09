@@ -19,6 +19,8 @@ module GameOfLife
       ].compact
     end
 
+    private
+
     def top_left_neighbour(x, y)
       return nil if y.zero? || x.zero?
 
@@ -66,8 +68,6 @@ module GameOfLife
 
       cell_at(x + 1, y + 1)
     end
-
-    private
 
     def cell_at(x, y)
       cells[y][x]
