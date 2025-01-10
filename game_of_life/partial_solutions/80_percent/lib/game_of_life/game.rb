@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'grid'
+require_relative 'rules'
 
 module GameOfLife
   # The Game of Life Game engine
@@ -11,6 +12,10 @@ module GameOfLife
 
     def grid_size
       10
+    end
+
+    def tick
+      :TICK
     end
   end
 end

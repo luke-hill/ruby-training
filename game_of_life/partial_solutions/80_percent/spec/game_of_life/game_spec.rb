@@ -14,4 +14,10 @@ RSpec.describe GameOfLife::Game do
       expect(game.grid_size).to eq(10)
     end
   end
+
+  describe '#tick' do
+    it 'is TBD' do
+      expect(game.tick).to eq(:TICK)
+    end
+  end
 end
