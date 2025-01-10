@@ -75,10 +75,8 @@ RSpec.describe GameOfLife::Grid do
   end
 
   describe '#seed' do
-    it 'updates every element in the entire grid' do
-      expect(grid.cells).to receive(:map).once
-
-      grid.seed(0.5)
+    it 'updates the grid cells - and every element in the grid' do
+      expect { grid.seed(0.5) }.to change(grid, :cells)
     end
   end
 end
