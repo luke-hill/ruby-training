@@ -8,7 +8,7 @@ module GameOfLife
     attr_reader :cells
 
     def initialize(grid_size)
-      @cells = Array.new(grid_size) { Array.new(grid_size) { Cell.new } }
+      @cells = Array.new(grid_size) { |y| Array.new(grid_size) { |x| Cell.new } }
     end
 
     def neighbours(x, y)
