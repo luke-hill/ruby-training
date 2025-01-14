@@ -7,7 +7,7 @@ RSpec.describe 'Classes can be opened in ruby' do
 
   it 'eats as defined' do
     hammy = Hamster.new
-    expect(hammy.eat).to eq(__)
+    expect(hammy.eat).to eq('MUNCH!')
   end
 
   # Open the existing Hamster class and add a new method.
@@ -19,8 +19,8 @@ RSpec.describe 'Classes can be opened in ruby' do
 
   it 'can now nibble too' do
     hammy = Hamster.new
-    expect(hammy.nibble).to eq(__)
-    expect(hammy.eat).to eq(__)
+    expect(hammy.nibble).to eq('mmmm')
+    expect(hammy.eat).to eq('MUNCH!')
   end
 
   class Integer
@@ -30,7 +30,7 @@ RSpec.describe 'Classes can be opened in ruby' do
   end
 
   it 'is possible to reopen built in classes' do
-    expect(1.even_number?).to eq(__)
-    expect(2.even_number?).to eq(__)
+    expect(1.even_number?).to eq(false)
+    expect(2.even_number?).to eq(true)
   end
 end
