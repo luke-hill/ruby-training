@@ -93,11 +93,11 @@ RSpec.describe 'Hashes' do
     hash[:a] << 'A'
     hash[:b] << 'B'
 
-    expect(hash[:a]).to eq(__)
-    expect(hash[:b]).to eq(__)
-    expect(hash[:c]).to eq(__)
+    expect(hash[:a]).to eq(["A", "B"])
+    expect(hash[:b]).to eq(["A", "B"])
+    expect(hash[:c]).to eq(["A", "B"])
 
-    expect(hash[:a].object_id == hash[:b].object_id).to eq(__)
+    expect(hash[:a].object_id == hash[:b].object_id).to eq(true)
   end
 
   it 'can set a default value using a block' do
@@ -106,8 +106,8 @@ RSpec.describe 'Hashes' do
     hash[:one] << 1
     hash[:two] << 2
 
-    expect(hash[:one]).to eq(__)
-    expect(hash[:two]).to eq(__)
-    expect(hash[:three]).to eq(__)
+    expect(hash[:one]).to eq([1])
+    expect(hash[:two]).to eq([2])
+    expect(hash[:three]).to eq([])
   end
 end
