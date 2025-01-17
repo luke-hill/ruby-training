@@ -1,12 +1,12 @@
 RSpec.describe 'Numbers' do
-  it 'can be created by typing the number' do
+  it 'can be created by typing the literal number' do
     integer = 42
     expect(integer.is_a?(Integer)).to eq(__)
     float = 42.1
     expect(float.is_a?(Float)).to eq(__)
   end
 
-  it 'has different object types for the different types of numbers' do
+  it 'has different object types for the different classifications of numbers' do
     expect(74.class).to eq(__)
     expect(-50.class).to eq(__)
     expect(74.3.class).to eq(__)
@@ -46,14 +46,14 @@ RSpec.describe 'Numbers' do
   end
 
   it 'can list all the digits of a number' do
-    # NB: This method does seem odd because of what is returned
+    # NB: This method will seem weird because of the way the answer is returned
     number = 123456
 
     expect(number.digits).to eq(__)
     expect(number.digits[3]).to eq(__)
   end
 
-  it 'also inherits from a parent class' do
+  it 'inherits from parent classes' do
     integer = 42
     expect(integer.is_a?(Numeric)).to eq(__)
     float = 42.1
