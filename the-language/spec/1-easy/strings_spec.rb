@@ -130,16 +130,23 @@ Humpty dumpty had a great fall
     expect(string).to eq(__)
   end
 
-  it 'can extract a substring' do
+  it 'uses #[] and a single argument to extract a single character as a substring' do
+    string = 'Bacon, lettuce and tomato'
+    # NB: When using the `[]` method. The argument goes "inside" the `[]` instead of `[](argument)
+    # This is a unique idiom to the `#[]` method and doesn't happen elsewhere with method arguments
+    expect(string[7]).to eq(__)
+  end
+
+  it 'can use #[] with two arguments to extract a substring' do
     string = 'Bacon, lettuce and tomato'
 
     expect(string[7, 3]).to eq(__)
-    expect(string[7..9]).to eq(__)
   end
 
-  it 'can extract a single character' do
+  it 'can use #[] with a range to extract a substring' do
     string = 'Bacon, lettuce and tomato'
-    expect(string[1]).to eq(__)
+
+    expect(string[7..9]).to eq(__)
   end
 
   it 'can split a string into individual characters' do
