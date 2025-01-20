@@ -1,6 +1,6 @@
 RSpec.describe 'Strings' do
   it 'can be created with double quotes' do
-    string = "Hello, world!"
+    string = 'Hello, world!'
     expect(string.is_a?(String)).to eq(__)
   end
 
@@ -19,7 +19,7 @@ RSpec.describe 'Strings' do
     expect(string).to eq(__)
   end
 
-  it "can use backslashes to escape the cases that don't fit" do
+  it 'can use backslashes to escape the cases that do not fit' do
     double = "Jane said \"Don't\""
     single = 'Jane said "Don\'t"'
 
@@ -59,8 +59,8 @@ Humpty dumpty had a great fall
   end
 
   it 'can also be written on multiple lines by "continuing" the string' do
-    string = "Humpty dumpty sat on the wall,"\
-             "Humpty dumpty had a great fall"
+    string = 'Humpty dumpty sat on the wall,'\
+             'Humpty dumpty had a great fall'
 
     expect(string.length).to eq(__)
     expect(string.lines.count).to eq(__)
@@ -94,12 +94,12 @@ Humpty dumpty had a great fall
     expect(greeting).to eq(__)
   end
 
-  it 'will interpret escape characters with double quotes' do
+  it 'will interpret escape characters when using double quotes' do
     string = "\n"
     expect(string.size).to eq(__)
   end
 
-  it "won't interpret escape characters with single quotes" do
+  it 'will not interpret escape characters when using single quotes' do
     string = '\n'
     expect(string.size).to eq(__)
   end
@@ -109,14 +109,14 @@ Humpty dumpty had a great fall
     expect(string.size).to eq(__)
   end
 
-  it 'can interpolate variable using double quotes' do
+  it 'can interpolate variables when using double quotes' do
     count = 99
     string = "#{count} bottles of beer on the wall."
 
     expect(string).to eq(__)
   end
 
-  it "won't interpolate variable using single quotes" do
+  it 'cannot interpolate variables when using single quotes' do
     count = 99
     string = '#{count} bottles of beer on the wall.'
 
