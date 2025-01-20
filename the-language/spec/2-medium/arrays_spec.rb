@@ -26,7 +26,7 @@ RSpec.describe 'Arrays' do
     expect(array[0]).to eq(__)
     expect(array[3]).to eq(__)
 
-    # What do you thing will happen here?
+    # What do you think will happen here?
     expect(array[-1]).to eq(__)
     expect(array[-3]).to eq(__)
   end
@@ -38,7 +38,7 @@ RSpec.describe 'Arrays' do
     expect(array.last).to eq(__)
   end
 
-  it 'can be sliced using #slice with 2 arguments' do
+  it 'can be sliced using `#slice` with 2 arguments' do
     array = ['New York', 'Paris', 'London', 'Milan']
 
     expect(array.slice(0, 1)).to eq(__)
