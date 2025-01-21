@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Arrays' do
   it 'can be created like any other object' do
     empty = Array.new
