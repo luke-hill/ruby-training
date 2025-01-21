@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Message passing' do
   # The purpose of this Koan is to start showing you a VERY brief introduction
   # to metaprogramming, i.e. programming on-the-fly, or programmatically

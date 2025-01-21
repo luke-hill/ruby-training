@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Keyword args' do
   def method_with_keyword_arguments(one: 1, two: 'two')
     [one, two]

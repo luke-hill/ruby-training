@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Notice that we have defined EVERYTHING inside the Scopes module!
 module Scopes
   RSpec.describe 'Scopes' do
