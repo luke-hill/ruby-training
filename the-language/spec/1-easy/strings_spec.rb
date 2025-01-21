@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Strings' do
   it 'can be created with double quotes' do
     string = "Hello, world!"
@@ -83,6 +85,11 @@ Humpty dumpty had a great fall
   end
 
   it 'will concatenate on the end of a string using +=' do
+    # NB: This is a deprecated Koan.
+    #
+    # We will remove this as we don't want to advertise this as it is something frowned on in normal Ruby.
+    # You can use this method, but ideally we should always be creating new strings or methods and
+    # having the GC collect up all unwanted items
     original_greeting = 'Hello, '
     greeting = original_greeting
     subject  = 'World!'
@@ -176,6 +183,15 @@ Humpty dumpty had a great fall
   end
 
   it 'is a unique object' do
+    # NB: This is a "changing" Koan. It will change in output from when we start using frozen string literals
+    #
+    # In the world of computers, having things constantly be new objects takes up more memory in the heap
+    #
+    # Ideally we wouldn't want excess objects where we don't need them. So when we stipulate that all strings
+    # are to be frozen, we know they will be immutable, so their place in memory can now be reserved and determinate
+    #
+    # As such all frozen strings from Ruby 3.0 will take up the same object-space, and act akin to a symbol
+    # which will improve the programs memory footprint but also change the way this Koan is answered
     a = 'Hello, world!'
     b = 'Hello, world!'
 
@@ -184,7 +200,8 @@ Humpty dumpty had a great fall
     puts b.object_id
 
     # What does the above 2 commands show you in the console?
-    # Why do you think this is the case, have a quick think / google
+
+    # These object ids weren't always the same. What would make them the same / different?
     expect(a.object_id == b.object_id).to eq(__)
   end
 end

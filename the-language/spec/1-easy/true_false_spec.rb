@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'true/truthy and false/falsy' do
   def truth_tester(condition)
     if condition

@@ -11,6 +11,7 @@ RSpec.describe 'Pass by reference vs Pass by value' do
 
   it 'is possible to pass something which can be seen as pass by reference' do
     # NB: This is essentially a deprecated Koan. It will fail when using frozen string literals
+    #
     # This is because we are overwriting and mutating in place
     # See the koan below for another example that won't be deprecated
     x = 'string'

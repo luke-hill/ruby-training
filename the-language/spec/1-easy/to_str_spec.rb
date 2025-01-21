@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe '#to_str' do
   class NotLikeAString
     def to_s

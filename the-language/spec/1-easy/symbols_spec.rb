@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Symbols' do
   it 'is a type of symbol class' do
     symbol = :a_symbol
