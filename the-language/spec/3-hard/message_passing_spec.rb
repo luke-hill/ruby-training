@@ -15,31 +15,31 @@ RSpec.describe 'Message passing' do
   it 'can call methods directly' do
     mc = MessageCatcher.new
 
-    expect(mc.caught?).to eq(__)
+    expect(mc.caught?).to eq(true)
   end
 
   it 'can invoke a method using send and the method name as a symbol' do
     mc = MessageCatcher.new
 
-    expect(mc.send(:caught?)).to eq(__)
+    expect(mc.send(:caught?)).to eq(true)
   end
 
   it 'can invoke methods even more dynamically using code' do
     mc = MessageCatcher.new
 
-    expect(mc.send('caught?')).to eq(__)
+    expect(mc.send('caught?')).to eq(true)
 
     # What do you need to add to the first string?
-    expect(mc.send('caught' + __)).to eq(true)
+    expect(mc.send('caught' + '?')).to eq(true)
 
     # What would you need to do to the string?
-    expect(mc.send('CAUGHT?'.__)).to eq(true)
+    expect(mc.send('CAUGHT?'.downcase)).to eq(true)
   end
 
   it 'can also use __send__ to perform the same behaviour' do
     mc = MessageCatcher.new
 
-    expect(mc.__send__(:caught?)).to eq(__)
+    expect(mc.__send__(:caught?)).to eq(true) # send should never be re-defined as this is already a method frequently used in Ruby
 
     # THINK ABOUT IT: Why does Ruby provide both send and __send__ ?
     # NB: The answer is fairly simple, but is something you should avoid
@@ -49,8 +49,8 @@ RSpec.describe 'Message passing' do
   it 'can ask an object if it knows how to respond to the method in question' do
     mc = MessageCatcher.new
 
-    expect(mc.respond_to?(:caught?)).to eq(__)
-    expect(mc.respond_to?(:does_not_exist)).to eq(__)
+    expect(mc.respond_to?(:caught?)).to eq(true)
+    expect(mc.respond_to?(:does_not_exist)).to eq(false)
   end
 
   class MessageCatcher
@@ -62,11 +62,11 @@ RSpec.describe 'Message passing' do
   it 'can #send a message with arguments' do
     mc = MessageCatcher.new
 
-    expect(mc.add_a_payload).to eq(__)
-    expect(mc.send(:add_a_payload)).to eq(__)
+    expect(mc.add_a_payload).to eq([])
+    expect(mc.send(:add_a_payload)).to eq([])
 
-    expect(mc.add_a_payload(3, 4, nil, 6)).to eq(__)
-    expect(mc.send(:add_a_payload, 3, 4, nil, 6)).to eq(__)
+    expect(mc.add_a_payload(3, 4, nil, 6)).to eq([3, 4, nil, 6])
+    expect(mc.send(:add_a_payload, 3, 4, nil, 6)).to eq([3, 4, nil, 6])
   end
 
   # NOTE:
