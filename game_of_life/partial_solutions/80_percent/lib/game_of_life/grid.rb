@@ -19,6 +19,11 @@ module GameOfLife
       ].compact
     end
 
+    def next_state
+      # For now we calculate next state on one cell - at position 3,3 arbitrarily
+      :TBD
+    end
+
     def seed(proportion_of_alive_cells)
       cells.map! do |row|
         row.map! do |cell|

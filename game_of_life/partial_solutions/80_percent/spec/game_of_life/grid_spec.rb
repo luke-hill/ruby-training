@@ -74,6 +74,14 @@ RSpec.describe GameOfLife::Grid do
     end
   end
 
+  describe '#next_state' do
+    context 'when checking for only the cell at (3, 3)' do
+      it 'is TBD' do
+        expect(grid.next_state).to eq(:TBD)
+      end
+    end
+  end
+
   describe '#seed' do
     it 'updates the grid cells - and every element in the grid' do
       expect { grid.seed(0.5) }.to change(grid, :cells)
