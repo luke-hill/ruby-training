@@ -14,7 +14,7 @@ module GameOfLife
     def become_alive?
       survival? || reproduction?
     end
-    
+
     private
 
     def alive_neighbours

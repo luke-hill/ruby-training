@@ -9,35 +9,8 @@ RSpec.describe GameOfLife::Rules do
   describe '#become_alive?' do
     subject { rules_engine.become_alive? }
 
-    context 'when the cell is alive' do
+    context 'when the cell is alive and there are enough neighbours' do
       let(:cell) { alive_cell }
-
-      context 'when there are enough neighbours' do
-        let(:neighbours) do
-          [
-            alive_cell, dead_cell, dead_cell,
-            alive_cell,            dead_cell,
-            alive_cell, dead_cell, dead_cell
-          ]
-        end
-
-        it { is_expected.to be true }
-      end
-
-      context 'when there are too many neighbours' do
-        let(:neighbours) do
-          [
-            alive_cell, alive_cell, dead_cell,
-            alive_cell,             dead_cell,
-            alive_cell, alive_cell, dead_cell
-          ]
-        end
-
-        it { is_expected.to be false }
-      end
-    end
-
-    context 'when the cell is dead' do
       let(:neighbours) do
         [
           alive_cell, dead_cell, dead_cell,
@@ -46,24 +19,46 @@ RSpec.describe GameOfLife::Rules do
         ]
       end
 
-      context 'when there are 3 neighbours' do
-        let(:cell) { dead_cell }
+      it { is_expected.to be true }
+    end
 
-        it { is_expected.to be true }
+    context 'when the cell is alive and there are too many neighbours' do
+      let(:cell) { alive_cell }
+      let(:neighbours) do
+        [
+          alive_cell, alive_cell, dead_cell,
+          alive_cell,             dead_cell,
+          alive_cell, alive_cell, dead_cell
+        ]
       end
 
-      context 'when there are not 3 neighbours' do
-        let(:cell) { dead_cell }
-        let(:neighbours) do
-          [
-            alive_cell, alive_cell, dead_cell,
-            alive_cell,             dead_cell,
-            alive_cell, alive_cell, dead_cell
-          ]
-        end
+      it { is_expected.to be false }
+    end
 
-        it { is_expected.to be false }
+    context 'when the cell is dead and there are 3 neighbours' do
+      let(:cell) { dead_cell }
+      let(:neighbours) do
+        [
+          alive_cell, dead_cell, dead_cell,
+          alive_cell,            dead_cell,
+          alive_cell, dead_cell, dead_cell
+        ]
       end
+
+      it { is_expected.to be true }
+    end
+
+    context 'when the cell is dead and there are not 3 neighbours' do
+      let(:cell) { dead_cell }
+      let(:neighbours) do
+        [
+          alive_cell, alive_cell, dead_cell,
+          alive_cell,             dead_cell,
+          alive_cell, alive_cell, dead_cell
+        ]
+      end
+
+      it { is_expected.to be false }
     end
   end
 end
