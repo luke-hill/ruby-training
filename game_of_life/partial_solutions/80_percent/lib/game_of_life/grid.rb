@@ -26,9 +26,7 @@ module GameOfLife
       cell = cell_at(*arbitrary_point)
       cell_neighbours = neighbours(*arbitrary_point)
       engine = Rules.new(cell, cell_neighbours)
-      surviving = engine.survival?
-      reproducing = engine.survival?
-      surviving && reproducing
+      _to_become_alive = engine.become_alive?
     end
 
     def seed(proportion_of_alive_cells)
