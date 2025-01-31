@@ -3,6 +3,8 @@
 module GameOfLife
   # A single cell in Conway's Game of Life
   class Cell
+    attr_reader :x, :y
+
     # All cells start as alive
     def initialize(x, y)
       @state = :alive
