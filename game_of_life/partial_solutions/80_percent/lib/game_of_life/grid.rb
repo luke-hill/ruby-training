@@ -22,14 +22,13 @@ module GameOfLife
 
     def next_state
       # For now we calculate next state on one cell - at position 3,3 arbitrarily
-      :TBD
       arbitrary_point = [3, 3]
       cell = cell_at(*arbitrary_point)
       cell_neighbours = neighbours(*arbitrary_point)
       engine = Rules.new(cell, cell_neighbours)
       surviving = engine.survival?
       reproducing = engine.survival?
-      puts surviving && reproducing && surviving
+      surviving && reproducing
     end
 
     def seed(proportion_of_alive_cells)
