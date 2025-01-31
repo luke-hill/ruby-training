@@ -11,18 +11,22 @@ module GameOfLife
       @neighbours = neighbours
     end
 
+    def become_alive?
+      survival? || reproduction?
+    end
+    
+    private
+
+    def alive_neighbours
+      neighbours.count(&:alive?)
+    end
+
     def survival?
       cell.alive? && alive_neighbours.between?(2, 3)
     end
 
     def reproduction?
       cell.dead? && alive_neighbours == 3
-    end
-
-    private
-
-    def alive_neighbours
-      neighbours.count(&:alive?)
     end
   end
 end
