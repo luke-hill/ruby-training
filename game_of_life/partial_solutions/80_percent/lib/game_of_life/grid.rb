@@ -6,9 +6,10 @@ require_relative 'rules'
 module GameOfLife
   # The Game of Life grid of cells
   class Grid
-    attr_reader :cells
+    attr_reader :cells, :grid_size
 
     def initialize(grid_size)
+      @grid_size = grid_size
       @cells = Array.new(grid_size) { |y| Array.new(grid_size) { |x| Cell.new(x, y) } }
     end
 
@@ -21,12 +22,17 @@ module GameOfLife
     end
 
     def next_state
-      # For now we calculate next state on one cell - at position 3,3 arbitrarily
-      arbitrary_point = [3, 3]
-      cell = cell_at(*arbitrary_point)
-      cell_neighbours = neighbours(*arbitrary_point)
-      engine = Rules.new(cell, cell_neighbours)
-      _to_become_alive = engine.become_alive?
+      new_grid = Array.new(grid_size) do |y|
+        Array.new(grid_size) do |x|
+          previous_cell = cell_at(x, y)
+          previous_neighbours = neighbours(x, y)
+          engine = Rules.new(previous_cell, previous_neighbours)
+          _to_become_alive = engine.become_alive?
+
+          Cell.new(x, y)
+        end
+      end
+      @cells = new_grid
     end
 
     def seed(proportion_of_alive_cells)
