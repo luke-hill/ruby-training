@@ -77,7 +77,7 @@ RSpec.describe GameOfLife::Grid do
   describe '#next_state' do
     context 'when checking for only the cell at (3, 3)' do
       it 'is TBD' do
-        expect(grid.next_state).to eq(:TBD)
+        expect(grid.next_state).to eq(:dead)
       end
     end
   end
