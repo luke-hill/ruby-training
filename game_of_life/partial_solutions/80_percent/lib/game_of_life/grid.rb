@@ -29,7 +29,7 @@ module GameOfLife
           engine = Rules.new(previous_cell, previous_neighbours)
           _to_become_alive = engine.become_alive?
 
-          Cell.new(x, y)
+          Cell.new(x, y).tap { |cell| cell.dead! unless _to_become_alive }
         end
       end
       @cells = new_grid
