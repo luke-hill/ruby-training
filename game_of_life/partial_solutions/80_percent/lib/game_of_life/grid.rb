@@ -24,12 +24,9 @@ module GameOfLife
     def next_state
       new_grid = Array.new(grid_size) do |y|
         Array.new(grid_size) do |x|
-          previous_cell = cell_at(x, y)
-          previous_neighbours = neighbours(x, y)
-          engine = Rules.new(previous_cell, previous_neighbours)
-          die = !engine.become_alive?
+          kill_cell = !Rules.new(cell_at(x, y), neighbours(x, y)).become_alive?
 
-          Cell.new(x, y).tap { |cell| cell.dead! if die }
+          Cell.new(x, y).tap { |cell| cell.dead! if kill_cell }
         end
       end
       @cells = new_grid
