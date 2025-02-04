@@ -32,10 +32,14 @@ module GameOfLife
       @cells = new_grid
     end
 
-    def seed(proportion_of_alive_cells)
+    def seed(chance_to_be_alive)
       cells.map! do |row|
         row.map! do |cell|
-          cell.tap { |c| c.dead! if rand > proportion_of_alive_cells }
+          if rand < chance_to_be_alive
+            cell.tap(&:alive!)
+          else
+            cell.tap(&:dead!)
+          end
         end
       end
     end
