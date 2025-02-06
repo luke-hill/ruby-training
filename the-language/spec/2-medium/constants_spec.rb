@@ -77,6 +77,10 @@ describe 'Constants in ruby are different' do
     expect(Animal::NestedAnimal.new.legs_in_nested_animal).to eq(__)
   end
 
+  it 'ignores inherited constants if a more local definition exists' do
+    expect(Animal::Millipede.new.legs_in_millipede).to eq(__)
+  end
+
   it 'inherits constants when subclassed from the parent class' do
     expect(Reptile.new.legs_in_reptile).to eq(__)
   end
