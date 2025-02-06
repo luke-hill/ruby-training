@@ -22,6 +22,14 @@ class Animal
       LEGS
     end
   end
+
+  class Millipede
+    LEGS = 1000
+
+    def legs_in_millipede
+      LEGS
+    end
+  end
 end
 
 # Constants in a child class
