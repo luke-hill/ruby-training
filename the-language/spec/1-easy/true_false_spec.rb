@@ -29,7 +29,7 @@ RSpec.describe 'true/truthy and false/falsy' do
   end
 
   # These are useful, if awkwardly named matchers
-  context 'rspec matchers' do
+  context 'RSpec matchers' do
     it 'matches truthy things with be_truthy' do
       pending 'REMOVE THIS LINE TO CONTINUE, ONCE YOU UNDERSTAND THE CODE BELOW'
       expect(true).to be_truthy
