@@ -108,6 +108,13 @@ RSpec.describe 'Regular expressions' do
     expect($2).to eq(__)
   end
 
+  it 'has a more intuitive named class method to access captures' do
+    expect('Name: Gary, James'[/(\w+), (\w+)/]).to eq(__)
+    expect(Regexp.last_match(1)).to eq(__)
+    expect(Regexp.last_match(2)).to eq(__)
+    # Think why these variables reference 1 and 2 and not 0 and 1?
+  end
+
   it 'uses a | to offer alternatives for a group' do
     simpsons = /(Bart|Lisa|Maggie) Simpson/
 
