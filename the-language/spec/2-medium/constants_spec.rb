@@ -26,9 +26,15 @@ describe 'Constants in ruby are different' do
     expect(::More::C).to eq(__)
   end
 
+  class More
+    def local
+      C
+    end
+  end
+
   it 'can access constants on instances as well as the class' do
     instance = More.new
-    expect(instance::C).to eq(__)
+    expect(instance.local).to eq(__)
   end
 
   class Animal
