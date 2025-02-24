@@ -10,6 +10,10 @@ class More
   def self.double_colon
     ::C
   end
+
+  def local
+    C
+  end
 end
 
 describe 'Constants in ruby are different' do
@@ -24,12 +28,6 @@ describe 'Constants in ruby are different' do
   it 'references nested constants using their complete path' do
     expect(More::C).to eq(__)
     expect(::More::C).to eq(__)
-  end
-
-  class More
-    def local
-      C
-    end
   end
 
   it 'can access constants on instances as well as the class' do
