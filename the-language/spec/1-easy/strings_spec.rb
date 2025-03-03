@@ -1,6 +1,6 @@
 RSpec.describe 'Strings' do
   it 'can be created with double quotes' do
-    string = 'Hello, world!'
+    string = "Hello, world!"
     expect(string.is_a?(String)).to eq(__)
   end
 
