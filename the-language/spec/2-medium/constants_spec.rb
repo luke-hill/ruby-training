@@ -7,7 +7,7 @@ class More
     C
   end
 
-  def self.double_colon
+  def self.global
     ::C
   end
 
@@ -22,7 +22,7 @@ describe 'Constants in ruby are different' do
   end
 
   it 'uses double colon to reference global constants' do
-    expect(More.double_colon).to eq(__)
+    expect(More.global).to eq(__)
   end
 
   it 'references nested constants using their complete path' do
