@@ -7,8 +7,12 @@ class More
     C
   end
 
-  def self.double_colon
+  def self.global
     ::C
+  end
+
+  def local
+    C
   end
 end
 
@@ -18,12 +22,17 @@ describe 'Constants in ruby are different' do
   end
 
   it 'uses double colon to reference global constants' do
-    expect(More.double_colon).to eq(__)
+    expect(More.global).to eq(__)
   end
 
   it 'references nested constants using their complete path' do
     expect(More::C).to eq(__)
     expect(::More::C).to eq(__)
+  end
+
+  it 'can access constants on instances as well as the class' do
+    instance = More.new
+    expect(instance.local).to eq(__)
   end
 
   class Animal
