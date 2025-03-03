@@ -9,12 +9,12 @@ of another "thing". One example could be making Coffee. We could make it ourselv
 Coffee Maker, press 2 buttons, and walk away for 5 minutes whilst it works its magic
 
 In our project here we are dealing with what could be considered to be a TV Remote control, which is just
-another form of a Proxy. For example we "could" walk up to the TV and change the channel manually.
-But most of us just use a TV Remote control. So here we are going to look at how we can tell one "thing"
-(For example a TV Remote Control), talk to another "thing" (The TV)
+another form of a Proxy. For example, we "could" walk up to the TV and change the channel manually,
+however most of us just use a Remote control for this process. So here we are going to look at how we
+can tell one "thing" (For example a TV Remote Control), to talk to another "thing" (The TV)
 
-It is worth pointing out this exercise will allow you to generate a mutable proxy. That is a Proxy that in theory
-could work in multiple ways (The spec file will explain this in more detail)
+It is worth pointing out this exercise will allow you to generate a mutable proxy. That is a Proxy that
+in theory could work in multiple ways (The spec file will explain this in more detail)
 
 We will do this in the following way ...
 
