@@ -21,6 +21,8 @@ RSpec.describe 'Arrays' do
   end
 
   it 'provides the subscript (index), operator for accessing elements' do
+    # NB: This is similar to the String substring operator we had in 1-easy/strings_spec.rb
+    # We provided a single integer input to `#[]` and it returned a substring?
     array = ['New York', 'Paris', 'London', 'Milan']
 
     expect(array[0]).to eq(__)
@@ -107,5 +109,15 @@ RSpec.describe 'Arrays' do
     simplified_symbol_array = %i[foo bar baz bay]
 
     expect(symbol_array == simplified_symbol_array).to eq(__)
+  end
+  
+  it 'has handy useful methods to operator on all of an array' do
+    array = [1, 2, 3, 4, 5]
+    # NB: We will deal with what these methods do in future specs
+
+    expect(array.respond_to?(:each)).to eq(__)
+    expect(array.respond_to?(:all?)).to eq(__)
+    expect(array.respond_to?(:map)).to eq(__)
+    expect(array.respond_to?(:select)).to eq(__)
   end
 end
