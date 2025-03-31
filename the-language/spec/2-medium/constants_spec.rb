@@ -12,12 +12,15 @@ class More
   end
 end
 
-describe 'Constants in ruby are different' do
+describe 'Constants in ruby' do
+  # Constants in ruby act quite differently to other languages. Predominantly they are different
+  # because they can be instantiated at any point in the life of the program, as such they are not
+  # really "constant" because they can be modified / altered
   it 'references local constants' do
     expect(More.local).to eq(__)
   end
 
-  it 'uses double colon to reference global constants' do
+  it 'uses a double colon to reference global constants' do
     expect(More.double_colon).to eq(__)
   end
 
@@ -60,7 +63,7 @@ describe 'Constants in ruby are different' do
     end
   end
 
-  context 'with an inherited class and an enclosing class' do
+  context 'with an inherited class AND an enclosing class' do
     it 'can add a new overridden constant (from the enclosing class), in a subclass' do
       expect(Zoo::Bird.new.legs_in_bird).to eq(__)
     end
@@ -74,7 +77,8 @@ describe 'Constants in ruby are different' do
     end
 
     # Remember that we have already defined what Zoo::LEGS was earlier
-    it 'always uses the top level enclosing class if previously defined' do
+    it 'always uses the top level enclosing class FIRST if it was previously defined' do
+      # i.e. the top level enclosing class is the "most important" determinant for inheritance of constants
       expect(Zoo::Oyster.new.legs_in_oyster).to eq(__)
     end
   end
