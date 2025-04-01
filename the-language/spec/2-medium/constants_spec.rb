@@ -24,8 +24,8 @@ describe 'Constants in ruby' do
     expect(More.local).to eq(__)
   end
 
-  it 'uses a double colon to reference global constants' do
-    expect(More.double_colon).to eq(__)
+  it 'uses the double colon `::`, syntax to reference global constants' do
+    expect(More.global).to eq(__)
   end
 
   it 'references nested constants using their complete path' do
