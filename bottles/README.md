@@ -86,14 +86,15 @@ rspec ./spec/bottles_spec.rb:8 # Bottles can sing a typical verse
 
 This is telling you there is a failing test in the `spec/bottles_spec.rb` file on line 10.
 
-**NB:** We introduce a new keyword here - `skip`. This is an rspec method that simply allows you
-to ignore a test, be it passing or failing. This does not contribute to the overall failure rate of the test suite.
+**NB:** We introduce a new keyword here - `skip`. This is a method in RSpec that allows you
+to ignore a test, be it passing or failing. This does not contribute to the overall failure
+rate of the test suite - but will be mentioned in the resulting summary.
 
-That is why in the window pane you see 1 failure and 6 pending tests. To run these additional tests
-simply delete the keyword `skip` and the test will then run.
+That is why in the terminal you will see 1 failure and 6 pending tests. To run these additional
+tests simply delete the line featuring the keyword `skip` and the test will then run.
 
-For your next steps, as discussed, we need to just make the first test pass. Have a quick think
-discuss in groups if appropriate and work out what code you need to write to make Test 1 pass.
+For your next steps, as discussed, we need to just make the first test pass. Have a quick think / chat
+(in groups if appropriate), to work out what code you need to write to make Test 1 pass.
 
 For TDD, as a purist, you want to write the bare minimum code to make the tests pass.
 

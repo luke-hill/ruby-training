@@ -20,7 +20,9 @@ To run the exercise, you just need to run:
 $ rspec
 ```
 
-By now you should know that to start with all of the examples will fail! The output should contain (near the bottom)
+By now, you should know that to start with all the examples will fail ...
+
+The output should contain (near the bottom)
 
 ```
 Finished in 0.01204 seconds (files took 0.04858 seconds to load)
@@ -30,11 +32,11 @@ Finished in 0.01204 seconds (files took 0.04858 seconds to load)
 Now we need to fix the specs. There are 2 files inside the `lib/` directory that we need to edit.
 These two files will tell us how to solve the following problems.
 
-1. Validate whether a single letter input is ...
+1. Validate whether a single letter is ...
    * Either a vowel or a consonant
    * Is in the first half of the alphabet or the second half of the alphabet
    * Is one of the most popular letters (By frequency)
-2. Validate whether a numerical input is ...
+2. Validate whether a number is ...
    * Odd or even
    * Divisible by any of 3/5/7/9
 

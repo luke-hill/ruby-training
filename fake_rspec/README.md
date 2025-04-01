@@ -1,10 +1,10 @@
 # Fake RSpec
 
-RSpec is a testing tool we use to perform assertions. Fundamentally it is comprised of 3 items.
+RSpec is a testing tool we use to perform assertions. Essentially it comprises 3 items.
 
-- An Expectation: This is an object which will be our "found" value
-- A Matcher: This is a rule that tells you how to compare a with b
-- An Assertion: This is an object which will be our "assumed" value
+- Expectations: These are objects which will represent our "found" values
+- Matchers: These are rule or tests that tells you how to compare expected with actual
+- Assertions: These are objects which will be our "assumed" or "actual" values
 
 Mathematically RSpec performs the following binary operation.
 

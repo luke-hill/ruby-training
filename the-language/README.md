@@ -1,23 +1,21 @@
 # Ruby: The Language
 
-We are going to take a trip around the ruby language. Ruby is a large language
-with many nooks and crannies. We won't cover everything, but we will give you
-enough information that you can get started, and know where you can go to
-discover more.
+We are going to take a trip around the ruby language. Ruby is a large language with
+many nooks and crannies. We won't cover everything, but we will give you enough
+information that you can get started, and know where you can go to discover more.
 
-As we work through the various lessons, you will be using a ruby testing tool
-called [RSpec](https://github.com/rspec/rspec). Some of the syntax used may look
-unfamiliar, but it should be quite readable. We will learn what all of the
-syntax means as we work through the problems.
+As we work through the various lessons, you will be using a ruby testing tool called
+[RSpec](https://github.com/rspec/rspec). Some of the syntax used may look unfamiliar, but it should be quite
+readable. We will learn what all the syntax means as we work through the problems.
 
 We are going to perform a set of exercises called Koans. Adapted from the Ruby-Koans guide.
 Koans are akin to how you may have solved primary school maths, with such problems as
-`2 + _ = 5` - What is the missing number? Here it is **3**.
+`2 + _ = 5` - What is the missing number? (Here it is **3**).
 
 In these exercises in `the-language`, we will encounter the same problem - hundreds of times.
-Starting with nice easy ones like `expect(1 + 1).to eq (__)` and ending with
-metaprogramming concepts that will allow you to send messages between 2 different "Classes"
-(A class is just a single thing or object; like a dog or cat).
+Starting with nice easy ones like `expect(1 + 1).to eq (__)` and ending with metaprogramming
+concepts that will allow you to send messages between 2 different "Classes". (A class can be
+thought of as just a single thing or object; like a dog or cat).
 
 ## Setup
 
