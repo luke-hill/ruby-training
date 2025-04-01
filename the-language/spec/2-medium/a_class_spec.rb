@@ -2,7 +2,7 @@ RSpec.describe 'Classes' do
   class Dog
   end
 
-  it 'creates new instances of a class using the new method' do
+  it 'creates new instances of a class using the `#new` method' do
     fido = Dog.new
     expect(fido.class).to eq(__)
   end
@@ -32,14 +32,14 @@ RSpec.describe 'Classes' do
     end.to raise_error(__)
   end
 
-  it 'can obtain the value of an instance variable using #instance_variable_get' do
+  it 'can obtain the value of an instance variable using `#instance_variable_get`' do
     fido = BrownDog.new
     fido.set_name('Fido')
 
     expect(fido.instance_variable_get('@name')).to eq(__)
   end
 
-  it 'can also obtain the value of an instance variable using #instance_eval' do
+  it 'can also obtain the value of an instance variable using `#instance_eval`' do
     fido = BrownDog.new
     fido.set_name('Fido')
 
@@ -72,7 +72,7 @@ RSpec.describe 'Classes' do
     end
   end
 
-  it 'can automatically define a reader method using #attr_reader' do
+  it 'can automatically define a reader method using `#attr_reader`' do
     fido = BlackDog.new
     fido.set_name('Fido')
 
@@ -83,7 +83,7 @@ RSpec.describe 'Classes' do
     attr_accessor :name
   end
 
-  it 'can automatically create readers and writers with #attr_accessor' do
+  it 'can automatically create readers AND writers together by using `#attr_accessor`' do
     fido = SpottedDog.new
 
     fido.name = 'Fido'
@@ -98,12 +98,12 @@ RSpec.describe 'Classes' do
     end
   end
 
-  it 'uses #initialize to set up initial values of instance variables' do
+  it 'uses the `#initialize` method to set up initial values of instance variables when instantiated' do
     fido = FluffyDog.new('Fido')
     expect(fido.name).to eq(__)
   end
 
-  it 'must match the number of arguments when calling `new` with the #initialize method' do
+  it 'must match the number of arguments when calling `#new` with the user-defined `#initialize` method' do
     expect { FluffyDog.new }.to raise_error(__)
     # THINK ABOUT IT: Why is this so?
   end
@@ -136,29 +136,29 @@ RSpec.describe 'Classes' do
   end
 
   # This is a complicated one
-  it 'uses self to refer to the current object (whatever it is)' do
+  it 'uses `self` to refer to the current object (whatever it is)' do
     fido = BabyDog.new('Fido')
 
     fidos_self = fido.get_self
     expect(fidos_self).to eq(__)
   end
 
-  it 'provides a string version of the object with to_s' do
+  it 'provides a string version of the object with `#to_s`' do
     fido = BabyDog.new('Fido')
     expect(fido.to_s).to eq(__)
   end
 
-  it 'automatically uses #to_s when inside a string being interpolated' do
+  it 'automatically uses `#to_s` when inside a string that is being interpolated' do
     fido = BabyDog.new('Fido')
     expect("My dog is #{fido}").to eq(__)
   end
 
-  it 'uses #inspect to provide a string description of the object' do
+  it 'uses `#inspect` to provide a string description of the object' do
     fido = BabyDog.new('Fido')
     expect(fido.inspect).to eq(__)
   end
 
-  it 'has #to_s and #inspect on all objects' do
+  it 'has `#to_s` and `#inspect` on all objects' do
     array = [1, 2, 3]
 
     expect(array.to_s).to eq(__)

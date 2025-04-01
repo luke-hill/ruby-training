@@ -28,7 +28,7 @@ $ bundle
 
 ## Working through the exercise
 
-Initially you should start by making all of the burger tests pass. This is a small task. Then steadily
+Initially you should start by making all the burger tests pass. This is a small task. Then steadily
 you should evolve your code, creating new classes and modules and then later eventually removing some of
 these complex classes / modules - replacing them with cleaner / leaner ones.
 
