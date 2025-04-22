@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Objects in ruby' do
+RSpec.describe 'Objects' do
   it 'is fundamental - everything in ruby is an object' do
     expect(10.is_a?(Object)).to eq(__)
     expect(3.5.is_a?(Object)).to eq(__)
@@ -14,12 +14,12 @@ RSpec.describe 'Objects in ruby' do
     expect(nil.to_s).to eq(__)
   end
 
-  it 'can be inspected (as if you had done so in a console)' do
+  it 'can be inspected (as if you checked the value in irb or a console)' do
     expect(123.inspect).to eq(__)
     expect(nil.inspect).to eq(__)
   end
 
-  it 'has an id' do
+  it 'has an object id' do
     obj = Object.new
     expect(obj.object_id.class).to eq(__)
   end
@@ -30,7 +30,7 @@ RSpec.describe 'Objects in ruby' do
     expect(obj.object_id != another_obj.object_id).to eq(__)
   end
 
-  it 'has a fixed id when it is a small integer' do
+  it 'has a fixed `#object_id` when it is a small integer' do
     expect(0.object_id).to eq(__)
     expect(1.object_id).to eq(__)
     expect(2.object_id).to eq(__)

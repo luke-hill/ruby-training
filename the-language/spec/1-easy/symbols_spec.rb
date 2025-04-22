@@ -3,6 +3,7 @@
 RSpec.describe 'Symbols' do
   it 'is a type of symbol class' do
     symbol = :a_symbol
+
     expect(symbol.is_a?(Symbol)).to eq(__)
   end
 
@@ -15,7 +16,7 @@ RSpec.describe 'Symbols' do
     expect(a_symbol == another_symbol).to eq(__)
   end
 
-  it 'is a single, non-unique internal object' do
+  it 'is a single, non-unique, internal object' do
     a_symbol        = :a_symbol
     the_same_symbol = :a_symbol
 
@@ -25,7 +26,7 @@ RSpec.describe 'Symbols' do
   it 'is created for every method name' do
     symbols_as_strings = Symbol.all_symbols.map { |symbol| symbol.to_s }
 
-    # `split` is a method on String that we have used previously
+    # `#split` is a method on String that we have used previously
     expect(symbols_as_strings.include?('split')).to eq(__)
   end
 
@@ -79,14 +80,14 @@ RSpec.describe 'Symbols' do
     expect(symbol == 'ruby').to eq(__)
   end
 
-  it "doesn't have string methods" do
+  it 'does not have string methods' do
     symbol = :world
 
     expect(symbol.respond_to?(:reverse)).to eq(__)
     expect(symbol.respond_to?(:split)).to eq(__)
   end
 
-  it "can't be concatenated" do
+  it 'cannot be concatenated' do
     expect { :hello + :world }.to raise_error(__)
   end
 

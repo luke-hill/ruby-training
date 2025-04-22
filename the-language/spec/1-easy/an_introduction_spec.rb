@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe 'An introduction to ruby' do
-  context 'using rspec expectations' do
+  context 'using RSpec expectations' do
     it 'checks reality' do
       expect(true).to be false # it should be true
     end

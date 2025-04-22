@@ -110,6 +110,14 @@ RSpec.describe 'Regular expressions' do
     expect($2).to eq(__)
   end
 
+  it 'has a more intuitive named class method to access captures' do
+    expect('Name: Gary, James'[/(\w+), (\w+)/]).to eq(__)
+    expect(Regexp.last_match(1)).to eq(__)
+    expect(Regexp.last_match(2)).to eq(__)
+    # Think why these variables reference 1 and 2 and not 0 and 1?
+    # HINT: It's not what you think! Spend some time looking at the docs
+  end
+
   it 'uses a | to offer alternatives for a group' do
     simpsons = /(Bart|Lisa|Maggie) Simpson/
 
@@ -123,10 +131,10 @@ RSpec.describe 'Regular expressions' do
   end
 
   it 'can use #sub to find and replace (a single instance), using regex' do
-    expect('one two-three'.sub(/(t\w*)/) { $1[0, 1] }).to eq(__)
+    expect('one two-three'.sub(/(t\w*)/) { Regexp.last_match(1)[0, 1] }).to eq(__)
   end
 
   it 'can use #gsub to find and replace (all instances), using regex' do
-    expect('one two-three'.gsub(/(t\w*)/) { $1[0, 1] }).to eq(__)
+    expect('one two-three'.gsub(/(t\w*)/) { Regexp.last_match(1)[0, 1] }).to eq(__)
   end
 end
