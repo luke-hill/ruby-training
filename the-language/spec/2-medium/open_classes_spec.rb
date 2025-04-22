@@ -51,17 +51,17 @@ RSpec.describe 'Classes can be opened in ruby' do
 
   # Open an existing standard class and rewrite a method.
   class String
-    def to_s
-      'Well I guess I can be co-erced!'
+    def itself
+      'Well I am myself of course!'
     end
   end
 
   it 'alters behaviour for our instances of the modified class' do
-    expect('String'.to_s).to eq(__)
-    expect(1.to_s).to eq(__)
-    expect(:symbol.to_s).to eq(__)
-    expect('A very long string'.to_s).to eq(__)
-    expect(Hamster.new.to_s).to eq(__)
+    expect('String'.itself).to eq(__)
+    expect(1.itself).to eq(__)
+    expect(:symbol.itself).to eq(__)
+    expect('A very long string'.itself).to eq(__)
+    expect(Hamster.new.itself).to eq(__)
   end
 
   # Open all object types and rewrite a method.
