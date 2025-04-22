@@ -18,7 +18,7 @@ RSpec.describe 'Pass by reference vs Pass by value' do
     y = x
     x = x.upcase
 
-    expect { expect(y).to eq('STRING') }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+    expect { expect(y).to eq(__) }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
   end
 
   it 'is also possible to mutate a larger standard object and pass by reference' do
