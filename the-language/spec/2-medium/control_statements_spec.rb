@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Control statements' do
   it 'has if / else statements' do
     if true

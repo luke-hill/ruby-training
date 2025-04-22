@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Blocks' do
   def method_with_block
     result = yield

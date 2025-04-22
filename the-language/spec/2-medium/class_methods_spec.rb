@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Class methods' do
   class Cat
   end

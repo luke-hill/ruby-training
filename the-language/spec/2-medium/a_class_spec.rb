@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Classes' do
   class Dog
   end

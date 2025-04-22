@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Classes can be opened in ruby' do
   class Hamster
     def eat

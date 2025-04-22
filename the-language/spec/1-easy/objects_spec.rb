@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Objects' do
   it 'is fundamental - everything in ruby is an object' do
     expect(10.is_a?(Object)).to eq(__)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Regular expressions' do
   it 'is a type of regexp' do
     expect(/pattern/.class).to eq(__)

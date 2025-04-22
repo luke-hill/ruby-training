@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Iterations' do
   it 'has an each method on arrays' do
     expect([].methods.include?(:each)).to eq(__)

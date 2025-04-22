@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Hashes' do
   it 'can be created like any other object' do
     empty_hash = Hash.new

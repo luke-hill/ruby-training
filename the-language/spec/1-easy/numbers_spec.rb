@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Numbers' do
   it 'can be created by typing the literal number' do
     integer = 42

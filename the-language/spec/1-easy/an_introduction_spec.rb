@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'An introduction to ruby' do
   context 'using RSpec expectations' do
     it 'checks reality' do

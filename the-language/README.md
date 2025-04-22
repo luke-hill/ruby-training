@@ -22,8 +22,7 @@ thought of as just a single thing or object; like a dog or cat).
 Install the dependencies:
 
 ```bash
-# The -v flag here is important as we're manually installing a version we "know" to work on Ruby 2.7.8
-$ gem install bundler -v 2.4.22 
+$ gem install bundler -v 2.6.3
 $ bundle
 ```
 

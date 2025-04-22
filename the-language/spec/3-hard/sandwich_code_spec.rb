@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Sandwich code' do
   # This is a common pattern you will see in ruby for finding files
   # relative to the current path. Look up whats happening on the ruby docs

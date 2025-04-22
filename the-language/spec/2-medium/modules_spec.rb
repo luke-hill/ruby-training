@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Modules' do
   module Nameable
     def set_name(new_name)
