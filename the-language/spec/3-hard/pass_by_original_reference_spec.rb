@@ -16,7 +16,7 @@ RSpec.describe 'Pass by reference vs Pass by value' do
     # See the koan below for another example that won't be deprecated
     x = 'string'
     y = x
-    x = x.upcase
+    expect { x.upcase! }.to raise_error(__)
 
     expect { expect(y).to eq(__) }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
   end
