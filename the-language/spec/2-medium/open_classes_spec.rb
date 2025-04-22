@@ -36,14 +36,14 @@ RSpec.describe 'Classes can be opened in ruby' do
     expect(2.even_number?).to eq(__)
   end
 
-  # Open the existing Hamster class and rewrite a method.
-  class Hamster
-    def nibble
-      'i am nibbling differently now'
-    end
-  end
-
   it 'nibbles differently' do
+    # Open the existing Hamster class and rewrite a method.
+    class Hamster
+      def nibble
+        'i am nibbling differently now'
+      end
+    end
+
     hammy = Hamster.new
     expect(hammy.nibble).to eq(__)
     expect(hammy.eat).to eq(__)
@@ -61,7 +61,6 @@ RSpec.describe 'Classes can be opened in ruby' do
     expect(1.itself).to eq(__)
     expect(:symbol.itself).to eq(__)
     expect('A very long string'.itself).to eq(__)
-    expect(Hamster.new.itself).to eq(__)
   end
 
   # Open all object types and rewrite a method.
