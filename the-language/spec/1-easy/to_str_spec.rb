@@ -21,7 +21,7 @@ RSpec.describe 'Converting items to Strings' do
     expect(not_like_a_string.to_s).to eq(__)
   end
 
-  it "can't use a normal object in place of a string using `#to_s`" do
+  it 'cannot use normal objects in place of strings by using `#to_s`' do
     expect { File.exist?(NotLikeAString.new) }.to raise_error(__)
   end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Converting items to Strings' do
     expect(like_a_string.to_str).to eq(__)
   end
 
-  it 'can be used in place of a string using `#to_str`' do
+  it 'can be used in place of a string by using `#to_str`' do
     expect(File.exist?(LikeAString.new)).to eq(__)
   end
 
@@ -40,7 +40,7 @@ RSpec.describe 'Converting items to Strings' do
     string.is_a?(String)
   end
 
-  it 'can check for `#to_str` in user-defined code' do
+  it 'can check for `#to_str` as a normal method in user-defined code' do
     expect(acts_like_a_string?(NotLikeAString.new)).to eq(__)
     expect(acts_like_a_string?(LikeAString.new)).to eq(__)
   end
