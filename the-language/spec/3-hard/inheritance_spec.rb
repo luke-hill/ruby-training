@@ -75,4 +75,34 @@ RSpec.describe 'Inheritance' do
     george = GreatDane.new('George')
     expect { george.growl }.to raise_error(__)
   end
+
+  class Alsatian < DogBase
+    def bark
+      super * 3
+    end
+
+    def snarl
+      'SNARL'
+    end
+  end
+
+  class Dalmatian < DogBase
+    def snarl
+      super.upcase
+    end
+  end
+
+  it 'will not permit `super` methods if they are not defined' do
+    roger = Dalmatian.new('Roger')
+    sammy = Alsatian.new('Roger')
+    expect(sammy.snarl).to eq(__)
+    expect { roger.snarl }.to raise_error(__)
+  end
+
+  it 'can invoke the parent method or the defined method' do
+    roger = Dalmatian.new('Roger')
+    sammy = Alsatian.new('Roger')
+    expect(sammy.bark).to eq(__)
+    expect(roger.bark).to eq(__)
+  end
 end
