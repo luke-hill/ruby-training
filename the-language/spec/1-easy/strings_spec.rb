@@ -203,9 +203,6 @@ Humpty dumpty had a great fall
     b = 'Hello, world!'
 
     expect(a == b).to be __
-    puts a.object_id
-    puts b.object_id
-    # What does the above 2 commands show you in the console?
 
     # These object ids weren't always the same. What would make them the same / different?
     expect { expect(a.object_id == b.object_id).to be __ }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
