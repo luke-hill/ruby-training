@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 C = 'top level'
 
 # Constants at existing class vs top level class
