@@ -34,7 +34,7 @@ RSpec.describe 'Regular expressions' do
   end
 
   it 'can use character classes to provide options' do
-    words = ['cat', 'sat', 'mat']
+    words = %w[cat sat mat]
     expect(words.select { |word| word[/[cm]at/] }).to eq(__)
   end
 

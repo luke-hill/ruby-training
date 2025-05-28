@@ -125,7 +125,7 @@ RSpec.describe 'Control statements' do
   end
 
   it 'has a for statement' do
-    array = ['fish', 'and', 'chips']
+    array = %w[fish and chips]
     result = []
     for item in array
       result << item.upcase

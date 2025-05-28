@@ -183,7 +183,7 @@ Humpty dumpty had a great fall
   end
 
   it 'can join strings' do
-    words = ['Welcome', 'to', 'the', 'joinery']
+    words = %w[Welcome to the joinery]
     string = words.join(' ')
 
     expect(string).to eq(__)

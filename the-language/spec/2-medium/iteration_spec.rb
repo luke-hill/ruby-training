@@ -72,7 +72,7 @@ RSpec.describe 'Iterations' do
   end
 
   it 'can `#detect` the first element that passes certain criteria' do
-    array = ['Jim', 'Bill', 'Clarence', 'Doug', 'Eli']
+    array = %w[Jim Bill Clarence Doug Eli]
 
     expect(array.detect { |item| item.length > 4 }).to eq(__)
 
@@ -87,7 +87,7 @@ RSpec.describe 'Iterations' do
     result2 = [2, 3, 4].inject(1) { |product, item| product * item }
     expect(result2).to eq(__)
 
-    result3 = ['a', 'b', 'c'].inject('') { |string, item| string + item }
+    result3 = %w[a b c].inject('') { |string, item| string + item }
     expect(result3).to eq(__)
 
     # Describe in your own words what `#inject` does?
