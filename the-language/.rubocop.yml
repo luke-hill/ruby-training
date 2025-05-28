@@ -9,6 +9,13 @@ AllCops:
   NewCops: enable
 
 # These offenses are the initial introduction to the format
+RSpec/RepeatedExample:
+  Exclude:
+    - spec/2-medium/control_statements_spec.rb
+    - spec/2-medium/iteration_spec.rb
+    - spec/3-hard/block_spec.rb
+
+# These offenses are the initial introduction to the format
 Style/EmptyLiteral:
   Exclude:
     - spec/2-medium/arrays_spec.rb
