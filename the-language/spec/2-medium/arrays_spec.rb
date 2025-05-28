@@ -59,7 +59,7 @@ RSpec.describe 'Arrays' do
   it 'is similar to a range' do
     expect((1..5).class).to eq(__)
     # Given these two items are not equal what do we expect to do with the tests below?
-    expect([1, 2, 3, 4, 5]).not_to eq((1..5))
+    expect([1, 2, 3, 4, 5]).not_to eq(1..5)
     expect(__).to eq((1..5).to_a)
     expect(__).to eq((1...5).to_a)
   end
