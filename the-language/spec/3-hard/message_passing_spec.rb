@@ -32,10 +32,10 @@ RSpec.describe 'Message passing' do
     expect(mc.send('caught?')).to eq(__)
 
     # What do you need to add to the first string?
-    expect(mc.send('caught' + __)).to eq(true)
+    expect(mc.send('caught' + __)).to be true
 
     # What would you need to do to the string?
-    expect(mc.send('CAUGHT?'.__)).to eq(true)
+    expect(mc.send('CAUGHT?'.__)).to be true
   end
 
   it 'can also use __send__ to perform the same behaviour' do
