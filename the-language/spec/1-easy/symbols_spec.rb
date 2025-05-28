@@ -45,7 +45,7 @@ RSpec.describe 'Symbols' do
 
   it 'can be created with spaces' do
     # NB: Symbols traditionally are snake_case only (Please don't use spaces!)
-    symbol = :"hello world"
+    symbol = :'hello world'
 
     expect(symbol.is_a?(Symbol)).to eq(__)
   end
@@ -53,7 +53,7 @@ RSpec.describe 'Symbols' do
   it 'can be created with an underscore or a hyphen' do
     underscore_symbol = :hello_world
     # NB: Symbols traditionally are snake_case only (Please don't use hyphens also!)
-    hyphenated_symbol = :"hello-world"
+    hyphenated_symbol = :'hello-world'
 
     expect(underscore_symbol.is_a?(Symbol)).to eq(__)
     expect(hyphenated_symbol.is_a?(Symbol)).to eq(__)
