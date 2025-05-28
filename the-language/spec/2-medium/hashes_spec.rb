@@ -38,8 +38,7 @@ RSpec.describe 'Hashes' do
     expect(hash.fetch(:three, 3)).to eq(__)
     expect(hash.fetch(:three) { 3 }).to eq(__)
 
-    # THINK: Why are there two ways for expressing this fallback behaviour? Have a google
-    # on this topic and note down your findings
+    # THINK: Why are there two ways for expressing this fallback behaviour? Have a Google on this topic and note down your findings
   end
 
   it 'allows you to change the value at a specific location' do

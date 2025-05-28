@@ -9,17 +9,16 @@ RSpec.describe 'Nil in ruby' do
     # Here we have created a begin -> rescue -> end block so that we can
     # capture the exception thrown, when we send nil a message that it
     # does not understand.
-    begin
-      nil.a_method_that_does_not_exist
-    rescue NoMethodError => e
-      # What sort of exception is thrown
-      expect(e.class).to eq(__)
 
-      # What extra information does ruby give us?
-      # You should replace __ here with part of the message
-      # / / is regex and just means that the item inside is "contained"
-      expect(e.message).to match(/__/)
-    end
+    nil.a_method_that_does_not_exist
+  rescue NoMethodError => e
+    # What sort of exception is thrown
+    expect(e.class).to eq(__)
+
+    # What extra information does ruby give us?
+    # You should replace __ here with part of the message
+    # / / is regex and just means that the item inside is "contained"
+    expect(e.message).to match(/__/)
   end
 
   it 'has a few methods defined on it' do

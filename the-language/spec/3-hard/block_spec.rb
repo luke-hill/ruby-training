@@ -2,8 +2,7 @@
 
 RSpec.describe 'Blocks' do
   def method_with_block
-    result = yield
-    result
+    yield
   end
 
   it 'can pass a block to a method' do
