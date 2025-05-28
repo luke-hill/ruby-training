@@ -27,7 +27,7 @@ RSpec.describe 'Sandwich code' do
   def find_line(file_name)
     file = open(file_name)
     while (line = file.gets)
-      return line if line.match(/e/)
+      return line if line.include?('e')
     end
   ensure
     file.close if file
