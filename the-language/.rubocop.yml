@@ -7,3 +7,24 @@ require:
 AllCops:
   TargetRubyVersion: 3.2
   NewCops: enable
+
+# These offenses are the initial introduction to the format
+Style/EmptyLiteral:
+  Exclude:
+    - spec/2-medium/arrays_spec.rb
+    - spec/2-medium/hashes_spec.rb
+
+# This offense is the initial introduction to the format
+Style/RedundantFetchBlock:
+  Exclude:
+    - spec/2-medium/hashes_spec.rb
+
+# This offense is the initial introduction to the format
+Style/StringLiterals:
+  Exclude:
+    - spec/1-easy/strings_spec.rb
+
+# This offense is the initial introduction to the format
+Style/WordArray:
+  Exclude:
+    - spec/2-medium/arrays_spec.rb
