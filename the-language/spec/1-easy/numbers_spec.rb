@@ -49,7 +49,7 @@ RSpec.describe 'Numbers' do
 
   it 'can list all the digits of a number' do
     # NB: This method will seem weird because of the way the answer is returned
-    number = 123456
+    number = 123_456
 
     expect(number.digits).to eq(__)
     expect(number.digits[3]).to eq(__)
