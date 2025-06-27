@@ -42,11 +42,11 @@ module Scopes
     end
 
     it 'creates new constants - our nested string is not identical to other String classes' do
-      expect(String == 'HI'.class).to eq(__)
+      expect('HI'.instance_of?(String)).to eq(__)
     end
 
     it 'can use the prefix :: to access top-level classes' do
-      expect(::String == 'HI'.class).to eq(__)
+      expect('HI'.instance_of?(::String)).to eq(__)
     end
 
     PI = 3.1416
@@ -59,12 +59,12 @@ module Scopes
 
     it 'uses constants as class names' do
       expect(MyString == ::String).to eq(__)
-      expect(MyString == 'HI'.class).to eq(__)
+      expect('HI'.instance_of?(MyString)).to eq(__)
     end
 
     it 'can look up constants explicitly' do
-      expect(PI == Scopes.const_get('PI')).to eq(__)
-      expect(MyString == Scopes.const_get('MyString')).to eq(__)
+      expect(Scopes.const_get('PI') == PI).to eq(__)
+      expect(Scopes.const_get('MyString') == MyString).to eq(__)
     end
 
     it 'can give you a list of all constants for any class or module' do
