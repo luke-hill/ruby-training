@@ -112,6 +112,12 @@ RSpec.describe 'Regular expressions' do
     expect('Gary, James'[/(\w+), (\w+)/, 2]).to eq(__)
   end
 
+  it 'can use metacharacters such as `?:` inside the start of parentheses to change how content is captured' do
+    expect('Gary, James'[/(?:\w+), (\w+)/, 1]).to eq(__)
+    expect('Gary, James'[/(\w+), (?:\w+)/, 2]).to eq(__)
+    expect('Gary!, James'[/(?!\w+), (\w+)/, 2]).to eq(__)
+  end
+
   it 'has special variables to access captures' do
     expect('Name: Gary, James'[/(\w+), (\w+)/]).to eq(__)
     expect($1).to eq(__)
