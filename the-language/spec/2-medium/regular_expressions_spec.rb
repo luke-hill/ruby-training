@@ -34,6 +34,14 @@ RSpec.describe 'Regular expressions' do
     expect('abbcccdddd'[/z*/]).to eq(__)
   end
 
+  it 'can use `[]` with more complex circumstances to signify complex character groups' do
+    words = ['catty', 'bratty', 'splat']
+    expect(words.select { |word| word[/[bcmr]at/] }).to eq(__)
+    expect(words.select { |word| word[/[bcmr]+atty/] }).to eq(__)
+    expect(words.select { |word| word[/[bcmr]+a(tty)*/] }).to eq(__)
+    expect(words.select { |word| word[/[bcmr]+a[ty]*/] }).to eq(__)
+  end
+
   it 'matches from the left first' do
     expect('acdz az'[/az*/]).to eq(__)
   end
