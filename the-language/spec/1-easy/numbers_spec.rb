@@ -61,4 +61,27 @@ RSpec.describe 'Numbers' do
     float = 42.1
     expect(float.is_a?(Numeric)).to eq(__)
   end
+
+  it 'can perform basic modular arithmetic operations' do
+    expect(20 % 2).to eq(__)
+    expect(20 % 3).to eq(__)
+    expect(20 % 4).to eq(__)
+    expect(20 % 5).to eq(__)
+    expect(20 % 6).to eq(__)
+  end
+
+  it 'can check if an integer is even or odd' do
+    expect(2.even?).to eq(__)
+    expect(3.even?).to eq(__)
+    expect(4.even?).to eq(__)
+
+    expect(2.odd?).to eq(__)
+    expect(3.odd?).to eq(__)
+    expect(4.odd?).to eq(__)
+  end
+
+  it 'cannot check if a float is even or odd' do
+    expect { (2.4).even? }.to raise_error(__)
+    expect { (2.4).odd? }.to raise_error(__)
+  end
 end
