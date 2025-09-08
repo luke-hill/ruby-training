@@ -61,4 +61,12 @@ RSpec.describe 'Numbers' do
     float = 42.1
     expect(float.is_a?(Numeric)).to eq(__)
   end
+
+  it 'can perform basic modular arithmetic operations' do
+    expect(20 % 2).to eq(__)
+    expect(20 % 3).to eq(__)
+    expect(20 % 4).to eq(__)
+    expect(20 % 5).to eq(__)
+    expect(20 % 6).to eq(__)
+  end
 end
