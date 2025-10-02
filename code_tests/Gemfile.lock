@@ -8,7 +8,7 @@ GEM
       ast (~> 2.4.1)
     rainbow (3.1.1)
     regexp_parser (2.4.0)
-    rexml (3.3.9)
+    rexml (3.4.2)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
       rspec-expectations (~> 3.11.0)
