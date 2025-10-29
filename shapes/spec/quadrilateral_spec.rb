@@ -6,13 +6,13 @@ require 'quadrilateral' # RSpec automatically adds `lib/` to the LOAD_PATH
 RSpec.describe 'quadrilateral types' do
   context 'when valid' do
     it 'is square or rectangle when all angles are the same' do
-      expect(quadrilateral(90, 90, 90, 90)).to eq([:square, :rectangle])
+      expect(quadrilateral(90, 90, 90, 90)).to eq(%i[square rectangle])
     end
 
     it 'is parallelogram or rhombus when there are 2 pairs of equal angles' do
-      expect(quadrilateral(95, 95, 85, 85)).to eq([:parallelogram, :rhombus])
-      expect(quadrilateral(120, 60, 120, 60)).to eq([:parallelogram, :rhombus])
-      expect(quadrilateral(95, 85, 85, 95)).to eq([:parallelogram, :rhombus])
+      expect(quadrilateral(95, 95, 85, 85)).to eq(%i[parallelogram rhombus])
+      expect(quadrilateral(120, 60, 120, 60)).to eq(%i[parallelogram rhombus])
+      expect(quadrilateral(95, 85, 85, 95)).to eq(%i[parallelogram rhombus])
     end
 
     it 'is a quadrilateral when no angles are equal' do

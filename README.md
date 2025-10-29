@@ -26,10 +26,10 @@ $ rvm reload
 # Quit the terminal once this has installed, and restart your machine
 $ type rvm | head -1
 $ rvm -v # This should output a number
-$ rvm install 3.1.6
 $ rvm install 3.2.6
 $ rvm install 3.3.6
 $ rvm install 3.4.1
+$ rvm install 3.4.7
 ```
 
 ### Dependency installation on ubuntu
@@ -53,10 +53,10 @@ $ rvm reload
 # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
-$ rvm install 3.1.6
 $ rvm install 3.2.6
 $ rvm install 3.3.6
 $ rvm install 3.4.1
+$ rvm install 3.4.7
 ```
 
 ## Setup
