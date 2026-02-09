@@ -28,7 +28,6 @@ $ type rvm | head -1
 $ rvm -v # This should output a number
 $ rvm install 3.2.6
 $ rvm install 3.3.6
-$ rvm install 3.4.1
 $ rvm install 3.4.7
 ```
 
@@ -53,10 +52,9 @@ $ rvm reload
 # In terminal, click Edit > Profile Preferences, click on Title and Command tab and check Run command as login shell.
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
-$ rvm install 3.2.6
-$ rvm install 3.3.6
-$ rvm install 3.4.1
-$ rvm install 3.4.7
+$ rvm install 3.2.10
+$ rvm install 3.3.10
+$ rvm install 3.4.8
 ```
 
 ## Setup
