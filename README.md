@@ -26,9 +26,11 @@ $ rvm reload
 # Quit the terminal once this has installed, and restart your machine
 $ type rvm | head -1
 $ rvm -v # This should output a number
-$ rvm install 3.2.6
+$ rvm install 3.2.10
 $ rvm install 3.3.6
-$ rvm install 3.4.7
+$ rvm install 3.3.10
+$ rvm install 3.4.1
+$ rvm install 3.4.8
 ```
 
 ### Dependency installation on ubuntu
@@ -53,7 +55,9 @@ $ rvm reload
 # Restart your terminal completely, and restart your machine
 $ rvm -v # This should output a number
 $ rvm install 3.2.10
+$ rvm install 3.3.6
 $ rvm install 3.3.10
+$ rvm install 3.4.1
 $ rvm install 3.4.8
 ```
 
