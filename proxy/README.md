@@ -47,7 +47,7 @@ And again, you'll notice some failures.... However, there will also be some pass
 The output should contain:
 
 ```
-Finished in 0.01232 seconds (files took 0.0374 seconds to load)
+Finished in 0.00622 seconds (files took 0.03912 seconds to load)
 23 examples, 19 failures
 ```
 
