@@ -3,7 +3,7 @@ GEM
   specs:
     ast (2.4.3)
     diff-lcs (1.6.2)
-    json (2.18.1)
+    json (2.19.2)
     language_server-protocol (3.17.0.5)
     parallel (1.27.0)
     parser (3.3.10.1)
