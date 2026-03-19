@@ -17,7 +17,7 @@ Install the dependencies:
 
 ```bash
 $ gem install bundler # if you don't have it already
-$ bundle
+$ bundle install
 ```
 
 ## Working through the examples
