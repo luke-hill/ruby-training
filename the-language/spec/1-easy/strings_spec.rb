@@ -84,22 +84,22 @@ Humpty dumpty had a great fall
     expect(suffix).to eq(__)
   end
 
-  it 'can concatenate on the end of a string using +=' do
-    # NB: This is a deprecated Koan.
-    #
-    # We will remove this as we don't want to advertise this as it is something frowned on in normal Ruby.
-    # You can use this method, but ideally we should always be creating new strings or methods and
-    # having the GC collect up all unwanted items
-    original_greeting = 'Hello, '
-    greeting = original_greeting
-    subject  = 'World!'
-
-    # NB: This mutates the original string, and is something frowned upon in normal ruby
-    greeting += subject
-
-    expect(original_greeting).to eq(__)
-    expect(greeting).to eq(__)
-  end
+  # ---DEPRECATED KOAN---
+  # This is a deprecated Koan. It will fail when using frozen string literals
+  # This is common parlance since ruby 2.7 and will be mandatory at some point in the future (We hope)
+  #
+  # This is because we are overwriting and mutating in place
+  # it 'can concatenate on the end of a string using +=' do
+  #   original_greeting = 'Hello, '
+  #   greeting = original_greeting
+  #   subject  = 'World!'
+  #
+  #   # NB: This mutates the original string, and is something frowned upon in normal ruby
+  #   greeting += subject
+  #
+  #   expect(original_greeting).to eq(__)
+  #   expect(greeting).to eq(__)
+  # end
 
   it 'can interpret escape characters when using double quotes' do
     string = "\n"
