@@ -3,29 +3,29 @@
 RSpec.describe 'Strings' do
   it 'can be created with double quotes' do
     string = "Hello, world!"
-    expect(string.is_a?(String)).to eq(__)
+    expect(string.is_a?(String)).to eq(true)
   end
 
   it 'can be created with single quotes' do
     string = 'Hello, you!'
-    expect(string.is_a?(String)).to eq(__)
+    expect(string.is_a?(String)).to eq(true)
   end
 
   it 'can create a string with single quotes that contains double quotes within it' do
     string = '"What a curious feeling!" said Alice.'
-    expect(string).to eq(__)
+    expect(string).to eq('"What a curious feeling!" said Alice.')
   end
 
   it 'can create a string with double quotes that contains single quotes within it' do
     string = "Isn't that useful?"
-    expect(string).to eq(__)
+    expect(string).to eq("Isn't that useful?")
   end
 
   it 'can use backslashes to escape the cases that do not fit' do
     double = "Jane said \"Don't\""
     single = 'Jane said "Don\'t"'
 
-    expect(double == single).to eq(__)
+    expect(double == single).to eq(true)
   end
 
   it 'has flexible quoting when things get difficult' do
@@ -34,8 +34,8 @@ RSpec.describe 'Strings' do
     b = %!flexible quotes allow both " and ' characters!
     c = %{flexible quotes allow both " and ' characters}
 
-    expect(a == b).to eq(__)
-    expect(a == c).to eq(__)
+    expect(a == b).to eq(true)
+    expect(a == c).to eq(true)
   end
 
   it 'can handle multiple lines with flexible quoting' do
@@ -44,9 +44,9 @@ Humpty dumpty sat on the wall,
 Humpty dumpty had a great fall
 }
 
-    expect(string.length).to eq(__)
-    expect(string.lines.count).to eq(__)
-    expect(string[0, 1]).to eq(__)
+    expect(string.length).to eq(63)
+    expect(string.lines.count).to eq(3)
+    expect(string[0, 1]).to eq("\n")
   end
 
   it 'can also handle multiple lines with a heredoc' do
@@ -55,23 +55,23 @@ Humpty dumpty had a great fall
       Humpty dumpty had a great fall
     STRING
 
-    expect(string.length).to eq(__)
-    expect(string.lines.count).to eq(__)
-    expect(string[0, 1]).to eq(__)
+    expect(string.length).to eq(62)
+    expect(string.lines.count).to eq(2)
+    expect(string[0, 1]).to eq("H")
   end
 
   it 'can also be written on multiple lines by "continuing" the string' do
     string = 'Humpty dumpty sat on the wall,'\
              'Humpty dumpty had a great fall'
 
-    expect(string.length).to eq(__)
-    expect(string.lines.count).to eq(__)
-    expect(string[0, 1]).to eq(__)
+    expect(string.length).to eq(60)
+    expect(string.lines.count).to eq(1)
+    expect(string[0, 1]).to eq("H")
   end
 
   it 'can be concatenated with +' do
     string = 'Hello, ' + 'World!'
-    expect(string).to eq(__)
+    expect(string).to eq("Hello, World!")
   end
 
   it 'does not modify the original string when using +' do
@@ -79,9 +79,9 @@ Humpty dumpty had a great fall
     suffix  = 'World!'
     greeting = prefix + suffix
 
-    expect(greeting).to eq(__)
-    expect(prefix).to eq(__)
-    expect(suffix).to eq(__)
+    expect(greeting).to eq("Hello, World!")
+    expect(prefix).to eq("Hello, ")
+    expect(suffix).to eq("World!")
   end
 
   # ---DEPRECATED KOAN---
@@ -103,90 +103,90 @@ Humpty dumpty had a great fall
 
   it 'can interpret escape characters when using double quotes' do
     string = "\n"
-    expect(string.size).to eq(__)
+    expect(string.size).to eq(1)
   end
 
   it 'cannot interpret escape characters when using single quotes' do
     string = '\n'
-    expect(string.size).to eq(__)
+    expect(string.size).to eq(2)
   end
 
   it 'can interpret some escape characters with single quotes' do
     string = '\\\\'
-    expect(string.size).to eq(__)
+    expect(string.size).to eq(2)
   end
 
   it 'can interpolate variables when using double quotes' do
     count = 99
     string = "#{count} bottles of beer on the wall."
 
-    expect(string).to eq(__)
+    expect(string).to eq("99 bottles of beer on the wall.")
   end
 
   it 'cannot interpolate variables when using single quotes' do
     count = 99
     string = '#{count} bottles of beer on the wall.'
 
-    expect(string).to eq(__)
+    expect(string).to eq("\#{count} bottles of beer on the wall.")
   end
 
   it 'can interpolate any ruby expression' do
     count = 99
     string = "#{(count - 1) / 2} bottles of beer on the wall."
 
-    expect(string).to eq(__)
+    expect(string).to eq("49 bottles of beer on the wall.")
   end
 
   it 'uses `#[]` and a single argument to extract a single character as a substring' do
     string = 'Bacon, lettuce and tomato'
     # NB: When using the `[]` method. The argument goes "inside" the `[]` instead of `[](argument)
     # This is a unique idiom to the `#[]` method and doesn't happen elsewhere with method arguments
-    expect(string[7]).to eq(__)
+    expect(string[7]).to eq("l")
   end
 
   it 'can use `#[]` with two arguments to extract a substring' do
     string = 'Bacon, lettuce and tomato'
 
-    expect(string[7, 3]).to eq(__)
+    expect(string[7, 3]).to eq("let")
   end
 
   it 'can use `#[]` with a range to extract a substring' do
     string = 'Bacon, lettuce and tomato'
 
-    expect(string[7..9]).to eq(__)
+    expect(string[7..9]).to eq("let")
   end
 
   it 'can split a string into individual characters' do
     string = 'Bacon, lettuce and tomato'
 
-    expect(string.chars).to eq(__)
+    expect(string.chars).to eq(["B", + "a", + "c", + "o", + "n", + ",", + " ", + "l", + "e", + "t", + "t", + "u", + "c", + "e", + " ", + "a", + "n", + "d", + " ", + "t", + "o", + "m", + "a", + "t", + "o"])
   end
 
   it 'represents single characters as strings' do
     # This single char representation isn't used in practice
-    expect(?a).to eq(__)
-    expect(?a == 97).to eq(__)
+    expect(?a).to eq("a")
+    expect(?a == 97).to eq(false)
   end
 
   it 'can split a string' do
     string = 'Strings Are Fun'
     words = string.split
 
-    expect(words).to eq(__)
+    expect(words).to eq(["Strings","Are","Fun"])
   end
 
   it 'can split a string on a different character' do
     string = 'has:many:through'
     words = string.split(':')
 
-    expect(words).to eq(__)
+    expect(words).to eq(["has","many","through"])
   end
 
   it 'can join strings' do
     words = ['Welcome', 'to', 'the', 'joinery']
     string = words.join(' ')
 
-    expect(string).to eq(__)
+    expect(string).to eq("Welcome to the joinery")
   end
 
   it 'is a unique object' do
@@ -202,7 +202,7 @@ Humpty dumpty had a great fall
     a = 'Hello, world!'
     b = 'Hello, world!'
 
-    expect(a == b).to be __
+    expect(a == b).to be true
 
     # These object ids weren't always the same. What would make them the same / different?
     expect { expect(a.object_id == b.object_id).to be __ }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
