@@ -5,9 +5,9 @@ require 'runtime_method_generator'
 RSpec.describe RuntimeMethodGenerator do
   let(:metaprogram) { subject }
 
-  describe '#funky_method' do
+  describe '#funky' do
     it 'does not exist by default' do
-      expect { metaprogram.funky_method }.to raise_error(NoMethodError)
+      expect { metaprogram.funky }.to raise_error(NoMethodError)
     end
   end
 
@@ -25,7 +25,7 @@ RSpec.describe RuntimeMethodGenerator do
     it 'permits the newly generated method to be called' do
       metaprogram.add_a_method
 
-      expect(metaprogram.funky_method).to eq(:funky)
+      expect(metaprogram.funky).to eq(:funky)
     end
   end
 

@@ -38,7 +38,7 @@ Do not worry though, these tests are simply here to ensure that you adhere to th
 do not edit or remove the pre-existing methods. A bit similar to the `proxy` project we just completed
 
 ```
-Finished in 0.01238 seconds (files took 0.03721 seconds to load)
+Finished in 0.0054 seconds (files took 0.04845 seconds to load)
 7 examples, 5 failures
 ```
 
