@@ -7,8 +7,9 @@ class NumberConverter
   end
 
   def in_english
-    return 'zero' if number.zero?
     raise ArgumentError unless number.between?(0, 999_999_999_999)
+
+    return 'zero' if number.zero?
 
     # Remove any items beforehand which are blank (2 * Slower than line 24-25)
     # reverse_chunked_number.reject! { |chunk| chunk == [0, 0, 0] }
