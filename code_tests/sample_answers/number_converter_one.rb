@@ -19,7 +19,7 @@ class NumberConverter
   private
 
   def zero
-    "zero"
+    'zero'
   end
 
   def digit
@@ -34,7 +34,7 @@ class NumberConverter
     [
       tens[ten_amount],
       units[unit_amount]
-    ].compact.join("-")
+    ].compact.join('-')
   end
 
   def unit_amount
@@ -53,57 +53,57 @@ class NumberConverter
     [
       "#{units[hundred_amount]} hundred",
       twenty_to_ninety_nine
-    ].reject(&:empty?).join(" ")
+    ].reject(&:empty?).join(' ')
   end
 
   def big_numbers
     {
-      100 => "hundred",
-      1_000 => "thousand",
-      1_000_000 => "million",
-      1_000_000_000 => "billion",
+      100 => 'hundred',
+      1_000 => 'thousand',
+      1_000_000 => 'million',
+      1_000_000_000 => 'billion'
     }
   end
 
   def units
     {
-      1 => "one",
-      2 => "two",
-      3 => "three",
-      4 => "four",
-      5 => "five",
-      6 => "six",
-      7 => "seven",
-      8 => "eight",
-      9 => "nine",
+      1 => 'one',
+      2 => 'two',
+      3 => 'three',
+      4 => 'four',
+      5 => 'five',
+      6 => 'six',
+      7 => 'seven',
+      8 => 'eight',
+      9 => 'nine'
     }
   end
 
   def teens
     {
-      10 => "ten",
-      11 => "eleven",
-      12 => "twelve",
-      13 => "thirteen",
-      14 => "fourteen",
-      15 => "fifteen",
-      16 => "sixteen",
-      17 => "seventeen",
-      18 => "eighteen",
-      19 => "nineteen",
+      10 => 'ten',
+      11 => 'eleven',
+      12 => 'twelve',
+      13 => 'thirteen',
+      14 => 'fourteen',
+      15 => 'fifteen',
+      16 => 'sixteen',
+      17 => 'seventeen',
+      18 => 'eighteen',
+      19 => 'nineteen'
     }
   end
 
   def tens
     {
-      2 => "twenty",
-      3 => "thirty",
-      4 => "forty",
-      5 => "fifty",
-      6 => "sixty",
-      7 => "seventy",
-      8 => "eighty",
-      9 => "ninety",
+      2 => 'twenty',
+      3 => 'thirty',
+      4 => 'forty',
+      5 => 'fifty',
+      6 => 'sixty',
+      7 => 'seventy',
+      8 => 'eighty',
+      9 => 'ninety'
     }
   end
 end

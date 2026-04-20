@@ -7,7 +7,7 @@ class NumberConverter
   end
 
   def in_english
-    return "zero" if number.zero?
+    return 'zero' if number.zero?
     raise ArgumentError unless number.between?(0, 999_999_999_999)
 
     # Remove any items beforehand which are blank (2 * Slower than line 24-25)
@@ -18,11 +18,11 @@ class NumberConverter
       partial_word(chunk)
     end.zip(ascending_word_chunks)
 
-    # Remove any items which are completely nil, i.e. nil million shouldn't be included (2 * Faster than line 16-17)
+    # Remove any items which are completely nil, i.e. "nil million" shouldn't be included (2 * Faster than line 16-17)
     output_array.reject! { |quantity, _word| quantity.nil? }
 
     # Now re-salt the array, and remove any trailing spaces
-    output_array.reverse.join(" ").strip
+    output_array.reverse.join(' ').strip
   end
 
   private
@@ -40,11 +40,11 @@ class NumberConverter
   end
 
   def _20_to_99
-    [t, u].compact.join("-")
+    [t, u].compact.join('-')
   end
 
   def _100_to_999
-    [h, _20_to_99].compact.reject(&:empty?).join(" ")
+    [h, _20_to_99].compact.reject(&:empty?).join(' ')
   end
 
   def h
@@ -73,7 +73,7 @@ class NumberConverter
   end
 
   def ascending_word_chunks
-    [nil, "thousand", "million", "billion"]
+    [nil, 'thousand', 'million', 'billion']
   end
 
   def reverse_chunked_number
@@ -87,43 +87,43 @@ class NumberConverter
 
   def units
     {
-      1 => "one",
-      2 => "two",
-      3 => "three",
-      4 => "four",
-      5 => "five",
-      6 => "six",
-      7 => "seven",
-      8 => "eight",
-      9 => "nine",
+      1 => 'one',
+      2 => 'two',
+      3 => 'three',
+      4 => 'four',
+      5 => 'five',
+      6 => 'six',
+      7 => 'seven',
+      8 => 'eight',
+      9 => 'nine'
     }
   end
 
   def teens
     {
-      10 => "ten",
-      11 => "eleven",
-      12 => "twelve",
-      13 => "thirteen",
-      14 => "fourteen",
-      15 => "fifteen",
-      16 => "sixteen",
-      17 => "seventeen",
-      18 => "eighteen",
-      19 => "nineteen",
+      10 => 'ten',
+      11 => 'eleven',
+      12 => 'twelve',
+      13 => 'thirteen',
+      14 => 'fourteen',
+      15 => 'fifteen',
+      16 => 'sixteen',
+      17 => 'seventeen',
+      18 => 'eighteen',
+      19 => 'nineteen'
     }
   end
 
   def tens
     {
-      2 => "twenty",
-      3 => "thirty",
-      4 => "forty",
-      5 => "fifty",
-      6 => "sixty",
-      7 => "seventy",
-      8 => "eighty",
-      9 => "ninety",
+      2 => 'twenty',
+      3 => 'thirty',
+      4 => 'forty',
+      5 => 'fifty',
+      6 => 'sixty',
+      7 => 'seventy',
+      8 => 'eighty',
+      9 => 'ninety'
     }
   end
 end
