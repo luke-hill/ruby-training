@@ -12,6 +12,7 @@ class NumberConverter
     when 10..19 then ten_to_nineteen
     when 20..99 then twenty_to_ninety_nine
     when 100..999 then hundred_to_nine_hundred_ninety_nine
+    # This only works for all of the tests up to 123 - The other one covers all others
     else 'who knows'
     end
   end
