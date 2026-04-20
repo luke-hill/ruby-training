@@ -9,8 +9,8 @@ class RangeCollector
 
   def play(array)
     array.each_with_index do |value, index|
-      puts "value: " + value.to_s
-      puts "index: " + index.to_s
+      puts "value: #{value.to_s}"
+      puts "index: #{index.to_s}"
 
       last_number = new_array[-1]
 
@@ -21,7 +21,7 @@ class RangeCollector
         puts "Last int #{last_integer}"
 
         if next_integer == value
-          puts "Extending range"
+          puts 'Extending range'
           start_range_value = new_array[-1][0]
           end_range_value = next_integer
           range_value = "#{start_range_value}-#{end_range_value}"
@@ -35,7 +35,7 @@ class RangeCollector
       elsif last_number&.is_a?(Integer)
         # check for creating range
         if last_number + 1 == value
-          puts "Creating new range"
+          puts 'Creating new range'
           start_range_value = last_number
           end_range_value = value
           range_value = "#{start_range_value}-#{end_range_value}"
