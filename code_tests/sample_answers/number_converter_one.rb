@@ -42,7 +42,7 @@ class NumberConverter
   end
 
   def ten_amount
-    number / 10
+    (number % 100) / 10
   end
 
   def hundred_amount
