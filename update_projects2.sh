@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 export rvm_silence_path_mismatch_check_flag=1
 
 # -------------------------
 # Load RVM safely
 # -------------------------
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  # First try to load from a user install
   source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1
+elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  # Then try to load from a root install
+  source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1
+elif [[ -s "/usr/share/rvm/bin/rvm" ]] ; then
+  # Then try to load from a shared install
+  source "/usr/share/rvm/bin/rvm" >/dev/null 2>&1
 else
-  echo "ERROR: RVM not found"
+  echo "ERROR: An RVM installation was not found. Cannot continue"
   exit 1
 fi
 
@@ -96,7 +102,9 @@ for PROJECT in "$PROJECTS_DIR"/*; do
   echo "$TARGET_RUBY_VERSION" > .ruby-version
 
   if grep -q '^ruby ' Gemfile; then
-    sed -i.bak "s/^ruby .*/ruby \"$TARGET_RUBY_VERSION\"/" Gemfile
+    ruby -i -pe '
+      $_ = "ruby \"'$TARGET_RUBY_VERSION'\"\n" if $_ =~ /^ruby /
+    ' Gemfile
   else
     echo "ruby \"$TARGET_RUBY_VERSION\"" >> Gemfile
   fi
@@ -124,7 +132,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
   # -------------------------
   if [[ "$UPDATE_GEMS" == "yes" ]]; then
     echo "Updating gems..."
-    bundle update || { echo "bundle update failed"; FAILED+=("$name"); continue; }
+    bundle update --all || { echo "bundle update failed"; FAILED+=("$name"); continue; }
   else
     echo "Skipping gem updates"
   fi
