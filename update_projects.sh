@@ -18,7 +18,7 @@ else
   exit 1
 fi
 
-type rvm >/dev/null 2>&1 || echo "RVM not loaded correctly"
+type rvm >/dev/null 2>&1 || { echo "RVM not loaded"; exit 1; }
 
 # ---- Prompt for inputs ----
 read -p "Enter target Ruby version (e.g. 3.3.0): " TARGET_RUBY_VERSION
@@ -86,8 +86,8 @@ for PROJECT in "$PROJECTS_DIR"/*; do
       if grep -q '^ruby ' Gemfile; then
         sed -i.bak "s/^ruby .*/ruby \'$TARGET_RUBY_VERSION\'/" Gemfile
       else
-        echo "No ruby version specified in project: $PROJECT, cannot continue."
-        exit 1
+        echo "No ruby version specified in project: $PROJECT, skipping"
+        continue
       fi
     fi
 
@@ -95,6 +95,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     if [ "$UPDATE_GEMS" == "yes" ]; then
       echo "Switching to new ruby version and updating gems..."
       rvm use "ruby-$TARGET_RUBY_VERSION"
+      [[ "$(ruby -v)" == *"$TARGET_RUBY_VERSION"* ]] || { echo "Ruby switch failed"; exit 1; }
       bundle update
     else
       echo "Skipping gem updates"
