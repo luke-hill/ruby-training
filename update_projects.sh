@@ -92,7 +92,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     echo ""
     echo "==== Processing $name ===="
 
-    cd "$PROJECT" || { echo "Failed to enter $name"; FAILED+=("$name"); continue; }
+    cd "$PROJECT" || { echo "Failed to enter $name"; [[ -n "$name" ]] && FAILED+=("$name"); continue; }
 
     # -------------------------
     # Update Gemfile
@@ -100,7 +100,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     # If there is no Gemfile → skip safely
     if [[ ! -f "Gemfile" ]]; then
         echo "No Gemfile → skipping"
-        FAILED+=("$name")
+        [[ -n "$name" ]] && FAILED+=("$name")
         continue
     fi
 
@@ -120,7 +120,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
 
     if ! rvm use "$TARGET_RUBY_VERSION"; then
         echo "RVM switch failed (version likely not installed or invalid)"
-        FAILED+=("$name")
+        [[ -n "$name" ]] && FAILED+=("$name")
         continue
     fi
 
@@ -141,7 +141,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
 
     if [[ "$CURRENT_VERSION" != "$EXPECTED_VERSION" ]]; then
         echo "Ruby mismatch after switch (expected $EXPECTED_VERSION, got $CURRENT_VERSION)"
-        FAILED+=("$name")
+        [[ -n "$name" ]] && FAILED+=("$name")
         continue
     fi
 
@@ -152,12 +152,12 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     # -------------------------
     if [[ "$UPDATE_GEMS" == "yes" ]]; then
         echo "Updating gems..."
-        bundle update --all || { echo "bundle update failed"; FAILED+=("$name"); continue; }
+        bundle update --all || { echo "bundle update failed"; [[ -n "$name" ]] && FAILED+=("$name"); continue; }
     else
         echo "Skipping gem updates"
     fi
 
-    bundle install || { echo "bundle install failed"; FAILED+=("$name"); continue; }
+    bundle install || { echo "bundle install failed"; [[ -n "$name" ]] && FAILED+=("$name"); continue; }
 
     SUCCESS+=("$name")
     echo "Finished: $name"
@@ -174,7 +174,11 @@ printf ' - %s\n' "${SUCCESS[@]}"
 
 echo ""
 echo "FAILED (${#FAILED[@]}):"
-printf ' - %s\n' "${FAILED[@]}"
+if [[ ${#FAILED[@]} -gt 0 ]]; then
+    printf ' - %s\n' "${FAILED[@]}"
+else
+    echo " (none)"
+fi
 
 echo ""
 echo "Done."
