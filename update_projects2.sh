@@ -24,8 +24,10 @@ type rvm >/dev/null 2>&1 || { echo "ERROR: RVM failed to load"; exit 1; }
 # -------------------------
 # Prompt inputs
 # -------------------------
-read -p "Enter target Ruby version (e.g. 3.3.0): " TARGET_RUBY_VERSION
-[[ -z "$TARGET_RUBY_VERSION" ]] && { echo "Ruby version required"; exit 1; }
+read -p "Enter target Ruby version (e.g. 3.3.0): " RUBY_INPUT
+[[ -z "$RUBY_INPUT" ]] && { echo "Ruby version required"; exit 1; }
+
+TARGET_RUBY_VERSION="ruby-$RUBY_INPUT"
 
 read -p "Update gems? (yes/no) [no]: " UPDATE_GEMS
 UPDATE_GEMS=${UPDATE_GEMS:-no}
@@ -136,7 +138,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
         continue
     fi
 
-  echo "Using Ruby: $(ruby -v)"
+    echo "Using Ruby: $(ruby -v)"
 
     # -------------------------
     # Bundler step
