@@ -149,7 +149,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     # -------------------------
     # Switch Ruby
     # -------------------------
-    if ! rvm use "$TARGET_RUBY_VERSION"; then
+    if ! rvm use "$TARGET_RUBY_VERSION" --force; then
       echo "FAILED: $name (rvm use failed)"
       exit 1
     fi
@@ -169,19 +169,23 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     run "echo '$TARGET_RUBY_VERSION' > .ruby-version"
 
     if grep -q '^ruby' Gemfile; then
-      run "ruby -i -pe '$_ = \"ruby \\\"$EXPECTED_VERSION\\\"\\n\" if \$_ =~ /^ruby /' Gemfile"
+      sed -i.tmp "s/^ruby .*/ruby '$EXPECTED_VERSION'/" Gemfile && rm -f Gemfile.tmp
     else
-      run "echo \"ruby \\\"$EXPECTED_VERSION\\\"\" >> Gemfile"
+      echo "ruby \"$EXPECTED_VERSION\"" >> Gemfile
     fi
+
+    rvm list
+    rvm use "$TARGET_RUBY_VERSION" --force
+    ruby -v
 
     # -------------------------
     # Bundler
     # -------------------------
     if [[ "$UPDATE_GEMS" == "1" ]]; then
-      run "bundle update --all --quiet"
+      run "bundle update --all"
     fi
 
-    run "bundle install --quiet"
+    run "bundle install"
 
     echo "SUCCESS: $name"
   ) && SUCCESS+=("$name") || FAILED+=("$name")
