@@ -5,29 +5,27 @@ export rvm_silence_path_mismatch_check_flag=1
 # -------------------------
 # Load RVM safely
 # -------------------------
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
-    # First try to load from a user install
-    source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1
-elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
-    # Then try to load from a root install
-    source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1
-elif [[ -s "/usr/share/rvm/bin/rvm" ]] ; then
-    # Then try to load from a shared install
-    source "/usr/share/rvm/bin/rvm" >/dev/null 2>&1
+# Force load RVM as a function
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+    source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/share/rvm/scripts/rvm" ]]; then
+    source "/usr/share/rvm/scripts/rvm"
 else
-    echo "ERROR: An RVM installation was not found. Cannot continue"
+    echo "ERROR: Cannot find RVM scripts"
     exit 1
 fi
 
-type rvm >/dev/null 2>&1 || { echo "ERROR: RVM failed to load"; exit 1; }
+# Critical check
+if ! type rvm | grep -q "function"; then
+    echo "ERROR: RVM did not load as a function"
+    exit 1
+fi
 
 # -------------------------
 # Prompt inputs
 # -------------------------
-read -p "Enter target Ruby version (e.g. 3.3.0): " RUBY_INPUT
-[[ -z "$RUBY_INPUT" ]] && { echo "Ruby version required"; exit 1; }
-
-TARGET_RUBY_VERSION="ruby-$RUBY_INPUT"
+read -p "Enter target Ruby version (e.g. 3.3.0): " TARGET_RUBY_VERSION
+[[ -z "$TARGET_RUBY_VERSION" ]] && { echo "Ruby version required"; exit 1; }
 
 read -p "Update gems? (yes/no) [no]: " UPDATE_GEMS
 UPDATE_GEMS=${UPDATE_GEMS:-no}
@@ -103,26 +101,33 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     # -------------------------
     echo "$TARGET_RUBY_VERSION" > .ruby-version
 
-    if grep -q '^ruby ' Gemfile; then
-    ruby -i -pe '
-        $_ = "ruby \"'$TARGET_RUBY_VERSION'\"\n" if $_ =~ /^ruby /
+    if grep -q '^ruby' Gemfile; then
+        ruby -i -pe '
+            $_ = "ruby \"'$EXPECTED_VERSION'\"\n" if $_ =~ /^ruby /
         ' Gemfile
     else
-        echo "ruby \"$TARGET_RUBY_VERSION\"" >> Gemfile
+        echo "ruby \"$EXPECTED_VERSION\"" >> Gemfile
     fi
 
     # -------------------------
     # Switch Ruby via RVM
     # -------------------------
-    # নিশ্চিত Ruby is installed
-    rvm install "$TARGET_RUBY_VERSION" --skip-existing
+    echo "Available Rubies:"
+    rvm list strings
 
-    # Use it and make it default for this shell
-    if ! rvm use "$TARGET_RUBY_VERSION" --default >/dev/null 2>&1; then
-        echo "RVM switch failed"
+    if ! rvm use "$TARGET_RUBY_VERSION"; then
+        echo "RVM switch failed (version likely not installed or invalid)"
         FAILED+=("$name")
         continue
     fi
+
+    hash -r
+
+    echo "Ruby path: $(which ruby)"
+    echo "Ruby version: $(ruby -v)"
+
+    # ONLY NOW write .ruby-version
+    echo "$TARGET_RUBY_VERSION" > .ruby-version
 
     # Refresh shell hash (important!)
     hash -r
@@ -131,9 +136,11 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     echo "Ruby path: $(which ruby)"
     echo "Ruby version: $(ruby -v)"
 
-    # verify correct ruby is active
-    if ! ruby -v | grep -q "$TARGET_RUBY_VERSION"; then
-        echo "Ruby mismatch after switch"
+    CURRENT_VERSION=$(ruby -e 'print RUBY_VERSION')
+    EXPECTED_VERSION="${TARGET_RUBY_VERSION#ruby-}"
+
+    if [[ "$CURRENT_VERSION" != "$EXPECTED_VERSION" ]]; then
+        echo "Ruby mismatch after switch (expected $EXPECTED_VERSION, got $CURRENT_VERSION)"
         FAILED+=("$name")
         continue
     fi
