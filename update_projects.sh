@@ -1,112 +1,180 @@
 #!/usr/bin/env bash
 
-set -e
 export rvm_silence_path_mismatch_check_flag=1
 
-# ---- Load RVM into a shell session *as a function* ----
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
-  # First try to load from a user install
-  source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1 || true
-elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
-  # Then try to load from a root install
-  source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1 || true
-elif [[ -s "/usr/share/rvm/bin/rvm" ]] ; then
-  # Then try to load from a shared install
-  source "/usr/share/rvm/bin/rvm" >/dev/null 2>&1 || true
+# -------------------------
+# Load RVM safely
+# -------------------------
+# Force load RVM as a function
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+    source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/share/rvm/scripts/rvm" ]]; then
+    source "/usr/share/rvm/scripts/rvm"
 else
-  echo "ERROR: An RVM installation was not found. Cannot continue"
-  exit 1
+    echo "ERROR: Cannot find RVM scripts"
+    exit 1
 fi
 
-type rvm >/dev/null 2>&1 || { echo "RVM not loaded"; exit 1; }
+# Critical check
+if ! type rvm | grep -q "function"; then
+    echo "ERROR: RVM did not load as a function"
+    exit 1
+fi
 
-# ---- Prompt for inputs ----
+# -------------------------
+# Prompt inputs
+# -------------------------
 read -p "Enter target Ruby version (e.g. 3.3.0): " TARGET_RUBY_VERSION
-
-if [ -z "$TARGET_RUBY_VERSION" ]; then
-  echo "Ruby version cannot be empty"
-  exit 1
-fi
+[[ -z "$TARGET_RUBY_VERSION" ]] && { echo "Ruby version required"; exit 1; }
 
 read -p "Update gems? (yes/no) [no]: " UPDATE_GEMS
 UPDATE_GEMS=${UPDATE_GEMS:-no}
 
-if [[ "$UPDATE_GEMS" != "yes" && "$UPDATE_GEMS" != "no" ]]; then
-  echo "Please enter 'yes' or 'no'"
-  exit 1
-fi
+[[ "$UPDATE_GEMS" != "yes" && "$UPDATE_GEMS" != "no" ]] && {
+    echo "Must be yes or no"
+    exit 1
+}
 
+TARGET_RUBY_VERSION="ruby-$TARGET_RUBY_VERSION"
+EXPECTED_VERSION="${TARGET_RUBY_VERSION#ruby-}"
+
+# -------------------------
+# Config
+# -------------------------
 PROJECTS_DIR="$HOME/Code/ruby-training"
-LARGE_PROJECTS=("game_of_life" "nim" "the-language") # Add large projects here to skip gem updates
-NON_PROJECTS=(".github" "project_answers") # Add non-project directories here to skip entirely
 
+LARGE_PROJECTS=("game_of_life" "nim" "the-language")
+NON_PROJECTS=(".github" "project_answers")
+
+# -------------------------
+# Tracking results
+# -------------------------
+SUCCESS=()
+FAILED=()
+
+# -------------------------
+# Helpers
+# -------------------------
+contains() {
+    local item="$1"
+    shift
+    for x in "$@"; do
+        [[ "$x" == "$item" ]] && return 0
+    done
+    return 1
+}
+
+# -------------------------
+# Start
+# -------------------------
 echo ""
 echo "Starting upgrade..."
-echo "Ruby version: $TARGET_RUBY_VERSION"
+echo "Ruby: $TARGET_RUBY_VERSION"
 echo "Update gems: $UPDATE_GEMS"
-echo "LARGE_PROJECTS: ${LARGE_PROJECTS[*]}"
-echo "NON_PROJECTS: ${NON_PROJECTS[*]}"
 echo ""
 
-# ---- Main loop ----
-
+# -------------------------
+# Main loop
+# -------------------------
 for PROJECT in "$PROJECTS_DIR"/*; do
-  if [ -d "$PROJECT" ]; then
+    [[ -d "$PROJECT" ]] || continue
+
     name=$(basename "$PROJECT")
 
-    # skip non-projects entirely
-    for skip in "${NON_PROJECTS[@]}" "${LARGE_PROJECTS[@]}"; do
-      if [[ "$name" == "$skip" ]]; then
+    # -------------------------
+    # Skipping rules
+    # -------------------------
+    if contains "$name" "${NON_PROJECTS[@]}" || contains "$name" "${LARGE_PROJECTS[@]}"; then
         echo "Skipping: $name"
-        continue 2 # skip outer loop iteration
-      fi
-    done
-
-    echo "---- Updating $PROJECT ----"
-    cd "$PROJECT"
-    echo "Changing to project directory: $(pwd)"
-
-    # Skip if no Gemfile
-    if [ ! -f "Gemfile" ]; then
-      echo "No Gemfile, skipping all updates and changes for project"
-      continue
-    fi
-#
-#    # Create branch (optional but safer)
-#    git checkout -b "upgrade-ruby-$TARGET_RUBY_VERSION" 2>/dev/null || true
-
-    # Update .ruby-version file
-    echo "ruby-$TARGET_RUBY_VERSION" > .ruby-version
-
-    # Update Gemfile ruby version
-    if [ -f "Gemfile" ]; then
-      echo "Updating Ruby version in Gemfile..."
-
-      # Replace ruby version line if it exists
-      if grep -q '^ruby ' Gemfile; then
-        sed -i.bak "s/^ruby .*/ruby \'$TARGET_RUBY_VERSION\'/" Gemfile
-      else
-        echo "No ruby version specified in project: $PROJECT, skipping"
         continue
-      fi
     fi
 
-    # Conditionally update gems
-    if [ "$UPDATE_GEMS" == "yes" ]; then
-      echo "Switching to new ruby version and updating gems..."
-      rvm use "ruby-$TARGET_RUBY_VERSION"
-      [[ "$(ruby -v)" == *"$TARGET_RUBY_VERSION"* ]] || { echo "Ruby switch failed"; exit 1; }
-      bundle update
+    echo ""
+    echo "==== Processing $name ===="
+
+    cd "$PROJECT" || { echo "Failed to enter $name"; FAILED+=("$name"); continue; }
+
+    # -------------------------
+    # Update Gemfile
+    # -------------------------
+    # If there is no Gemfile → skip safely
+    if [[ ! -f "Gemfile" ]]; then
+        echo "No Gemfile → skipping"
+        FAILED+=("$name")
+        continue
+    fi
+
+    if grep -q '^ruby' Gemfile; then
+        ruby -i -pe '
+            $_ = "ruby \"'$EXPECTED_VERSION'\"\n" if $_ =~ /^ruby /
+        ' Gemfile
     else
-      echo "Skipping gem updates"
+        echo "ruby \"$EXPECTED_VERSION\"" >> Gemfile
     fi
 
-#    # Commit changes
-#    git add .
-#    git commit -m "Upgrade Ruby to $TARGET_RUBY_VERSION ($UPDATE_GEMS gems update)" || echo "Nothing to commit"
+    # -------------------------
+    # Switch Ruby via RVM
+    # -------------------------
+    echo "Available Rubies:"
+    rvm list strings
 
-    echo "Finished updating $PROJECT"
-  else
-    echo "Skipping project: $PROJECT"
-  fi
+    if ! rvm use "$TARGET_RUBY_VERSION"; then
+        echo "RVM switch failed (version likely not installed or invalid)"
+        FAILED+=("$name")
+        continue
+    fi
+
+    # Refresh shell hash (important!)
+    hash -r
+
+    echo "Ruby path: $(which ruby)"
+    echo "Ruby version: $(ruby -v)"
+
+    # ONLY ONCE, here:
+    echo "$TARGET_RUBY_VERSION" > .ruby-version
+
+    # Debug (optional but useful)
+    echo "Ruby path: $(which ruby)"
+    echo "Ruby version: $(ruby -v)"
+
+    CURRENT_VERSION=$(ruby -e 'print RUBY_VERSION')
+
+    if [[ "$CURRENT_VERSION" != "$EXPECTED_VERSION" ]]; then
+        echo "Ruby mismatch after switch (expected $EXPECTED_VERSION, got $CURRENT_VERSION)"
+        FAILED+=("$name")
+        continue
+    fi
+
+    echo "Using Ruby: $(ruby -v)"
+
+    # -------------------------
+    # Bundler step
+    # -------------------------
+    if [[ "$UPDATE_GEMS" == "yes" ]]; then
+        echo "Updating gems..."
+        bundle update --all || { echo "bundle update failed"; FAILED+=("$name"); continue; }
+    else
+        echo "Skipping gem updates"
+    fi
+
+    bundle install || { echo "bundle install failed"; FAILED+=("$name"); continue; }
+
+    SUCCESS+=("$name")
+    echo "Finished: $name"
 done
+
+# -------------------------
+# Summary
+# -------------------------
+echo ""
+echo "===== SUMMARY ====="
+
+echo "SUCCESS (${#SUCCESS[@]}):"
+printf ' - %s\n' "${SUCCESS[@]}"
+
+echo ""
+echo "FAILED (${#FAILED[@]}):"
+printf ' - %s\n' "${FAILED[@]}"
+
+echo ""
+echo "Done."
