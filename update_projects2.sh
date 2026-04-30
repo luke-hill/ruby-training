@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
 # -------------------------
 # Defaults
 # -------------------------
+NON_PROJECTS=(".github" "project_answers")
 PROJECTS_DIR="${PROJECTS_DIR:-$HOME/Code/ruby-training}"
 UPDATE_GEMS=0
 DRY_RUN=0
 VERBOSE=1
+
+# These will vary over time potentially, so we can skip them for now to avoid noise
+LARGE_PROJECTS=("game_of_life" "nim" "the-language")
 
 SUCCESS=()
 FAILED=()
@@ -115,6 +119,22 @@ for PROJECT in "$PROJECTS_DIR"/*; do
   [[ -d "$PROJECT" ]] || continue
 
   name=$(basename "$PROJECT")
+
+  # Always skip these
+  for skip in "${NON_PROJECTS[@]}"; do
+    if [[ "$name" == "$skip" ]]; then
+      echo "Skipping (non-project): $name"
+      continue 2
+    fi
+  done
+
+  # Conditionally skip large projects
+  for skip in "${LARGE_PROJECTS[@]}"; do
+    if [[ "$name" == "$skip" ]]; then
+      echo "Skipping (large project): $name"
+      continue 2
+    fi
+  done
 
   log "→ $name"
 
