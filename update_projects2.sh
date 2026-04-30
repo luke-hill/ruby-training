@@ -35,6 +35,9 @@ UPDATE_GEMS=${UPDATE_GEMS:-no}
     exit 1
 }
 
+TARGET_RUBY_VERSION="ruby-$TARGET_RUBY_VERSION"
+EXPECTED_VERSION="${TARGET_RUBY_VERSION#ruby-}"
+
 # -------------------------
 # Config
 # -------------------------
@@ -78,7 +81,9 @@ for PROJECT in "$PROJECTS_DIR"/*; do
 
     name=$(basename "$PROJECT")
 
-    # skip rules
+    # -------------------------
+    # Skipping rules
+    # -------------------------
     if contains "$name" "${NON_PROJECTS[@]}" || contains "$name" "${LARGE_PROJECTS[@]}"; then
         echo "Skipping: $name"
         continue
@@ -89,17 +94,15 @@ for PROJECT in "$PROJECTS_DIR"/*; do
 
     cd "$PROJECT" || { echo "Failed to enter $name"; FAILED+=("$name"); continue; }
 
-    # no Gemfile → skip safely
+    # -------------------------
+    # Update Gemfile
+    # -------------------------
+    # If there is no Gemfile → skip safely
     if [[ ! -f "Gemfile" ]]; then
         echo "No Gemfile → skipping"
         FAILED+=("$name")
         continue
     fi
-
-    # -------------------------
-    # Update Ruby version files
-    # -------------------------
-    echo "$TARGET_RUBY_VERSION" > .ruby-version
 
     if grep -q '^ruby' Gemfile; then
         ruby -i -pe '
@@ -121,23 +124,20 @@ for PROJECT in "$PROJECTS_DIR"/*; do
         continue
     fi
 
+    # Refresh shell hash (important!)
     hash -r
 
     echo "Ruby path: $(which ruby)"
     echo "Ruby version: $(ruby -v)"
 
-    # ONLY NOW write .ruby-version
+    # ONLY ONCE, here:
     echo "$TARGET_RUBY_VERSION" > .ruby-version
-
-    # Refresh shell hash (important!)
-    hash -r
 
     # Debug (optional but useful)
     echo "Ruby path: $(which ruby)"
     echo "Ruby version: $(ruby -v)"
 
     CURRENT_VERSION=$(ruby -e 'print RUBY_VERSION')
-    EXPECTED_VERSION="${TARGET_RUBY_VERSION#ruby-}"
 
     if [[ "$CURRENT_VERSION" != "$EXPECTED_VERSION" ]]; then
         echo "Ruby mismatch after switch (expected $EXPECTED_VERSION, got $CURRENT_VERSION)"
