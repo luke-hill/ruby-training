@@ -9,17 +9,19 @@ RSpec.describe 'Pass by reference vs Pass by value' do
     expect(y).to eq(__)
   end
 
-  it 'is possible to pass something which can be seen as pass by reference' do
-    # NB: This is essentially a deprecated Koan. It will fail when using frozen string literals
-    #
-    # This is because we are overwriting and mutating in place
-    # See the koan below for another example that won't be deprecated
-    x = 'string'
-    y = x
-    expect { x.upcase! }.to raise_error(__)
-
-    expect { expect(y).to eq(__) }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
-  end
+  # ---DEPRECATED KOAN---
+  # This is a deprecated Koan. It will fail when using frozen string literals
+  # This is common parlance since ruby 2.7 and will be mandatory at some point in the future (We hope)
+  #
+  # This is because we are overwriting and mutating in place
+  # it 'is possible to pass something which can be seen as pass by reference' do
+  #
+  #   x = 'string'
+  #   y = x
+  #   expect { x.upcase! }.to raise_error(__)
+  #
+  #   expect { expect(y).to eq(__) }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+  # end
 
   it 'is also possible to mutate a larger standard object and pass by reference' do
     x = [1, 2, 3]

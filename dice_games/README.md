@@ -23,7 +23,7 @@ $ rspec
 The tests will fail and the output will contain
 
 ```
-Finished in 0.01055 seconds (files took 0.03836 seconds to load)
+Finished in 0.00462 seconds (files took 0.03929 seconds to load)
 31 examples, 31 failures
 ```
 

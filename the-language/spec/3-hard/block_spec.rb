@@ -93,4 +93,18 @@ RSpec.describe 'Blocks' do
     # This is a slightly shorter syntax for what we did on Lines 75-77
     expect(method_with_explicit_block(&add_one)).to eq(__)
   end
+
+  it 'can use a shorthand block syntax when the method is a simple invocation' do
+    expect([1, 2, 3].map { |n| n.to_s }).to eq(__)
+
+    # The above is a common enough pattern that Ruby has a shorthand for it:
+    expect([1, 2, 3].map(&:to_s)).to eq(__)
+
+    # What do we expect to change here?
+    expect([1, 2, 3].map(&:to_f)).to eq(__)
+
+    expect(method_with_explicit_block(&:to_s)).to eq(__)
+
+    expect(method_with_explicit_block(&:even?)).to eq(__)
+  end
 end

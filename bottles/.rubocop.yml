@@ -1,19 +1,13 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
   NewCops: enable
-
-Layout/LineLength:
-  Enabled: false
 
 Lint/EmptyClass:
   Enabled: false
 
 RSpec/ExampleLength:
-  Enabled: false
-
-Style/Documentation:
   Enabled: false

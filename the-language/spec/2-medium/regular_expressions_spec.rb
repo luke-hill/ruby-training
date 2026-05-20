@@ -13,6 +13,11 @@ RSpec.describe 'Regular expressions' do
     expect('a string that matches'[/fails/]).to eq(__)
   end
 
+  it 'can use `[]` to signify a group of character classes (to provide optionality)' do
+    words = ['cat', 'sat', 'mat']
+    expect(words.select { |word| word[/[cm]at/] }).to eq(__)
+  end
+
   it 'uses a ? on its own to signify "optional" (0 or 1 of the preceding item)' do
     expect('abcd'[/ab?/]).to eq(__)
     expect('abcd'[/ae?/]).to eq(__)
@@ -29,13 +34,16 @@ RSpec.describe 'Regular expressions' do
     expect('abbcccdddd'[/z*/]).to eq(__)
   end
 
-  it 'matches from the left first' do
-    expect('acdz az'[/az*/]).to eq(__)
+  it 'can use `[]` with more complex circumstances to signify complex character groups' do
+    words = ['catty', 'bratty', 'splat']
+    expect(words.select { |word| word[/[bcmr]at/] }).to eq(__)
+    expect(words.select { |word| word[/[bcmr]+atty/] }).to eq(__)
+    expect(words.select { |word| word[/[bcmr]+a(tty)*/] }).to eq(__)
+    expect(words.select { |word| word[/[bcmr]+a[ty]*/] }).to eq(__)
   end
 
-  it 'can use character classes to provide options' do
-    words = ['cat', 'sat', 'mat']
-    expect(words.select { |word| word[/[cm]at/] }).to eq(__)
+  it 'matches from the left first' do
+    expect('acdz az'[/az*/]).to eq(__)
   end
 
   it 'uses \d as a shortcut for a digit character class' do
@@ -102,6 +110,12 @@ RSpec.describe 'Regular expressions' do
   it 'also uses parentheses to capture content' do
     expect('Gary, James'[/(\w+), (\w+)/, 1]).to eq(__)
     expect('Gary, James'[/(\w+), (\w+)/, 2]).to eq(__)
+  end
+
+  it 'can use metacharacters such as `?:` inside the start of parentheses to change how content is captured' do
+    expect('Gary, James'[/(?:\w+), (\w+)/, 1]).to eq(__)
+    expect('Gary, James'[/(\w+), (?:\w+)/, 2]).to eq(__)
+    expect('Gary!, James'[/(?!\w+), (\w+)/, 2]).to eq(__)
   end
 
   it 'has special variables to access captures' do

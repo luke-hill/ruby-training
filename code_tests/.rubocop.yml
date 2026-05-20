@@ -3,6 +3,7 @@ require:
 - rubocop-rspec
 
 AllCops:
+  TargetRubyVersion: 4.0
   Exclude:
     - 'sample_answers/*.rb'
   NewCops: enable

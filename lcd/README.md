@@ -48,17 +48,18 @@ Finished in 0.00201 seconds (files took 0.03775 seconds to load)
 6 examples, 6 failures
 ```
 
-Once you've managed to fix up some of these tests, feel free to run all of the tests at once,
+Once you've managed to fix up some of these tests, feel free to run all the tests at once,
 you do this by simply running `rspec` which will then yield an output that indicates there are
 17 tests in total (Of which some may now be passing)
 
 ## First steps
 
-Our job is to now write the code that makes the specs pass one at a time. However
-this time it's different as we can tackle them in any way we see fit.
+Our job is to now write the code that makes the specs pass one at a time. However, this time
+it's different as we can tackle them in any way we see fit.
 
 I would advise here we follow a purists view of TDD and make the first couple of tests pass,
 and then begin to think about how to simplify and start generalising your work.
+
 The advice is to solve the problem in the following order
 
 1. Create a method which returns just the number `8` always - This is the easiest one

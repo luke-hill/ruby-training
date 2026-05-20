@@ -9,7 +9,7 @@ Install the dependencies:
 
 ```bash
 $ gem install bundler # if you don't have it already
-$ bundle
+$ bundle install
 ```
 
 ## Working through the exercise
@@ -25,7 +25,7 @@ By now, you should know that to start with all the examples will fail ...
 The output should contain (near the bottom)
 
 ```
-Finished in 0.01204 seconds (files took 0.04858 seconds to load)
+Finished in 0.00804 seconds (files took 0.0402 seconds to load)
 21 examples, 21 failures
 ```
 
