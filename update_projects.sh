@@ -160,14 +160,14 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     fi
   done
 
-  LOG_FILE=$(mktemp "/tmp/${name}.XXXX.log")
-
   printf "→ %-30s" "$name"
 
   if [[ ! -f "$PROJECT/Gemfile" ]]; then
     echo " SKIP"
     continue
   fi
+
+  LOG_FILE=$(mktemp "/tmp/${name}.XXXX.log")
 
   (
     cd "$PROJECT" || exit 1
@@ -234,7 +234,9 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     echo "=========================="
   }
 
-  rm -f "$LOG_FILE"
+  if [[ -f "$LOG_FILE" && ! " ${FAILED[*]} " =~ " $name " ]]; then
+    rm -f "$LOG_FILE"
+  fi
 done
 
 # -------------------------
