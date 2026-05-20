@@ -2,9 +2,9 @@
 
 source 'https://rubygems.org'
 
-ruby '3.3.6'
+ruby '4.0.3'
 
 gem 'rspec', '~> 3.13'
-gem 'rubocop', '~> 1.75.0'
-gem 'rubocop-performance', '~> 1.23.0'
-gem 'rubocop-rspec', '~> 3.5.0'
+gem 'rubocop', '~> 1.86.2'
+gem 'rubocop-performance', '~> 1.26.1'
+gem 'rubocop-rspec', '~> 3.9.0'
