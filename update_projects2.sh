@@ -84,9 +84,9 @@ log() {
 
 run() {
   if [[ "$DRY_RUN" == "1" ]]; then
-    log "[dry-run] $*"
+    echo "[dry-run] $*"
   else
-    eval "$@"
+    "$@"
   fi
 }
 
@@ -110,10 +110,12 @@ fi
 # -------------------------
 # Main
 # -------------------------
-log ""
-log "Ruby target: $TARGET_RUBY_VERSION"
-log "Projects: $PROJECTS_DIR"
-log ""
+echo ""
+echo "Ruby target: $TARGET_RUBY_VERSION"
+echo "Projects: $PROJECTS_DIR"
+echo ""
+
+START_TIME=$(date +%s)
 
 for PROJECT in "$PROJECTS_DIR"/*; do
   [[ -d "$PROJECT" ]] || continue
@@ -123,7 +125,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
   # Always skip these
   for skip in "${NON_PROJECTS[@]}"; do
     if [[ "$name" == "$skip" ]]; then
-      echo "Skipping (non-project): $name"
+      log "Skipping (non-project): $name"
       continue 2
     fi
   done
@@ -131,18 +133,20 @@ for PROJECT in "$PROJECTS_DIR"/*; do
   # Conditionally skip large projects
   for skip in "${LARGE_PROJECTS[@]}"; do
     if [[ "$name" == "$skip" ]]; then
-      echo "Skipping (large project): $name"
+      log "Skipping (large project): $name"
       continue 2
     fi
   done
 
-  log "→ $name"
+  LOG_FILE=$(mktemp "/tmp/${name}.XXXX.log")
+
+  printf "→ %-30s" "$name"
 
   (
     cd "$PROJECT" || exit 1
 
     if [[ ! -f "Gemfile" ]]; then
-      log "  skipping (no Gemfile)"
+      echo "SKIP (no Gemfile)"
       exit 0
     fi
 
@@ -150,7 +154,7 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     # Switch Ruby
     # -------------------------
     if ! rvm use "$TARGET_RUBY_VERSION" --force; then
-      echo "FAILED: $name (rvm use failed)"
+      echo "rvm use failed"
       exit 1
     fi
 
@@ -159,36 +163,51 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     CURRENT_VERSION=$(ruby -e 'print RUBY_VERSION')
 
     if [[ "$CURRENT_VERSION" != "$EXPECTED_VERSION" ]]; then
-      echo "FAILED: $name (ruby mismatch $CURRENT_VERSION)"
+      echo "ruby mismatch: $CURRENT_VERSION"
       exit 1
     fi
 
     # -------------------------
     # Update files
     # -------------------------
-    run "echo '$TARGET_RUBY_VERSION' > .ruby-version"
+    run bash -c "echo '$TARGET_RUBY_VERSION' > .ruby-version"
 
     if grep -q '^ruby' Gemfile; then
-      sed -i.tmp "s/^ruby .*/ruby '$EXPECTED_VERSION'/" Gemfile && rm -f Gemfile.tmp
+      run sed -i.tmp "s/^ruby .*/ruby '$EXPECTED_VERSION'/" Gemfile
+      rm -f Gemfile.tmp
     else
       echo "ruby \"$EXPECTED_VERSION\"" >> Gemfile
     fi
-
-    rvm list
-    rvm use "$TARGET_RUBY_VERSION" --force
-    ruby -v
 
     # -------------------------
     # Bundler
     # -------------------------
     if [[ "$UPDATE_GEMS" == "1" ]]; then
-      run "bundle update --all"
+      if [[ "$VERBOSE" == "1" ]]; then
+        run bundle update --all
+      else
+        run bundle update --all --quiet
+      fi
     fi
 
-    run "bundle install"
+    if [[ "$VERBOSE" == "1" ]]; then
+      run bundle install
+    else
+      run bundle install --quiet
+    fi
+  ) >"$LOG_FILE" 2>&1 && {
+    SUCCESS+=("$name")
+    echo " OK"
+  } || {
+    FAILED+=("$name")
+    echo " FAIL"
+    echo ""
+    echo "===== FAILED: $name ====="
+    cat "$LOG_FILE"
+    echo "=========================="
+  }
 
-    echo "SUCCESS: $name"
-  ) && SUCCESS+=("$name") || FAILED+=("$name")
+  rm -f "$LOG_FILE"
 done
 
 # -------------------------
@@ -211,3 +230,9 @@ if [[ ${#FAILED[@]} -gt 0 ]]; then
 else
   echo " - none"
 fi
+
+END_TIME=$(date +%s)
+ELAPSED=$((END_TIME - START_TIME))
+
+echo ""
+echo "Completed in ${ELAPSED}s"
