@@ -1,166 +1,213 @@
 #!/usr/bin/env bash
-
-export rvm_silence_path_mismatch_check_flag=1
-
-# -------------------------
-# Load RVM safely
-# -------------------------
-# Force load RVM as a function
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-    source "$HOME/.rvm/scripts/rvm"
-elif [[ -s "/usr/share/rvm/scripts/rvm" ]]; then
-    source "/usr/share/rvm/scripts/rvm"
-else
-    echo "ERROR: Cannot find RVM scripts"
-    exit 1
-fi
-
-# Critical check
-if ! type rvm | grep -q "function"; then
-    echo "ERROR: RVM did not load as a function"
-    exit 1
-fi
+set -eo pipefail
 
 # -------------------------
-# Prompt inputs
+# Defaults
 # -------------------------
-read -p "Enter target Ruby version (e.g. 3.3.0): " TARGET_RUBY_VERSION
-[[ -z "$TARGET_RUBY_VERSION" ]] && { echo "Ruby version required"; exit 1; }
-
-read -p "Update gems? (yes/no) [no]: " UPDATE_GEMS
-UPDATE_GEMS=${UPDATE_GEMS:-no}
-
-[[ "$UPDATE_GEMS" != "yes" && "$UPDATE_GEMS" != "no" ]] && {
-    echo "Must be yes or no"
-    exit 1
-}
-
-TARGET_RUBY_VERSION="ruby-$TARGET_RUBY_VERSION"
-EXPECTED_VERSION="${TARGET_RUBY_VERSION#ruby-}"
-
-# -------------------------
-# Config
-# -------------------------
-PROJECTS_DIR="$HOME/Code/ruby-training"
-
-LARGE_PROJECTS=("game_of_life" "nim" "the-language")
 NON_PROJECTS=(".github" "project_answers")
+PROJECTS_DIR="${PROJECTS_DIR:-$HOME/Code/ruby-training}"
+UPDATE_GEMS=0
+DRY_RUN=0
+VERBOSE=1
 
-# -------------------------
-# Tracking results
-# -------------------------
+# These will vary over time potentially, so we can skip them for now to avoid noise
+LARGE_PROJECTS=("game_of_life" "nim" "the-language")
+
 SUCCESS=()
 FAILED=()
 
 # -------------------------
-# Helpers
+# Args
 # -------------------------
-contains() {
-    local item="$1"
-    shift
-    for x in "$@"; do
-        [[ "$x" == "$item" ]] && return 0
-    done
-    return 1
+usage() {
+  cat <<EOF
+Usage: $0 --ruby VERSION [options]
+
+Required:
+  --ruby VERSION        Ruby version (e.g. 3.3.10)
+
+Options:
+  --update-gems         Run bundle update --all
+  --dry-run             Show actions without executing
+  --quiet               Reduce output
+  --projects-dir PATH   Override default projects directory
+
+Example:
+  $0 --ruby 3.3.10 --update-gems
+EOF
+}
+
+RUBY_INPUT=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --ruby)
+      RUBY_INPUT="$2"
+      shift 2
+      ;;
+    --update-gems)
+      UPDATE_GEMS=1
+      shift
+      ;;
+    --dry-run)
+      DRY_RUN=1
+      shift
+      ;;
+    --quiet)
+      VERBOSE=0
+      shift
+      ;;
+    --projects-dir)
+      PROJECTS_DIR="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown arg: $1"
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+[[ -z "$RUBY_INPUT" ]] && { echo "Missing --ruby"; exit 1; }
+
+TARGET_RUBY_VERSION="ruby-$RUBY_INPUT"
+EXPECTED_VERSION="$RUBY_INPUT"
+
+log() {
+  [[ "$VERBOSE" == "1" ]] && echo "$@"
+}
+
+run() {
+  if [[ "$DRY_RUN" == "1" ]]; then
+    echo "[dry-run] $*"
+  else
+    "$@"
+  fi
 }
 
 # -------------------------
-# Start
+# Load RVM
 # -------------------------
-echo ""
-echo "Starting upgrade..."
-echo "Ruby: $TARGET_RUBY_VERSION"
-echo "Update gems: $UPDATE_GEMS"
-echo ""
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+  source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/share/rvm/scripts/rvm" ]]; then
+  source "/usr/share/rvm/scripts/rvm"
+else
+  echo "ERROR: RVM not found"
+  exit 1
+fi
+
+if ! type rvm | grep -q "function"; then
+  echo "ERROR: RVM not loaded as function"
+  exit 1
+fi
 
 # -------------------------
-# Main loop
+# Main
 # -------------------------
+echo ""
+echo "Ruby target: $TARGET_RUBY_VERSION"
+echo "Projects: $PROJECTS_DIR"
+echo ""
+
+START_TIME=$(date +%s)
+
 for PROJECT in "$PROJECTS_DIR"/*; do
-    [[ -d "$PROJECT" ]] || continue
+  [[ -d "$PROJECT" ]] || continue
 
-    name=$(basename "$PROJECT")
+  name=$(basename "$PROJECT")
 
-    # -------------------------
-    # Skipping rules
-    # -------------------------
-    if contains "$name" "${NON_PROJECTS[@]}" || contains "$name" "${LARGE_PROJECTS[@]}"; then
-        echo "Skipping: $name"
-        continue
+  # Always skip these
+  for skip in "${NON_PROJECTS[@]}"; do
+    if [[ "$name" == "$skip" ]]; then
+      log "Skipping (non-project): $name"
+      continue 2
     fi
+  done
 
-    echo ""
-    echo "==== Processing $name ===="
+  # Conditionally skip large projects
+  for skip in "${LARGE_PROJECTS[@]}"; do
+    if [[ "$name" == "$skip" ]]; then
+      log "Skipping (large project): $name"
+      continue 2
+    fi
+  done
 
-    cd "$PROJECT" || { echo "Failed to enter $name"; [[ -n "$name" ]] && FAILED+=("$name"); continue; }
+  LOG_FILE=$(mktemp "/tmp/${name}.XXXX.log")
 
-    # -------------------------
-    # Update Gemfile
-    # -------------------------
-    # If there is no Gemfile → skip safely
+  printf "→ %-30s" "$name"
+
+  (
+    cd "$PROJECT" || exit 1
+
     if [[ ! -f "Gemfile" ]]; then
-        echo "No Gemfile → skipping"
-        [[ -n "$name" ]] && FAILED+=("$name")
-        continue
-    fi
-
-    if grep -q '^ruby' Gemfile; then
-        ruby -i -pe '
-            $_ = "ruby \"'$EXPECTED_VERSION'\"\n" if $_ =~ /^ruby /
-        ' Gemfile
-    else
-        echo "ruby \"$EXPECTED_VERSION\"" >> Gemfile
+      echo "SKIP (no Gemfile)"
+      exit 0
     fi
 
     # -------------------------
-    # Switch Ruby via RVM
+    # Switch Ruby
     # -------------------------
-    echo "Available Rubies:"
-    rvm list strings
-
-    if ! rvm use "$TARGET_RUBY_VERSION"; then
-        echo "RVM switch failed (version likely not installed or invalid)"
-        [[ -n "$name" ]] && FAILED+=("$name")
-        continue
+    if ! rvm use "$TARGET_RUBY_VERSION" --force; then
+      echo "rvm use failed"
+      exit 1
     fi
 
-    # Refresh shell hash (important!)
     hash -r
-
-    echo "Ruby path: $(which ruby)"
-    echo "Ruby version: $(ruby -v)"
-
-    # ONLY ONCE, here:
-    echo "$TARGET_RUBY_VERSION" > .ruby-version
-
-    # Debug (optional but useful)
-    echo "Ruby path: $(which ruby)"
-    echo "Ruby version: $(ruby -v)"
 
     CURRENT_VERSION=$(ruby -e 'print RUBY_VERSION')
 
     if [[ "$CURRENT_VERSION" != "$EXPECTED_VERSION" ]]; then
-        echo "Ruby mismatch after switch (expected $EXPECTED_VERSION, got $CURRENT_VERSION)"
-        [[ -n "$name" ]] && FAILED+=("$name")
-        continue
+      echo "ruby mismatch: $CURRENT_VERSION"
+      exit 1
     fi
 
-    echo "Using Ruby: $(ruby -v)"
+    # -------------------------
+    # Update files
+    # -------------------------
+    run bash -c "echo '$TARGET_RUBY_VERSION' > .ruby-version"
 
-    # -------------------------
-    # Bundler step
-    # -------------------------
-    if [[ "$UPDATE_GEMS" == "yes" ]]; then
-        echo "Updating gems..."
-        bundle update --all || { echo "bundle update failed"; [[ -n "$name" ]] && FAILED+=("$name"); continue; }
+    if grep -q '^ruby' Gemfile; then
+      run sed -i.tmp "s/^ruby .*/ruby '$EXPECTED_VERSION'/" Gemfile
+      rm -f Gemfile.tmp
     else
-        echo "Skipping gem updates"
+      echo "ruby \"$EXPECTED_VERSION\"" >> Gemfile
     fi
 
-    bundle install || { echo "bundle install failed"; [[ -n "$name" ]] && FAILED+=("$name"); continue; }
+    # -------------------------
+    # Bundler
+    # -------------------------
+    if [[ "$UPDATE_GEMS" == "1" ]]; then
+      if [[ "$VERBOSE" == "1" ]]; then
+        run bundle update --all
+      else
+        run bundle update --all --quiet
+      fi
+    fi
 
+    if [[ "$VERBOSE" == "1" ]]; then
+      run bundle install
+    else
+      run bundle install --quiet
+    fi
+  ) >"$LOG_FILE" 2>&1 && {
     SUCCESS+=("$name")
-    echo "Finished: $name"
+    echo " OK"
+  } || {
+    FAILED+=("$name")
+    echo " FAIL"
+    echo ""
+    echo "===== FAILED: $name ====="
+    cat "$LOG_FILE"
+    echo "=========================="
+  }
+
+  rm -f "$LOG_FILE"
 done
 
 # -------------------------
@@ -170,15 +217,22 @@ echo ""
 echo "===== SUMMARY ====="
 
 echo "SUCCESS (${#SUCCESS[@]}):"
-printf ' - %s\n' "${SUCCESS[@]}"
+if [[ ${#SUCCESS[@]} -gt 0 ]]; then
+  printf ' - %s\n' "${SUCCESS[@]}"
+else
+  echo " - none"
+fi
 
 echo ""
 echo "FAILED (${#FAILED[@]}):"
 if [[ ${#FAILED[@]} -gt 0 ]]; then
-    printf ' - %s\n' "${FAILED[@]}"
+  printf ' - %s\n' "${FAILED[@]}"
 else
-    echo " (none)"
+  echo " - none"
 fi
 
+END_TIME=$(date +%s)
+ELAPSED=$((END_TIME - START_TIME))
+
 echo ""
-echo "Done."
+echo "Completed in ${ELAPSED}s"
