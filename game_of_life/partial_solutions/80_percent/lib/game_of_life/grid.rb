@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 require_relative 'cell'
+require_relative 'rules'
 
 module GameOfLife
   # The Game of Life grid of cells
   class Grid
-    attr_reader :cells
+    attr_reader :cells, :grid_size
 
     def initialize(grid_size)
-      @cells = Array.new(grid_size) { |y| Array.new(grid_size) { |x| Cell.new } }
+      @grid_size = grid_size
+      @cells = Array.new(grid_size) { |y| Array.new(grid_size) { |x| Cell.new(x, y) } }
     end
 
     def neighbours(x, y)
@@ -19,10 +21,25 @@ module GameOfLife
       ].compact
     end
 
-    def seed(proportion_of_alive_cells)
+    def next_state
+      new_grid = Array.new(grid_size) do |y|
+        Array.new(grid_size) do |x|
+          kill_cell = !Rules.new(cell_at(x, y), neighbours(x, y)).become_alive?
+
+          Cell.new(x, y).tap { |cell| cell.dead! if kill_cell }
+        end
+      end
+      @cells = new_grid
+    end
+
+    def seed(chance_to_be_alive)
       cells.map! do |row|
         row.map! do |cell|
-          cell.dead! if rand > proportion_of_alive_cells
+          if rand < chance_to_be_alive
+            cell.tap(&:alive!)
+          else
+            cell.tap(&:dead!)
+          end
         end
       end
     end

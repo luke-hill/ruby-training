@@ -74,6 +74,12 @@ RSpec.describe GameOfLife::Grid do
     end
   end
 
+  describe '#next_state' do
+    it 'updates the grid cells - and every element in the grid' do
+      expect { grid.next_state }.to change(grid, :cells)
+    end
+  end
+
   describe '#seed' do
     it 'updates the grid cells - and every element in the grid' do
       expect { grid.seed(0.5) }.to change(grid, :cells)
