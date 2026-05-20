@@ -90,6 +90,28 @@ run() {
   fi
 }
 
+write_file() {
+  local content="$1"
+  local file="$2"
+
+  if [[ "$DRY_RUN" == "1" ]]; then
+    echo "[dry-run] write '$content' -> $file"
+  else
+    printf "%s\n" "$content" > "$file"
+  fi
+}
+
+append_file() {
+  local content="$1"
+  local file="$2"
+
+  if [[ "$DRY_RUN" == "1" ]]; then
+    echo "[dry-run] append '$content' -> $file"
+  else
+    printf "%s\n" "$content" >> "$file"
+  fi
+}
+
 # -------------------------
 # Load RVM
 # -------------------------
@@ -102,7 +124,7 @@ else
   exit 1
 fi
 
-if ! type rvm | grep -q "function"; then
+if ! declare -F rvm >/dev/null; then
   echo "ERROR: RVM not loaded as function"
   exit 1
 fi
@@ -142,13 +164,13 @@ for PROJECT in "$PROJECTS_DIR"/*; do
 
   printf "→ %-30s" "$name"
 
+  if [[ ! -f "$PROJECT/Gemfile" ]]; then
+    echo " SKIP"
+    continue
+  fi
+
   (
     cd "$PROJECT" || exit 1
-
-    if [[ ! -f "Gemfile" ]]; then
-      echo "SKIP (no Gemfile)"
-      exit 0
-    fi
 
     # -------------------------
     # Switch Ruby
@@ -170,13 +192,13 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     # -------------------------
     # Update files
     # -------------------------
-    run bash -c "echo '$TARGET_RUBY_VERSION' > .ruby-version"
+    write_file "$TARGET_RUBY_VERSION" ".ruby-version"
 
     if grep -q '^ruby' Gemfile; then
       run sed -i.tmp "s/^ruby .*/ruby '$EXPECTED_VERSION'/" Gemfile
-      rm -f Gemfile.tmp
+      run rm -f Gemfile.tmp
     else
-      echo "ruby \"$EXPECTED_VERSION\"" >> Gemfile
+      append_file "ruby \"$EXPECTED_VERSION\"" "Gemfile"
     fi
 
     # -------------------------
@@ -197,7 +219,12 @@ for PROJECT in "$PROJECTS_DIR"/*; do
     fi
   ) >"$LOG_FILE" 2>&1 && {
     SUCCESS+=("$name")
-    echo " OK"
+
+    if [[ "$DRY_RUN" == "1" ]]; then
+      echo " DRY-RUN"
+    else
+      echo " OK"
+    fi
   } || {
     FAILED+=("$name")
     echo " FAIL"
