@@ -9,21 +9,7 @@ RSpec.describe 'Pass by reference vs Pass by value' do
     expect(y).to eq(__)
   end
 
-  # ---DEPRECATED KOAN---
-  # This is a deprecated Koan. It will fail when using frozen string literals
-  # This is common parlance since ruby 2.7 and will be mandatory at some point in the future (We hope)
-  #
-  # This is because we are overwriting and mutating in place
-  # it 'is possible to pass something which can be seen as pass by reference' do
-  #
-  #   x = 'string'
-  #   y = x
-  #   expect { x.upcase! }.to raise_error(__)
-  #
-  #   expect { expect(y).to eq(__) }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
-  # end
-
-  it 'is also possible to mutate a larger standard object and pass by reference' do
+  it 'is possible to mutate a larger standard object to pass by reference' do
     x = [1, 2, 3]
     y = x
     x.map! { |number| number * 2 }
@@ -31,27 +17,24 @@ RSpec.describe 'Pass by reference vs Pass by value' do
     expect(y).to eq(__)
   end
 
-  class Initial
-    attr_accessor :x
+  class Primary
+    attr_accessor :value
   end
 
-  class Other
+  class Secondary
     def value
       'abc'
     end
   end
 
-  it 'gets more complicated when passing objects that could be getting re-assigned' do
-    # NB: This is a "changing" Koan. It will change in output from when we start using frozen string literals
-    #
-    # This is because we are testing the string itself and seeing whether it is being mutated in place
-    # Given this is only mutating it in place on assignment it "shouldn't" be throwing an error on the
-    # physical assignment, so it will now "pass by original reference" to the original object
-    initial = Initial.new
-    other = Other.new
-    initial.x = other.value
+  it 'is more complicated when passing objects that could be getting re-assigned' do
+    # The objects being used here are not mutated in place. They are only "set" initially
+    # They only mutate it in place on "initial" assignment, so it will now "pass by original reference"
+    primary = Primary.new
+    secondary = Secondary.new
+    primary.value = secondary.value
 
-    expect(initial.x == other.value).to be(__)
-    expect { expect(initial.x.object_id == other.value.object_id).to be(__) }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+    expect(primary.value == secondary.value).to be(__)
+    expect(primary.value.object_id == secondary.value.object_id).to be(__)
   end
 end
