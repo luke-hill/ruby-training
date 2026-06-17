@@ -22,7 +22,7 @@ thought of as just a single thing or object; like a dog or cat).
 Install the dependencies:
 
 ```bash
-$ gem install bundler -v 2.6.3
+$ gem install bundler
 $ bundle
 ```
 
