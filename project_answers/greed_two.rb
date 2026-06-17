@@ -13,6 +13,7 @@ class Greed
   def score_amount(digit, quantity)
     return one_score(quantity) if digit == 1
     return five_score(quantity) if digit == 5
+
     other_score(digit, quantity)
   end
 
