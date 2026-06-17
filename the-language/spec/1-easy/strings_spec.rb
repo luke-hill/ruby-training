@@ -188,23 +188,4 @@ Humpty dumpty had a great fall
 
     expect(string).to eq(__)
   end
-
-  it 'is a unique object' do
-    # NB: This is a "changing" Koan. It will change in output from when we start using frozen string literals
-    #
-    # In the world of computers, having things constantly be new objects takes up more memory in the heap
-    #
-    # Ideally we wouldn't want excess objects where we don't need them. So when we stipulate that all strings
-    # are to be frozen, we know they will be immutable, so their place in memory can now be reserved and determinate
-    #
-    # As such all frozen strings from Ruby 3.0 will take up the same object-space, and act akin to a symbol
-    # which will improve the programs memory footprint but also change the way this Koan is answered
-    a = 'Hello, world!'
-    b = 'Hello, world!'
-
-    expect(a == b).to be __
-
-    # These object ids weren't always the same. What would make them the same / different?
-    expect { expect(a.object_id == b.object_id).to be __ }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
-  end
 end
