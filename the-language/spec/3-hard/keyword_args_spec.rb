@@ -22,4 +22,24 @@ RSpec.describe 'Keyword args' do
   it 'is possible to define a method with regular and keyword arguments' do
     expect { method_with_keyword_arguments_and_regular_arguments }.to raise_error(__, /__/)
   end
+
+  # Think about why when defining arguments, positional arguments can only have defaults from Right-to-Left?
+  # i.e. the below commented out method. Why is this invalid?
+  #
+  # def method_with_some_default_arguments(one = 1, two, three = 3)
+  #   [one, two]
+  # end
+  #
+  # However, with keyword arguments, is the same true? i.e. is the below method valid syntax?
+  #
+  # def method_with_keyword_arguments(one: 1, two:, three: 3)
+  #   [one, two]
+  # end
+  #
+  # Also how would a mixture of keyword and positional arguments work? i.e. is the below method valid syntax?
+  # If it is not valid syntax. Explain Why?
+  #
+  # def method_with_keyword_arguments(one = 1, two: 2, three = 3)
+  #   [one, two]
+  # end
 end
