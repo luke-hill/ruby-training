@@ -16,7 +16,7 @@ class Bottles
   private
 
   def verse_intro(number)
-    if number == 0
+    if number.zero?
       "#{bottle_amount(number).capitalize} on the wall, #{bottle_amount(number)}."
     elsif number == 1
       "#{bottle_amount(number)} on the wall, #{bottle_amount(number)}."
@@ -26,8 +26,8 @@ class Bottles
   end
 
   def verse_outro(number)
-    if number == 0
-      "Go to the store and buy some more, 99 bottles of beer on the wall."
+    if number.zero?
+      'Go to the store and buy some more, 99 bottles of beer on the wall.'
     elsif number == 1
       "Take it down and pass it around, #{bottle_amount(number - 1)} on the wall."
     else
@@ -36,10 +36,10 @@ class Bottles
   end
 
   def bottle_amount(number)
-    if number == 0
-      "no more bottles of beer"
+    if number.zero?
+      'no more bottles of beer'
     elsif number == 1
-      "1 bottle of beer"
+      '1 bottle of beer'
     else
       "#{number} bottles of beer"
     end

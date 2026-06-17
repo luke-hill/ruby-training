@@ -41,11 +41,7 @@ class NumberValidator
   end
 
   def validate_type
-    if number.even?
-      group << :even
-    else
-      group << :odd
-    end
+    group << number.even? ? :even : :odd
   end
 end
 

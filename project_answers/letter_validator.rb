@@ -32,7 +32,7 @@ class LetterValidator
   end
 
   def validate_frequency(letter)
-    return :common_letter if letter.match?(/[etaio]/)
+    :common_letter if letter.match?(/[etaio]/)
   end
 end
 
